@@ -17,7 +17,7 @@ print(f"Campaign: {state.get('campaign_id')} [{state.get('campaign_status')}]")
 print(f"Supervisor: {supervisor.get('status')} (stop_requested={supervisor.get('stop_requested', False)})")
 print(f"Phase/round: {state.get('current_phase')} / {state.get('current_research_round')}")
 print(f"Hypothesis/experiment: {state.get('active_hypothesis_id') or 'none'} / {state.get('active_experiment_id') or 'none'}")
-print(f"Latest actual result: {state.get('actual_experiment_results')[-1] if state.get('actual_experiment_results') else 'none recorded'}")
+print(f"Latest recorded experiment result: {state.get('actual_experiment_results')[-1] if state.get('actual_experiment_results') else 'none recorded'}")
 print(f"Latest scientific increment: {state.get('latest_scientific_increment', 'none recorded')}")
 best_id = (best[0].get("task_id") or best[0].get("finding_id")) if best else "none"
 best_status = best[0].get("status", "queued") if best else ""
