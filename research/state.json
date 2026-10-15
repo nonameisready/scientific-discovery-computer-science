@@ -474,7 +474,7 @@
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
   "last_activation_id": "2026-10-15T19:16:31Z-pid13911",
-  "last_successful_commit": "3beb503",
+  "last_successful_commit": "10b51f4",
   "latest_scientific_increment": {
     "decision": "The scalar terminal-free interface is a standard arbitrary-host min-cut consequence; the feasible two-metric path refutes only label-blind terminal-bearing closure. No graph-realizable compact representation or sparsifier lower bound was established.",
     "evidence_level": "tier_3_restricted_compression_obstruction",
