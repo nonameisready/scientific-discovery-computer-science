@@ -1,5 +1,20 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: feasibility gate closes the O7 infeasible-instance shortcut
+
+- **Fully proved:** For every finite undirected multigraph, integer (k), finite metric, and injective terminal labeling, the exact (k)-bounded Zero Extension objective is finite if and only if the terminal Multiway Cut optimum is at most (k). The proof is two-sided and covers loops, parallel edges, disconnected graphs, and terminal-free components.
+- **Scientific consequence:** A quotient whose objective is (+infty) for all admissible labelings is an infeasible instance and cannot support a feasible contraction-only lower bound. The earlier pair-bundle result remains a feasible (Omega(k)) obstruction, but no (s)-dependent exponent follows.
+- **Negative result:** The attempted feasible superlinear route lacked the required joint-contraction hitting-set theorem; pairwise metric signatures are not enough because joint contractions can preserve several witnesses at once. This does not prove that all feasible contraction-only bounds are linear, and it does not transfer to arbitrary sparsifiers.
+- **Next decision:** Down-rank O7 and queue a two-terminal series-parallel interface proof beyond cactus. No experiment or budget renewal occurred; Paper 3 Target A/B remain unchanged.
+
+## 2026-10-15: exact series-parallel interface proved, scalar closure refuted
+
+- **Proved:** The full interface (I_N(q;a,b,ho)), retaining boundary labels, fixed internal-terminal labels and an at-most crossing budget, composes exactly under both series and parallel composition for arbitrary finite metrics.
+- **Restricted positive result:** If a two-terminal series-parallel module has no internal terminals, its exact interface is (0) for equal boundary labels and (lambda_Nmu(a,b)) for unequal labels once (qgelambda_N), where (lambda_N) is the two-terminal edge connectivity. This is a restricted structural lemma beyond cactus, not a sparsifier-size theorem.
+- **Feasible obstruction:** The path (s-x-t) with all three vertices terminal is feasible exactly for (kge2), but its value depends on the internal terminal label (c) through (mu(a,c)+mu(c,b)). Thus endpoint labels, connectivity and budget alone cannot be an exact scalar interface.
+- **Boundary:** The raw exact table may have (|D|^{|R_N|+2}) entries. This exposes the next compression obligation but is not itself a lower bound for contraction-only or arbitrary sparsifiers.
+
+
 ## 2026-10-15: contraction-only pair-bundle obstruction closes the naive O7 route
 
 - **Formal model:** A quotient contracts an original edge set into connected bags containing at most one terminal, deletes only loops, retains parallel-edge multiplicity, and adds no vertices or edges.

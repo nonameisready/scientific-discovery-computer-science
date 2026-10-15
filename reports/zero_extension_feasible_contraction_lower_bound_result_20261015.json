@@ -1,0 +1,88 @@
+{
+  "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "evidence_tier": "tier_3_proved_feasibility_gate_and_blocked_superlinear_route",
+  "sources_and_data": [
+    {
+      "source": "reports/zero_extension_contraction_lower_bound_proof_20261015.md",
+      "use": "preserved O7 pair-bundle result and contraction-only model distinction"
+    },
+    {
+      "source": "reports/zero_extension_theorem_and_novelty_audit_20261015.md",
+      "use": "source exact metric-labeling objective and arbitrary-sparsifier boundary"
+    }
+  ],
+  "method": {
+    "type": "direct proof of feasibility equivalence plus adversarial proof review; no experiment",
+    "quantifiers": "finite undirected multigraph G, terminal set S, integer k, every finite metric with |D|<=s, and every injective terminal labeling tau",
+    "feasibility_object": "edge terminal Multiway Cut with parallel-edge multiplicity",
+    "lower_bound_scope": "feasible contraction-only quotients; no infeasible-instance shortcut and no transfer to arbitrary sparsifiers"
+  },
+  "mathematical_claim": "For every finite metric and injective terminal labeling, OPT_(G,k)(mu,tau) is finite if and only if G has a terminal Multiway Cut of size at most k. This eliminates the infeasible-instance quotient pathology from feasible lower-bound work. No credible feasible family forcing a superlinear contraction-only quotient survived the joint-contraction review in this cycle.",
+  "assumptions": [
+    "The graph is finite and undirected; parallel edges count separately and loops contribute no crossings or cost.",
+    "A terminal Multiway Cut leaves at most one terminal per connected component.",
+    "Terminal labels are injective, while nonterminals may use any label in the finite metric domain.",
+    "The contraction-only model and arbitrary terminal-preserving sparsifier model remain distinct.",
+    "No computational experiment or new budget was used."
+  ],
+  "verified_steps": [
+    "The crossing edges of any feasible extension form a terminal Multiway Cut of size at most k.",
+    "Given any terminal Multiway Cut of size at most k, labeling each post-cut component constantly gives a finite-cost extension with at most k crossings.",
+    "The equivalence is metric-independent and labeling-independent under terminal injectivity.",
+    "An infeasible-instance quotient cannot be used as evidence for a feasible lower bound.",
+    "The pairwise-signature route supplies no joint-contraction hitting-set theorem and cannot be promoted to a superlinear bound.",
+    "The next feasible research question is a series-parallel interface characterization beyond cactus."
+  ],
+  "gaps": [
+    "The existence or impossibility of a feasible superlinear contraction-only lower bound remains open.",
+    "No exact series-parallel interface composition lemma has yet been proved.",
+    "No result transfers to arbitrary terminal-preserving sparsifiers."
+  ],
+  "counterexamples": [
+    {
+      "claim_refuted": "An infeasible pure quotient with arbitrarily many forced edges can establish a feasible contraction-only lower bound.",
+      "counterexample": "The feasibility equivalence shows every such witness has Multiway Cut optimum greater than k and is outside the feasible-instance target."
+    },
+    {
+      "claim_refuted": "Pairwise low-cut or metric signatures alone imply a superlinear joint-contraction lower bound.",
+      "counterexample": "Joint contractions may preserve many signatures with one quotient structure; no hitting-set implication follows without an additional lemma."
+    }
+  ],
+  "uncertainty": [
+    "The blocked route is a construction failure, not a theorem ruling out all feasible superlinear families.",
+    "The series-parallel alternative is a proof program, not an established bound.",
+    "The source's full sparsifier model remains broader than contraction-only quotients."
+  ],
+  "proof_status": {
+    "overall": "counterexample_found",
+    "scope": "Feasibility equivalence is complete; the attempted feasible superlinear route is blocked by the absence of a joint-contraction hitting-set lemma.",
+    "claim_classification": "fully_proved_feasibility_gate_with_explicit_negative_route",
+    "excluded_claims": [
+      "No feasible superlinear or k^(Omega(s)) lower bound is claimed.",
+      "No arbitrary-sparsifier lower bound is claimed.",
+      "No computational evidence or asymptotic impossibility theorem is claimed."
+    ]
+  },
+  "independent_review": {
+    "status": "passed",
+    "review_type": "adversarial proof review of both directions of the feasibility equivalence and simultaneous-contraction lower-bound requirements",
+    "reviewed_failure_modes": [
+      "crossing edges failing to separate terminals",
+      "terminal-free post-cut components lacking a valid label",
+      "loops and parallel edges",
+      "infeasible-instance shortcuts masquerading as feasible witnesses",
+      "pairwise signatures being mistaken for a joint hitting-set lower bound",
+      "silent transfer from quotient lower bounds to arbitrary sparsifiers"
+    ],
+    "review_conclusion": "The feasibility characterization is sound. The current feasible superlinear construction route remains unproved and is down-ranked; a two-terminal series-parallel interface task is the narrowest justified successor."
+  },
+  "observed_result_or_blocker": {
+    "result": "Finite exact objective is equivalent to terminal Multiway Cut size at most k for every finite metric and injective terminal labeling.",
+    "blocker": "No feasible joint-contraction family with a rigorously superlinear lower bound was established.",
+    "decision": "Exclude infeasible-instance arguments from O7 and move to a concrete series-parallel interface proof program.",
+    "paper3_state": "Target A and Target B unchanged; no historical label or forecast score edited."
+  },
+  "next_falsifiable_action": "Attempt THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003: prove a finite exact cost/crossing interface composition or produce a feasible series-parallel obstruction beyond cactus.",
+  "exposition_artifact": "reports/zero_extension_feasible_contraction_lower_bound_proof_20261015.md"
+}

@@ -1,0 +1,96 @@
+{
+  "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "evidence_tier": "tier_3_mathematical_proof_audit_bounded_positive_and_negative_result",
+  "sources_and_data": [
+    {
+      "source": "reports/zero_extension_feasible_contraction_lower_bound_result_20261015.json",
+      "use": "Preserved the Multiway-Cut feasibility gate, the O7 negative route, and the contraction-only/arbitrary-sparsifier boundary."
+    },
+    {
+      "source": "reports/zero_extension_cactus_signature_proof_20261015.md",
+      "use": "Retained the exact cost-plus-crossing objective and arbitrary finite-metric quantifiers."
+    },
+    {
+      "source": "reports/zero_extension_series_parallel_interface_proof_20261015.md",
+      "use": "Complete exposition and proof audit for this task."
+    }
+  ],
+  "method": {
+    "type": "direct mathematical derivation and adversarial proof audit; no experiment or network search",
+    "interface": "I_N(q;a,b,rho): minimum metric-labeling cost with boundary labels, prescribed internal terminal assignment rho, and at most q crossings",
+    "quantifiers": "finite two-terminal series-parallel multigraphs, arbitrary finite metrics, injective ambient terminal labels, and every finite crossing budget",
+    "composition": "series is min-plus convolution over the glued label and split budget; parallel is min-plus convolution over split budget with fixed shared boundary labels",
+    "terminal_free_reduction": "I_N(q;a,b)=lambda_N*mu(a,b) when a!=b and q>=lambda_N, with lambda_N the two-terminal edge connectivity"
+  },
+  "assumptions": [
+    "Graphs are finite undirected multigraphs; parallel edges count separately and loops contribute zero cost and zero crossings.",
+    "The two boundary vertices are interface vertices and are not silently treated as terminals unless their labels are fixed by the ambient instance.",
+    "Internal terminal assignments are held fixed in the general interface I_N; the terminal-free scalar reduction is claimed only when the internal terminal set is empty.",
+    "The metric is finite and satisfies symmetry, positivity on distinct labels, and the triangle inequality.",
+    "This is a mathematical proof audit only; no experiment, network search, or experiment-budget renewal occurred.",
+    "Any contraction-only consequence remains separate from arbitrary terminal-preserving sparsifiers."
+  ],
+  "verified_steps": [
+    "The general table I_N(q;a,b,rho) is defined with an at-most crossing budget, so it is finite and exact for every fixed finite metric and fixed internal terminal assignment.",
+    "For series composition, cutting a labeling at the glued vertex gives a shared label z and a crossing split q_A+q_B<=q; gluing two minimizing labelings gives the reverse inequality.",
+    "For parallel composition, restrictions to each branch share the same two boundary labels and their crossing counts add; conversely branch minimizers glue without any new boundary edge.",
+    "For a terminal-free two-terminal module, constant labeling is feasible when endpoints agree, while endpoint disagreement forces at least lambda_N crossings and triangle inequality lower-bounds cost by lambda_N*mu(a,b); a shortest edge-disjoint path cut attains equality.",
+    "The feasible path with one internal terminal separates connectivity information from the metric label needed at that terminal, refuting scalar endpoint/connectivity closure."
+  ],
+  "gaps": [
+    "No label-independent representative-set compression for terminal-bearing series-parallel modules has been proved.",
+    "The exact general table can have a factor |D|^(|R_N|+2), so no universal-exponent-free sparsifier size follows from the interface theorem.",
+    "No feasible superlinear contraction-only lower bound was proved, and no statement transfers to arbitrary sparsifiers.",
+    "The terminal-free scalar interface is a restricted structural result, not an unrestricted Zero Extension theorem."
+  ],
+  "counterexamples": [
+    {
+      "claim_refuted": "Endpoint labels, two-terminal connectivity, and a crossing budget alone form an exact label-independent interface for every series-parallel module.",
+      "witness": "The path s-x-t with x an internal terminal labelled c has cost mu(a,c)+mu(c,b) and crossing count 1[a!=c]+1[c!=b]; varying c while holding a,b and connectivity fixed changes the exact table.",
+      "feasibility": "With all three vertices terminal and injective labels, the instance is feasible for k>=2: both path edges must be crossing edges, and deleting both edges is a terminal Multiway Cut. It is infeasible for k<2."
+    }
+  ],
+  "proof_status": {
+    "overall": "counterexample_found",
+    "scope": "The exact general interface and its series/parallel composition laws are established; terminal-free scalar closure is established; scalar closure for internal-terminal modules is refuted.",
+    "claim_classification": "fully_proved_restricted_interface_with_explicit_feasible_obstruction",
+    "excluded_claims": [
+      "No label-independent polynomial sparsifier bound for all series-parallel graphs is claimed.",
+      "No superlinear contraction-only lower bound is claimed.",
+      "No transfer to arbitrary terminal-preserving sparsifiers is claimed."
+    ]
+  },
+  "independent_review": {
+    "status": "passed",
+    "review_type": "adversarial two-sided review of series/parallel composition, terminal-free reduction, and internal-terminal obstruction",
+    "reviewed_failure_modes": [
+      "forgetting the shared glued label in series composition",
+      "forgetting that parallel branch crossing counts add",
+      "using exactly-q instead of at-most-q semantics",
+      "silently treating boundary vertices as terminals",
+      "claiming scalar closure after an internal terminal is introduced",
+      "confusing a finite interface table with a label-independent sparsifier bound"
+    ],
+    "review_conclusion": "Equations (S) and (P) are exact under the stated assumptions, while the path s-x-t is a valid feasible obstruction to scalar label-independent closure. The remaining compression question is open."
+  },
+  "mathematical_claim": "The full cost/crossing interface composes exactly in both series and parallel directions. A label-independent scalar interface is exact for terminal-free two-terminal modules, including non-cactus series-parallel graphs, but cannot extend to modules containing internal terminals without retaining their metric labels or an equivalent label-dependent state.",
+  "observed_result_or_blocker": {
+    "positive_result": "Equations (S) and (P) are proved in both directions for arbitrary finite metrics and preserve the global crossing budget exactly.",
+    "concrete_feasible_obstruction": "The three-terminal path s-x-t has two-terminal connectivity 1 but exact interface cost mu(a,c)+mu(c,b) and crossing requirement 1[a!=c]+1[c!=b]; a scalar state retaining only endpoint labels, connectivity, and budget is not exact.",
+    "scope_blocker": "The exact general table has up to (k+1)|D|^(|R_N|+2) raw entries, so no hidden-label-exponent-free representative bound was established for terminal-bearing series-parallel modules.",
+    "status": "bounded interface theorem proved; unrestricted series-parallel sparsifier-size question remains open"
+  },
+  "uncertainty": [
+    "The obstruction refutes scalar label-independent closure, not every possible compressed interface with additional metric structure.",
+    "No feasible superlinear contraction-only lower bound was proved.",
+    "No conclusion transfers from contractions to arbitrary terminal-preserving sparsifiers.",
+    "No claim is made about Paper 3 outcomes; Targets A and B remain unchanged."
+  ],
+  "next_falsifiable_action": "Either construct a label-dependent interface compression whose state count has no hidden exponent in |D|, or prove that a family of terminal-bearing series-parallel modules forces such dependence; any lower-bound route must keep every instance Multiway-Cut-feasible and must not reuse pairwise-signature inference.",
+  "exposition_artifact": "reports/zero_extension_series_parallel_interface_proof_20261015.md",
+  "experiment": {
+    "performed": false,
+    "reason": "Task explicitly required mathematical proof audit only."
+  }
+}

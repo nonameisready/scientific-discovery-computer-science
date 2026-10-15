@@ -282,18 +282,34 @@
     },
     {
       "artifact": "reports/zero_extension_cactus_signature_result_20261015.json",
-      "evidence_level": "tier_3_restricted_mathematical_proof_audit",
+      "evidence_level": "tier_3_fully_proved_restricted_mathematical_result",
       "experiment_id": "AUDIT-THEORY-ZEROEXT-CACTUS-CYCLE-001",
-      "limitation": "mathematical_claim; assumptions; verified_steps; gaps; counterexamples; proof_status; independent_review; proof_status.overall; nonempty_assumptions; nonempty_verified_steps; gaps_list; counterexamples_list; independent_review.status; proof_scope_not_closed",
-      "result": "{'result': 'Exact two-sided preservation is proved for the explicit multigraph-core convention, with O(|S|) edges and k-exponent 0.', 'simple_graph_obstruction': 'A two-boundary cycle contracts to two parallel arcs; merging them changes the crossing budget. For distinct endpoint labels and k=1, two original arc crossings are infeasible while one simple replacement edge is feasible.', 'status': 'restricted theorem closed; simple-output model unresolved', 'negative_findings': ['No unrestricted cactus theorem follows.', 'No asymptotic lower bound is inferred.', 'The tree lemma remains separate and unchanged.']}"
+      "limitation": "['The theorem is restricted to standard connected cactus hosts and the explicit output conventions.', 'A contraction-only output on the original vertex set is a separate representation restriction.', 'No conclusion for unrestricted graphs or any lower bound follows.']",
+      "result": "{'result': 'Complete exact cactus restriction theorem with O(|S|) edges and universal k-exponent 0.', 'prior_art_boundary': 'The reductions are standard and not claimed as a new breakthrough; Goranci-Raecke addresses flow/cut vertex sparsifiers rather than this metric-labeling objective.', 'next_obstacle': 'O7 contraction-only distinguishable metric-signature lower-bound construction, followed by the harder lift to arbitrary sparsifiers.', 'negative_findings': ['The previous simple-output obstruction was false because a 4-cycle gadget preserves two parallel edge signatures exactly.', 'No asymptotic lower bound follows from this restricted theorem.']}"
+    },
+    {
+      "artifact": "reports/zero_extension_contraction_lower_bound_result_20261015.json",
+      "evidence_level": "tier_3_proved_restricted_contraction_obstruction",
+      "experiment_id": "AUDIT-THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
+      "limitation": "['The Omega(k) result is for the explicit contraction-only quotient model, not the unrestricted sparsifier model.', 'The infeasible-instance unboundedness is a model obstruction and may disappear under a source-style no-instance replacement convention.', 'The broad feasible-instance s-dependence question remains open.']",
+      "result": "{'result': 'A rigorous Omega(k) contraction-only lower bound and an unbounded infeasible-instance quotient obstruction were proved; no s-dependent exponent survives this construction.', 'negative_finding': 'The proposed pairwise-signature route does not establish a superconstant exponent in s.', 'next_mathematical_question': 'Find or rule out a feasible joint-contraction hitting-set family with omega(k) quotient size for fixed s>=3, then quantify its s dependence.', 'cactus_count_audit': 'Independently verified O(|S|) retained block-cut nodes, O(|S|) cycle boundary arcs, and O(|S|) compressed-corridor edges.'}"
+    },
+    {
+      "artifact": "reports/zero_extension_feasible_contraction_lower_bound_result_20261015.json",
+      "evidence_level": "tier_3_proved_feasibility_gate_and_blocked_superlinear_route",
+      "experiment_id": "AUDIT-THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
+      "limitation": "['The blocked route is a construction failure, not a theorem ruling out all feasible superlinear families.', 'The series-parallel alternative is a proof program, not an established bound.', \"The source's full sparsifier model remains broader than contraction-only quotients.\"]",
+      "result": "{'result': 'Finite exact objective is equivalent to terminal Multiway Cut size at most k for every finite metric and injective terminal labeling.', 'blocker': 'No feasible joint-contraction family with a rigorously superlinear lower bound was established.', 'decision': 'Exclude infeasible-instance arguments from O7 and move to a concrete series-parallel interface proof program.', 'paper3_state': 'Target A and Target B unchanged; no historical label or forecast score edited.'}"
     }
   ],
   "artifact_only_tasks": [
     "HISTORICAL-OUTCOME-001"
   ],
-  "blocked_tasks": [],
+  "blocked_tasks": [
+    "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003"
+  ],
   "budget_consumption": {
-    "activations_started": 73,
+    "activations_started": 76,
     "completed_experiments": 9,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
@@ -318,11 +334,11 @@
     },
     "supervisor_can_query_service_quota": false,
     "token_or_cost_spend_measurable": false,
-    "worker_invocations_started": 21
+    "worker_invocations_started": 23
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "campaign_status": "active_nonexperimental_proof_task",
-  "checkpoint_time": "2026-10-15T19:30:00Z",
+  "campaign_status": "active",
+  "checkpoint_time": "2026-10-15T20:12:00Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -365,14 +381,16 @@
     "PAPER4-QAOA-CLOSURE-001",
     "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
     "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
-    "THEORY-ZEROEXT-CACTUS-CYCLE-001"
+    "THEORY-ZEROEXT-CACTUS-CYCLE-001",
+    "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
+    "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003"
   ],
   "current_best_opportunities": [
     {
       "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
-      "next_task": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
-      "reason": "The pair-bundle quotient audit proves only Omega(k) on feasible instances and exposes an unbounded infeasible-instance pathology; the next nontrivial question is a feasible joint-contraction lower bound.",
-      "status": "contraction_pair_bundle_obstruction_open_feasible_joint_case"
+      "next_task": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
+      "reason": "The exact series/parallel interface laws are proved, but the feasible three-terminal path refutes scalar label-independent closure; the next narrow test is terminal-bearing interface compression.",
+      "status": "series_parallel_interface_proved_scalar_closure_blocked"
     },
     {
       "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
@@ -385,8 +403,8 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "zero_extension_contraction_pair_bundle_obstruction_completed",
-  "current_research_round": 34,
+  "current_phase": "theory-zeroext-sp-terminal-compression-004",
+  "current_research_round": 35,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -442,19 +460,18 @@
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
-  "last_activation_id": "2026-10-15T18:13:17Z-pid85908",
-  "last_successful_commit": "0c37590",
+  "last_activation_id": "2026-10-15T19:00:01Z-pid6469",
+  "last_successful_commit": "pending-current-checkpoint-commit",
   "latest_scientific_increment": {
-    "decision": "The explicit contraction-only pair-bundle family B_(r,t) was solved: every terminal-preserving quotient retains exactly at least L=t*binomial(r,2) edges and preserves the exact metric objective. Feasible instances force L<=k, so the construction yields a genuine Omega(k) lower bound but no s-dependent exponent. When L>k, pure quotients are unbounded, exposing a representation mismatch for infeasible instances. The cactus O(|S|) count was independently rechecked and unchanged.",
-    "evidence_level": "tier_3_proved_restricted_contraction_obstruction",
-    "kind": "independently_reviewed_contraction_pair_bundle_obstruction",
-    "next_falsifiable_action": "Attempt THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002: prove or refute an omega(k) feasible joint-contraction lower bound for fixed s>=3 without an infeasible-instance shortcut.",
+    "decision": "Exact series and parallel cost/crossing composition laws are proved. A feasible three-terminal path shows that scalar endpoint/connectivity state cannot remain exact once internal terminals are present; no label-independent compression or sparsifier bound follows.",
+    "evidence_level": "tier_3_proved_restricted_interface_with_feasible_obstruction",
+    "kind": "independently_reconciled_mathematical_checkpoint",
+    "next_falsifiable_action": "Attempt THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004: prove a two-sided terminal-bearing interface compression lemma or construct a feasible state-separation obstruction.",
     "scientific_success": true,
-    "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
-    "workflow_note": "The pair-bundle proof is a restricted mathematical result and counterexample to the pairwise-signature inference; it does not settle the broad feasible s-dependent lower-bound conjecture."
+    "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Attempt THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002 as a mathematical proof audit; seek a feasible joint-contraction lower bound beyond Omega(k), preserving O8 as a separate arbitrary-sparsifier obligation.",
+  "next_action": "Execute THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004 as a non-experimental proof audit; preserve the feasible k>=2 path obstruction and do not call raw interface-table size a sparsifier lower bound.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -466,85 +483,20 @@
   },
   "opportunity_ranking": [
     {
-      "rank": 1,
-      "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
-      "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
-      "status": "contraction_pair_bundle_obstruction_open_feasible_joint_case",
-      "next_task": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
-      "reason": "Pairwise signatures collapse to one edge per path and feasibility bounds them by k; only joint-contraction constraints could yield a stronger feasible lower bound."
-    },
-    {
-      "rank": 2,
-      "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
-      "status": "frozen_no_score_until_labels",
-      "reason": "Target A and Target B remain separate, with no valid direct historical forecast labels."
-    },
-    {
-      "rank": 3,
-      "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
-      "status": "closed_educational_engineering_no_publishable_novelty",
-      "reason": "Closed after adversarial proof review; do not revisit."
+      "scientific_completion": "proof_obligation_audit",
+      "score": 0.72,
+      "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
+      "track": "theory",
+      "reason": "Concrete next proof obligation after the exact interface theorem; it tests whether terminal-label dependence is compressible without confusing table size with a sparsifier lower bound."
     }
   ],
   "pending_tasks": [
-    "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002"
+    "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004"
   ],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
   "scientific_artifact_audits": [
-    {
-      "artifact": "reports/zero_extension_contraction_lower_bound_result_20261015.json",
-      "evidence_level": "tier_3_proved_restricted_contraction_obstruction",
-      "next_falsifiable_action": "Attempt THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002 without an infeasible-instance shortcut.",
-      "observed_result_or_blocker": {
-        "result": "B_(r,t) has exact quotient lower bound L=t*binomial(r,2); feasible instances yield Omega(k), while infeasible pure quotients are unbounded.",
-        "negative_finding": "Pairwise metric signatures do not force an s-dependent exponent because one quotient edge per path preserves all signatures jointly.",
-        "cactus_count_audit": "Terminal-marker and block-cut-incidence charging independently gives O(|S|) retained edges."
-      },
-      "scientific_success": true,
-      "scientific_validation": {
-        "missing_or_failed": [],
-        "mode": "proof_obligation_audit",
-        "reason": "A restricted obstruction and exact lower-bound lemma were proved and adversarially reviewed.",
-        "scientific_success": true
-      },
-      "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
-      "timestamp": "2026-10-15T19:30:00Z",
-      "uncertainty": [
-        "No feasible s-dependent lower bound was established.",
-        "The result does not transfer to arbitrary terminal-preserving sparsifiers.",
-        "Pure quotient unboundedness on infeasible instances may disappear under a source-style no-instance replacement convention."
-      ]
-    },
-    {
-      "artifact": "reports/zero_extension_cactus_signature_result_20261015.json",
-      "evidence_level": "tier_3_fully_proved_restricted_cactus_mathematical_result",
-      "next_falsifiable_action": "Develop THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001; preserve the separate O8 lift obligation and do not claim an unrestricted theorem.",
-      "observed_result_or_blocker": {
-        "negative_findings": [
-          "No unrestricted cactus theorem follows.",
-          "No asymptotic lower bound is inferred.",
-          "The tree lemma remains separate and unchanged."
-        ],
-        "result": "Exact two-sided preservation for standard connected cactus hosts with O(|S|) edges and k-exponent 0, including a simple fresh-vertex realization.",
-        "corrected_representation_review": "The earlier parallel-edge obstruction was false: two internally disjoint length-two paths simulate two parallel edges exactly."
-      },
-      "scientific_success": true,
-      "scientific_validation": {
-        "missing_or_failed": [],
-        "mode": "proof_obligation_audit",
-        "reason": "Complete JSON/Markdown proof independently reviewed after the initial artifact-only result.",
-        "scientific_success": true
-      },
-      "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
-      "timestamp": "2026-10-15T18:13:17Z",
-      "uncertainty": [
-        "The audited local source materials do not explicitly settle whether the output sparsifier may be a multigraph.",
-        "A contraction-only output restriction on the original vertex set is a separate representation convention.",
-        "The result does not transfer to arbitrary graphs or imply any lower bound."
-      ]
-    },
     {
       "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
       "evidence_level": "tier_3_source_and_feasibility_audit; no_direct_outcome",
@@ -577,7 +529,7 @@
         "scientific_success": true
       },
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
         "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
@@ -612,7 +564,7 @@
         "scientific_success": true
       },
       "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
         "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
@@ -704,7 +656,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
         "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
@@ -743,7 +695,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
         "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
@@ -765,7 +717,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.",
         "No confidence interval or population claim is warranted for this small, hash-seeded pilot.",
@@ -798,7 +750,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "Bounded citation-tracing/full-text audit, not exhaustive review.",
         "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.",
@@ -823,7 +775,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": null
     },
     {
@@ -861,7 +813,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
         "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
@@ -912,7 +864,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
         "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
@@ -941,7 +893,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "These are deterministic, bounded cohorts rather than representative CS population samples.",
         "Round 4 is an independent retrieval audit but not an independent question cohort.",
@@ -1023,7 +975,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
         "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
@@ -1060,7 +1012,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
         "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
@@ -1097,7 +1049,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
         "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
@@ -1122,7 +1074,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.",
         "The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.",
@@ -1143,7 +1095,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "Graph-level sample SD/SE are descriptive over these 20 new seeded units only.",
         "The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.",
@@ -1165,7 +1117,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "All procedures use the same exact state convention and graph sample, but postselection uses fewer retained samples by design.",
         "C is a declared matched-preparation reference with approximately 400 accepted-shot-equivalent preparations, not a separate quantum algorithm.",
@@ -1185,7 +1137,7 @@
         "scientific_success": true
       },
       "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
         "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",
@@ -1215,13 +1167,117 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
-      "timestamp": "2026-10-15T18:13:17Z",
+      "timestamp": "2026-10-15T19:00:01Z",
       "uncertainty": [
         "The theorem is restricted to finite connected unweighted trees.",
         "Cycle interactions prevent automatic extension to cacti; this remains an unproved obligation rather than a negative result.",
         "The audited forward source chain does not resolve the unrestricted exact metric-sparsifier question.",
         "The source audit is bounded and does not prove global absence of later literature."
       ]
+    },
+    {
+      "artifact": "reports/zero_extension_cactus_signature_result_20261015.json",
+      "evidence_level": "tier_3_fully_proved_restricted_mathematical_result",
+      "next_falsifiable_action": "Develop the O7 contraction-only lower-bound family without executing an experiment; prove pairwise metric-cost separation and separately test whether any conclusion can transfer to arbitrary terminal-preserving sparsifiers.",
+      "observed_result_or_blocker": {
+        "negative_findings": [
+          "The previous simple-output obstruction was false because a 4-cycle gadget preserves two parallel edge signatures exactly.",
+          "No asymptotic lower bound follows from this restricted theorem."
+        ],
+        "next_obstacle": "O7 contraction-only distinguishable metric-signature lower-bound construction, followed by the harder lift to arbitrary sparsifiers.",
+        "prior_art_boundary": "The reductions are standard and not claimed as a new breakthrough; Goranci-Raecke addresses flow/cut vertex sparsifiers rather than this metric-labeling objective.",
+        "result": "Complete exact cactus restriction theorem with O(|S|) edges and universal k-exponent 0."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
+      "timestamp": "2026-10-15T19:00:01Z",
+      "uncertainty": [
+        "The theorem is restricted to standard connected cactus hosts and the explicit output conventions.",
+        "A contraction-only output on the original vertex set is a separate representation restriction.",
+        "No conclusion for unrestricted graphs or any lower bound follows."
+      ]
+    },
+    {
+      "artifact": "reports/zero_extension_contraction_lower_bound_result_20261015.json",
+      "evidence_level": "tier_3_proved_restricted_contraction_obstruction",
+      "next_falsifiable_action": "Attempt THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002: prove or refute an omega(k) feasible joint-contraction lower bound for fixed s>=3, with explicit metrics and no infeasible-instance shortcut.",
+      "observed_result_or_blocker": {
+        "cactus_count_audit": "Independently verified O(|S|) retained block-cut nodes, O(|S|) cycle boundary arcs, and O(|S|) compressed-corridor edges.",
+        "negative_finding": "The proposed pairwise-signature route does not establish a superconstant exponent in s.",
+        "next_mathematical_question": "Find or rule out a feasible joint-contraction hitting-set family with omega(k) quotient size for fixed s>=3, then quantify its s dependence.",
+        "result": "A rigorous Omega(k) contraction-only lower bound and an unbounded infeasible-instance quotient obstruction were proved; no s-dependent exponent survives this construction."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
+      "timestamp": "2026-10-15T19:00:01Z",
+      "uncertainty": [
+        "The Omega(k) result is for the explicit contraction-only quotient model, not the unrestricted sparsifier model.",
+        "The infeasible-instance unboundedness is a model obstruction and may disappear under a source-style no-instance replacement convention.",
+        "The broad feasible-instance s-dependence question remains open."
+      ]
+    },
+    {
+      "artifact": "reports/zero_extension_feasible_contraction_lower_bound_result_20261015.json",
+      "evidence_level": "tier_3_proved_feasibility_gate_and_blocked_superlinear_route",
+      "next_falsifiable_action": "Attempt THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003: prove a finite exact cost/crossing interface composition or produce a feasible series-parallel obstruction beyond cactus.",
+      "observed_result_or_blocker": {
+        "blocker": "No feasible joint-contraction family with a rigorously superlinear lower bound was established.",
+        "decision": "Exclude infeasible-instance arguments from O7 and move to a concrete series-parallel interface proof program.",
+        "paper3_state": "Target A and Target B unchanged; no historical label or forecast score edited.",
+        "result": "Finite exact objective is equivalent to terminal Multiway Cut size at most k for every finite metric and injective terminal labeling."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
+      "timestamp": "2026-10-15T19:00:01Z",
+      "uncertainty": [
+        "The blocked route is a construction failure, not a theorem ruling out all feasible superlinear families.",
+        "The series-parallel alternative is a proof program, not an established bound.",
+        "The source's full sparsifier model remains broader than contraction-only quotients."
+      ]
+    },
+    {
+      "artifact": "reports/zero_extension_series_parallel_interface_result_20261015.json",
+      "evidence_level": "tier_3_proved_restricted_interface_with_feasible_obstruction",
+      "next_falsifiable_action": "Attempt THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004: prove a two-sided terminal-bearing interface compression lemma or construct a feasible state-separation obstruction.",
+      "observed_result_or_blocker": {
+        "positive_result": "Exact min-plus series and parallel composition laws are proved for the full cost/crossing interface; terminal-free modules have a scalar connectivity interface.",
+        "feasible_obstruction": "The path s-x-t with all three vertices terminal is feasible for k>=2 but cannot be represented exactly by endpoint labels, connectivity, and budget alone because its value depends on the internal terminal label and both metric distances.",
+        "decision": "The unrestricted series-parallel compression question remains open; queue terminal-bearing compression rather than claiming a sparsifier bound."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "independently reconciled structured proof result; protected-path conflict preserved",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
+      "timestamp": "2026-10-15T20:12:00Z",
+      "uncertainty": [
+        "The result proves a restricted interface theorem, not a graph sparsifier size bound.",
+        "The scalar obstruction does not refute every compressed state representation.",
+        "No contraction-only superlinear lower bound or arbitrary-sparsifier transfer is claimed."
+      ],
+      "worker_write_conflict_rejected": "RESEARCH_STATUS.md",
+      "raw_output_sha256": "299001373c58603d54178915611cfba4d518b4ff411be8bee59cd75bede739bb"
     }
   ],
   "worker_integrity_failures": [

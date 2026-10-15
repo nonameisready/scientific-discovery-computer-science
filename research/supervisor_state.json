@@ -1,18 +1,18 @@
 {
   "activation": {
-    "id": "2026-10-15T18:13:17Z-pid85908",
+    "id": "2026-10-15T19:00:01Z-pid6469",
     "max_worker_invocations": 1,
-    "renewal_count": 73,
-    "started_at": "2026-10-15T18:13:17Z",
-    "worker_invocations": 0
+    "renewal_count": 76,
+    "started_at": "2026-10-15T19:00:01Z",
+    "worker_invocations": 1
   },
   "active_workers": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "created_at": "2026-10-15T00:46:10Z",
   "last_event": {
-    "event": "scientific_artifact_independently_reconciled_after_worker_conflict",
-    "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-    "timestamp": "2026-10-15T02:44:39Z"
+    "event": "scientific_artifact_independently_reconciled_and_successor_queued",
+    "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
+    "timestamp": "2026-10-15T20:12:00Z"
   },
   "quota": {
     "consecutive_quota_failures": 0,
@@ -26,14 +26,14 @@
   "schema_version": 1,
   "status": "ACTIVE",
   "stop_requested": false,
-  "updated_at": "2026-10-15T18:13:17Z",
+  "updated_at": "2026-10-15T20:12:00Z",
   "usage": {
-    "conservative_worker_seconds": 1687.3570000000004,
+    "conservative_worker_seconds": 1870.6660000000004,
     "date_utc": "2026-10-15",
     "track_worker_seconds": {
       "experiments": 944.114,
       "forecasting": 624.587,
-      "theory": 118.656
+      "theory": 301.96500000000003
     }
   }
 }

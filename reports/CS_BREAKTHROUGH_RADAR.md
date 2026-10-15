@@ -1,5 +1,11 @@
 # CS breakthrough radar
 
+## Zero Extension feasibility-gate update (2026-10-15)
+
+The O7 feasibility characterization is now independently reconciled: the exact (k)-bounded objective is finite exactly when terminal Multiway Cut size is at most (k). This removes infeasible pure-quotient pathologies from feasible lower-bound arguments. The attempted feasible superlinear contraction-only route did not produce a joint-contraction hitting-set theorem, so O7 is down-ranked rather than declared impossible. The next bounded proof obligation is a two-terminal series-parallel cost/crossing interface beyond cactus. This remains contraction-only and does not imply a lower bound for arbitrary terminal-preserving sparsifiers. See [structured result](zero_extension_feasible_contraction_lower_bound_result_20261015.json) and [proof note](zero_extension_feasible_contraction_lower_bound_proof_20261015.md).
+
+The series-parallel audit completed that next obligation in a restricted form: full boundary-label/internal-terminal interfaces compose exactly, and terminal-free modules have a scalar connectivity formula. A feasible three-terminal path shows why scalar closure fails as soon as an internal terminal label matters. The next ranked task is terminal-bearing interface compression; raw (|D|^{|R_N|+2}) table size is retained as an open proof gap, not promoted to a sparsifier lower bound.
+
 This is a ranked research-work queue, not a list of proven breakthroughs. The order prioritizes testability and information gained per unit effort. Paper 3 scores are unavailable until leakage-free historical CS outcomes are built; Paper 4 scores remain explicit planning estimates, not validated success probabilities.
 
 The separate frozen 20-paper historical cohort has 13 source-grounded questions after exact-version section screening, but none yet has a verified direct follow-up label. Its formal-algorithm, security, database and software-testing questions are candidates for the next evidence search, not a re-ranking of the 155–158 opportunity list or a validated breakthrough.

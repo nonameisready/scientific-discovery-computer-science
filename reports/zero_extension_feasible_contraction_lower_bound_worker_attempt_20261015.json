@@ -1,0 +1,31 @@
+{
+  "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
+  "attempt": 1,
+  "started_at": "2026-10-15T18:28:17Z",
+  "finished_at": "2026-10-15T18:29:53Z",
+  "artifact_bytes": 3172,
+  "raw_output_sha256": "085fa4f15662bff2d0c73cd1e9834d7e4b1fce6c805cdaa7786b9f3833b69538",
+  "session_id": "01a140d2-7c0e-79c1-ae6a-70a793de2286",
+  "exit_code": 0,
+  "timed_out": false,
+  "scientific_success": false,
+  "validation_missing": [
+    "mathematical_claim",
+    "assumptions",
+    "verified_steps",
+    "gaps",
+    "counterexamples",
+    "proof_status",
+    "independent_review",
+    "proof_status.overall",
+    "nonempty_assumptions",
+    "nonempty_verified_steps",
+    "gaps_list",
+    "counterexamples_list",
+    "independent_review.status",
+    "proof_scope_not_closed"
+  ],
+  "summary": "The worker emitted valid JSON but did not provide the required structured proof-obligation fields. Its negative feasibility observation is preserved in supervisor_events.jsonl and the task history; the independently reconciled structured result is a separate artifact.",
+  "preserved_as_historical_worker_attempt": true,
+  "raw_full_output_preserved": false
+}
