@@ -443,7 +443,7 @@
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
   "last_activation_id": "2026-10-15T18:13:17Z-pid85908",
-  "last_successful_commit": "fd22bad",
+  "last_successful_commit": "b0ae3b2",
   "latest_scientific_increment": {
     "decision": "The exact tree reduction extends to standard connected cactus hosts: local path suppression is valid in cyclic graphs, terminal-free pendant pieces and series chains of bridge/two-cycle bundles can be removed exactly, and two parallel edges have a simple 4-cycle realization. The resulting sparsifier has O(|S|) edges and k-exponent 0 under the stated output conventions. This is an elementary restricted lemma, not a solution or novelty claim for unrestricted graphs.",
     "evidence_level": "tier_3_fully_proved_restricted_cactus_mathematical_result",
