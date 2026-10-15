@@ -96,6 +96,13 @@ This is a counterexample to the proposed lazy-repair rule, not to EDCS generally
 - **Result:** 20/20 graphs were feasible; 19/20 paired deltas were positive; mean conditioned-minus-unconditioned expected cut was **+0.1972** edges (sample SD 0.0911; descriptive SE 0.0204).
 - **Boundary:** This is evidence for a bounded local effect under one convention, not a general QAOA result, hardware claim, asymptotic result, or Paper 4 utility validation. A second seed would be needed for robustness, but the configured experiment budget is exhausted.
 
+## 2026-10-15: Zero Extension certificate-layer adversarial review
+
+- **Primary-source reconstruction:** Reidl–Wahlström's Theorem 4.6 uses `Y(e)=(e'_1,...,e'_s,e_0)`: `s` gammoid coordinates of rank at most `2k`, plus the rank-`k` uniform coordinate, with representative-set parameter `s+1`. The source witness uses the gammoid layers for pushed label-specific reachability and `M_0` to force the unique designated crossing edge.
+- **Observed mathematical result:** A two-terminal series–parallel multigraph with three parallel edges on each terminal side and two internal parallel edges has a unique size-2 minimum cut. With `k=3`, both internal edges are essential and lie outside `E_S`; both extend the common gammoid-only query, while `M_0=U_{8,3}` distinguishes the requested one. The proposed deletion therefore fails the source proof's per-edge unique-extension obligation.
+- **Boundary:** The initially suggested all-terminal `K3` is ineligible because all edges lie in `E_S`; it is explicitly discarded. The corrected example is a finite counterexample to one proof transformation, not a lower bound on joint compression, a graph-sparsifier lower bound, or a refutation of the original theorem. The abstract singleton certificate is an identity family and trivial.
+- **Decision:** Close the attempted layer deletion. No follow-on Zero Extension task is queued until a distinct simultaneous-gammoid exchange lemma is stated. Paper 3 remains unchanged and unscored; no experiment budget was used.
+
 The supervisor audit is now explicit in [`research_control_loop_audit.json`](research_control_loop_audit.json). A historical CAM queue-write conflict had been misclassified as quota because provider-policy text was mixed with the failure signal. Structured quota errors are now required; policy prose is not enough. Canonical state and queue writes remain rejected from workers, while expected derived-lane and launchd-log concurrency is excluded from false conflict reports.
 
 ### QAOA fair-cost checkpoint (2026-10-15)

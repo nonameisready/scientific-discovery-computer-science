@@ -88,6 +88,28 @@ ho)) is now proved to compose exactly under both series and parallel composition
 Last checkpoint: 2026-10-15 UTC. No paid model worker was started. The bounded launchd Supervisor is loaded against this primary worktree and restart-capable on its schedule; it is currently idle between scheduled runs with no active worker. Python 3.12.15 is available at `/opt/homebrew/bin/python3.12`; the focused and full unittest suites pass under it. See `research/state.json` for task/budget state and `python3 scripts/research_status.py` for the terminal view.
 
 <!-- supervisor-auto-checkpoint:start -->
-**Supervisor auto-checkpoint (2026-10-15T19:17:48Z):** `THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004` produced a bounded artifact. Scientific success: **false**; evidence tier: `tier_3_mathematical_proof_audit_bounded_positive_and_negative_result`. Observed result/blocker: {"feasible_obstruction": {"budget": "k>=2", "exact_interface": "mu(a,c)+mu(c,b) at q>=2, otherwise +infinity", "fixed_metric_witness": "mu(a,c1)+mu(c1,b)=3 versus mu(a,c2)+mu(c2,b)=4, with same a,b, graph, connectivity, and q=2", "graph": "two-edge path s-x-t with all three vertices terminals", "independent_check": "two terminal edges necessarily cross, and deleting both is a Multiway Cut of size 2"}, "positive_result": "Restricted compression lemma proved: for R_N empty, I_N(q;a,b)=0 when a=b; lambda_N*mu(a,b) when a!=b and q>=lambda_N; and +infinity otherwise.", "scope_blocker": "The obstruction refutes only label-blind structural compression. A symbolic or metric-aware label-dependent com
-Next falsifiable action: Specify a candidate metric-aware label-dependent compressed state and prove both reconstruction directions for series and parallel composition; reject it with the path witness if it omits internal-label information. Any lower-bound alternative must quantify its representation class, keep every instance Multiway-Cut-feasible, and avoid pairwise-signature inference.
+**Supervisor auto-checkpoint (2026-10-15T19:34:23Z):** `THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005` produced a bounded artifact. Scientific success: **false**; evidence tier: `tier_3_mathematical_proof_audit_restricted_positive_with_scope_obstruction`. Observed result/blocker: {"blocker": "The proof uses structural saturation and does not remove the uniform layer for modules with unprescribed vertices or compress the remaining gammoid layers when r grows with s.", "negative_or_null_preserved": ["O12 feasible label-blind obstruction remains valid.", "No k^(Omega(s)) lower bound was proved.", "No unrestricted uniform-exponent sparsifier theorem was proved.", "No experimental or computational evidence was generated."], "status": "restricted_certificate_reduction_survives; broader terminal-bearing reduction remains blocked"}
+Next falsifiable action: Analyze fixed-r terminal-bearing series-parallel modules with at least one unprescribed vertex: prove a bounded-rank replacement for the uniform crossing layer with both reconstruction directions, or give a feasible family where deleting it changes the exact k-bounded objective.
 <!-- supervisor-auto-checkpoint:end -->
+
+## Independent mathematical reconciliation (2026-10-15 19:57 UTC)
+
+The subsequent proof review independently reconstructed the Reidl–Wahlström
+certificate and found a concrete failure of the proposed uniform-layer
+deletion: a feasible two-terminal series-parallel parallel-bundle graph has
+two internal essential edges outside `E_S`. Both extend the common
+gammoid-only query, but `M_0=U_{8,3}` selects only the requested edge in
+the source witness. The earlier all-terminal `K3` attempt was invalid
+because `E_S=E` and is discarded. This closes that transformation, not the
+general certificate problem. The restricted singleton identity replacement
+keeps every element and is trivial. See
+[`mathematical note`](reports/zero_extension_certificate_boundary_proof_20261015.md)
+and [`structured result`](reports/zero_extension_certificate_boundary_result_20261015.json).
+
+Execution and scientific validation are now recorded separately for tasks
+004 and 005: each original worker artifact-only/false result and raw hash are
+preserved; independent reconciliations are separate fields. The append-only
+supervisor event log was not rewritten. The 005 proof cycle used no experiment
+authorization. No Zero Extension successor is queued; the remaining joint
+gammoid-profile question is a candidate only. Paper 3 Target A/B, frozen
+cohorts, and no-score status are unchanged.

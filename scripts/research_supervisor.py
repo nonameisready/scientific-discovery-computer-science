@@ -401,29 +401,29 @@ def update_scientific_checkpoint(root: Path, state: dict[str, Any], task: dict[s
     audits = state.setdefault("scientific_artifact_audits", [])
     audits[:] = [row for row in audits if row.get("task_id") != task.get("task_id")]
     audits.append(summary)
-    actual = {
-        "artifact": task.get("artifact"),
-        "evidence_level": artifact.get("evidence_level", artifact.get("evidence_tier", 0)),
-        "experiment_id": task.get("experiment_id", f"AUDIT-{task.get('task_id')}"),
-        "limitation": "; ".join(validation.get("missing_or_failed", [])) or str(artifact.get("uncertainty", ""))[:500],
-        "result": str(summary.get("observed_result_or_blocker"))[:1000],
-    }
-    results = state.setdefault("actual_experiment_results", [])
-    existing = next((row for row in results if row.get("artifact") == task.get("artifact")), None)
-    if existing is None:
-        results.append(actual)
-    else:
-        # Reconciliation runs on every bounded activation.  Keep a richer
-        # structured result written by an independent experiment reconciler;
-        # replacing it with artifact_summary() would silently erase exact
-        # rows, gates and uncertainty while leaving the artifact on disk.
-        existing.update({
-            "evidence_level": actual["evidence_level"],
-            "experiment_id": actual["experiment_id"],
-            "limitation": actual["limitation"],
-        })
-        if not isinstance(existing.get("result"), dict) or not isinstance(actual.get("result"), str):
-            existing["result"] = actual["result"]
+    if (task.get("counts_as_experiment") is True
+            or task.get("scientific_completion") in {"experiment_result", "experiment_reanalysis"}):
+        actual = {
+            "artifact": task.get("artifact"),
+            "evidence_level": artifact.get("evidence_level", artifact.get("evidence_tier", 0)),
+            "experiment_id": task.get("experiment_id", f"EXP-{task.get('task_id')}"),
+            "limitation": "; ".join(validation.get("missing_or_failed", [])) or str(artifact.get("uncertainty", ""))[:500],
+            "result": str(summary.get("observed_result_or_blocker"))[:1000],
+        }
+        results = state.setdefault("actual_experiment_results", [])
+        existing = next((row for row in results if row.get("artifact") == task.get("artifact")), None)
+        if existing is None:
+            results.append(actual)
+        else:
+            # Reconciliation runs on every bounded activation. Keep a richer
+            # structured result written by an independent experiment auditor.
+            existing.update({
+                "evidence_level": actual["evidence_level"],
+                "experiment_id": actual["experiment_id"],
+                "limitation": actual["limitation"],
+            })
+            if not isinstance(existing.get("result"), dict) or not isinstance(actual.get("result"), str):
+                existing["result"] = actual["result"]
     state["latest_scientific_increment"] = {
         "kind": "supervisor_validated_worker_checkpoint",
         "task_id": task.get("task_id"),
@@ -479,13 +479,36 @@ def reconcile_scientific_completions(root: Path, state: dict[str, Any], queue: d
         ok, validation = scientific_validation(task, artifact)
         task["scientific_validation"] = validation
         if ok:
-            task.setdefault("last_result", {})["scientific_success"] = True
+            # Keep the worker's execution result immutable.  An artifact may
+            # fail worker-side scientific validation and later pass an
+            # independent review; those are separate facts, not an overwrite.
+            last_result = task.get("last_result") if isinstance(task.get("last_result"), dict) else {}
+            task.setdefault("execution_validation", {
+                "status": "artifact_only" if last_result.get("scientific_success") is False else "validated",
+                "scientific_success": last_result.get("scientific_success"),
+                "timestamp": task.get("finished_at") or task.get("started_at"),
+                "raw_output_sha256": last_result.get("raw_output_sha256"),
+            })
+            prior_reconciliation = task.get("independent_scientific_reconciliation")
+            if not (isinstance(prior_reconciliation, dict)
+                    and prior_reconciliation.get("scientific_success") is True
+                    and prior_reconciliation.get("validation") == validation):
+                task["independent_scientific_reconciliation"] = {
+                    "status": "completed",
+                    "scientific_success": True,
+                    "timestamp": now(),
+                    "artifact": task.get("artifact"),
+                    "validation": validation,
+                    "worker_execution_scientific_success": last_result.get("scientific_success"),
+                    "worker_raw_output_sha256": last_result.get("raw_output_sha256"),
+                }
             task.pop("failure_note", None)
             task.pop("artifact_only", None)
             artifact_only = state.setdefault("artifact_only_tasks", [])
             if task["task_id"] in artifact_only:
                 artifact_only.remove(task["task_id"])
             update_scientific_checkpoint(root, state, task, artifact, True, validation)
+            state.setdefault("latest_scientific_increment", {})["kind"] = "independent_scientific_reconciliation"
             changed = True
             if task.get("status") == "artifact_only":
                 task["status"] = "completed"
@@ -493,7 +516,7 @@ def reconcile_scientific_completions(root: Path, state: dict[str, Any], queue: d
                 if task["task_id"] not in state.setdefault("completed_tasks", []):
                     state["completed_tasks"].append(task["task_id"])
                 state["current_research_round"] = state.get("current_research_round", 0) + 1
-                append_jsonl(root / EVENTS, {"event": "artifact_only_promoted_scientific_validation", "task_id": task["task_id"], "timestamp": now(), "validation": validation})
+                append_jsonl(root / EVENTS, {"event": "artifact_only_promoted_scientific_validation", "task_id": task["task_id"], "timestamp": now(), "validation": validation, "worker_execution_scientific_success": last_result.get("scientific_success"), "worker_raw_output_sha256": last_result.get("raw_output_sha256")})
         elif not ok and task.get("status") == "completed":
             task["status"] = "artifact_only"
             task["scientific_status"] = "artifact_only"

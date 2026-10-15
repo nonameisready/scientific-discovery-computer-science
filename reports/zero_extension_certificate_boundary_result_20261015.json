@@ -1,0 +1,147 @@
+{
+  "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "evidence_tier": "tier_3_source_reconstruction_and_finite_certificate_obstruction",
+  "sources_and_data": [
+    {
+      "source": "https://arxiv.org/html/1802.06026v1",
+      "use": "Primary source, Section 4.3, Definition 4.5, Theorem 4.6, Lemma 4.7 and Proposition 4.8; source certificate, ranks, witness and contraction argument."
+    },
+    {
+      "source": "reports/zero_extension_theorem_and_novelty_audit_20261015.md",
+      "use": "Previously completed theorem/citation audit; not repeated in this cycle."
+    },
+    {
+      "source": "reports/zero_extension_certificate_boundary_proof_20261015.md",
+      "use": "Full mathematical exposition, corrected source-eligible graph, adversarial review and claim classifications."
+    }
+  ],
+  "method": {
+    "type": "primary-source proof reconstruction and hand-verifiable graph-cut argument",
+    "steps": [
+      "reconstruct the direct-sum gammoid and uniform layers and their ranks",
+      "restate the common gammoid witness and target-dependent uniform witness",
+      "reject K3 because its terminal boundary E_S equals its whole edge set and Y(e) is defined only outside E_S",
+      "use a two-terminal series-parallel parallel-bundle multigraph with two internal essential crossing edges",
+      "apply the source pushing and gammoid-cut argument separately to both essential targets"
+    ],
+    "experiment_or_computation": false
+  },
+  "uncertainty": [
+    "The example refutes the uniform-layer deletion as a drop-in source-proof step only; a different common representative-family argument may exist.",
+    "No global joint-gammoid compression lower bound and no arbitrary-sparsifier lower bound was proved.",
+    "Novelty is limited to a finite adversarial audit; no new theorem or improvement to the general bound is claimed."
+  ],
+  "next_falsifiable_action": "Do not queue another minor Zero Extension interface task. Reopen this direction only after formulating a genuinely new simultaneous-gammoid exchange lemma; otherwise select from the ranked external candidates.",
+  "mathematical_claim": "Deleting M0=U_|E|,k is not a drop-in replacement preserving the source proof's per-essential-edge unique-extension witness: a feasible two-terminal series-parallel multigraph has two essential candidate edges outside E_S that both extend the same gammoid-only query, while M0 uniquely selects the requested target. This does not rule out a different joint representative-family theorem.",
+  "assumptions": [
+    "There are terminals a,b and nonterminals u,v; the multigraph has 3 parallel au edges, 2 parallel uv edges e1,e2, and 3 parallel vb edges.",
+    "S={a,b}; D={A,B}; tau(a)=A and tau(b)=B is injective; s=3, k=3, q=2.",
+    "The metric is the discrete metric mu(A,B)=1, finite, symmetric, positive off diagonal, and triangle-inequality respecting.",
+    "The source precheck holds with |E_S|=6=2k; e1,e2 are internal nonterminal-boundary edges, hence outside E_S and inside the source certificate family.",
+    "Essentiality uses the source definition: crossing in every tau-extension of cost at most q and crossing count at most k.",
+    "The source gammoid construction and its pushing lemma / Proposition 4.8 are used only as stated in the 2018 proof."
+  ],
+  "verified_steps": [
+    "For s label slots the source uses M=M1 direct-sum ... direct-sum Ms direct-sum M0, with s gammoid copies of rank |E_S|<=2k and M0=U_|E|,k of rank k; total rank <=(2s+1)k.",
+    "For e outside E_S, Y(e) has one sink-copy e'_i in every gammoid layer and original edge element e0 in M0, so p=s+1 and the representative lemma's binomial bound is choose(rank(M),p)=O_s(k^(s+1)) for fixed s.",
+    "The source witness has X_i=delta(V_i) union delta(t_i) for i<=r, X_i=delta(V_i) for i>r, and X0=C minus {e}; the uniform coordinate makes the requested edge the unique extension among C.",
+    "For the four-vertex series-parallel graph, the four possible a-side sets have cut sizes 3,2,8,3. The unique minimum cut is {a,u}|{v,b}, crossing exactly e1,e2 at cost 2; it is feasible under k=3.",
+    "With q=2, every extension of cost at most q and at most k crossings is the unique optimum, so both e1 and e2 are essential. Since E_S comprises the six terminal-incident edges, both target edges are outside E_S.",
+    "For the fixed optimum lambda, the gammoid coordinates X1,...,Xs are the same for target e1 and target e2. Applying the source pushing argument to each essential edge shows each target extends every corresponding gammoid restriction; the unused third label has V3 empty.",
+    "For target e1, X0={e2}; in U_8,3 the element e1 extends X0 and e2 is blocked by overlap. Swapping targets swaps this unique extension. Thus M0 supplies the source proof's per-edge uniqueness that the gammoid-only tuple lacks.",
+    "The earlier all-terminal K3 proposal is ineligible, not a counterexample: all its edges are in E_S, and source tuples Y(e) are defined only for e outside E_S.",
+    "For an abstract ground set of m<=k elements, singleton certificates in U_m,k have p=1 and size m; each is necessary by querying all elements except e. This is an identity bound only, not a graph-sparsifier result."
+  ],
+  "gaps": [
+    "This obstruction invalidates the specific deletion as a drop-in proof step but does not prove every representative family for the reduced matroid misses an essential edge.",
+    "No smaller joint representative family for the s gammoid extension profiles was constructed or ruled out.",
+    "No f(s)k^c graph-sparsifier bound with universal c, no general contraction algorithm, and no transfer to arbitrary terminal-preserving sparsifiers was proved.",
+    "No new forward-citation search was performed; novelty boundaries rely on the previously completed source audit."
+  ],
+  "counterexamples": [
+    {
+      "claim_refuted": "The M0 layer can be deleted as a drop-in replacement while retaining the original proof's unique-extension argument, merely because the crossing budget is already tracked.",
+      "graph": "Two-terminal series-parallel multigraph with 3 parallel au edges, 2 parallel uv edges e1,e2, and 3 parallel vb edges; terminals a,b; nonterminals u,v.",
+      "parameters": {"labels": 2, "s": 3, "k": 3, "q": 2, "terminal_boundary_edges": 6},
+      "metric": "Discrete metric on {A,B} with mu(A,B)=1.",
+      "cut_check": "a-side cut sizes for {a}, {a,u}, {a,v}, {a,u,v} are 3,2,8,3; the unique cost-2 extension crosses exactly e1,e2.",
+      "certificate_check": "e1,e2 are both essential and outside E_S. They both extend the same gammoid-only witness; for target e1, M0's X0={e2} permits only e1, and conversely for target e2.",
+      "scope": "Finite obstruction to this layer deletion's source-proof exchange step only; not a lower bound on all reduced representative families or on arbitrary sparsifiers."
+    },
+    {
+      "claim_refuted": "All-terminal K3 is an eligible test of Y(e).",
+      "reason": "E_S=E(K3), while the source certificate collection is indexed only by E\\E_S; no edge tuple exists in that example.",
+      "status": "discarded_invalid_candidate"
+    }
+  ],
+  "proof_status": {
+    "overall": "counterexample_found",
+    "claim_classification": [
+      {"claim": "Source Y(e), component ranks, p=s+1 and O_s(k^(s+1)) representative bound", "status": "known_prior_art_and_source_reconstructed"},
+      {"claim": "Uniform-layer deletion preserves the source per-edge unique-extension witness", "status": "disproved_by_finite_counterexample"},
+      {"claim": "The two internal edges are essential and source-eligible in the parallel-bundle graph", "status": "independently_checked_finite_counterexample"},
+      {"claim": "Abstract singleton identity certificate on m<=k elements has size m and all elements are necessary", "status": "fully_proved_trivial_restricted_fact"},
+      {"claim": "Smaller joint gammoid certificate exists or is impossible", "status": "plausible_but_unproved"},
+      {"claim": "General f(s)k^c bound or arbitrary-sparsifier lower bound follows", "status": "not_established"}
+    ],
+    "proved": [
+      "Exact role of the uniform coordinate in the source's per-essential-edge exchange witness.",
+      "The specific uniform-layer deletion does not preserve that unique-extension witness, on a feasible source-eligible graph.",
+      "The abstract singleton identity certificate statement for m<=k."
+    ],
+    "unresolved": [
+      "Joint compression of the label-specific gammoid extension profiles.",
+      "Whether a different common representative theorem can retain all essential-edge consequences with a smaller parameter.",
+      "The universal-in-s exponent question for general Zero Extension metric sparsifiers."
+    ],
+    "excluded": [
+      "The invalid K3 proposal as evidence.",
+      "Any claim that the counterexample lower-bounds all representative families, all graph sparsifiers, or all terminal-preserving representations.",
+      "Any claim that certificate size alone gives an executable algorithm or output graph bound."
+    ]
+  },
+  "independent_review": {
+    "status": "passed_with_scope",
+    "review_type": "adversarial source-proof and cut-enumeration review",
+    "reviewed_failure_modes": [
+      "candidate edges accidentally lie in E_S and are excluded from Y(e)",
+      "infeasible instance or source precheck failure",
+      "cut signature without essentiality under the source definition",
+      "using the target-dependent X0 as though it were a gammoid coordinate",
+      "claiming a representative-family lower bound from non-unique extension alone",
+      "conflating certificates with graph sparsifiers"
+    ],
+    "conclusion": "The parallel-bundle graph passes source eligibility and makes two internal edges essential. Deleting M0 makes the gammoid-only extension query non-unique and invalidates the source's per-edge inference. This refutes the specific proof transformation, not every possible compression."
+  },
+  "novelty_assessment": {
+    "verdict": "no_novel_theorem_or_sparsifier_improvement",
+    "prior_art_relation": "The baseline certificate architecture and bound are Reidl-Wahlstrom 2018. The present contribution is an adversarial finite audit of one proposed layer deletion; the graph/cut facts are elementary and are not presented as publication-level novelty.",
+    "research_value": "Corrects an ineligible K3 witness, supplies a feasible source-eligible obstruction, and identifies the exact exchange step protected by M0.",
+    "claim_boundary": "No global representative-family lower bound, no arbitrary-sparsifier lower bound, and no universal-exponent theorem."
+  },
+  "ranked_alternative_research_directions": [
+    {"rank": 1, "direction": "Joint extension profiles of the s label gammoids", "status": "candidate_only", "why": "Closest to original exponent bottleneck, but proceed only with a new simultaneous-exchange lemma; no successor task is queued."},
+    {"rank": 2, "direction": "Oxide ref-blind ownership/information-flow soundness", "status": "blocked_candidate", "why": "Potential formal boundary result; pinned semantics/checker/toolchain remain unavailable."},
+    {"rank": 3, "direction": "Endpoint-only dynamic maximal-matching repair", "status": "authorization_required", "why": "Local falsification is feasible but experimental authorization is exhausted and novelty is implementation-specific."},
+    {"rank": 4, "direction": "CERT-style cardinality monotonicity on SQLite", "status": "downranked", "why": "No source-comparable estimated-row endpoint is currently available."}
+  ],
+  "execution_provenance": {
+    "original_worker_attempt": {
+      "execution_status": "artifact_only",
+      "scientific_success": false,
+      "timestamp": "2026-10-15T19:34:23Z",
+      "raw_output_sha256": "786b8ac6a507c2fb169e347c3b82e2b118e31708d856f1dbff0f144fe47642ca",
+      "session_id": "01a1410d-8c65-7100-9227-101734dfcf66"
+    },
+    "independent_scientific_reconciliation": {
+      "status": "completed",
+      "scientific_success": true,
+      "timestamp": "2026-10-15T19:57:38Z",
+      "note": "The corrected parallel-bundle proof audit independently establishes a bounded negative scientific result. The worker execution validation and append-only event log were not rewritten."
+    }
+  },
+  "paper3_state": "Targets A and B, frozen cohorts, cutoffs, and no-score status unchanged; no labels were created.",
+  "experiment": {"performed": false, "reason": "Pure mathematical proof review; no experiment budget used."},
+  "exposition_artifact": "reports/zero_extension_certificate_boundary_proof_20261015.md"
+}

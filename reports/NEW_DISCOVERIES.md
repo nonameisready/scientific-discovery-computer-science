@@ -264,6 +264,24 @@ The separate [Paper 3 Target B protocol](../research/paper3_target_b_protocol_v1
 ## DP158 approximation-boundary diagnostic (known limitation, not a new theorem)
 
 - With the paper's small-`q` budget and a frozen one-dimensional adaptive schedule, one million PLRV trajectories per P/Q arm gave maximum Gaussian-CDF discrepancies **0.01463, 0.02815, 0.04813, 0.09218** at `q=0.1, 0.19, 0.3, 0.5`. Each higher-`q` increase crossed the preregistered 0.01 materiality threshold after simultaneous DKW Monte Carlo uncertainty; `q=0.19` crossed narrowly. Stop rates stayed near 99%, so halt frequency is not a proxy for Gaussian approximation quality in this model. The source paper already anticipates weaker accuracy away from its asymptotic regimes. This is **not** a theorem counterexample, a validated guard threshold, or a deployed-accountant vulnerability. See `results/dp158_regime_boundary/summary.json` and `reports/dp158_accountant_audit.json`.
+
+## Zero Extension certificate audit: bounded negative result, not a breakthrough
+
+The exact source certificate and its proof role are documented in
+[`zero_extension_certificate_boundary_proof_20261015.md`](zero_extension_certificate_boundary_proof_20261015.md).
+The proposed deletion of the rank-`k` uniform layer is refuted for the
+source's representative-extension witness by a feasible two-terminal
+series-parallel parallel-bundle graph: two internal edges outside `E_S` are
+both essential and extend the same gammoid-only query, while the uniform
+coordinate uniquely identifies the designated crossing edge. The initial
+all-terminal `K3` candidate was invalid because `E_S=E` and is explicitly
+discarded. This is only a counterexample to the drop-in deletion. No joint
+gammoid compression, lower bound for arbitrary sparsifiers, or universal-
+exponent theorem was established. The abstract `O(k)` singleton identity
+certificate retains every element and is trivial.
+The research direction is closed at this transformation; other candidates
+are ranked in `research/state.json` rather than auto-queuing another minor
+variant.
 ## 2026-10-15: terminal-bearing SP compression boundary corrected
 
 - **Proof correction:** the layer-cake identity is the full edgewise sum

@@ -8,7 +8,8 @@ import unittest
 from pathlib import Path
 from scripts.research_supervisor import (classify_failure, effective_experiment_cap,
                                           scientific_validation, proposed_continuations,
-                                          update_scientific_checkpoint)
+                                          update_scientific_checkpoint,
+                                          reconcile_scientific_completions)
 
 ROOT = Path(__file__).resolve().parents[1]
 SUPERVISOR = ROOT / "scripts/research_supervisor.py"
@@ -360,6 +361,53 @@ class ResearchSupervisorTests(unittest.TestCase):
         ok, validation = scientific_validation(task, artifact)
         self.assertFalse(ok)
         self.assertIn("proof_scope_not_closed", validation["missing_or_failed"])
+
+    def test_independent_reconciliation_does_not_rewrite_worker_failure(self):
+        (self.root / "results").mkdir()
+        (self.root / "reports").mkdir()
+        exposition = self.root / "reports/proof.md"
+        exposition.write_text("A finite obstruction with scoped conclusion.\n")
+        artifact = {
+            "evidence_tier": "tier_3_mathematical_proof_audit",
+            "sources_and_data": ["primary source"],
+            "method": "independent proof review",
+            "uncertainty": ["finite obstruction only"],
+            "next_falsifiable_action": "seek a joint certificate theorem",
+            "mathematical_claim": "a proposed exchange witness is not unique",
+            "assumptions": ["stated finite graph and matroid model"],
+            "verified_steps": ["explicit source-eligible counterexample"],
+            "gaps": ["no general lower bound"],
+            "counterexamples": [{"graph": "finite witness"}],
+            "proof_status": {"overall": "counterexample_found"},
+            "independent_review": {"status": "passed_with_scope"},
+        }
+        (self.root / "results/T1.json").write_text(json.dumps(artifact))
+        task = {
+            "task_id": "T1", "artifact": "results/T1.json",
+            "exposition_artifact": "reports/proof.md",
+            "scientific_completion": "proof_obligation_audit",
+            "status": "artifact_only", "scientific_status": "artifact_only",
+            "finished_at": "2026-10-15T00:00:00Z",
+            "last_result": {"scientific_success": False, "raw_output_sha256": "worker-hash"},
+        }
+        (self.root / "research/task_queue.json").write_text(json.dumps({"tasks": [task]}))
+        state = {"completed_tasks": [], "artifact_only_tasks": ["T1"], "pending_tasks": []}
+        changed = reconcile_scientific_completions(self.root, state, {"tasks": [task]})
+        self.assertTrue(changed)
+        self.assertEqual(task["status"], "completed")
+        self.assertFalse(task["last_result"]["scientific_success"])
+        self.assertEqual(task["last_result"]["raw_output_sha256"], "worker-hash")
+        self.assertTrue(task["independent_scientific_reconciliation"]["scientific_success"])
+        self.assertFalse(task["execution_validation"]["scientific_success"])
+        self.assertEqual(state.get("actual_experiment_results", []), [])
+        self.assertEqual(state["completed_tasks"], ["T1"])
+        self.assertEqual(state["artifact_only_tasks"], [])
+        event = json.loads((self.root / "research/supervisor_events.jsonl").read_text().splitlines()[-1])
+        self.assertFalse(event["worker_execution_scientific_success"])
+        reconciliation_time = task["independent_scientific_reconciliation"]["timestamp"]
+        reconcile_scientific_completions(self.root, state, {"tasks": [task]})
+        self.assertFalse(task["last_result"]["scientific_success"])
+        self.assertEqual(task["independent_scientific_reconciliation"]["timestamp"], reconciliation_time)
 
     def test_theory_track_real_execution_requires_json_and_markdown(self):
         queue = self.queue()
