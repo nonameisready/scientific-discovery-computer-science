@@ -322,7 +322,7 @@
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "active_nonexperimental_proof_task",
-  "checkpoint_time": "2026-10-15T18:13:17Z",
+  "checkpoint_time": "2026-10-15T19:30:00Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -370,9 +370,9 @@
   "current_best_opportunities": [
     {
       "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
-      "next_task": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
-      "reason": "A complete block-cut, local-path, pendant, series-bundle and simple-gadget proof establishes exact O(|S|) k^0 preservation for standard cactus hosts. This is an elementary restricted lemma, not an unrestricted theorem or novelty claim; the next nontrivial obligation is O7.",
-      "status": "restricted_cactus_lemma_proved_unrestricted_open"
+      "next_task": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
+      "reason": "The pair-bundle quotient audit proves only Omega(k) on feasible instances and exposes an unbounded infeasible-instance pathology; the next nontrivial question is a feasible joint-contraction lower bound.",
+      "status": "contraction_pair_bundle_obstruction_open_feasible_joint_case"
     },
     {
       "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
@@ -385,8 +385,8 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "zero_extension_cactus_reduction_completed",
-  "current_research_round": 33,
+  "current_phase": "zero_extension_contraction_pair_bundle_obstruction_completed",
+  "current_research_round": 34,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -443,18 +443,18 @@
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
   "last_activation_id": "2026-10-15T18:13:17Z-pid85908",
-  "last_successful_commit": "b0ae3b2",
+  "last_successful_commit": "c7598e0",
   "latest_scientific_increment": {
-    "decision": "The exact tree reduction extends to standard connected cactus hosts: local path suppression is valid in cyclic graphs, terminal-free pendant pieces and series chains of bridge/two-cycle bundles can be removed exactly, and two parallel edges have a simple 4-cycle realization. The resulting sparsifier has O(|S|) edges and k-exponent 0 under the stated output conventions. This is an elementary restricted lemma, not a solution or novelty claim for unrestricted graphs.",
-    "evidence_level": "tier_3_fully_proved_restricted_cactus_mathematical_result",
-    "kind": "independently_reconciled_cactus_reduction_proof",
-    "next_falsifiable_action": "Attempt THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001: construct or refute an O7 contraction-only family with explicit separating metrics; do not lift it to arbitrary sparsifiers without a separate proof.",
+    "decision": "The explicit contraction-only pair-bundle family B_(r,t) was solved: every terminal-preserving quotient retains exactly at least L=t*binomial(r,2) edges and preserves the exact metric objective. Feasible instances force L<=k, so the construction yields a genuine Omega(k) lower bound but no s-dependent exponent. When L>k, pure quotients are unbounded, exposing a representation mismatch for infeasible instances. The cactus O(|S|) count was independently rechecked and unchanged.",
+    "evidence_level": "tier_3_proved_restricted_contraction_obstruction",
+    "kind": "independently_reviewed_contraction_pair_bundle_obstruction",
+    "next_falsifiable_action": "Attempt THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002: prove or refute an omega(k) feasible joint-contraction lower bound for fixed s>=3 without an infeasible-instance shortcut.",
     "scientific_success": true,
-    "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
-    "workflow_note": "The initial Worker artifact was correctly recorded as artifact-only because it omitted the proof schema. The complete JSON/Markdown proof was then independently reviewed; its earlier simple-output obstruction was corrected by the two-path 4-cycle gadget."
+    "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
+    "workflow_note": "The pair-bundle proof is a restricted mathematical result and counterexample to the pairwise-signature inference; it does not settle the broad feasible s-dependent lower-bound conjecture."
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Attempt THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001 as a mathematical proof audit; construct or refute the O7 contraction-only distinguishable-signature family and preserve the separate O8 lift obligation.",
+  "next_action": "Attempt THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002 as a mathematical proof audit; seek a feasible joint-contraction lower bound beyond Omega(k), preserving O8 as a separate arbitrary-sparsifier obligation.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -468,10 +468,10 @@
     {
       "rank": 1,
       "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
-      "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
-      "status": "restricted_cactus_lemma_proved_unrestricted_open",
-      "next_task": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
-      "reason": "Cactus reduction is now complete and elementary; the next genuine obstacle is a quantitative contraction-only lower-bound family, still separate from arbitrary sparsifiers."
+      "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
+      "status": "contraction_pair_bundle_obstruction_open_feasible_joint_case",
+      "next_task": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
+      "reason": "Pairwise signatures collapse to one edge per path and feasibility bounds them by k; only joint-contraction constraints could yield a stronger feasible lower bound."
     },
     {
       "rank": 2,
@@ -487,12 +487,36 @@
     }
   ],
   "pending_tasks": [
-    "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001"
+    "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002"
   ],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
   "scientific_artifact_audits": [
+    {
+      "artifact": "reports/zero_extension_contraction_lower_bound_result_20261015.json",
+      "evidence_level": "tier_3_proved_restricted_contraction_obstruction",
+      "next_falsifiable_action": "Attempt THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002 without an infeasible-instance shortcut.",
+      "observed_result_or_blocker": {
+        "result": "B_(r,t) has exact quotient lower bound L=t*binomial(r,2); feasible instances yield Omega(k), while infeasible pure quotients are unbounded.",
+        "negative_finding": "Pairwise metric signatures do not force an s-dependent exponent because one quotient edge per path preserves all signatures jointly.",
+        "cactus_count_audit": "Terminal-marker and block-cut-incidence charging independently gives O(|S|) retained edges."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "A restricted obstruction and exact lower-bound lemma were proved and adversarially reviewed.",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
+      "timestamp": "2026-10-15T19:30:00Z",
+      "uncertainty": [
+        "No feasible s-dependent lower bound was established.",
+        "The result does not transfer to arbitrary terminal-preserving sparsifiers.",
+        "Pure quotient unboundedness on infeasible instances may disappear under a source-style no-instance replacement convention."
+      ]
+    },
     {
       "artifact": "reports/zero_extension_cactus_signature_result_20261015.json",
       "evidence_level": "tier_3_fully_proved_restricted_cactus_mathematical_result",

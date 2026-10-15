@@ -1734,7 +1734,7 @@
     },
     {
       "artifact": "reports/zero_extension_contraction_lower_bound_result_20261015.json",
-      "attempts": 0,
+      "attempts": 1,
       "cost_estimate": 0.15,
       "counts_as_experiment": false,
       "dependencies": ["THEORY-ZEROEXT-CACTUS-CYCLE-001"],
@@ -1746,19 +1746,27 @@
       ],
       "expected_information_gain": 0.8,
       "exposition_artifact": "reports/zero_extension_contraction_lower_bound_proof_20261015.md",
-      "failure_handling": "If no quantitative contraction-only family survives review, record the exact obstruction and retain O8 as a separate harder obligation; do not repeat the cactus reductions.",
+      "failure_handling": "The pair-bundle route is closed as an s-exponent witness; retain the feasible joint-contraction question and O8 as separate obligations.",
+      "finished_at": "2026-10-15T19:30:00Z",
+      "last_result": {
+        "artifact_valid": true,
+        "scientific_success": true,
+        "scientific_validation_reconciled": true,
+        "independent_validation": "reports/zero_extension_contraction_lower_bound_result_20261015.json"
+      },
       "max_attempts": 1,
       "objective": "Construct or refute an O7 contraction-only family for unrestricted Zero Extension sparsifiers: give pairwise distinguishable metric-cost signatures, prove exactly what contractions change under the k-bounded objective, and keep the result separate from arbitrary terminal-preserving sparsifiers.",
       "priority": 94,
       "research_key": "zero_extension_contraction_lower_bound",
       "scientific_completion": "proof_obligation_audit",
-      "scientific_status": "pending",
+      "scientific_status": "scientifically_completed",
       "scientific_validation": {
         "mode": "proof_obligation_audit",
-        "reason": "A contraction-only diagnostic is useful only with explicit separating metrics and no unsupported lift to arbitrary sparsifiers.",
-        "scientific_success": false
+        "reason": "A rigorous restricted obstruction was proved: pair-bundle signatures yield only Omega(k), while infeasible pure quotients are unbounded. The broad feasible s-dependent question remains separate.",
+        "scientific_success": true,
+        "validation_mode": "proof_obligation_audit"
       },
-      "status": "pending",
+      "status": "completed",
       "success_criteria": [
         "cactus theorem remains unchanged and correctly classified",
         "a precise family or a rigorous obstruction is stated",
@@ -1768,6 +1776,46 @@
         "Paper 3 Target A/B state is unchanged"
       ],
       "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/zero_extension_feasible_contraction_lower_bound_result_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.2,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001"
+      ],
+      "execution_requirements": [
+        "mathematical proof audit only",
+        "no experiment, network-dependent search, or supervisor start",
+        "no experiment authorization renewal",
+        "exclude infeasible-instance shortcuts and preserve the pair-bundle obstruction"
+      ],
+      "expected_information_gain": 0.85,
+      "exposition_artifact": "reports/zero_extension_feasible_contraction_lower_bound_proof_20261015.md",
+      "failure_handling": "If no feasible joint-contraction lower bound survives, record the obstruction and keep O8 separate; do not reopen cactus or pair-bundle proofs.",
+      "max_attempts": 1,
+      "objective": "For fixed s>=3, prove or refute an omega(k) contraction-only lower bound on feasible instances caused by joint rather than pairwise contraction constraints; quantify any s dependence.",
+      "priority": 92,
+      "research_key": "zero_extension_feasible_contraction_lower_bound",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "pending",
+      "scientific_validation": {
+        "mode": "proof_obligation_audit",
+        "reason": "This is the narrowest successor after the pair-bundle obstruction; it must keep every admissible labeling feasible and cannot use the total-quotient no-instance pathology.",
+        "scientific_success": false
+      },
+      "status": "pending",
+      "success_criteria": [
+        "all admissible labelings in the proposed family have finite objective",
+        "joint contraction constraints are explicit and independently reviewed",
+        "a quantitative lower bound beyond Omega(k), or a precise impossibility obstruction, is proved",
+        "no pairwise-signature inference is reused without a hitting-set argument",
+        "no transfer to arbitrary sparsifiers is claimed",
+        "Paper 3 Target A/B state is unchanged"
+      ],
+      "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
       "track": "theory"
     }
   ]

@@ -1,0 +1,94 @@
+{
+  "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "evidence_tier": "tier_3_proved_restricted_contraction_obstruction",
+  "sources_and_data": [
+    {
+      "source": "Reidl-Wahlstrom, Parameterized Algorithms for Zero Extension and Metric Labelling Problems",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2018.94",
+      "use": "source exact k-bounded metric-labeling objective and contraction-based upper-bound context"
+    },
+    {
+      "source": "reports/zero_extension_theorem_and_novelty_audit_20261015.md",
+      "use": "audited distinction between source construction and arbitrary sparsifier models"
+    },
+    {
+      "source": "reports/zero_extension_cactus_signature_proof_20261015.md",
+      "use": "restricted cactus theorem independently counted again here"
+    }
+  ],
+  "method": {
+    "type": "direct mathematical proof and adversarial review; no experiment",
+    "contraction_model": "quotient by an edge set whose connected bags contain at most one terminal; loops deleted, parallel edges retained, no new vertices or edges",
+    "objective_quantifiers": "all finite metrics with |D|<=s, all injective terminal labelings, fixed integer k, exact restricted optimum including +infinity",
+    "family": "B_(r,t): t internally vertex-disjoint length-two paths for every terminal pair",
+    "parameters": "r>=2, t>=1, L=t*binomial(r,2), terminal count r<=s"
+  },
+  "mathematical_claim": "For B_(r,t), every terminal-preserving contraction quotient has at least L=t*binomial(r,2) non-loop edges, and every such quotient preserves the exact objective. The family therefore proves a feasible Omega(k) contraction-only lower bound when L<=k, but cannot produce a k^(Omega(s)) exponent because feasibility itself forces L<=k.",
+  "assumptions": [
+    "Graphs are finite undirected multigraphs and parallel-edge multiplicity is counted separately.",
+    "A contraction quotient may not merge two terminals and may not add or delete non-loop edges.",
+    "Terminal labels are injective, so every terminal pair in B_(r,t) receives distinct metric points.",
+    "The source-level arbitrary terminal-preserving sparsifier model is not identified with this quotient model.",
+    "The cactus counting audit uses a finite connected standard cactus and the already proved local preservation lemmas."
+  ],
+  "verified_steps": [
+    "The exact restricted optimum of B_(r,t) is t times the sum of terminal-pair distances when k>=L and is +infinity when k<L.",
+    "Triangle inequality gives one-crossing and endpoint-distance lower bounds for every length-two path.",
+    "Terminal preservation forbids contracting both edges of any terminal-pair path, so every path contributes at least one quotient edge.",
+    "Joint contractions cannot merge distinct paths because their internal vertices have no cross-path edges.",
+    "Every allowed quotient has the same exact objective as the original pair-bundle graph.",
+    "The feasible choice r=2,t=k gives a fully proved Omega(k) lower bound independent of the label-budget exponent.",
+    "The infeasible choice L>k gives an unbounded-size obstruction for a total pure quotient model, exposing a representation mismatch rather than an s-dependent lower bound.",
+    "The cactus counting argument was independently charged to terminal markers and block-cut incidences, yielding O(|S|) retained edges."
+  ],
+  "gaps": [
+    "No feasible contraction-only family with a lower bound growing as k^(Omega(s)) was constructed or ruled out.",
+    "No transfer theorem to arbitrary terminal-preserving sparsifiers was attempted or established.",
+    "The source's exact handling of infeasible instances must be modeled separately before comparing total quotient bounds."
+  ],
+  "counterexamples": [
+    {
+      "claim_refuted": "Pairwise distinct edge signatures alone force one retained edge per signature and an s-dependent exponent.",
+      "counterexample": "B_(r,t) has distinguishable terminal-pair path signatures, but one contraction per path yields exactly L parallel terminal edges and preserves every metric and labeling.",
+      "scope": "Refutes the inference, not the existence of all possible s-dependent families."
+    }
+  ],
+  "uncertainty": [
+    "The Omega(k) result is for the explicit contraction-only quotient model, not the unrestricted sparsifier model.",
+    "The infeasible-instance unboundedness is a model obstruction and may disappear under a source-style no-instance replacement convention.",
+    "The broad feasible-instance s-dependence question remains open."
+  ],
+  "proof_status": {
+    "overall": "counterexample_found",
+    "scope": "The pair-bundle lower-bound proposal and pairwise-signature inference are resolved; the general O7 conjecture remains open.",
+    "claim_classification": "fully_proved_restricted_obstruction",
+    "excluded_claims": [
+      "No k^(Omega(s)) lower bound is claimed.",
+      "No lower bound for arbitrary terminal-preserving sparsifiers is claimed.",
+      "No computational or asymptotic evidence beyond the displayed proof is claimed."
+    ]
+  },
+  "independent_review": {
+    "status": "passed",
+    "review_type": "adversarial review of quotient definition, all contraction patterns, metrics, crossing feasibility, multiplicity, joint contractions, and cactus counting",
+    "reviewed_failure_modes": [
+      "contracting both edges of a path and merging terminals",
+      "cross-path or joint contractions creating an uncounted shortcut",
+      "parallel-edge simplification changing the objective",
+      "metric choices violating positivity or triangle inequality",
+      "infeasible versus feasible crossing-budget cases",
+      "hidden terminal- or label-budget dependence in the cactus count"
+    ],
+    "review_conclusion": "The restricted pair-bundle theorem and the obstruction to the pairwise-signature inference are sound within scope; the broad feasible s-dependent lower-bound problem remains explicitly open."
+  },
+  "observed_result_or_blocker": {
+    "result": "A rigorous Omega(k) contraction-only lower bound and an unbounded infeasible-instance quotient obstruction were proved; no s-dependent exponent survives this construction.",
+    "negative_finding": "The proposed pairwise-signature route does not establish a superconstant exponent in s.",
+    "next_mathematical_question": "Find or rule out a feasible joint-contraction hitting-set family with omega(k) quotient size for fixed s>=3, then quantify its s dependence.",
+    "cactus_count_audit": "Independently verified O(|S|) retained block-cut nodes, O(|S|) cycle boundary arcs, and O(|S|) compressed-corridor edges."
+  },
+  "paper3_state_check": "Paper 3 Target A and Target B unchanged; no historical label or forecast score edited.",
+  "next_falsifiable_action": "Attempt THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002: prove or refute an omega(k) feasible joint-contraction lower bound for fixed s>=3, with explicit metrics and no infeasible-instance shortcut.",
+  "exposition_artifact": "reports/zero_extension_contraction_lower_bound_proof_20261015.md"
+}

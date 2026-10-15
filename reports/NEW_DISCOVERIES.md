@@ -1,5 +1,14 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: contraction-only pair-bundle obstruction closes the naive O7 route
+
+- **Formal model:** A quotient contracts an original edge set into connected bags containing at most one terminal, deletes only loops, retains parallel-edge multiplicity, and adds no vertices or edges.
+- **Proved family:** With \(t\) internally vertex-disjoint length-two paths for every terminal pair, every quotient has at least \(L=t\binom{|S|}{2}\) edges and exactly preserves every finite-metric, injective-labeling objective.
+- **Feasible consequence:** Feasibility forces \(L\le k\), so the family gives a real \(\Omega(k)\) lower bound but no exponent growing with \(s\). Pairwise-distinguishable signatures are therefore insufficient without a joint-contraction hitting-set argument.
+- **Model obstruction:** When \(L>k\), the objective is \(+\infty\) for every admissible labeling but every pure quotient still has at least \(L\) edges. This is an unbounded infeasible-instance quotient pathology, not an \(s\)-dependent representative-set lower bound.
+- **Cactus audit:** A fresh terminal-marker/block-cut incidence charging proof rechecks \(O(|S|)\) retained nodes, cycle boundary arcs, and compressed corridors. The completed cactus theorem is unchanged.
+- **Next decision:** Close the naive pairwise-signature construction and admit the narrower feasible joint-contraction task. Keep O8 arbitrary-sparsifier transfer separate.
+
 ## 2026-10-15: cactus reduction closes O6 as an elementary restricted lemma
 
 - **Corrected local claim:** Suppressing a path with distinct endpoints and nonterminal degree-two internal vertices preserves exact metric-labeling cost and crossing count even when the host contains cycles. The proof is local and uses only triangle inequality plus endpoint disagreement.

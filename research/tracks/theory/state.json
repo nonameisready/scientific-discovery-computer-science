@@ -5,11 +5,12 @@
   "checkpoint_time": "2026-10-15T18:13:17Z",
   "completed_task_ids": [
     "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
-    "THEORY-ZEROEXT-CACTUS-CYCLE-001"
+    "THEORY-ZEROEXT-CACTUS-CYCLE-001",
+    "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001"
   ],
   "last_supervisor_status": "ACTIVE",
   "pending_task_ids": [
-    "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001"
+    "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002"
   ],
   "schema_version": 1,
   "status": "IDLE",
