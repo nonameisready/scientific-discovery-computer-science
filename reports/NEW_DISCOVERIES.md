@@ -264,3 +264,21 @@ The separate [Paper 3 Target B protocol](../research/paper3_target_b_protocol_v1
 ## DP158 approximation-boundary diagnostic (known limitation, not a new theorem)
 
 - With the paper's small-`q` budget and a frozen one-dimensional adaptive schedule, one million PLRV trajectories per P/Q arm gave maximum Gaussian-CDF discrepancies **0.01463, 0.02815, 0.04813, 0.09218** at `q=0.1, 0.19, 0.3, 0.5`. Each higher-`q` increase crossed the preregistered 0.01 materiality threshold after simultaneous DKW Monte Carlo uncertainty; `q=0.19` crossed narrowly. Stop rates stayed near 99%, so halt frequency is not a proxy for Gaussian approximation quality in this model. The source paper already anticipates weaker accuracy away from its asymptotic regimes. This is **not** a theorem counterexample, a validated guard threshold, or a deployed-accountant vulnerability. See `results/dp158_regime_boundary/summary.json` and `reports/dp158_accountant_audit.json`.
+## 2026-10-15: terminal-bearing SP compression boundary corrected
+
+- **Proof correction:** the layer-cake identity is the full edgewise sum
+  \(\int_0^\infty|\delta(U_r)|dr\); the interval
+  \([0,\mu(a,b)]\) supplies only a lower bound when internal distances exceed
+  the endpoint distance.
+- **Established standard lemma:** terminal-free scalar closure depends only on
+  an \(s\)-\(t\) min-cut and holds for every finite unweighted multigraph, not
+  only series-parallel graphs.
+- **Feasible obstruction:** the path \(s-x-t\), with all vertices terminal
+  and \(k=2\), has cost 3 under
+  \((\mu(a,b),\mu(a,c),\mu(c,b))=(2,1,2)\) and cost 4 under
+  \((2,2,2)\). Thus the same endpoint distance does not determine the
+  terminal-bearing interface.
+- **Scope:** this is a finite obstruction to one label-blind state class, not a
+  compact-sparsifier lower bound. The raw dynamic-programming table is not an
+  output graph. The SP compression direction is down-ranked and the next
+  queued task reassesses the source \(s+1\) certificate layers.

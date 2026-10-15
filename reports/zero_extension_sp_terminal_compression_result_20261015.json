@@ -1,0 +1,111 @@
+{
+  "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
+  "evidence_tier": "tier_3_mathematical_proof_audit_bounded_positive_and_negative_result",
+  "sources_and_data": [
+    {
+      "source": "reports/zero_extension_series_parallel_interface_result_20261015.json",
+      "use": "Dependency: exact at-most-crossing interface, two-sided series/parallel composition, terminal-free scalar closure, and feasible k>=2 path obstruction."
+    },
+    {
+      "source": "reports/zero_extension_feasible_contraction_lower_bound_result_20261015.json",
+      "use": "Preserved the Multiway-Cut feasibility gate and separation between contraction-only claims and arbitrary sparsifiers."
+    },
+    {
+      "source": "reports/zero_extension_sp_terminal_compression_proof_20261015.md",
+      "use": "Complete mathematical exposition and proof audit for this task."
+    }
+  ],
+  "method": {
+    "type": "direct mathematical derivation with adversarial proof audit; no experiment or network search",
+    "quantifiers": "all finite two-terminal series-parallel multigraphs, all finite unweighted multigraphs for the terminal-free scalar sublemma, finite metrics, injective terminal assignments, and integer crossing budgets",
+    "interface": "I_N(q;a,b,rho): minimum metric-labeling cost with boundary labels, prescribed internal terminal assignment rho, and at most q crossings",
+    "checked_directions": [
+      "terminal-free scalar closure proved by cut lower bound, layer-cake metric lower bound, and matching minimum-cut labeling",
+      "terminal-bearing obstruction evaluated exactly from the unique all-terminal path labeling"
+    ]
+  },
+  "mathematical_claim": "The terminal-free scalar interface is an exact standard metric/min-cut consequence for every finite unweighted multigraph with two distinguished boundaries, not a series-parallel novelty. It does not extend to all terminal-bearing modules under a label-blind state: a feasible two-edge path has exact costs 3 and 4 under two valid metrics with the same endpoint distance, connectivity, endpoint labels, and budget.",
+  "assumptions": [
+    "Graphs are finite undirected unweighted multigraphs; parallel edges are separate edge terms and loops contribute zero.",
+    "The interface uses an at-most crossing budget q and is +infinity when no admissible labeling exists.",
+    "Boundary labels are prescribed, internal terminal labels are prescribed and injective, and the metric is finite.",
+    "The claimed obstruction concerns only states that discard all internal terminal labels and retain endpoint labels, connectivity, and budget; it is not a lower bound for arbitrary sparsifiers."
+  ],
+  "verified_steps": [
+    "For terminal-free modules, every unequal-boundary labeling crosses an s-t cut and the metric triangle inequality gives the edgewise lower bound.",
+    "The layer-cake identity is the full integral from 0 to infinity; truncation to [0, mu(a,b)] is used only as a lower bound because internal distances can exceed the endpoint distance.",
+    "A minimum s-t cut labeling attains lambda times mu(a,b), while equal boundary labels use the constant labeling; this proves both directions of the scalar formula.",
+    "The same proof applies to arbitrary finite unweighted multigraphs with no internal terminals; series-parallel structure is only a way to compute lambda.",
+    "On the feasible path s-x-t with all vertices terminal and q=k=2, both edges necessarily cross and the unique labeling has cost mu(a,c)+mu(c,b).",
+    "The two metrics have mu_1(a,b)=mu_2(a,b)=2 but sums 1+2=3 and 2+2=4, so a label-blind scalar state cannot preserve both exact values."
+  ],
+  "gaps": [
+    "No compact metric-aware, label-dependent graph-realizable representation for terminal-bearing series-parallel modules was proved.",
+    "The raw interface table has explicit dependence on the internal-terminal labels and is not an output-graph size bound.",
+    "No lower bound was proved against arbitrary joint contractions or arbitrary terminal-preserving sparsifiers."
+  ],
+  "counterexamples": [
+    {
+      "claim_refuted": "Endpoint labels, two-terminal connectivity, and crossing budget alone suffice for every terminal-bearing module.",
+      "graph": "two-edge path s-x-t with all three vertices terminal",
+      "budget": "q=k=2",
+      "metric_1": "D={a,b,c}; distances ab=2, ac=1, cb=2",
+      "metric_2": "D={a,b,c}; all three pairwise distances are 2",
+      "verification": "Both are valid metrics, both have endpoint distance 2, and the exact costs are 3 and 4. The instance is feasible because its terminal Multiway Cut has size 2."
+    }
+  ],
+  "independent_review": {
+    "status": "passed_with_scope",
+    "reviewed": [
+      "The layer-cake truncation direction was corrected.",
+      "The scalar lemma was checked without using series-parallel decomposition.",
+      "The path witness was checked directly from its unique terminal labeling and two metrics.",
+      "The review rejected promotion of a finite table or scalar obstruction to a sparsifier-size theorem."
+    ],
+    "scope": "The result is a standard terminal-free interface lemma plus a finite feasible obstruction to one label-blind compression class; the broader sparsifier question remains open."
+  },
+  "observed_result_or_blocker": {
+    "positive_result": "Restricted compression lemma proved: for R_N empty, I_N(q;a,b)=0 when a=b; lambda_N*mu(a,b) when a!=b and q>=lambda_N; and +infinity otherwise.",
+    "feasible_obstruction": {
+      "graph": "two-edge path s-x-t with all three vertices terminals",
+      "budget": "k>=2",
+      "exact_interface": "mu(a,c)+mu(c,b) at q>=2, otherwise +infinity",
+      "independent_check": "two terminal edges necessarily cross, and deleting both is a Multiway Cut of size 2",
+      "two_metric_witness": "mu_1(a,b)=2, mu_1(a,c)=1, mu_1(c,b)=2 gives 3; mu_2(a,b)=2, mu_2(a,c)=2, mu_2(c,b)=2 gives 4, with the same graph, endpoint labels, connectivity, and q=2"
+    },
+    "scope_blocker": "The obstruction refutes only label-blind structural compression. A symbolic or metric-aware label-dependent compression, and the unrestricted sparsifier-size question, remain open."
+  },
+  "state_size_accounting": {
+    "raw_table_upper_bound": "At most (|E_N|+1)|D|^(|R_N|+2) positions, or (k+1)|D|^(|R_N|+2) when budgets are truncated to k.",
+    "interpretation": "This is a direct finite-table upper bound, not a sparsifier lower bound, representative-set lower bound, or contraction lower bound.",
+    "dependence": "Internal-terminal count |R_N| and label universe |D| are explicit; no hidden exponent-free compression was established."
+  },
+  "proof_status": {
+    "overall": "counterexample_found",
+    "proved": [
+      "terminal-free scalar interface",
+      "both directions of the terminal-free cost/crossing characterization",
+      "feasible k>=2 terminal-bearing obstruction"
+    ],
+    "unresolved": [
+      "general label-dependent compression with no hidden |D|- or s-dependent exponent",
+      "any sparsifier-size lower bound for terminal-bearing series-parallel modules"
+    ],
+    "excluded": [
+      "infeasible-instance shortcut",
+      "pairwise-signature shortcut",
+      "superlinear contraction-only lower bound",
+      "transfer to arbitrary terminal-preserving sparsifiers"
+    ]
+  },
+  "uncertainty": [
+    "The fixed-metric path witness rules out the stated label-blind state class, not every possible compressed representation.",
+    "Raw interface-table cardinality does not establish a sparsifier lower bound.",
+    "No conclusion is drawn about Paper 3 outcomes; Target A and Target B remain unchanged."
+  ],
+  "next_falsifiable_action": "Specify a candidate metric-aware label-dependent compressed state and prove both reconstruction directions for series and parallel composition; reject it with the path witness if it omits internal-label information. Any lower-bound alternative must quantify its representation class, keep every instance Multiway-Cut-feasible, and avoid pairwise-signature inference.",
+  "experiment": {
+    "performed": false,
+    "reason": "Task explicitly required mathematical proof audit only."
+  }
+}

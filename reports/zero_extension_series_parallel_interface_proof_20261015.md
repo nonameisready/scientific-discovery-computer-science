@@ -180,7 +180,8 @@ boundary has size at least (lambda_N). The layer-cake identity gives
 
 \[
  \sum_{uv\in E}|d(u)-d(v)|
- =\int_0^L |\delta(U_r)|\,dr
+ =\int_0^{\infty} |\delta(U_r)|\,dr
+ \ge\int_0^L |\delta(U_r)|\,dr
  \ge\lambda_N L.
 \]
 
@@ -189,7 +190,15 @@ Thus every labeling costs at least (lambda_N\mu(a,b)). A minimum
 that cost and has exactly (lambda_N) crossings. The case (a=b) is the
 constant labeling. This proves (T).
 
-For terminal-free modules, the interface compositions reduce to
+The scalar lemma is not specific to series-parallel graphs. For every finite
+undirected unweighted multigraph (N) with distinguished vertices (s,t) and
+no internal terminals, the same formula (T) holds. The proof uses only the
+terminal-free labeling constraints, the edge-counting cut parameter
+(\lambda_N), and the metric triangle inequality; it does not use a
+series-parallel decomposition. This is a standard metric/min-cut consequence,
+not a publication-level sparsifier breakthrough.
+
+For terminal-free series-parallel modules, the interface compositions reduce to
 
 \[
  \lambda_{A\circ B}=\min(\lambda_A,\lambda_B),
@@ -197,11 +206,10 @@ For terminal-free modules, the interface compositions reduce to
  \lambda_{A\parallel B}=\lambda_A+\lambda_B,
 \]
 
-which is the standard series/parallel cut recursion. Hence arbitrary finite
-series-parallel graphs with only their two outer terminals have an exact,
-label-independent scalar interface, including the non-cactus theta graph
-formed by three parallel (s\)-(t) paths. This is a valid extension beyond
-cactus, but it is only the terminal-free interface theorem.
+which is the standard series/parallel cut recursion. The scalar interface is
+therefore available for arbitrary finite unweighted hosts; the series-parallel
+recursion is only one way to calculate the cut parameter. This is a standard
+min-cut consequence, not a publication-level extension beyond cactus.
 
 ## 6. The obstruction to a label-independent interface with internal terminals
 
@@ -220,14 +228,23 @@ interface is
 \]
 
 Its value depends on the internal terminal label (c) and on both metric
-distances to (c), although the two-terminal connectivity is still one. For
-example, on the line metric with (a=0,c=1,b=3), the value is (3) with two
-crossings; changing the metric while retaining three distinct labels changes
-the value. A state that retains only (\lambda_N), the boundary labels, and
-the budget therefore loses exact information. The issue is feasible and
-finite for (kge 2): with all three vertices terminal and injective labels,
-both path edges cross and deleting both edges is a terminal Multiway Cut. It
-is not an infeasible-instance or pair-bundle shortcut.
+distances to (c), although the two-terminal connectivity is still one. This
+is not merely a change of labels inside one metric. Use two metrics with
+the same endpoint distance mu(a,b)=2 but different internal sums. Specifically,
+on D={a,b,c}, let
+
+\[
+ mu_1(a,b)=2,\quad mu_1(a,c)=1,\quad mu_1(c,b)=2,
+ \qquad
+ mu_2(a,b)=2,\quad mu_2(a,c)=2,\quad mu_2(c,b)=2.
+\]
+
+Both are valid metrics: the first has its only nontrivial triangle inequality
+1+2>=2, and the second is equilateral. Thus the exact values at q=k=2 are
+3 and 4. A state that retains only lambda_N, endpoint labels, and the budget
+loses exact information. The issue is feasible and finite for k>=2: both path
+edges cross and deleting both edges is a terminal Multiway Cut. It is not an
+infeasible-instance or pair-bundle shortcut.
 
 The full table (I_N(q;a,b,\rho)) repairs the loss exactly, but its raw state
 space contains up to

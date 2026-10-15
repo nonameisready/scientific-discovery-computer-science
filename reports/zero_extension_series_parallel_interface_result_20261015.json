@@ -19,9 +19,9 @@
   "method": {
     "type": "direct mathematical derivation and adversarial proof audit; no experiment or network search",
     "interface": "I_N(q;a,b,rho): minimum metric-labeling cost with boundary labels, prescribed internal terminal assignment rho, and at most q crossings",
-    "quantifiers": "finite two-terminal series-parallel multigraphs, arbitrary finite metrics, injective ambient terminal labels, and every finite crossing budget",
+    "quantifiers": "finite two-terminal series-parallel multigraphs for the full interface, and arbitrary finite unweighted multigraphs for the terminal-free scalar sublemma; arbitrary finite metrics, injective ambient terminal labels, and every finite crossing budget",
     "composition": "series is min-plus convolution over the glued label and split budget; parallel is min-plus convolution over split budget with fixed shared boundary labels",
-    "terminal_free_reduction": "I_N(q;a,b)=lambda_N*mu(a,b) when a!=b and q>=lambda_N, with lambda_N the two-terminal edge connectivity"
+    "terminal_free_reduction": "I_N(q;a,b)=lambda_N*mu(a,b) when a!=b and q>=lambda_N, with lambda_N the two-terminal edge connectivity; the proof is a standard metric/min-cut consequence for any finite unweighted host"
   },
   "assumptions": [
     "Graphs are finite undirected multigraphs; parallel edges count separately and loops contribute zero cost and zero crossings.",
@@ -35,7 +35,7 @@
     "The general table I_N(q;a,b,rho) is defined with an at-most crossing budget, so it is finite and exact for every fixed finite metric and fixed internal terminal assignment.",
     "For series composition, cutting a labeling at the glued vertex gives a shared label z and a crossing split q_A+q_B<=q; gluing two minimizing labelings gives the reverse inequality.",
     "For parallel composition, restrictions to each branch share the same two boundary labels and their crossing counts add; conversely branch minimizers glue without any new boundary edge.",
-    "For a terminal-free two-terminal module, constant labeling is feasible when endpoints agree, while endpoint disagreement forces at least lambda_N crossings and triangle inequality lower-bounds cost by lambda_N*mu(a,b); a shortest edge-disjoint path cut attains equality.",
+    "For a terminal-free module, constant labeling is feasible when endpoints agree, while endpoint disagreement forces at least lambda_N crossings and triangle inequality lower-bounds cost by lambda_N*mu(a,b). The edgewise absolute-difference sum is integrated over [0,infinity) and only then truncated to [0,mu(a,b)]; a minimum cut attains equality.",
     "The feasible path with one internal terminal separates connectivity information from the metric label needed at that terminal, refuting scalar endpoint/connectivity closure."
   ],
   "gaps": [
@@ -47,7 +47,7 @@
   "counterexamples": [
     {
       "claim_refuted": "Endpoint labels, two-terminal connectivity, and a crossing budget alone form an exact label-independent interface for every series-parallel module.",
-      "witness": "The path s-x-t with x an internal terminal labelled c has cost mu(a,c)+mu(c,b) and crossing count 1[a!=c]+1[c!=b]; varying c while holding a,b and connectivity fixed changes the exact table.",
+      "witness": "The path s-x-t with x an internal terminal labelled c has cost mu(a,c)+mu(c,b) and crossing count 1[a!=c]+1[c!=b]. Two valid metrics with the same mu(a,b)=2 give sums 3 and 4, so endpoint distance and connectivity do not determine the exact table.",
       "feasibility": "With all three vertices terminal and injective labels, the instance is feasible for k>=2: both path edges must be crossing edges, and deleting both edges is a terminal Multiway Cut. It is infeasible for k<2."
     }
   ],

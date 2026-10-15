@@ -2,17 +2,18 @@
   "active_task_ids": [],
   "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-15T20:12:00Z",
+  "checkpoint_time": "2026-10-15T20:30:00Z",
   "completed_task_ids": [
     "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
     "THEORY-ZEROEXT-CACTUS-CYCLE-001",
     "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
     "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
-    "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003"
+    "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
+    "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004"
   ],
   "last_supervisor_status": "ACTIVE",
   "pending_task_ids": [
-    "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004"
+    "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005"
   ],
   "schema_version": 1,
   "status": "IDLE",

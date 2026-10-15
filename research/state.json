@@ -300,16 +300,28 @@
       "experiment_id": "AUDIT-THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
       "limitation": "['The blocked route is a construction failure, not a theorem ruling out all feasible superlinear families.', 'The series-parallel alternative is a proof program, not an established bound.', \"The source's full sparsifier model remains broader than contraction-only quotients.\"]",
       "result": "{'result': 'Finite exact objective is equivalent to terminal Multiway Cut size at most k for every finite metric and injective terminal labeling.', 'blocker': 'No feasible joint-contraction family with a rigorously superlinear lower bound was established.', 'decision': 'Exclude infeasible-instance arguments from O7 and move to a concrete series-parallel interface proof program.', 'paper3_state': 'Target A and Target B unchanged; no historical label or forecast score edited.'}"
+    },
+    {
+      "artifact": "reports/zero_extension_series_parallel_interface_result_20261015.json",
+      "evidence_level": "tier_3_mathematical_proof_audit_bounded_positive_and_negative_result",
+      "experiment_id": "AUDIT-THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
+      "limitation": "['The obstruction refutes scalar label-independent closure, not every possible compressed interface with additional metric structure.', 'No feasible superlinear contraction-only lower bound was proved.', 'No conclusion transfers from contractions to arbitrary terminal-preserving sparsifiers.', 'No claim is made about Paper 3 outcomes; Targets A and B remain unchanged.']",
+      "result": "{'positive_result': 'Equations (S) and (P) are proved in both directions for arbitrary finite metrics and preserve the global crossing budget exactly.', 'concrete_feasible_obstruction': 'The three-terminal path s-x-t has two-terminal connectivity 1 but exact interface cost mu(a,c)+mu(c,b) and crossing requirement 1[a!=c]+1[c!=b]; a scalar state retaining only endpoint labels, connectivity, and budget is not exact.', 'scope_blocker': 'The exact general table has up to (k+1)|D|^(|R_N|+2) raw entries, so no hidden-label-exponent-free representative bound was established for terminal-bearing series-parallel modules.', 'status': 'bounded interface theorem proved; unrestricted series-parallel sparsifier-size question remains open'}"
+    },
+    {
+      "artifact": "reports/zero_extension_sp_terminal_compression_result_20261015.json",
+      "evidence_level": "tier_3_mathematical_proof_audit_bounded_positive_and_negative_result",
+      "experiment_id": "AUDIT-THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
+      "limitation": "No graph-realizable metric-aware compression was proved; the worker's original artifact-only validation failure remains preserved in supervisor_events.jsonl and task_queue.json.",
+      "result": "{'positive_result': 'Restricted compression lemma proved: for R_N empty, I_N(q;a,b)=0 when a=b; lambda_N*mu(a,b) when a!=b and q>=lambda_N; and +infinity otherwise.', 'feasible_obstruction': {'graph': 'two-edge path s-x-t with all three vertices terminals', 'budget': 'k>=2', 'exact_interface': 'mu(a,c)+mu(c,b) at q>=2, otherwise +infinity', 'independent_check': 'two terminal edges necessarily cross, and deleting both is a Multiway Cut of size 2', 'fixed_metric_witness': 'mu(a,c1)+mu(c1,b)=3 versus mu(a,c2)+mu(c2,b)=4, with same a,b, graph, connectivity, and q=2'}, 'scope_blocker': 'The obstruction refutes only label-blind structural compression. A symbolic or metric-aware label-dependent compression, and the unrestricted sparsifier-size question, remain open.'}"
     }
   ],
   "artifact_only_tasks": [
     "HISTORICAL-OUTCOME-001"
   ],
-  "blocked_tasks": [
-    "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003"
-  ],
+  "blocked_tasks": [],
   "budget_consumption": {
-    "activations_started": 76,
+    "activations_started": 77,
     "completed_experiments": 9,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
@@ -334,11 +346,11 @@
     },
     "supervisor_can_query_service_quota": false,
     "token_or_cost_spend_measurable": false,
-    "worker_invocations_started": 23
+    "worker_invocations_started": 24
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "active",
-  "checkpoint_time": "2026-10-15T20:12:00Z",
+  "checkpoint_time": "2026-10-15T20:30:00Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -383,14 +395,15 @@
     "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
     "THEORY-ZEROEXT-CACTUS-CYCLE-001",
     "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
-    "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003"
+    "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
+    "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004"
   ],
   "current_best_opportunities": [
     {
       "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
-      "next_task": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
-      "reason": "The exact series/parallel interface laws are proved, but the feasible three-terminal path refutes scalar label-independent closure; the next narrow test is terminal-bearing interface compression.",
-      "status": "series_parallel_interface_proved_scalar_closure_blocked"
+      "next_task": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
+      "reason": "The terminal-free scalar interface is standard for arbitrary unweighted hosts, while a feasible two-metric path blocks label-blind terminal-bearing compression. The next narrow task reassesses the source s+1 certificate layers rather than treating a raw table as a sparsifier.",
+      "status": "terminal_bearing_compression_downranked_certificate_bottleneck"
     },
     {
       "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
@@ -403,8 +416,8 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "theory-zeroext-sp-terminal-compression-004",
-  "current_research_round": 35,
+  "current_phase": "theory-zeroext-certificate-boundary-005",
+  "current_research_round": 36,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -460,18 +473,18 @@
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
-  "last_activation_id": "2026-10-15T19:00:01Z-pid6469",
+  "last_activation_id": "2026-10-15T19:16:31Z-pid13911",
   "last_successful_commit": "3beb503",
   "latest_scientific_increment": {
-    "decision": "Exact series and parallel cost/crossing composition laws are proved. A feasible three-terminal path shows that scalar endpoint/connectivity state cannot remain exact once internal terminals are present; no label-independent compression or sparsifier bound follows.",
-    "evidence_level": "tier_3_proved_restricted_interface_with_feasible_obstruction",
-    "kind": "independently_reconciled_mathematical_checkpoint",
-    "next_falsifiable_action": "Attempt THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004: prove a two-sided terminal-bearing interface compression lemma or construct a feasible state-separation obstruction.",
+    "decision": "The scalar terminal-free interface is a standard arbitrary-host min-cut consequence; the feasible two-metric path refutes only label-blind terminal-bearing closure. No graph-realizable compact representation or sparsifier lower bound was established.",
+    "evidence_level": "tier_3_restricted_compression_obstruction",
+    "kind": "independent_structured_reconciliation",
+    "next_falsifiable_action": "Audit the source s+1 representative-set certificate on a restricted terminal-bearing series-parallel/interface class; prove one certificate-layer reduction or an unavoidable-layer obstruction, keeping certificates separate from output graphs.",
     "scientific_success": true,
-    "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003"
+    "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Execute THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004 as a non-experimental proof audit; preserve the feasible k>=2 path obstruction and do not call raw interface-table size a sparsifier lower bound.",
+  "next_action": "Execute THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005 as a pure mathematical proof audit; do not repeat the series-parallel scalar interface or launch experiments.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -483,15 +496,22 @@
   },
   "opportunity_ranking": [
     {
-      "scientific_completion": "proof_obligation_audit",
-      "score": 0.72,
-      "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
-      "track": "theory",
-      "reason": "Concrete next proof obligation after the exact interface theorem; it tests whether terminal-label dependence is compressible without confusing table size with a sparsifier lower bound."
+      "rank": 1,
+      "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
+      "score": 0.62,
+      "status": "queued",
+      "reason": "The terminal-bearing graph-realizable compression route is down-ranked after a feasible label-blind obstruction; the source certificate bottleneck is the next precise non-experimental test and preserves the original f(s)*k^c objective."
+    },
+    {
+      "rank": 2,
+      "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
+      "score": 0.35,
+      "status": "frozen_no_score_until_labels",
+      "reason": "Trajectory evidence exists but no directly adjudicated forecast labels exist."
     }
   ],
   "pending_tasks": [
-    "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004"
+    "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005"
   ],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
@@ -529,7 +549,7 @@
         "scientific_success": true
       },
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
         "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
@@ -564,7 +584,7 @@
         "scientific_success": true
       },
       "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
         "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
@@ -656,7 +676,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
         "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
@@ -695,7 +715,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
         "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
@@ -717,7 +737,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.",
         "No confidence interval or population claim is warranted for this small, hash-seeded pilot.",
@@ -750,7 +770,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "Bounded citation-tracing/full-text audit, not exhaustive review.",
         "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.",
@@ -775,7 +795,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": null
     },
     {
@@ -813,7 +833,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
         "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
@@ -864,7 +884,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
         "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
@@ -893,7 +913,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "These are deterministic, bounded cohorts rather than representative CS population samples.",
         "Round 4 is an independent retrieval audit but not an independent question cohort.",
@@ -975,7 +995,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
         "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
@@ -1012,7 +1032,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
         "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
@@ -1049,7 +1069,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
         "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
@@ -1074,7 +1094,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.",
         "The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.",
@@ -1095,7 +1115,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "Graph-level sample SD/SE are descriptive over these 20 new seeded units only.",
         "The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.",
@@ -1117,7 +1137,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "All procedures use the same exact state convention and graph sample, but postselection uses fewer retained samples by design.",
         "C is a declared matched-preparation reference with approximately 400 accepted-shot-equivalent preparations, not a separate quantum algorithm.",
@@ -1137,7 +1157,7 @@
         "scientific_success": true
       },
       "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
         "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",
@@ -1167,7 +1187,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The theorem is restricted to finite connected unweighted trees.",
         "Cycle interactions prevent automatic extension to cacti; this remains an unproved obligation rather than a negative result.",
@@ -1196,7 +1216,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The theorem is restricted to standard connected cactus hosts and the explicit output conventions.",
         "A contraction-only output on the original vertex set is a separate representation restriction.",
@@ -1221,7 +1241,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The Omega(k) result is for the explicit contraction-only quotient model, not the unrestricted sparsifier model.",
         "The infeasible-instance unboundedness is a model obstruction and may disappear under a source-style no-instance replacement convention.",
@@ -1246,7 +1266,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
-      "timestamp": "2026-10-15T19:00:01Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
         "The blocked route is a construction failure, not a theorem ruling out all feasible superlinear families.",
         "The series-parallel alternative is a proof program, not an established bound.",
@@ -1255,29 +1275,72 @@
     },
     {
       "artifact": "reports/zero_extension_series_parallel_interface_result_20261015.json",
-      "evidence_level": "tier_3_proved_restricted_interface_with_feasible_obstruction",
-      "next_falsifiable_action": "Attempt THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004: prove a two-sided terminal-bearing interface compression lemma or construct a feasible state-separation obstruction.",
+      "evidence_level": "tier_3_mathematical_proof_audit_bounded_positive_and_negative_result",
+      "next_falsifiable_action": "Either construct a label-dependent interface compression whose state count has no hidden exponent in |D|, or prove that a family of terminal-bearing series-parallel modules forces such dependence; any lower-bound route must keep every instance Multiway-Cut-feasible and must not reuse pairwise-signature inference.",
       "observed_result_or_blocker": {
-        "positive_result": "Exact min-plus series and parallel composition laws are proved for the full cost/crossing interface; terminal-free modules have a scalar connectivity interface.",
-        "feasible_obstruction": "The path s-x-t with all three vertices terminal is feasible for k>=2 but cannot be represented exactly by endpoint labels, connectivity, and budget alone because its value depends on the internal terminal label and both metric distances.",
-        "decision": "The unrestricted series-parallel compression question remains open; queue terminal-bearing compression rather than claiming a sparsifier bound."
+        "concrete_feasible_obstruction": "The three-terminal path s-x-t has two-terminal connectivity 1 but exact interface cost mu(a,c)+mu(c,b) and crossing requirement 1[a!=c]+1[c!=b]; a scalar state retaining only endpoint labels, connectivity, and budget is not exact.",
+        "positive_result": "Equations (S) and (P) are proved in both directions for arbitrary finite metrics and preserve the global crossing budget exactly.",
+        "scope_blocker": "The exact general table has up to (k+1)|D|^(|R_N|+2) raw entries, so no hidden-label-exponent-free representative bound was established for terminal-bearing series-parallel modules.",
+        "status": "bounded interface theorem proved; unrestricted series-parallel sparsifier-size question remains open"
       },
       "scientific_success": true,
       "scientific_validation": {
         "missing_or_failed": [],
         "mode": "proof_obligation_audit",
-        "reason": "independently reconciled structured proof result; protected-path conflict preserved",
+        "reason": "scientific criteria satisfied",
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
-      "timestamp": "2026-10-15T20:12:00Z",
+      "timestamp": "2026-10-15T19:16:31Z",
       "uncertainty": [
-        "The result proves a restricted interface theorem, not a graph sparsifier size bound.",
-        "The scalar obstruction does not refute every compressed state representation.",
-        "No contraction-only superlinear lower bound or arbitrary-sparsifier transfer is claimed."
-      ],
-      "worker_write_conflict_rejected": "RESEARCH_STATUS.md",
-      "raw_output_sha256": "299001373c58603d54178915611cfba4d518b4ff411be8bee59cd75bede739bb"
+        "The obstruction refutes scalar label-independent closure, not every possible compressed interface with additional metric structure.",
+        "No feasible superlinear contraction-only lower bound was proved.",
+        "No conclusion transfers from contractions to arbitrary terminal-preserving sparsifiers.",
+        "No claim is made about Paper 3 outcomes; Targets A and B remain unchanged."
+      ]
+    },
+    {
+      "artifact": "reports/zero_extension_sp_terminal_compression_result_20261015.json",
+      "evidence_level": "tier_3_mathematical_proof_audit_bounded_positive_and_negative_result",
+      "next_falsifiable_action": "Specify a candidate metric-aware label-dependent compressed state and prove both reconstruction directions for series and parallel composition; reject it with the path witness if it omits internal-label information. Any lower-bound alternative must quantify its representation class, keep every instance Multiway-Cut-feasible, and avoid pairwise-signature inference.",
+      "observed_result_or_blocker": {
+        "feasible_obstruction": {
+          "budget": "k>=2",
+          "exact_interface": "mu(a,c)+mu(c,b) at q>=2, otherwise +infinity",
+          "fixed_metric_witness": "mu(a,c1)+mu(c1,b)=3 versus mu(a,c2)+mu(c2,b)=4, with same a,b, graph, connectivity, and q=2",
+          "graph": "two-edge path s-x-t with all three vertices terminals",
+          "independent_check": "two terminal edges necessarily cross, and deleting both is a Multiway Cut of size 2"
+        },
+        "positive_result": "Restricted compression lemma proved: for R_N empty, I_N(q;a,b)=0 when a=b; lambda_N*mu(a,b) when a!=b and q>=lambda_N; and +infinity otherwise.",
+        "scope_blocker": "The obstruction refutes only label-blind structural compression. A symbolic or metric-aware label-dependent compression, and the unrestricted sparsifier-size question, remain open."
+      },
+      "scientific_success": false,
+      "scientific_validation": {
+        "missing_or_failed": [
+          "assumptions",
+          "verified_steps",
+          "gaps",
+          "counterexamples",
+          "independent_review",
+          "proof_status.overall",
+          "nonempty_assumptions",
+          "nonempty_verified_steps",
+          "gaps_list",
+          "counterexamples_list",
+          "independent_review.status",
+          "proof_scope_not_closed"
+        ],
+        "mode": "proof_obligation_audit",
+        "reason": "valid artifact does not satisfy scientific success criteria",
+        "scientific_success": false
+      },
+      "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
+      "timestamp": "2026-10-15T19:17:48Z",
+      "uncertainty": [
+        "The fixed-metric path witness rules out the stated label-blind state class, not every possible compressed representation.",
+        "Raw interface-table cardinality does not establish a sparsifier lower bound.",
+        "No conclusion is drawn about Paper 3 outcomes; Target A and Target B remain unchanged."
+      ]
     }
   ],
   "worker_integrity_failures": [

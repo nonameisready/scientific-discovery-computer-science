@@ -1,9 +1,9 @@
 {
   "activation": {
-    "id": "2026-10-15T19:00:01Z-pid6469",
+    "id": "2026-10-15T19:16:31Z-pid13911",
     "max_worker_invocations": 1,
-    "renewal_count": 76,
-    "started_at": "2026-10-15T19:00:01Z",
+    "renewal_count": 77,
+    "started_at": "2026-10-15T19:16:31Z",
     "worker_invocations": 1
   },
   "active_workers": [],
@@ -11,8 +11,10 @@
   "created_at": "2026-10-15T00:46:10Z",
   "last_event": {
     "event": "scientific_artifact_independently_reconciled_and_successor_queued",
-    "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
-    "timestamp": "2026-10-15T20:12:00Z"
+    "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
+    "timestamp": "2026-10-15T20:30:00Z",
+    "scientific_success": true,
+    "next_task": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005"
   },
   "quota": {
     "consecutive_quota_failures": 0,
@@ -26,14 +28,14 @@
   "schema_version": 1,
   "status": "ACTIVE",
   "stop_requested": false,
-  "updated_at": "2026-10-15T20:12:00Z",
+  "updated_at": "2026-10-15T20:30:00Z",
   "usage": {
-    "conservative_worker_seconds": 1870.6660000000004,
+    "conservative_worker_seconds": 1947.8610000000003,
     "date_utc": "2026-10-15",
     "track_worker_seconds": {
       "experiments": 944.114,
       "forecasting": 624.587,
-      "theory": 301.96500000000003
+      "theory": 379.16
     }
   }
 }

@@ -105,3 +105,16 @@ The second n=10 exact-state-vector A1 sample replicated the conditional effect o
 The Paper 4 action-outcome audit is a genuine descriptive increment: five prior actions were provenance-reconciled, with **0 efficacy outcomes, 4 feasibility blockers and 1 conditional future test**. One Badger gate was directionally consistent with its own plan, but the sample has no common immutable pre-action ranking. Therefore planning utility, expected-utility calibration and causal action advantage remain **unvalidated**. The ranking is not promoted to a breakthrough claim.
 
 The two-track queue now has no pending tasks: Paper 3 remains no-score under its frozen direct-resolution rubric, and Paper 4's two authorized QAOA tasks are scientifically completed. The renewable local experiment authorization was consumed exactly twice (lifetime experiment count 10; no counter reset). Further QAOA work requires a new predeclared cost protocol and explicit renewed local budget; no service quota was bypassed.
+## Zero Extension terminal-bearing compression checkpoint (2026-10-15)
+
+The layer-cake proof now uses the full integral over \([0,\infty)\) and only
+then truncates to \([0,\mu(a,b)]\). The terminal-free scalar interface is
+valid for every finite unweighted multigraph with two distinguished boundaries;
+it is a standard metric/min-cut consequence, not a new series-parallel result.
+For terminal-bearing modules, a feasible two-edge path has exact costs 3 and 4
+under two valid metrics with the same endpoint distance 2. This rejects only a
+label-blind endpoint/connectivity/budget state. It does not establish a lower
+bound for arbitrary sparsifiers or prove that metric-aware compression is
+impossible. The graph-realizable SP compression route is down-ranked; the next
+research opportunity is the source \(s+1\) representative-set certificate
+boundary, with certificates kept separate from output graphs.

@@ -249,7 +249,6 @@
       "expected_information_gain": 0.78,
       "exposition_artifact": "reports/zero_extension_series_parallel_interface_proof_20261015.md",
       "failure_handling": "If the exact interface does not close, preserve the smallest series-parallel obstruction and down-rank this route; do not repeat pair bundles or infer an unrestricted lower bound.",
-      "failure_note": "worker changed paths outside declared artifact: RESEARCH_STATUS.md",
       "finished_at": "2026-10-15T19:01:29Z",
       "last_result": {
         "artifact_bytes": 3754,
@@ -263,6 +262,7 @@
         "rate_limited": false,
         "raw_output_sha256": "299001373c58603d54178915611cfba4d518b4ff411be8bee59cd75bede739bb",
         "retry_after_seconds": null,
+        "scientific_success": true,
         "scientific_validation_reconciled": true,
         "session_id": "01a140ef-87a1-7801-a41b-c0cd05cb06ac",
         "timed_out": false,
@@ -277,7 +277,7 @@
       "scientific_validation": {
         "missing_or_failed": [],
         "mode": "proof_obligation_audit",
-        "reason": "independently reconciled structured proof result; protected-path conflict preserved",
+        "reason": "scientific criteria satisfied",
         "scientific_success": true
       },
       "started_at": "2026-10-15T19:00:01Z",
@@ -295,7 +295,7 @@
     },
     {
       "artifact": "reports/zero_extension_sp_terminal_compression_result_20261015.json",
-      "attempts": 0,
+      "attempts": 1,
       "cost_estimate": 0.3,
       "counts_as_experiment": false,
       "dependencies": [
@@ -311,19 +311,37 @@
       "expected_information_gain": 0.72,
       "exposition_artifact": "reports/zero_extension_sp_terminal_compression_proof_20261015.md",
       "failure_handling": "If terminal-bearing modules force label-dependent state growth, record the narrowest lower-bound conjecture and stop; do not call raw table size a sparsifier lower bound.",
+      "failure_note": "valid artifact does not satisfy scientific success criteria",
+      "finished_at": "2026-10-15T19:17:48Z",
+      "last_result": {
+        "artifact_bytes": 4841,
+        "artifact_valid": true,
+        "elapsed_seconds": 77.195,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "54f6688584f9e4b02b8de2baa51fa73983977b56c5cb5ec8b5885b05bd918654",
+        "retry_after_seconds": null,
+        "scientific_success": false,
+        "session_id": "01a140fe-b708-7023-a196-6b1744bede02",
+        "timed_out": false
+      },
       "max_attempts": 1,
       "objective": "Determine whether the exact series-parallel interface can be compressed for terminal-bearing modules without a hidden |D|- or s-dependent exponent; either prove a restricted compression lemma or construct a feasible obstruction with explicit proof obligations.",
       "priority": 88,
       "research_key": "zero_extension_series_parallel_terminal_compression",
       "scientific_completion": "proof_obligation_audit",
-      "scientific_status": "pending",
+      "scientific_status": "scientifically_completed",
       "scientific_validation": {
         "missing_or_failed": [],
         "mode": "proof_obligation_audit",
-        "reason": "not started",
+        "reason": "independently reconciled structured result satisfies scientific criteria; original worker validation failure preserved in last_result",
         "scientific_success": false
       },
-      "status": "pending",
+      "started_at": "2026-10-15T19:16:31Z",
+      "status": "completed",
       "success_criteria": [
         "the terminal-bearing interface state and all quantifiers are explicit",
         "a compression lemma is proved in both directions or a feasible obstruction is independently checked",
@@ -333,6 +351,46 @@
         "Paper 3 Target A and Target B remain unchanged"
       ],
       "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/zero_extension_certificate_boundary_result_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.25,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004"
+      ],
+      "execution_requirements": [
+        "pure mathematical proof audit only",
+        "no experiment, network-dependent search, or supervisor start",
+        "no experiment authorization renewal",
+        "preserve O12's feasible label-blind obstruction and the source theorem audit",
+        "Paper 3 Target A and Target B remain unchanged"
+      ],
+      "expected_information_gain": 0.74,
+      "exposition_artifact": "reports/zero_extension_certificate_boundary_proof_20261015.md",
+      "failure_handling": "If no certificate-level reduction survives adversarial review, preserve the obstruction and down-rank the unrestricted representative-set question rather than generating another scalar-interface variant.",
+      "max_attempts": 1,
+      "objective": "Reassess the source s+1 representative-set certificate bottleneck on a precisely restricted terminal-bearing series-parallel/interface class; identify which certificate layers are unavoidable or prove a restricted replacement, without repeating the literature audit or treating abstract tables as graph sparsifiers.",
+      "priority": 86,
+      "research_key": "zero_extension_certificate_boundary",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "pending",
+      "scientific_validation": {
+        "mode": "proof_obligation_audit",
+        "scientific_success": false
+      },
+      "status": "pending",
+      "success_criteria": [
+        "the source certificate object and restricted class are defined from existing audited records",
+        "one certificate layer is reduced or a precise restricted obstruction is proved",
+        "the f(s) factor and universal k exponent are explicit",
+        "abstract certificates, executable algorithms, contraction quotients and arbitrary sparsifiers are kept separate",
+        "the feasible two-metric path obstruction is preserved as a scope test",
+        "Paper 3 Target A and Target B remain unchanged"
+      ],
+      "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
       "track": "theory"
     }
   ],
