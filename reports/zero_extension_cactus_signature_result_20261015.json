@@ -1,0 +1,88 @@
+{
+  "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "evidence_tier": "tier_3_fully_proved_restricted_mathematical_result",
+  "sources_and_data": [
+    {
+      "source": "Reidl-Wahlstrom, Parameterized Algorithms for Zero Extension and Metric Labelling Problems",
+      "version": "ICALP 2018 / arXiv:1802.06026v1",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2018.94",
+      "use": "exact metric-labeling objective, crossing-budget preservation target, and general O(k^(s+1)) baseline"
+    },
+    {
+      "source": "Goranci-Raecke, Vertex Sparsification in Trees",
+      "version": "arXiv:1612.03017v1",
+      "url": "https://arxiv.org/abs/1612.03017",
+      "use": "prior-art boundary: tree vertex flow/cut sparsification is a different preservation object"
+    },
+    {
+      "source": "reports/zero_extension_theorem_and_novelty_audit_20261015.md",
+      "use": "source-matched definition and unrestricted novelty boundaries"
+    }
+  ],
+  "method": {
+    "type": "direct proof with independent adversarial review; no experiment",
+    "host_class": "finite connected standard cactus graphs, allowing a multigraph representation of two-edge cycle blocks",
+    "quantifiers": "all finite metrics with |D|<=s, all injective terminal labelings, all integers k>=0",
+    "local_lemma": "suppress internally vertex-disjoint paths with distinct endpoints and nonterminal degree-two interiors",
+    "global_reduction": "prune terminal-free pendant block-cut subtrees, compress unmarked degree-two block-cut corridors, and suppress each cycle arc between boundary vertices",
+    "series_lemma": "a series of unit edge bundles with multiplicities q_i in {1,2} is replaced by min_i(q_i) parallel edges",
+    "simple_output": "replace each two-parallel-edge bundle by two internally vertex-disjoint length-two paths"
+  },
+  "mathematical_claim": "For every finite connected standard cactus G with terminal set S, an exact k-bounded metric-labeling sparsifier H of O(|S|) edges exists for every admissible metric and injective terminal labeling; the k-exponent is 0. The theorem is exact in the multigraph model and has a simple fresh-vertex realization.",
+  "assumptions": [
+    "The host cactus is finite, connected, unweighted, and each cycle block has the standard cactus property; a two-edge cycle is represented by two distinct parallel edges when needed.",
+    "The objective counts edge multiplicity separately and uses the same metric on every edge.",
+    "The sparsifier must preserve the exact restricted optimum, not a flow, cut, or approximation objective.",
+    "Fresh nonterminal vertices are allowed for the simple 4-cycle realization; if output must be a contraction on the original vertex set, only the multigraph-core statement is claimed."
+  ],
+  "verified_steps": [
+    "The general local path-suppression lemma preserves cost and crossing count in both directions and does not require an acyclic host.",
+    "A pendant component attached through one vertex can be deleted by constant labeling, including loops and cycles attached at a terminal articulation.",
+    "A terminal-free series corridor of bridge/cycle bundles compresses exactly to a bundle of minimum multiplicity by triangle inequality and a minimum-weight label switch.",
+    "The block-cut tree reduction leaves only O(|S|) marked/branching nodes and O(|S|) cycle boundary arcs after degree-two corridors are compressed.",
+    "Cycles with two boundary vertices retain two independent arcs; cycles with three or more retain every boundary arc; zero/one-boundary blocks are removable under the stated terminal conditions.",
+    "Two parallel edges are exactly simulated by two internally disjoint length-two paths, so the earlier simple-output obstruction is refuted."
+  ],
+  "gaps": [],
+  "counterexamples": [],
+  "uncertainty": [
+    "The theorem is restricted to standard connected cactus hosts and the explicit output conventions.",
+    "A contraction-only output on the original vertex set is a separate representation restriction.",
+    "No conclusion for unrestricted graphs or any lower bound follows."
+  ],
+  "proof_status": {
+    "overall": "fully_proved",
+    "scope": "standard connected cactus hosts with the explicit output conventions above",
+    "claim_classification": "fully_proved_restricted_mathematical_result",
+    "excluded_claims": [
+      "No universal label-independent exponent theorem for unrestricted graphs.",
+      "No lower bound for arbitrary terminal-preserving sparsifiers.",
+      "No claim that the result is publication-level novelty; the reductions are elementary and adjacent tree sparsification is known prior art."
+    ]
+  },
+  "independent_review": {
+    "status": "passed",
+    "review_type": "adversarial proof review of path, pendant, cycle, series, and representation cases",
+    "reviewed_failure_modes": [
+      "cycles incorrectly treated as blocking local path compression",
+      "parallel edges incorrectly treated as impossible to simulate simply",
+      "terminal-free cycle chains with degree-four articulations",
+      "terminal articulations, loops, and one-boundary cycles",
+      "hidden s-dependent size or k exponent"
+    ],
+    "review_conclusion": "The multigraph cactus theorem and its simple fresh-vertex realization are closed; contraction-only simple-output restrictions remain a separate representation condition, not a mathematical obstruction to the stated sparsifier model."
+  },
+  "observed_result_or_blocker": {
+    "result": "Complete exact cactus restriction theorem with O(|S|) edges and universal k-exponent 0.",
+    "prior_art_boundary": "The reductions are standard and not claimed as a new breakthrough; Goranci-Raecke addresses flow/cut vertex sparsifiers rather than this metric-labeling objective.",
+    "next_obstacle": "O7 contraction-only distinguishable metric-signature lower-bound construction, followed by the harder lift to arbitrary sparsifiers.",
+    "negative_findings": [
+      "The previous simple-output obstruction was false because a 4-cycle gadget preserves two parallel edge signatures exactly.",
+      "No asymptotic lower bound follows from this restricted theorem."
+    ]
+  },
+  "paper3_state_check": "Paper 3 Target A and Target B unchanged; no forecast or evidence label edited.",
+  "next_falsifiable_action": "Develop the O7 contraction-only lower-bound family without executing an experiment; prove pairwise metric-cost separation and separately test whether any conclusion can transfer to arbitrary terminal-preserving sparsifiers.",
+  "exposition_artifact": "reports/zero_extension_cactus_signature_proof_20261015.md"
+}

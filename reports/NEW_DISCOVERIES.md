@@ -1,5 +1,14 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: cactus reduction closes O6 as an elementary restricted lemma
+
+- **Corrected local claim:** Suppressing a path with distinct endpoints and nonterminal degree-two internal vertices preserves exact metric-labeling cost and crossing count even when the host contains cycles. The proof is local and uses only triangle inequality plus endpoint disagreement.
+- **Global cactus construction:** Block-cut pruning removes pendant components with no terminals away from their attachment. Terminal-free series corridors of bridges and two-boundary cycles compress to a bundle with the minimum edge multiplicity. Every remaining cycle is represented by its terminal/attachment boundary arcs.
+- **All boundary cases:** Zero/one-boundary cycles are removable under the stated terminal conditions; two-boundary cycles retain two independent arcs; three-or-more boundary cycles retain every arc; loops are zero terms; terminal articulations are handled by constant labeling.
+- **Representation correction:** The prior Worker artifact's simple-output obstruction was false. Two parallel edges are exactly simulated by two internally disjoint length-two paths, a simple 4-cycle. A contraction-only original-vertex-set restriction remains a separate representation convention, not an obstruction to the unrestricted graph-output statement.
+- **Result:** Standard connected cactus hosts admit an exact $O(|S|)k^0$ restriction under the explicit output conventions. This is elementary preprocessing/known-technique territory, not a publication-level novelty claim and not a general-graph theorem.
+- **Next decision:** Close O6 and admit O7, the contraction-only distinguishable metric-signature lower-bound construction. Keep the harder lift to arbitrary sparsifiers separate.
+
 ## 2026-10-15: exact boundary-signature lemma proved on unweighted trees
 
 - **Mathematical result:** For every finite connected unweighted tree, terminal set $S$, finite metric and injective terminal labeling, deleting terminal-free leaves and suppressing nonterminal degree-two paths preserves both the minimum metric-labeling cost and the crossing budget of every $k$-bounded extension. The proof is two-sided: triangle inequality maps a tree labeling to the core, and constant-on-path extension maps a core labeling back.
