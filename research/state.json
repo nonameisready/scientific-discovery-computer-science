@@ -443,7 +443,7 @@
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
   "last_activation_id": "2026-10-15T18:13:17Z-pid85908",
-  "last_successful_commit": "c7598e0",
+  "last_successful_commit": "0c37590",
   "latest_scientific_increment": {
     "decision": "The explicit contraction-only pair-bundle family B_(r,t) was solved: every terminal-preserving quotient retains exactly at least L=t*binomial(r,2) edges and preserves the exact metric objective. Feasible instances force L<=k, so the construction yields a genuine Omega(k) lower bound but no s-dependent exponent. When L>k, pure quotients are unbounded, exposing a representation mismatch for infeasible instances. The cactus O(|S|) count was independently rechecked and unchanged.",
     "evidence_level": "tier_3_proved_restricted_contraction_obstruction",
