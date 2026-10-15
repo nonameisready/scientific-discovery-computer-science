@@ -350,7 +350,7 @@
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-15T19:58:05Z",
+  "checkpoint_time": "2026-10-15T19:59:52Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -475,7 +475,7 @@
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
   "last_activation_id": "2026-10-15T19:49:30Z-pid27709",
-  "last_successful_commit": "10b51f4",
+  "last_successful_commit": "90277a9",
   "latest_scientific_increment": {
     "decision": "Close the attempted uniform-layer deletion; preserve the restricted trivial singleton certificate only as a sanity check.",
     "evidence_level": "tier_3_source_reconstruction_and_counterexample_to_certificate_layer_deletion",
