@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "task_id": "PROOF-MECHANISM-DISCOVERY-20261016",
+  "date": "2026-10-16",
+  "status": "completed_bounded_cycle_no_candidate_admitted",
+  "decision": "NO_GO_NO_NEW_THEOREM",
+  "classification": "F_no_substantive_new_mathematical_result",
+  "experiment_run": false,
+  "paper3_changed": false,
+  "paper4_changed": false,
+  "successor_task_created": false,
+  "historical_work_review": {
+    "parallel_token_swapping": [
+      {
+        "result": "double_star_two_phase_R_le_2_LB_hub",
+        "classification": "proved_restricted_class_publication_value_uncertain",
+        "limitation": "The single central cut supports the phase invariant; adjacent cuts in longer backbones can be disturbed and no identity-preserving repair bound was derived."
+      },
+      {
+        "result": "fixed_pairing_monotone_crossing_event_DAG",
+        "classification": "distance_optimality_characterization_not_general_schedule",
+        "limitation": "It represents original-path crossings only; legal schedules may require extra traversal pairs and occupancy-dependent shoves."
+      },
+      {
+        "result": "bounded_h_endpoint_transposition_approximation",
+        "classification": "proved_elementary_parameterized_bound",
+        "limitation": "The factor 4h^2-1 depends on the number h of non-leaf vertices and does not yield a uniform arbitrary-tree factor."
+      }
+    ],
+    "simple_treewidth_profiles": [
+      {
+        "result": "CS3_local_guard_signature_bound",
+        "classification": "equivalent_up_to_constants_to_full_stw3_profile_conjecture",
+        "limitation": "A constant-size guard is itself a landmark set; the LCA guard family has O(k) members, so the local assertion is not a narrower bridge."
+      },
+      {
+        "result": "maximal_simple_3_tree_host_distance_structure",
+        "classification": "does_not_transfer_automatically_to_subgraphs",
+        "limitation": "Deleting host edges changes measured distances; e.g. P4 as a subgraph of K4 has endpoint distances 0,1,2,3 rather than the clique pattern."
+      }
+    ]
+  },
+  "mechanisms": [
+    {
+      "name": "LCA-closure separator guards",
+      "source": "Beaudou et al., Lemma 15",
+      "source_url": "https://arxiv.org/abs/2501.08895v3",
+      "theorem_reconstructed": "A width-t tree decomposition yields at most 4|A| guards of size at most 2(t+1), each separating its assigned vertex from every landmark by hitting all relevant paths.",
+      "invariant": "Bounded separator coverage of paths in the measured graph.",
+      "critical_hypotheses": ["valid tree decomposition of the measured graph", "connected bag-model of each vertex", "LCA closure of topmost landmark bags"],
+      "limitation": "Separator coverage alone does not bound the number of distance vectors to a guard."
+    },
+    {
+      "name": "Outerplanar BFS-layer monotone partitions",
+      "source": "Beaudou et al., Theorem 7",
+      "source_url": "https://arxiv.org/abs/2501.08895v3",
+      "theorem_reconstructed": "pc_r(G,A) <= 1+(2r+2)^2|A| for outerplanar G.",
+      "invariant": "On each root-BFS layer, distance to a fixed landmark is monotone away from a layer minimum along either side of a common outer-face circular order.",
+      "critical_hypotheses": ["outerplanar embedding", "common boundary order", "BFS-layer distance monotonicity"],
+      "limitation": "Branching decomposition regions and edge deletions do not supply the needed measured-graph order."
+    },
+    {
+      "name": "Linear-matroid representative families",
+      "source": "Fomin et al., Theorems 1 and 3",
+      "source_url": "https://arxiv.org/abs/1304.4626",
+      "theorem_reconstructed": "For independent p-sets in a represented matroid of rank p+q, a q-representative subfamily of size at most binom(p+q,p) preserves feasible extensions; weighted variants preserve an optimum representative.",
+      "invariant": "Exterior-product vectors and complementary determinant pairing preserve every extension-feasibility query.",
+      "critical_hypotheses": ["fixed represented linear matroid", "independent fixed-cardinality states", "extension predicate encoded by determinant pairing"],
+      "limitation": "Metric profiles combine through min-plus completions; no bounded-dimensional linear representation preserving all such completions was found."
+    }
+  ],
+  "candidate_tests": [
+    {
+      "id": "C1_CS3_guard_compression",
+      "category": "B_equivalent_to_target",
+      "disposition": "rejected",
+      "reason": "The proposed O(r^3) bound for every source-standard constant-size guard is equivalent up to constants to the full simple-treewidth-3 O(r^3 k) conjecture."
+    },
+    {
+      "id": "C2_matroid_representatives_for_metric_corridors",
+      "category": "A_known_mechanism_without_valid_transfer",
+      "disposition": "rejected",
+      "reason": "No linear extension encoding of all relevant min-plus completions was established; merely applying representative-family terminology would not preserve the required semantics."
+    },
+    {
+      "id": "C3_two_sided_corridor_order",
+      "category": "C_not_yet_a_precise_bridge_lemma",
+      "disposition": "rejected_for_this_cycle",
+      "reason": "No canonical order on partial-graph BFS layers with a proved bounded-alternation property was identified. No universal counterexample to all possible orders is claimed."
+    },
+    {
+      "id": "C4_detour_augmentation_for_caterpillar_schedules",
+      "category": "C_missing_identity_and_precedence_invariant",
+      "disposition": "rejected_for_this_cycle",
+      "reason": "Per-edge detour accounting does not construct realizable swaps, matching rounds, or a bounded precedence depth."
+    }
+  ],
+  "selected_candidate": null,
+  "new_theorem_proved": false,
+  "literature_improvement": false,
+  "publication_potential": "low_as_a_standalone_contribution; this is a bounded methodology and prior-art audit",
+  "unresolved_obligations": [
+    "Find a genuinely narrower simple-treewidth-3 corridor invariant that survives edge deletion and is not equivalent to the full profile conjecture.",
+    "For metric representative compression, define and prove a bounded representation preserving every relevant min-plus completion query, or establish a precise obstruction.",
+    "For caterpillar routing, construct identity-realizable detours with both matching-load and precedence-depth bounds, or prove a schedule-independent asymptotic lower bound."
+  ],
+  "validation": {
+    "research_check": "passed: ok=true, task_count=58, ledger_records=10",
+    "unit_tests": "passed: 69 tests; pre-existing DP158 numerical runtime warnings were emitted",
+    "json_validation": "passed for report, proof ledger, checkpoint, and opportunity registry",
+    "diff_check": "passed before staging"
+  },
+  "artifacts": [
+    "reports/PROOF_MECHANISM_DISCOVERY_20261016.md",
+    "reports/PROOF_MECHANISM_DISCOVERY_20261016.json",
+    "research/proof_mechanism_discovery_ledger_20261016.json",
+    "research/theory_checkpoint_proof_mechanism_discovery_20261016.json"
+  ]
+}

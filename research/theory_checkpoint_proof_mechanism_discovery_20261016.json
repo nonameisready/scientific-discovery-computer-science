@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "THEORY-PROOF-MECHANISM-DISCOVERY-20261016",
+  "date": "2026-10-16",
+  "status": "completed_bounded_cycle_no_candidate_admitted",
+  "task_id": "PROOF-MECHANISM-DISCOVERY-20261016",
+  "scientific_decision": "No new theorem or transferable proof mechanism survived the Category-C admission gate; this bounded cycle is a justified NO-GO.",
+  "confirmed_increment": "Reconstructed LCA separator guards, outerplanar BFS-layer monotonicity, and linear-matroid representative families, and identified the exact invariant mismatch preventing direct transfer to CS3 profiles or caterpillar schedules.",
+  "open_obligation": "A narrower-than-conjecture corridor invariant for simple treewidth three, a semantics-preserving min-plus compression, or an identity-realizable bounded-depth detour schedule remains unproved.",
+  "paper3_or_paper4_changed": false,
+  "experiment_run": false,
+  "next_task_created": false,
+  "historical_checkpoint_preserved": [
+    "research/theory_checkpoint_simple_treewidth3_CS3_stress_test_20261016.json",
+    "research/theory_checkpoint_parallel_token_swapping_20261016.json"
+  ],
+  "artifacts": [
+    "reports/PROOF_MECHANISM_DISCOVERY_20261016.md",
+    "reports/PROOF_MECHANISM_DISCOVERY_20261016.json",
+    "research/proof_mechanism_discovery_ledger_20261016.json"
+  ],
+  "validation": {
+    "research_check": "passed: ok=true, task_count=58, ledger_records=10",
+    "unit_tests": "passed: 69 tests; existing DP158 numerical runtime warnings",
+    "json_validation": "passed",
+    "diff_check": "passed before staging"
+  }
+}

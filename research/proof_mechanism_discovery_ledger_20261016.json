@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "ledger_id": "PROOF-MECHANISM-DISCOVERY-20261016",
+  "date": "2026-10-16",
+  "append_only": true,
+  "entries": [
+    {
+      "id": "PMD-01",
+      "claim": "LCA-closure guards provide O(|A|) bounded-size separators for paths to landmarks in a measured bounded-treewidth graph.",
+      "status": "previously_known_reconstructed",
+      "source": "https://arxiv.org/abs/2501.08895v3",
+      "scope": "Beaudou et al., Lemma 15; separator coverage does not itself bound guard profile diversity."
+    },
+    {
+      "id": "PMD-02",
+      "claim": "Outerplanar profile counting uses monotone distance partitions on root-BFS layers under a common boundary order.",
+      "status": "previously_known_reconstructed",
+      "source": "https://arxiv.org/abs/2501.08895v3",
+      "scope": "Beaudou et al., Theorem 7; the circular order premise is not supplied for arbitrary partial-simple-3-tree corridors."
+    },
+    {
+      "id": "PMD-03",
+      "claim": "Linear-matroid representative families preserve all bounded-size extension-feasibility queries through exterior-algebra pairing.",
+      "status": "previously_known_reconstructed",
+      "source": "https://arxiv.org/abs/1304.4626",
+      "scope": "Fomin et al., Theorems 1 and 3; no min-plus metric completion representation was established here."
+    },
+    {
+      "id": "PMD-04",
+      "claim": "The shortlisted CS3, matroid-transfer, corridor-order, and caterpillar-detour bridges yielded no strictly narrower defensible new lemma in this bounded cycle.",
+      "status": "negative_result_cycle_complete",
+      "scope": "No candidate admitted; this does not refute the underlying simple-treewidth profile conjecture or arbitrary-tree routing conjecture."
+    }
+  ]
+}
