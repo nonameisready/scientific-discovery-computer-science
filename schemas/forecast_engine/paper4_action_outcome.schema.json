@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/cs-paper4-action-outcome-v1.json",
+  "title": "Post-action Paper 4 outcome event",
+  "type": "object",
+  "required": ["outcome_id", "plan_id", "action_id", "performed_at", "feasibility_status", "actual_resource_cost", "observed_evidence_ids", "uncertainty_resolved", "scientific_utility", "independent_verification_status"],
+  "properties": {
+    "outcome_id": {"type": "string"},
+    "plan_id": {"type": "string"},
+    "action_id": {"type": "string"},
+    "performed_at": {"type": "string", "format": "date-time"},
+    "feasibility_status": {"enum": ["EXECUTED", "NOT_EXECUTED", "BLOCKED"]},
+    "actual_resource_cost": {"type": ["number", "null"], "minimum": 0},
+    "observed_evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "uncertainty_resolved": {"type": ["boolean", "null"]},
+    "scientific_utility": {"enum": ["VERIFIED_USEFUL", "VERIFIED_NOT_USEFUL", "NOT_ADJUDICATED"]},
+    "independent_verification_status": {"enum": ["VERIFIED", "PENDING", "NOT_APPLICABLE"]}
+  }
+}

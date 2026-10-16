@@ -221,6 +221,24 @@ The theory cycle did not prove or refute a constant-factor polynomial schedule r
 
 The 2022 primary tree-hardness source and the 2025 primary special-topology approximation source were checked. Existing constant-factor results cover cycles, subdivided stars and grids, not arbitrary trees. Paper 3 Target A/B remain frozen and unscored; no experiments or budget renewals occurred. See [mathematical proof note](reports/parallel_token_swapping_tree_approximation_proof_20261016.md) and [structured result](reports/parallel_token_swapping_tree_approximation_result_20261016.json).
 
+## 2026-10-16: Paper 3/4 gated CS forecast-engine software checkpoint
+
+Added a static, append-only forecasting record/evaluation layer and a CLI
+around the existing Paper 3/4 protocols. It imports the frozen 12-item radar
+as a qualitative-only baseline, retains the source hash and citation records,
+enforces evidence availability cutoffs, separates Target A resolution and
+premise revision from Target B evidence growth, and gates numeric evaluation
+on endpoint-specific labels, grouped chronological splits, independent
+adjudication, calibration readiness, and explicit authorization. Paper 4
+rankings remain assumption-based recommendations; execution feasibility and
+scientific utility are separate fields. Numeric forecasts remain unavailable:
+no predictor was trained or run, no experiment or data harvest occurred, and
+the historical cohorts were not relabeled. A deterministic fixture-only CLI
+demo exercised baseline → cutoff rejection → later snapshot → unchanged
+baseline hash → exact diff → `NOT_READY` numeric response → manifest, without
+writing fixture outcomes to persistent stores. See [implementation note](reports/CS_BREAKTHROUGH_ENGINE_IMPLEMENTATION_20261016.md)
+and [structured report](reports/CS_BREAKTHROUGH_ENGINE_IMPLEMENTATION_20261016.json).
+
 ## 2026-10-16: active double-star exchange schedule
 
 The previous (H_h) family only padded a four-vertex active path with fixed leaves; increasing (h) did not grow active traffic. A new double-star family has two adjacent hubs and (m) moving leaf-pairs on opposite sides, plus an exchanged pair of hub tokens. All (2m+2) tokens are active and (m+1) directional crossings use the shared backbone. Exact values are (D=3), (W(u)=W(v)=LB_{hub}=2m+1). A three-round token-preserving block per leaf-pair followed by one hub swap reaches the exact target in (3m+1) matching rounds, proving (OPT/LB_{hub}<3/2) for this family. This is a construction upper bound, not a lower bound on extra overhead, schedule-optimality theorem, or arbitrary-tree approximation. Its elementary gadget is not claimed as a breakthrough. The next task broadens to arbitrary double-star permutations; no experiments, renewal, Paper 3/4 edits, or supervisor starts occurred. See [proof note](reports/parallel_token_swapping_double_star_exchange_20261016.md) and [structured result](reports/parallel_token_swapping_double_star_exchange_result_20261016.json).

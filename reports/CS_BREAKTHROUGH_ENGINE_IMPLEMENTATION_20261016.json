@@ -1,0 +1,79 @@
+{
+  "report_id": "CS-BREAKTHROUGH-ENGINE-IMPLEMENTATION-20261016",
+  "status": "SOFTWARE_IMPLEMENTED_PREDICTIVE_VALIDITY_NOT_ESTABLISHED",
+  "baseline": {
+    "path": "data/forecast_engine/qualitative_editorial_baseline_20261016.json",
+    "source": "reports/FUTURE_CS_BREAKTHROUGH_RADAR_20261016.json",
+    "question_count": 12,
+    "source_preserved": true,
+    "forecast_type": "QUALITATIVE_EDITORIAL_BASELINE",
+    "numeric_predictions": false,
+    "citation_records_are_full_text_evidence": false
+  },
+  "targets": {
+    "paper3_target_a_direct_resolution": {
+      "separate_endpoint": true,
+      "score_status": "NOT_EVALUABLE",
+      "reason": "No sufficient authenticated direct CS outcome labels."
+    },
+    "paper3_target_b_evidence_growth": {
+      "separate_endpoint": true,
+      "score_status": "NOT_EVALUABLE",
+      "reason": "Existing trajectory records do not meet the frozen sample, class, grouped-temporal, and independent-adjudication gates. Missing evidence is not a negative label."
+    },
+    "paper4": {
+      "status": "ASSUMPTION_BASED_RECOMMENDATION_ONLY",
+      "planner_superiority_validated": false,
+      "action_execution_or_utility_observed": false
+    }
+  },
+  "implementation": {
+    "module": "src/research_platform/forecast_engine/",
+    "cli": "scripts/cs_forecast_engine.py",
+    "schema_directory": "schemas/forecast_engine/",
+    "append_only": true,
+    "point_in_time_cutoff_enforcement": true,
+    "immutable_baseline_and_snapshot_hashes": true,
+    "grouped_chronological_splits": true,
+    "numeric_forecasts_fail_closed": true,
+    "fixture_demo_scientific_claim": false
+  },
+  "components_reused": [
+    "research_platform.opportunity AUROC/AUPRC/Brier implementations",
+    "research_platform.planner.rank_actions and declared expected-information-gain utility",
+    "frozen Paper 3 Target A/Target B protocol and existing historical readiness audits",
+    "frozen Paper 4 question/action utility semantics"
+  ],
+  "demo": {
+    "status": "FIXTURE_DEMONSTRATION_ONLY_NO_SCIENTIFIC_RESULT",
+    "workflow": [
+      "load unchanged baseline",
+      "reject synthetic later evidence at original cutoff",
+      "record synthetic evidence only in later snapshot",
+      "verify baseline hash unchanged",
+      "emit exact evidence/outlook diff",
+      "show Paper 4 recommendation with no-superiority qualification",
+      "return NOT_READY for numeric forecast",
+      "emit fixture-only reproducibility manifest"
+    ],
+    "persistent_fixture_data_written": false
+  },
+  "validation": {
+    "focused_unit_tests": {"passed": 20, "failed": 0},
+    "full_repository_unittest_suite": {"passed": 89, "failed": 0},
+    "research_check": {"ok": true, "task_count": 58, "ledger_records": 10, "errors": []},
+    "research_status": "completed successfully; forecast track remains idle and no worker was started",
+    "schema_json_parse_and_contract_checks": "passed for all seven schemas and representative baseline/question/evidence/action-plan/manifest objects",
+    "ruff": "not run: optional module is not installed",
+    "jsonschema_library": "not installed; structural and representative-instance checks are implemented in deterministic unit tests"
+  },
+  "execution_scope": {
+    "model_training": false,
+    "model_inference": false,
+    "scientific_experiment": false,
+    "external_harvesting": false,
+    "supervisor_or_worker_started": false,
+    "paper3_or_paper4_frozen_records_modified": false
+  },
+  "scientific_classification": "ENGINEERING_RESULT_ONLY; NO_NEW_PREDICTIVE_OR_SCIENTIFIC_FINDING"
+}

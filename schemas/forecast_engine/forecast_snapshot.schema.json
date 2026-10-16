@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/cs-forecast-snapshot-v1.json",
+  "title": "Immutable CS forecast snapshot",
+  "type": "object",
+  "required": ["schema_version", "snapshot_id", "as_of", "evidence_cutoff", "method_version", "candidate_set_version", "source_hashes", "forecast_type", "numerical_predictions_allowed", "questions", "snapshot_sha256"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "snapshot_id": {"type": "string", "minLength": 1},
+    "previous_snapshot_id": {"type": ["string", "null"]},
+    "as_of": {"type": "string", "format": "date-time"},
+    "evidence_cutoff": {"type": "string", "format": "date"},
+    "method_version": {"type": "string"},
+    "candidate_set_version": {"type": "string"},
+    "source_hashes": {"type": "array", "items": {"type": "object", "required": ["path", "sha256", "scope"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "scope": {"type": "string"}}}},
+    "forecast_type": {"enum": ["QUALITATIVE_EDITORIAL_BASELINE", "QUALITATIVE_EDITORIAL", "BASELINE_STATISTICAL", "PAPER3_TRANSFER", "CALIBRATED_BREAKTHROUGH_FORECAST"]},
+    "numerical_predictions_allowed": {"type": "boolean"},
+    "paper3_probabilities": {"type": ["object", "null"]},
+    "missingness_status": {"type": "string"},
+    "calibration_status": {"type": "string"},
+    "questions": {"type": "array", "items": {"$ref": "research_question.schema.json"}},
+    "candidates": {"type": "array", "items": {"type": "object"}},
+    "snapshot_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

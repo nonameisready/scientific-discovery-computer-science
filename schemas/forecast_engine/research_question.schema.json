@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/cs-forecast-question-v1.json",
+  "title": "Canonical CS research question",
+  "type": "object",
+  "required": ["question_id", "subfield", "problem_statement", "operational_assumptions", "existing_strongest_baseline", "desired_improvement", "evidence_cutoff", "forecast_horizon", "outcome_endpoints", "resolution_criteria", "required_evidence_standard", "outcome_adjudication_policy", "source_provenance", "question_version"],
+  "properties": {
+    "question_id": {"type": "string", "minLength": 1},
+    "subfield": {"type": "string", "minLength": 1},
+    "problem_statement": {"type": "string", "minLength": 1},
+    "operational_assumptions": {"type": "object", "required": ["status", "items"], "properties": {"status": {"type": "string"}, "items": {"type": "array", "items": {"type": "string"}}}},
+    "existing_strongest_baseline": {"type": "string"},
+    "desired_improvement": {"type": "string"},
+    "evidence_cutoff": {"type": "string", "format": "date"},
+    "forecast_horizon": {"type": "object", "required": ["start", "due_date", "radar_label"], "properties": {"start": {"type": "string", "format": "date"}, "due_date": {"type": "string", "format": "date"}, "radar_label": {"type": "string"}}},
+    "outcome_endpoints": {"type": "object", "required": ["attention", "resolution", "premise_revision", "evidence_growth", "impact"], "properties": {"attention": {"type": "object"}, "resolution": {"type": "object"}, "premise_revision": {"type": "object"}, "evidence_growth": {"type": "object"}, "impact": {"type": "object"}}},
+    "resolution_criteria": {"type": "object", "required": ["status", "candidate_criterion", "missing"], "properties": {"status": {"type": "string"}, "candidate_criterion": {"type": "string"}, "missing": {"type": "array", "items": {"type": "string"}}}},
+    "required_evidence_standard": {"type": "string"},
+    "outcome_adjudication_policy": {"type": "string"},
+    "source_provenance": {"type": "array", "items": {"type": "object", "required": ["url", "citation_record_sha256", "hash_scope"], "properties": {"url": {"type": "string", "format": "uri"}, "citation_record_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "hash_scope": {"type": "string"}}}},
+    "question_version": {"type": "integer", "minimum": 1}
+  }
+}

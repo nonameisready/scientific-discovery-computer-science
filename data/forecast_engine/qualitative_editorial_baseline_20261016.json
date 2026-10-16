@@ -1,0 +1,1906 @@
+{
+  "schema_version": "1.0",
+  "snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb",
+  "as_of": "2026-10-16T19:19:48-04:00",
+  "evidence_cutoff": "2026-10-16",
+  "method_version": "forecast-engine-0.1.0",
+  "candidate_set_version": "FUTURE-CS-BREAKTHROUGH-RADAR-20261016",
+  "source_hashes": [
+    {
+      "path": "reports/FUTURE_CS_BREAKTHROUGH_RADAR_20261016.json",
+      "sha256": "184eb27b5dcb7cd367ed1b54ebd5847a3d52dc6fa902aa0c58bdf2fb8fb0afbd",
+      "scope": "FULL_RADAR_JSON_BYTES"
+    }
+  ],
+  "forecast_type": "QUALITATIVE_EDITORIAL_BASELINE",
+  "numerical_predictions_allowed": false,
+  "missingness_status": "PAPER3_CS_DIRECT_OUTCOMES_UNADJUDICATED; PAPER4_ACTION_UTILITY_UNVALIDATED",
+  "calibration_status": "NOT_AVAILABLE",
+  "paper3_probabilities": null,
+  "paper4_superiority_claim": false,
+  "questions": [
+    {
+      "question_id": "JOINT_KV_SPECULATIVE_SERVING",
+      "subfield": "AI systems, scheduling, computer architecture",
+      "problem_statement": "Under fixed accelerator-memory, output-quality, and tail-latency constraints, can a joint cache-retention/placement and speculative-execution policy improve end-to-end goodput over separately tuned policies for held-out changing request workloads?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "KV-constrained scheduling has exact average-latency optimality in a semi-online model, constant regret under stochastic arrivals, and no constant competitive ratio in a fully adversarial online model; reported heterogeneous speculative decoding results remain configuration-specific.",
+      "desired_improvement": "Independent implementation reproduces an end-to-end goodput or tail-latency gain on held-out arrivals while meeting fixed quality and memory constraints.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2027-01-01",
+        "due_date": "2028-12-31",
+        "radar_label": "2027-2028"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely sustained, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "Independent implementation reproduces an end-to-end goodput or tail-latency gain on held-out arrivals while meeting fixed quality and memory constraints."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Plausible if fixed-workload or fixed-cache assumptions fail in deployment.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "High if it lowers serving cost or latency at unchanged output quality and SLO compliance.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "Independent implementation reproduces an end-to-end goodput or tail-latency gain on held-out arrivals while meeting fixed quality and memory constraints.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2502.07115",
+          "citation_record_sha256": "4747487242c03d42c3272bfbf1f5fc89aa5efa8f8e257d270abcb50f564e872f",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2605.08151",
+          "citation_record_sha256": "17ec0519bc2e0330541245542623ddeadfacb6f3e722615a3a1931f25700a74f",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2605.09649",
+          "citation_record_sha256": "cadb2cb14d82b655f78bc8150d21478967ac81288a7dfaeaf2de5c1325648faf",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2605.07234",
+          "citation_record_sha256": "6a7304b204b6348c91d5a2225a8cb9cf6302e73b584eca2522ddb5494d5535ff",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Investigate",
+      "impact_assessment": {
+        "description": "High if it lowers serving cost or latency at unchanged output quality and SLO compliance.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "REPOSITORY_SCALE_VERIFIED_CODE",
+      "subfield": "Programming languages, software engineering, formal methods",
+      "problem_statement": "Can agents create patches satisfying explicit formal specifications and repository tests across unseen multi-file projects, with independent assurance that the specification matches intended behavior?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "VeriSoftBench contains 500 repository-context Lean obligations; vericoding benchmark contains 12,504 Lean/Verus/Dafny specifications; SWE-Bench Pro has 1,865 repository tasks across 41 projects. These endpoints are distinct and their rates must not be pooled.",
+      "desired_improvement": "Higher independently reviewed issue-resolution rate on unseen repositories with hidden regression tests and audited spec-to-code correspondence.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2027-01-01",
+        "due_date": "2028-12-31",
+        "radar_label": "2027-2028"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely high, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "Higher independently reviewed issue-resolution rate on unseen repositories with hidden regression tests and audited spec-to-code correspondence."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Possible if proof success fails to transfer to real bug-free behavior.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "Very high in correctness-critical software if patches are both useful and verified against intended behavior.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "Higher independently reviewed issue-resolution rate on unseen repositories with hidden regression tests and audited spec-to-code correspondence.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2602.18307",
+          "citation_record_sha256": "886a909036ffdeb42e2559fa59fc2ee4ca1290dc75acf119a96ceb07268ec0a5",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2509.22908",
+          "citation_record_sha256": "9d4655be28f2144bc19b363b5d61f2918282ba3ff5b79a8c4466cc5ca85ea3f3",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2509.16941",
+          "citation_record_sha256": "2e233c1a5dfa4972f803c286a161b7a8131ad4c649989838b6caf595538e62da",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Investigate",
+      "impact_assessment": {
+        "description": "Very high in correctness-critical software if patches are both useful and verified against intended behavior.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "MULTIAGENT_PROCESS_VERIFICATION",
+      "subfield": "Multi-agent systems, evaluation, AI reliability",
+      "problem_statement": "Which intermediate verifier signals improve the probability of an independently validated correct final artifact over no verifier and simple deterministic checks, after accounting for verifier cost and false positives?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "MAS-ProVe compares three verifier paradigms, two granularities, five verifiers, four context strategies, and six MAS frameworks; authors report inconsistent gains and high variance.",
+      "desired_improvement": "Replicated increase in independently checked task completion over no-verifier and deterministic baselines, net of added compute/context.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2027-01-01",
+        "due_date": "2028-12-31",
+        "radar_label": "2027-2028"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely high, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "Replicated increase in independently checked task completion over no-verifier and deterministic baselines, net of added compute/context."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Plausible if process-level scores fail to predict artifact correctness.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "High if verification can safely guide agents on long, expensive tasks.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "Replicated increase in independently checked task completion over no-verifier and deterministic baselines, net of added compute/context.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2602.03053",
+          "citation_record_sha256": "be7f3a86db5a628eec6eba9c7298a4291176bb18a026c60293bb86ba726afe52",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Investigate",
+      "impact_assessment": {
+        "description": "High if verification can safely guide agents on long, expensive tasks.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "ADAPTIVE_DP_FILTERS",
+      "subfield": "Differential privacy, theoretical computer science",
+      "problem_statement": "Can valid, tight, numerically certified filters be constructed for fully adaptive composition beyond currently covered sampling regimes, with explicit assumptions and runtime/error guarantees?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "The 2026 f-DP filter paper disproves the naive natural filter in general, characterizes validity, and gives an approximate GDP filter for subsampled Gaussian mechanisms at q<0.2 and q>0.8.",
+      "desired_improvement": "Independent proof/code certificate gives a sound tighter bound than a pinned baseline on a prespecified mechanism family.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2027-01-01",
+        "due_date": "2028-12-31",
+        "radar_label": "2027-2028"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Steady specialist attention, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "Independent proof/code certificate gives a sound tighter bound than a pinned baseline on a prespecified mechanism family."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Possible if current assumed adaptivity model is too broad or too narrow.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "High where tighter valid accounting enables more useful private analyses.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "Independent proof/code certificate gives a sound tighter bound than a pinned baseline on a prespecified mechanism family.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2602.06756",
+          "citation_record_sha256": "c03d90627d12082a744b9cdc109ee3edfb5a05ed61476fafab75d1d7a650ff4c",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2203.05481",
+          "citation_record_sha256": "2bf70a8b7e2548204af3f4869c9777794a6e3b265c0a66fd91fe014b397fc20f",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Experiment-ready (protocol only; no execution authorized)",
+      "impact_assessment": {
+        "description": "High where tighter valid accounting enables more useful private analyses.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+      "subfield": "AI for science, multi-agent systems, metascience",
+      "problem_statement": "Can an agent system generate a frozen falsifiable question and execute a discriminating study whose provenance, raw evidence, and conclusion survive independent adjudication?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "EIG reports proposal-quality benchmark gains; a 2026 historical-backtesting protocol reports an astronomy pilot and freezes a prospective set; neither establishes broad autonomous scientific discovery.",
+      "desired_improvement": "On a frozen future cohort, systems improve independently adjudicated executed-evidence outcomes over simple baselines.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2029-01-01",
+        "due_date": "2031-12-31",
+        "radar_label": "2029-2031"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely high, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "On a frozen future cohort, systems improve independently adjudicated executed-evidence outcomes over simple baselines."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Possible if idea scores fail to predict independent evidence yield.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "Potentially transformative, but only if agents reliably produce new verified evidence rather than fluent plans.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "On a frozen future cohort, systems improve independently adjudicated executed-evidence outcomes over simple baselines.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2605.04922",
+          "citation_record_sha256": "f66fa06044182715596e928dd9e098b8405fb7ab2a278035ffc68f6394d41709",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2608.16795",
+          "citation_record_sha256": "34c4a08810bd419929585cce97cfd6b2ac3c3c635008e4559c030202f48d2e49",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2602.03053",
+          "citation_record_sha256": "be7f3a86db5a628eec6eba9c7298a4291176bb18a026c60293bb86ba726afe52",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Investigate",
+      "impact_assessment": {
+        "description": "Potentially transformative, but only if agents reliably produce new verified evidence rather than fluent plans.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "CONFLICT_AWARE_AGENT_MEMORY",
+      "subfield": "Agent systems, knowledge representation, AI reliability",
+      "problem_statement": "Does explicit claim-status and contradiction handling improve downstream correctness and update behavior over ordinary retrieval, merge, debate, or judge baselines on long-lived tasks?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "LatticeMind reports 0.97 versus 0.61 on its label-blind ConflictBank comparison; its four secondary planning benchmarks are mixed and the conflict benchmark is small.",
+      "desired_improvement": "External study shows higher downstream accuracy and safe supersession rates than retrieval/merge baselines.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2027-01-01",
+        "due_date": "2028-12-31",
+        "radar_label": "2027-2028"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely high, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "External study shows higher downstream accuracy and safe supersession rates than retrieval/merge baselines."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Plausible if benchmark conflict handling does not improve downstream work.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "Medium-high if persistent systems become more reliable under contradictory updates.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "External study shows higher downstream accuracy and safe supersession rates than retrieval/merge baselines.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2608.08236",
+          "citation_record_sha256": "19fd9fb5fb6b4ee0ec1a99c90af18e4c7c05926d2f63c8fb9c65eacb14abded6",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Watch",
+      "impact_assessment": {
+        "description": "Medium-high if persistent systems become more reliable under contradictory updates.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "KV_CACHE_QUALITY_BUDGET",
+      "subfield": "LLM inference, memory systems",
+      "problem_statement": "For pinned model/workload families, how much KV memory can be removed while maintaining a prespecified quality and tail-latency envelope, including long-context and distribution-shift conditions?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "Recent global and re-formulated eviction approaches report cache reductions with maintained or improved task performance on evaluated benchmarks; results are author-reported and benchmark-specific.",
+      "desired_improvement": "Independent reproduction shows reduced peak memory at a prespecified non-inferior quality margin and no tail regression.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2027-01-01",
+        "due_date": "2028-12-31",
+        "radar_label": "2027-2028"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely high, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "Independent reproduction shows reduced peak memory at a prespecified non-inferior quality margin and no tail regression."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Plausible if quality does not track local salience estimates.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "High if large memory reductions preserve quality and SLA at serving scale.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "Independent reproduction shows reduced peak memory at a prespecified non-inferior quality margin and no tail regression.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2605.09649",
+          "citation_record_sha256": "cadb2cb14d82b655f78bc8150d21478967ac81288a7dfaeaf2de5c1325648faf",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2605.07234",
+          "citation_record_sha256": "6a7304b204b6348c91d5a2225a8cb9cf6302e73b584eca2522ddb5494d5535ff",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2503.08879",
+          "citation_record_sha256": "fa65c0813729513b618c41b0612ff3c70fc37c81d67982e35b23bc734d1e9926",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Investigate",
+      "impact_assessment": {
+        "description": "High if large memory reductions preserve quality and SLA at serving scale.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "HETEROGENEOUS_KV_MEMORY_PLACEMENT",
+      "subfield": "Computer architecture, systems, LLM inference",
+      "problem_statement": "Can an online placement policy exploit HBM plus off-package/host memory bandwidth to increase inference goodput under capacity, transfer, and tail-latency constraints?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "A 2025 source formulates dynamic KV placement and derives a theoretical upper bound, while explicitly not supplying a concrete scheduling policy.",
+      "desired_improvement": "Implementable policy improves throughput at matched memory and tail-latency constraints over static placement.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2029-01-01",
+        "due_date": "2031-12-31",
+        "radar_label": "2029-2031"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely sustained, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "Implementable policy improves throughput at matched memory and tail-latency constraints over static placement."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Possible if transfer cost dominates expected bandwidth gain.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "High if it enables larger models/batches on a fixed accelerator budget.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "Implementable policy improves throughput at matched memory and tail-latency constraints over static placement.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2508.13231",
+          "citation_record_sha256": "3e6ef2df7e3be823b96d3e607415ce8bf7c79c9dd3b9391eaeed9f263cfba9d6",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2502.07115",
+          "citation_record_sha256": "4747487242c03d42c3272bfbf1f5fc89aa5efa8f8e257d270abcb50f564e872f",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Investigate",
+      "impact_assessment": {
+        "description": "High if it enables larger models/batches on a fixed accelerator budget.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "REPOSITORY_FORMAL_VERIFICATION",
+      "subfield": "Programming languages, formal methods",
+      "problem_statement": "Can proof automation scale across multi-file, definition-rich repositories while maintaining soundness and reducing the human time needed to discharge real software obligations?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "VeriSoftBench's 500-task repository-level Lean suite reports dependency-closure difficulty and improvement from curated relevant context; vericoding adds cross-language specifications but with distinct task semantics.",
+      "desired_improvement": "More real repository obligations discharged per expert-hour with sound checking and maintained proofs after code edits.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2029-01-01",
+        "due_date": "2031-12-31",
+        "radar_label": "2029-2031"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Rising, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "More real repository obligations discharged per expert-hour with sound checking and maintained proofs after code edits."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Possible if context reduction or automation fails at scale.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "Very high if real codebases gain maintainable, sound proof coverage at lower cost.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "More real repository obligations discharged per expert-hour with sound checking and maintained proofs after code edits.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2602.18307",
+          "citation_record_sha256": "886a909036ffdeb42e2559fa59fc2ee4ca1290dc75acf119a96ceb07268ec0a5",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        },
+        {
+          "url": "https://arxiv.org/abs/2509.22908",
+          "citation_record_sha256": "9d4655be28f2144bc19b363b5d61f2918282ba3ff5b79a8c4466cc5ca85ea3f3",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Investigate",
+      "impact_assessment": {
+        "description": "Very high if real codebases gain maintainable, sound proof coverage at lower cost.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "LONG_HORIZON_REPOSITORY_AGENTS",
+      "subfield": "Software engineering, agent systems",
+      "problem_statement": "Do agents resolve multi-hour or multi-day maintenance issues on unseen repositories with correct patches, low regression rates, and independent human acceptance?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "SWE-Bench Pro supplies a larger, more difficult repository task suite with held-out settings; the paper reports that strong systems still solve a minority under its protocol.",
+      "desired_improvement": "Replicated growth in accepted, regression-free patches on held-out repositories with controlled tool budgets.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2029-01-01",
+        "due_date": "2031-12-31",
+        "radar_label": "2029-2031"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely sustained, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "Replicated growth in accepted, regression-free patches on held-out repositories with controlled tool budgets."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Possible if solved benchmarks do not predict deployed acceptance.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "High if agents safely reduce expert effort on substantial maintenance.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "Replicated growth in accepted, regression-free patches on held-out repositories with controlled tool budgets.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2509.16941",
+          "citation_record_sha256": "2e233c1a5dfa4972f803c286a161b7a8131ad4c649989838b6caf595538e62da",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Investigate",
+      "impact_assessment": {
+        "description": "High if agents safely reduce expert effort on substantial maintenance.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "AI_SOFTWARE_SUPPLY_CHAIN_OUTCOMES",
+      "subfield": "Cybersecurity, software supply chain",
+      "problem_statement": "Do concrete provenance and policy controls reduce independently confirmed compromise or vulnerability introduction in AI-enabled software supply chains without unacceptable false blocks?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "A recent study retrieves and classifies hundreds of thousands of discussions and manually analyzes a smaller thematic sample; it is a taxonomy/discourse analysis, not an incident-rate or causal-effect estimate.",
+      "desired_improvement": "Prospective matched evaluation reports confirmed incidents, exposure, false blocks, and independent adjudication.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2029-01-01",
+        "due_date": "2031-12-31",
+        "radar_label": "2029-2031"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely sustained, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "Prospective matched evaluation reports confirmed incidents, exposure, false blocks, and independent adjudication."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Plausible if concern taxonomies do not track verified incidents.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "High if controls measurably reduce confirmed compromise while retaining developer utility.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "Prospective matched evaluation reports confirmed incidents, exposure, false blocks, and independent adjudication.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2512.23385",
+          "citation_record_sha256": "87f06f9155c5c8a23029bf67a73e6b4017daffd5bafc478f2f03018ab0c81874",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Watch",
+      "impact_assessment": {
+        "description": "High if controls measurably reduce confirmed compromise while retaining developer utility.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    },
+    {
+      "question_id": "ADAPTIVE_IVM_WORKLOAD_SHIFT",
+      "subfield": "Database theory and systems",
+      "problem_statement": "Can a workload-sensitive choice among valid incremental-view-maintenance configurations lower actual end-to-end cost under changing distributions after including exactness, migration, memory, and delay?",
+      "operational_assumptions": {
+        "status": "NOT_FULLY_SPECIFIED",
+        "items": []
+      },
+      "existing_strongest_baseline": "The 2026 heavy-light IVM source already handles changing heavy/light membership and database-size changes with amortized rebalancing; it selects query-optimal fixed epsilon against worst degree configurations.",
+      "desired_improvement": "A source-supported algorithm proves or measures lower total amortized cost than the fixed-epsilon baseline under an explicit shift model.",
+      "evidence_cutoff": "2026-10-16",
+      "forecast_horizon": {
+        "start": "2029-01-01",
+        "due_date": "2031-12-31",
+        "radar_label": "2029-2031"
+      },
+      "outcome_endpoints": {
+        "attention": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Specialist, editorial only.",
+          "criterion": null
+        },
+        "resolution": {
+          "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+          "criterion": "A source-supported algorithm proves or measures lower total amortized cost than the fixed-epsilon baseline under an explicit shift model."
+        },
+        "premise_revision": {
+          "status": "EDITORIAL_ONLY_NOT_OPERATIONALIZED",
+          "source_text": "Likely required if no objective advantage survives migration accounting.",
+          "criterion": null
+        },
+        "evidence_growth": {
+          "status": "OPERATIONAL_CATEGORIES_FROZEN_BY_PAPER3_TARGET_B_PROTOCOL",
+          "protocol": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1"
+        },
+        "impact": {
+          "status": "DESCRIPTIVE_NOT_A_FORECAST_EVENT",
+          "description": "Potentially high for workloads with severe shifts, but no novel benefit is established.",
+          "criterion": null
+        }
+      },
+      "resolution_criteria": {
+        "status": "MILESTONE_ONLY_NOT_FULLY_OPERATIONALIZED",
+        "candidate_criterion": "A source-supported algorithm proves or measures lower total amortized cost than the fixed-epsilon baseline under an explicit shift model.",
+        "missing": [
+          "numeric acceptance threshold",
+          "frozen population/workload or theorem scope",
+          "complete falsification threshold"
+        ]
+      },
+      "required_evidence_standard": "Dated primary-source evidence matching the frozen object, assumptions, comparator and endpoint; independent adjudication required.",
+      "outcome_adjudication_policy": "Use the CS operational outcome schema; missing evidence is not a negative outcome; do not map to source-native Paper 3 classes without the pinned taxonomy.",
+      "source_provenance": [
+        {
+          "url": "https://arxiv.org/abs/2605.08397",
+          "citation_record_sha256": "e91526961d257a0e3631de348be419e4d12daaeabc3dfa6f8379fcc2a05d5edd",
+          "hash_scope": "URL_STRING_ONLY_FULL_SOURCE_NOT_HASHED"
+        }
+      ],
+      "question_version": 1,
+      "origin": "QUALITATIVE_EDITORIAL_BASELINE",
+      "maturity": "Watch (current broad formulation is NO-GO)",
+      "impact_assessment": {
+        "description": "Potentially high for workloads with severe shifts, but no novel benefit is established.",
+        "event_forecast": false,
+        "status": "DESCRIPTIVE_NOT_OPERATIONALIZED"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "id": "JOINT_KV_SPECULATIVE_SERVING",
+      "title": "Joint KV-cache scheduling and speculative decoding under heterogeneous, changing load",
+      "subfield": "AI systems, scheduling, computer architecture",
+      "horizon": "2027-2028",
+      "maturity": "Investigate",
+      "precise_question": "Under fixed accelerator-memory, output-quality, and tail-latency constraints, can a joint cache-retention/placement and speculative-execution policy improve end-to-end goodput over separately tuned policies for held-out changing request workloads?",
+      "strongest_baseline": "KV-constrained scheduling has exact average-latency optimality in a semi-online model, constant regret under stochastic arrivals, and no constant competitive ratio in a fully adversarial online model; reported heterogeneous speculative decoding results remain configuration-specific.",
+      "unresolved_bottleneck": "Jointly account for cache residency, acceptance rate, accelerator contention, preemption, workload shift, and p95/p99 SLOs while holding output quality fixed.",
+      "supporting_evidence": [
+        "Theoretical online/offline distinction is explicit in 2502.07115.",
+        "SPECTRE reports up to 2.28x in evaluated settings, not an externally replicated universal guarantee.",
+        "Independent cache eviction papers report quality/footprint trade-offs."
+      ],
+      "counterevidence_and_risks": [
+        "Adversarial online constant-competitive guarantees are impossible in the cited model.",
+        "Component speedups may not compose; quality, memory, and tail latency can trade off."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely sustained, editorial only.",
+        "direct_resolution": "Uncertain; no calibrated forecast.",
+        "premise_revision": "Plausible if fixed-workload or fixed-cache assumptions fail in deployment."
+      },
+      "potential_impact": "High if it lowers serving cost or latency at unchanged output quality and SLO compliance.",
+      "paper4_recommended_action": "Map one public serving stack's controls; preregister an equal-memory, equal-quality, held-out-arrival replay comparison. Recommendation only; not a validated optimal action.",
+      "objective_milestone": "Independent implementation reproduces an end-to-end goodput or tail-latency gain on held-out arrivals while meeting fixed quality and memory constraints.",
+      "upgrade_if": "Benefit survives matched memory, held-out workload, quality, and p95/p99 constraints with independent replication.",
+      "downgrade_if": "Gain vanishes after equal-budget accounting, shifts cost to transfer/preemption, or harms output quality.",
+      "uncertainty": "High; preprint claims and model/workload specificity limit transfer.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2502.07115",
+        "https://arxiv.org/abs/2605.08151",
+        "https://arxiv.org/abs/2605.09649",
+        "https://arxiv.org/abs/2605.07234"
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "REPOSITORY_SCALE_VERIFIED_CODE",
+      "title": "Repository-scale verified code generation and repair",
+      "subfield": "Programming languages, software engineering, formal methods",
+      "horizon": "2027-2028",
+      "maturity": "Investigate",
+      "precise_question": "Can agents create patches satisfying explicit formal specifications and repository tests across unseen multi-file projects, with independent assurance that the specification matches intended behavior?",
+      "strongest_baseline": "VeriSoftBench contains 500 repository-context Lean obligations; vericoding benchmark contains 12,504 Lean/Verus/Dafny specifications; SWE-Bench Pro has 1,865 repository tasks across 41 projects. These endpoints are distinct and their rates must not be pooled.",
+      "unresolved_bottleneck": "Transitive repository context, proof/spec completeness, issue-to-spec correspondence, and hidden regression detection.",
+      "supporting_evidence": [
+        "VeriSoftBench reports poor transfer from Mathlib-style tasks and a benefit from dependency-closure context.",
+        "The vericoding benchmark shows substantial language- and task-family-dependent headroom.",
+        "SWE-Bench Pro provides held-out repository evaluation."
+      ],
+      "counterevidence_and_risks": [
+        "Benchmark scores may reward incomplete specifications or visible tests.",
+        "Formal proof of a formalized statement does not establish the statement captures user intent."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely high, editorial only.",
+        "direct_resolution": "Uncertain; repository dependencies remain a bottleneck.",
+        "premise_revision": "Possible if proof success fails to transfer to real bug-free behavior."
+      },
+      "potential_impact": "Very high in correctness-critical software if patches are both useful and verified against intended behavior.",
+      "paper4_recommended_action": "Build an endpoint taxonomy across theorem proof, verified synthesis, and repository repair; audit specification coverage before any matched evaluation.",
+      "objective_milestone": "Higher independently reviewed issue-resolution rate on unseen repositories with hidden regression tests and audited spec-to-code correspondence.",
+      "upgrade_if": "Gains replicate across held-out repositories and independent evaluators with no regression increase.",
+      "downgrade_if": "Performance collapses under hidden tests, repository shift, or specification perturbation.",
+      "uncertainty": "High; task distributions and correctness criteria differ substantially.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2602.18307",
+        "https://arxiv.org/abs/2509.22908",
+        "https://arxiv.org/abs/2509.16941"
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "MULTIAGENT_PROCESS_VERIFICATION",
+      "title": "Artifact-level process verification for multi-agent execution",
+      "subfield": "Multi-agent systems, evaluation, AI reliability",
+      "horizon": "2027-2028",
+      "maturity": "Investigate",
+      "precise_question": "Which intermediate verifier signals improve the probability of an independently validated correct final artifact over no verifier and simple deterministic checks, after accounting for verifier cost and false positives?",
+      "strongest_baseline": "MAS-ProVe compares three verifier paradigms, two granularities, five verifiers, four context strategies, and six MAS frameworks; authors report inconsistent gains and high variance.",
+      "unresolved_bottleneck": "Reliable labels for trajectory correctness and prospective linkage from verifier decisions to independently checked final outcomes.",
+      "supporting_evidence": [
+        "A broad 2026 empirical study directly reports that process verification does not consistently improve MAS performance."
+      ],
+      "counterevidence_and_risks": [
+        "Verifier can reward persuasive traces rather than correctness.",
+        "Context length, verifier cost, and task mix confound apparent gains."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely high, editorial only.",
+        "direct_resolution": "Uncertain; no stable universal verifier result.",
+        "premise_revision": "Plausible if process-level scores fail to predict artifact correctness."
+      },
+      "potential_impact": "High if verification can safely guide agents on long, expensive tasks.",
+      "paper4_recommended_action": "Freeze verifier decisions before outcome checks; design a prospective paired task study with false-positive costs and task-family grouping.",
+      "objective_milestone": "Replicated increase in independently checked task completion over no-verifier and deterministic baselines, net of added compute/context.",
+      "upgrade_if": "Positive results replicate across task families and verifiers with calibrated false-positive rates.",
+      "downgrade_if": "Gains are unstable, judge-dependent, or disappear after cost and artifact validation.",
+      "uncertainty": "High; current source reports variance and inconsistent effects.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2602.03053"
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "ADAPTIVE_DP_FILTERS",
+      "title": "Tight, certified filters for fully adaptive differential privacy",
+      "subfield": "Differential privacy, theoretical computer science",
+      "horizon": "2027-2028",
+      "maturity": "Experiment-ready (protocol only; no execution authorized)",
+      "precise_question": "Can valid, tight, numerically certified filters be constructed for fully adaptive composition beyond currently covered sampling regimes, with explicit assumptions and runtime/error guarantees?",
+      "strongest_baseline": "The 2026 f-DP filter paper disproves the naive natural filter in general, characterizes validity, and gives an approximate GDP filter for subsampled Gaussian mechanisms at q<0.2 and q>0.8.",
+      "unresolved_bottleneck": "Intermediate sampling rates and implementation-grade certified error bounds for a narrowly specified mechanism family.",
+      "supporting_evidence": [
+        "A source-verified theorem identifies both a failed natural construction and regime-limited approximate alternatives."
+      ],
+      "counterevidence_and_risks": [
+        "A practical gain may be dominated by existing RDP or privacy-loss-distribution accountants.",
+        "Theorem assumptions may not match deployed adaptive mechanisms."
+      ],
+      "paper3_outlook": {
+        "attention": "Steady specialist attention, editorial only.",
+        "direct_resolution": "Plausible for restricted parameter regimes, uncertain generally.",
+        "premise_revision": "Possible if current assumed adaptivity model is too broad or too narrow."
+      },
+      "potential_impact": "High where tighter valid accounting enables more useful private analyses.",
+      "paper4_recommended_action": "Map theorem assumptions to code and identify an exact uncovered parameter interval before implementation; no run performed.",
+      "objective_milestone": "Independent proof/code certificate gives a sound tighter bound than a pinned baseline on a prespecified mechanism family.",
+      "upgrade_if": "Formal error enclosure and matched privacy-utility comparison pass independent review.",
+      "downgrade_if": "No certified advantage over established accountants or assumptions fail on target use cases.",
+      "uncertainty": "Medium-high; theorem boundary is clear but practical impact is not evaluated.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2602.06756",
+        "https://arxiv.org/abs/2203.05481"
+      ]
+    },
+    {
+      "rank": 5,
+      "id": "SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+      "title": "Scientific agents that move from ideas to independently verified evidence",
+      "subfield": "AI for science, multi-agent systems, metascience",
+      "horizon": "2029-2031",
+      "maturity": "Investigate",
+      "precise_question": "Can an agent system generate a frozen falsifiable question and execute a discriminating study whose provenance, raw evidence, and conclusion survive independent adjudication?",
+      "strongest_baseline": "EIG reports proposal-quality benchmark gains; a 2026 historical-backtesting protocol reports an astronomy pilot and freezes a prospective set; neither establishes broad autonomous scientific discovery.",
+      "unresolved_bottleneck": "Outcome taxonomy reliability, prior-art checking, execution provenance, and the transition from proposal scores to actual independently reproducible results.",
+      "supporting_evidence": [
+        "Evolving idea-graph systems expose claims/conflicts and proposal editing.",
+        "A separate historical-backtesting paper provides a prospective falsifiable evaluation frame."
+      ],
+      "counterevidence_and_risks": [
+        "Proposal quality is not truth or executed evidence.",
+        "Human outcome labels in a recent pilot had low agreement, making the target itself noisy."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely high, editorial only.",
+        "direct_resolution": "Low-confidence; general autonomous discovery remains unvalidated.",
+        "premise_revision": "Possible if idea scores fail to predict independent evidence yield."
+      },
+      "potential_impact": "Potentially transformative, but only if agents reliably produce new verified evidence rather than fluent plans.",
+      "paper4_recommended_action": "Compare evaluation protocols and establish label-adjudication reliability before prospectively scoring systems.",
+      "objective_milestone": "On a frozen future cohort, systems improve independently adjudicated executed-evidence outcomes over simple baselines.",
+      "upgrade_if": "Blinded labels are reliable and held-out executed outcomes replicate with raw artifacts.",
+      "downgrade_if": "Label disagreement, missingness, or proposal-only outputs prevent objective evaluation.",
+      "uncertainty": "Very high; impact large, evidence is mostly proposal and protocol development.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2605.04922",
+        "https://arxiv.org/abs/2608.16795",
+        "https://arxiv.org/abs/2602.03053"
+      ]
+    },
+    {
+      "rank": 6,
+      "id": "CONFLICT_AWARE_AGENT_MEMORY",
+      "title": "Conflict-aware persistent memory for multi-agent systems",
+      "subfield": "Agent systems, knowledge representation, AI reliability",
+      "horizon": "2027-2028",
+      "maturity": "Watch",
+      "precise_question": "Does explicit claim-status and contradiction handling improve downstream correctness and update behavior over ordinary retrieval, merge, debate, or judge baselines on long-lived tasks?",
+      "strongest_baseline": "LatticeMind reports 0.97 versus 0.61 on its label-blind ConflictBank comparison; its four secondary planning benchmarks are mixed and the conflict benchmark is small.",
+      "unresolved_bottleneck": "External replication, scale and domain transfer, temporal updates, and correctness under evidence that later reverses earlier claims.",
+      "supporting_evidence": [
+        "A 2026 primary preprint evaluates symbolic conflict checking and selective reconciliation."
+      ],
+      "counterevidence_and_risks": [
+        "The main benchmark is a bounded construct; secondary tasks do not uniformly improve.",
+        "Accuracy on conflict classification may not transfer to long-horizon task success."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely high, editorial only.",
+        "direct_resolution": "Uncertain beyond narrow memory tasks.",
+        "premise_revision": "Plausible if benchmark conflict handling does not improve downstream work."
+      },
+      "potential_impact": "Medium-high if persistent systems become more reliable under contradictory updates.",
+      "paper4_recommended_action": "Track independent replication and require a downstream task endpoint with time-ordered evidence updates.",
+      "objective_milestone": "External study shows higher downstream accuracy and safe supersession rates than retrieval/merge baselines.",
+      "upgrade_if": "Replication across larger, independent datasets and long tasks confirms benefit.",
+      "downgrade_if": "Effect is benchmark-specific or reconciliation introduces harmful false overrides.",
+      "uncertainty": "High; one recent preprint and narrow main benchmark.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2608.08236"
+      ]
+    },
+    {
+      "rank": 7,
+      "id": "KV_CACHE_QUALITY_BUDGET",
+      "title": "KV-cache eviction and retention with explicit quality guarantees",
+      "subfield": "LLM inference, memory systems",
+      "horizon": "2027-2028",
+      "maturity": "Investigate",
+      "precise_question": "For pinned model/workload families, how much KV memory can be removed while maintaining a prespecified quality and tail-latency envelope, including long-context and distribution-shift conditions?",
+      "strongest_baseline": "Recent global and re-formulated eviction approaches report cache reductions with maintained or improved task performance on evaluated benchmarks; results are author-reported and benchmark-specific.",
+      "unresolved_bottleneck": "Quality tail-risk under long-context, model changes and workload shift; cache savings must be measured end-to-end rather than token retention alone.",
+      "supporting_evidence": [
+        "Two 2026 preprints propose distinct global/cache eviction rules and report benchmark evaluations."
+      ],
+      "counterevidence_and_risks": [
+        "Averages can conceal rare long-context failures.",
+        "Model, prompt, and decode distributions can invalidate eviction rankings."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely high, editorial only.",
+        "direct_resolution": "Uncertain across architectures and tasks.",
+        "premise_revision": "Plausible if quality does not track local salience estimates."
+      },
+      "potential_impact": "High if large memory reductions preserve quality and SLA at serving scale.",
+      "paper4_recommended_action": "Audit benchmark and prompt overlap; define a fixed quality non-inferiority margin and a held-out long-context stress set.",
+      "objective_milestone": "Independent reproduction shows reduced peak memory at a prespecified non-inferior quality margin and no tail regression.",
+      "upgrade_if": "Results replicate on unseen models and long-context workloads.",
+      "downgrade_if": "Savings depend on prompt-specific tuning or hide rare severe quality regressions.",
+      "uncertainty": "High; rapid method turnover and limited external replication.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2605.09649",
+        "https://arxiv.org/abs/2605.07234",
+        "https://arxiv.org/abs/2503.08879"
+      ]
+    },
+    {
+      "rank": 8,
+      "id": "HETEROGENEOUS_KV_MEMORY_PLACEMENT",
+      "title": "Runtime KV placement across heterogeneous memory tiers",
+      "subfield": "Computer architecture, systems, LLM inference",
+      "horizon": "2029-2031",
+      "maturity": "Investigate",
+      "precise_question": "Can an online placement policy exploit HBM plus off-package/host memory bandwidth to increase inference goodput under capacity, transfer, and tail-latency constraints?",
+      "strongest_baseline": "A 2025 source formulates dynamic KV placement and derives a theoretical upper bound, while explicitly not supplying a concrete scheduling policy.",
+      "unresolved_bottleneck": "Real transfer contention, page movement, prompt-specific access frequency, and interaction with compute scheduling.",
+      "supporting_evidence": [
+        "Heterogeneous memory links are increasingly available; source analysis identifies theoretical headroom."
+      ],
+      "counterevidence_and_risks": [
+        "Upper-bound headroom is not achievable-policy evidence.",
+        "Data movement may erase capacity advantages and worsen tail latency."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely sustained, editorial only.",
+        "direct_resolution": "Uncertain; policy gap needs systems implementation.",
+        "premise_revision": "Possible if transfer cost dominates expected bandwidth gain."
+      },
+      "potential_impact": "High if it enables larger models/batches on a fixed accelerator budget.",
+      "paper4_recommended_action": "Derive a workload-specific cost model from a public runtime before selecting a placement policy.",
+      "objective_milestone": "Implementable policy improves throughput at matched memory and tail-latency constraints over static placement.",
+      "upgrade_if": "Policy gains survive realistic interconnect and contention measurements.",
+      "downgrade_if": "Bound is loose or migrations dominate the service workload.",
+      "uncertainty": "High; current evidence is primarily formulation and bound.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2508.13231",
+        "https://arxiv.org/abs/2502.07115"
+      ]
+    },
+    {
+      "rank": 9,
+      "id": "REPOSITORY_FORMAL_VERIFICATION",
+      "title": "Formal verification across realistic repository dependency closures",
+      "subfield": "Programming languages, formal methods",
+      "horizon": "2029-2031",
+      "maturity": "Investigate",
+      "precise_question": "Can proof automation scale across multi-file, definition-rich repositories while maintaining soundness and reducing the human time needed to discharge real software obligations?",
+      "strongest_baseline": "VeriSoftBench's 500-task repository-level Lean suite reports dependency-closure difficulty and improvement from curated relevant context; vericoding adds cross-language specifications but with distinct task semantics.",
+      "unresolved_bottleneck": "Large dependency closures, context selection, proof maintenance under code changes, and adequacy of formal specifications.",
+      "supporting_evidence": [
+        "New repository-scale benchmark makes a previously underrepresented setting measurable."
+      ],
+      "counterevidence_and_risks": [
+        "Benchmark construction and repository selection may not represent production verification.",
+        "Passing obligations does not show total verification coverage."
+      ],
+      "paper3_outlook": {
+        "attention": "Rising, editorial only.",
+        "direct_resolution": "Uncertain; progress likely incremental and domain-specific.",
+        "premise_revision": "Possible if context reduction or automation fails at scale."
+      },
+      "potential_impact": "Very high if real codebases gain maintainable, sound proof coverage at lower cost.",
+      "paper4_recommended_action": "Track benchmark extensions and independent Lean/Verus repository evaluations; keep proof completion and intended-behavior correctness separate.",
+      "objective_milestone": "More real repository obligations discharged per expert-hour with sound checking and maintained proofs after code edits.",
+      "upgrade_if": "External teams reproduce gains on new repositories and measure maintenance cost.",
+      "downgrade_if": "Proofs depend on narrow benchmark context or break under routine code evolution.",
+      "uncertainty": "High; objective metrics exist but deployment transfer is unknown.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2602.18307",
+        "https://arxiv.org/abs/2509.22908"
+      ]
+    },
+    {
+      "rank": 10,
+      "id": "LONG_HORIZON_REPOSITORY_AGENTS",
+      "title": "Long-horizon software engineering agents on held-out repositories",
+      "subfield": "Software engineering, agent systems",
+      "horizon": "2029-2031",
+      "maturity": "Investigate",
+      "precise_question": "Do agents resolve multi-hour or multi-day maintenance issues on unseen repositories with correct patches, low regression rates, and independent human acceptance?",
+      "strongest_baseline": "SWE-Bench Pro supplies a larger, more difficult repository task suite with held-out settings; the paper reports that strong systems still solve a minority under its protocol.",
+      "unresolved_bottleneck": "Long dependency chains, changing state, test coverage, tool reliability, and evaluation cost/acceptance criteria.",
+      "supporting_evidence": [
+        "The benchmark explicitly targets more complex software engineering tasks and held-out repositories."
+      ],
+      "counterevidence_and_risks": [
+        "Benchmark success may not transfer to live maintenance.",
+        "Task selection and test suites can encode a narrow notion of completion."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely sustained, editorial only.",
+        "direct_resolution": "Uncertain; task scope grows faster than current reliability evidence.",
+        "premise_revision": "Possible if solved benchmarks do not predict deployed acceptance."
+      },
+      "potential_impact": "High if agents safely reduce expert effort on substantial maintenance.",
+      "paper4_recommended_action": "Use task-level accepted patch outcomes and held-out repositories; audit whether issue, tests, and maintainers agree.",
+      "objective_milestone": "Replicated growth in accepted, regression-free patches on held-out repositories with controlled tool budgets.",
+      "upgrade_if": "Independent maintainers accept patches and gains persist under hidden tests and realistic budgets.",
+      "downgrade_if": "Performance is scaffold-specific or causes security/maintenance regressions.",
+      "uncertainty": "High; test endpoint is clearer than transfer to practice.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2509.16941"
+      ]
+    },
+    {
+      "rank": 11,
+      "id": "AI_SOFTWARE_SUPPLY_CHAIN_OUTCOMES",
+      "title": "AI/software supply-chain risk measured against confirmed incidents",
+      "subfield": "Cybersecurity, software supply chain",
+      "horizon": "2029-2031",
+      "maturity": "Watch",
+      "precise_question": "Do concrete provenance and policy controls reduce independently confirmed compromise or vulnerability introduction in AI-enabled software supply chains without unacceptable false blocks?",
+      "strongest_baseline": "A recent study retrieves and classifies hundreds of thousands of discussions and manually analyzes a smaller thematic sample; it is a taxonomy/discourse analysis, not an incident-rate or causal-effect estimate.",
+      "unresolved_bottleneck": "Linking artifacts and policy decisions to confirmed security outcomes with attribution, exposure denominators, and false-positive costs.",
+      "supporting_evidence": [
+        "Large public discourse corpus indicates active concerns and offers a vocabulary for measurement."
+      ],
+      "counterevidence_and_risks": [
+        "Discussion volume is not prevalence or impact.",
+        "Impact-label inter-rater agreement and incident attribution are difficult."
+      ],
+      "paper3_outlook": {
+        "attention": "Likely sustained, editorial only.",
+        "direct_resolution": "Uncertain; incident evidence is sparse and delayed.",
+        "premise_revision": "Plausible if concern taxonomies do not track verified incidents."
+      },
+      "potential_impact": "High if controls measurably reduce confirmed compromise while retaining developer utility.",
+      "paper4_recommended_action": "Define incident-confirmation and denominator protocol; link software artifacts and advisories rather than relying on discussion labels.",
+      "objective_milestone": "Prospective matched evaluation reports confirmed incidents, exposure, false blocks, and independent adjudication.",
+      "upgrade_if": "Reliable artifact-to-incident linkage and a feasible control evaluation emerge.",
+      "downgrade_if": "Data cannot support attribution or only proxy discourse outcomes are available.",
+      "uncertainty": "Very high; outcome observability and causal attribution are weak.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2512.23385"
+      ]
+    },
+    {
+      "rank": 12,
+      "id": "ADAPTIVE_IVM_WORKLOAD_SHIFT",
+      "title": "Instance-adaptive incremental view maintenance beyond fixed query-optimal thresholds",
+      "subfield": "Database theory and systems",
+      "horizon": "2029-2031",
+      "maturity": "Watch (current broad formulation is NO-GO)",
+      "precise_question": "Can a workload-sensitive choice among valid incremental-view-maintenance configurations lower actual end-to-end cost under changing distributions after including exactness, migration, memory, and delay?",
+      "strongest_baseline": "The 2026 heavy-light IVM source already handles changing heavy/light membership and database-size changes with amortized rebalancing; it selects query-optimal fixed epsilon against worst degree configurations.",
+      "unresolved_bottleneck": "No proven online selection rule has demonstrated net benefit over the fixed minimax baseline once migration and memory costs are included.",
+      "supporting_evidence": [
+        "A source-level theorem gives a clear asymptotic update baseline and explicit rebalancing."
+      ],
+      "counterevidence_and_risks": [
+        "Broad dynamic-skew challenge is already covered.",
+        "Naive switching/rebuild can lose a factor proportional to database size on alternating regimes."
+      ],
+      "paper3_outlook": {
+        "attention": "Specialist, editorial only.",
+        "direct_resolution": "Low confidence for current formulation; prior art closes the broad claim.",
+        "premise_revision": "Likely required if no objective advantage survives migration accounting."
+      },
+      "potential_impact": "Potentially high for workloads with severe shifts, but no novel benefit is established.",
+      "paper4_recommended_action": "Do not activate a task unless a precise workload model and migration-aware advantage conjecture survive source review.",
+      "objective_milestone": "A source-supported algorithm proves or measures lower total amortized cost than the fixed-epsilon baseline under an explicit shift model.",
+      "upgrade_if": "A nontrivial migration-correct theorem and executable comparator are identified.",
+      "downgrade_if": "No advantage beyond existing rebalancing can be shown.",
+      "uncertainty": "High; present candidate is deliberately down-ranked after prior-art correction.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2605.08397"
+      ]
+    }
+  ],
+  "provenance_note": "Each citation is preserved as included in the frozen radar. URL hashes are citation-record hashes, not full-text content hashes. No additional publication dates or full-text hashes are inferred.",
+  "evidence_registry": [
+    {
+      "evidence_id": "CIT-4747487242c03d42",
+      "question_id": "JOINT_KV_SPECULATIVE_SERVING",
+      "source_identifier": "2502.07115",
+      "canonical_url": "https://arxiv.org/abs/2502.07115",
+      "doi": null,
+      "arxiv_id": "2502.07115",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-17ec0519bc2e0330",
+      "question_id": "JOINT_KV_SPECULATIVE_SERVING",
+      "source_identifier": "2605.08151",
+      "canonical_url": "https://arxiv.org/abs/2605.08151",
+      "doi": null,
+      "arxiv_id": "2605.08151",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-cadb2cb14d82b655",
+      "question_id": "JOINT_KV_SPECULATIVE_SERVING",
+      "source_identifier": "2605.09649",
+      "canonical_url": "https://arxiv.org/abs/2605.09649",
+      "doi": null,
+      "arxiv_id": "2605.09649",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-6a7304b204b6348c",
+      "question_id": "JOINT_KV_SPECULATIVE_SERVING",
+      "source_identifier": "2605.07234",
+      "canonical_url": "https://arxiv.org/abs/2605.07234",
+      "doi": null,
+      "arxiv_id": "2605.07234",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-886a909036ffdeb4",
+      "question_id": "REPOSITORY_SCALE_VERIFIED_CODE",
+      "source_identifier": "2602.18307",
+      "canonical_url": "https://arxiv.org/abs/2602.18307",
+      "doi": null,
+      "arxiv_id": "2602.18307",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-9d4655be28f2144b",
+      "question_id": "REPOSITORY_SCALE_VERIFIED_CODE",
+      "source_identifier": "2509.22908",
+      "canonical_url": "https://arxiv.org/abs/2509.22908",
+      "doi": null,
+      "arxiv_id": "2509.22908",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-2e233c1a5dfa4972",
+      "question_id": "REPOSITORY_SCALE_VERIFIED_CODE",
+      "source_identifier": "2509.16941",
+      "canonical_url": "https://arxiv.org/abs/2509.16941",
+      "doi": null,
+      "arxiv_id": "2509.16941",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-be7f3a86db5a628e",
+      "question_id": "MULTIAGENT_PROCESS_VERIFICATION",
+      "source_identifier": "2602.03053",
+      "canonical_url": "https://arxiv.org/abs/2602.03053",
+      "doi": null,
+      "arxiv_id": "2602.03053",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-c03d90627d12082a",
+      "question_id": "ADAPTIVE_DP_FILTERS",
+      "source_identifier": "2602.06756",
+      "canonical_url": "https://arxiv.org/abs/2602.06756",
+      "doi": null,
+      "arxiv_id": "2602.06756",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-2bf70a8b7e254820",
+      "question_id": "ADAPTIVE_DP_FILTERS",
+      "source_identifier": "2203.05481",
+      "canonical_url": "https://arxiv.org/abs/2203.05481",
+      "doi": null,
+      "arxiv_id": "2203.05481",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-f66fa06044182715",
+      "question_id": "SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+      "source_identifier": "2605.04922",
+      "canonical_url": "https://arxiv.org/abs/2605.04922",
+      "doi": null,
+      "arxiv_id": "2605.04922",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-34c4a08810bd4199",
+      "question_id": "SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+      "source_identifier": "2608.16795",
+      "canonical_url": "https://arxiv.org/abs/2608.16795",
+      "doi": null,
+      "arxiv_id": "2608.16795",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-be7f3a86db5a628e",
+      "question_id": "SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+      "source_identifier": "2602.03053",
+      "canonical_url": "https://arxiv.org/abs/2602.03053",
+      "doi": null,
+      "arxiv_id": "2602.03053",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-19fd9fb5fb6b4ee0",
+      "question_id": "CONFLICT_AWARE_AGENT_MEMORY",
+      "source_identifier": "2608.08236",
+      "canonical_url": "https://arxiv.org/abs/2608.08236",
+      "doi": null,
+      "arxiv_id": "2608.08236",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-cadb2cb14d82b655",
+      "question_id": "KV_CACHE_QUALITY_BUDGET",
+      "source_identifier": "2605.09649",
+      "canonical_url": "https://arxiv.org/abs/2605.09649",
+      "doi": null,
+      "arxiv_id": "2605.09649",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-6a7304b204b6348c",
+      "question_id": "KV_CACHE_QUALITY_BUDGET",
+      "source_identifier": "2605.07234",
+      "canonical_url": "https://arxiv.org/abs/2605.07234",
+      "doi": null,
+      "arxiv_id": "2605.07234",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-fa65c0813729513b",
+      "question_id": "KV_CACHE_QUALITY_BUDGET",
+      "source_identifier": "2503.08879",
+      "canonical_url": "https://arxiv.org/abs/2503.08879",
+      "doi": null,
+      "arxiv_id": "2503.08879",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-3e6ef2df7e3be823",
+      "question_id": "HETEROGENEOUS_KV_MEMORY_PLACEMENT",
+      "source_identifier": "2508.13231",
+      "canonical_url": "https://arxiv.org/abs/2508.13231",
+      "doi": null,
+      "arxiv_id": "2508.13231",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-4747487242c03d42",
+      "question_id": "HETEROGENEOUS_KV_MEMORY_PLACEMENT",
+      "source_identifier": "2502.07115",
+      "canonical_url": "https://arxiv.org/abs/2502.07115",
+      "doi": null,
+      "arxiv_id": "2502.07115",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-886a909036ffdeb4",
+      "question_id": "REPOSITORY_FORMAL_VERIFICATION",
+      "source_identifier": "2602.18307",
+      "canonical_url": "https://arxiv.org/abs/2602.18307",
+      "doi": null,
+      "arxiv_id": "2602.18307",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-9d4655be28f2144b",
+      "question_id": "REPOSITORY_FORMAL_VERIFICATION",
+      "source_identifier": "2509.22908",
+      "canonical_url": "https://arxiv.org/abs/2509.22908",
+      "doi": null,
+      "arxiv_id": "2509.22908",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-2e233c1a5dfa4972",
+      "question_id": "LONG_HORIZON_REPOSITORY_AGENTS",
+      "source_identifier": "2509.16941",
+      "canonical_url": "https://arxiv.org/abs/2509.16941",
+      "doi": null,
+      "arxiv_id": "2509.16941",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-87f06f9155c5c8a2",
+      "question_id": "AI_SOFTWARE_SUPPLY_CHAIN_OUTCOMES",
+      "source_identifier": "2512.23385",
+      "canonical_url": "https://arxiv.org/abs/2512.23385",
+      "doi": null,
+      "arxiv_id": "2512.23385",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    },
+    {
+      "evidence_id": "CIT-e91526961d257a0e",
+      "question_id": "ADAPTIVE_IVM_WORKLOAD_SHIFT",
+      "source_identifier": "2605.08397",
+      "canonical_url": "https://arxiv.org/abs/2605.08397",
+      "doi": null,
+      "arxiv_id": "2605.08397",
+      "publication_date": null,
+      "version_date": null,
+      "retrieval_date": null,
+      "earliest_verified_availability_date": "2026-10-16",
+      "availability_status": "VERIFIED",
+      "availability_basis": "URL is included as a citation in the frozen baseline input; this verifies use by that snapshot, not the source's earliest publication date.",
+      "evidence_type": "CITATION_RECORD_ONLY",
+      "claim": "Citation included by the qualitative editorial radar; claim-level full-text linkage has not been imported.",
+      "assumptions": [],
+      "contradicts_evidence_ids": [],
+      "source_reliability": "PRIMARY_SOURCE_URL_UNVERIFIED_FULLTEXT",
+      "independent_replication_status": "NOT_ASSESSED",
+      "provenance": {
+        "baseline_snapshot_id": "SNAP-QUAL-EDITORIAL-20261016-184eb27b5dcb"
+      },
+      "content_sha256": null,
+      "content_hash_scope": "URL_STRING_ONLY"
+    }
+  ],
+  "snapshot_sha256": "a7cb5699ca6b1b93aa6096acc06da7acf30ed036a163a6fc83c1e1a7fbaf7c58"
+}

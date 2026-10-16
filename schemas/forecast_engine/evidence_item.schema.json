@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/cs-forecast-evidence-v1.json",
+  "title": "Point-in-time evidence event",
+  "type": "object",
+  "required": ["evidence_id", "question_id", "source_identifier", "canonical_url", "evidence_type", "claim", "availability_status", "retrieval_date", "content_hash_scope"],
+  "properties": {
+    "evidence_id": {"type": "string", "minLength": 1},
+    "question_id": {"type": "string", "minLength": 1},
+    "source_identifier": {"type": "string"},
+    "doi": {"type": ["string", "null"]},
+    "arxiv_id": {"type": ["string", "null"]},
+    "canonical_url": {"type": "string", "format": "uri"},
+    "publication_date": {"type": ["string", "null"], "format": "date"},
+    "version_date": {"type": ["string", "null"], "format": "date"},
+    "retrieval_date": {"type": ["string", "null"], "format": "date"},
+    "earliest_verified_availability_date": {"type": ["string", "null"], "format": "date"},
+    "availability_status": {"enum": ["VERIFIED", "UNCERTAIN", "NOT_YET_AVAILABLE", "UNKNOWN"]},
+    "availability_basis": {"type": ["string", "null"]},
+    "evidence_type": {"type": "string"},
+    "claim": {"type": "string"},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "contradicts_evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "source_reliability": {"type": "string"},
+    "independent_replication_status": {"type": "string"},
+    "provenance": {"type": "object"},
+    "content_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "content_hash_scope": {"type": "string"},
+    "supersedes_event_id": {"type": ["string", "null"]}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/cs-forecast-manifest-v1.json",
+  "title": "Forecast workflow reproducibility manifest",
+  "type": "object",
+  "required": ["manifest_version", "generated_at", "command", "inputs", "fixture_only", "scientific_claim"],
+  "properties": {
+    "manifest_version": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "command": {"type": "array", "items": {"type": "string"}},
+    "inputs": {"type": "array", "items": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": ["string", "null"]}}}},
+    "fixture_only": {"type": "boolean"},
+    "scientific_claim": {"const": false}
+  }
+}

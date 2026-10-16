@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/cs-paper4-action-plan-v1.json",
+  "title": "Frozen Paper 4-style pre-action plan",
+  "type": "object",
+  "required": ["plan_id", "question_id", "decision_timestamp", "hypotheses", "evidence_gaps", "candidate_actions", "ranking", "planner_weights", "observed_provenance_roots", "selection_rationale", "assumptions", "frozen_sha256"],
+  "properties": {
+    "plan_id": {"type": "string"},
+    "question_id": {"type": "string"},
+    "decision_timestamp": {"type": "string", "format": "date-time"},
+    "hypotheses": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "statement", "prior"], "properties": {"id": {"type": "string"}, "statement": {"type": "string"}, "prior": {"type": "number", "minimum": 0}}}},
+    "evidence_gaps": {"type": "array"},
+    "candidate_actions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["action_id", "estimated_cost", "uncertainty_reduction_assumption", "feasibility_assumption", "expected_observations", "falsification_value_assumption", "provenance"],
+        "properties": {
+          "action_id": {"type": "string", "minLength": 1},
+          "estimated_cost": {"type": "number", "minimum": 0},
+          "uncertainty_reduction_assumption": {"type": "number", "minimum": 0},
+          "feasibility_assumption": {"type": "string", "minLength": 1},
+          "expected_observations": {"type": "array"},
+          "falsification_value_assumption": {"type": "string", "minLength": 1},
+          "provenance": {"type": "object", "required": ["roots"]},
+          "tractability_assumption": {"type": "number", "minimum": 0, "maximum": 1},
+          "expected_outcomes": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}}},
+          "research_momentum_at_cutoff": {"type": ["number", "null"]}
+        }
+      }
+    },
+    "ranking": {"type": "array", "minItems": 1},
+    "planner_weights": {"type": "object", "required": ["information_gain", "novelty", "tractability", "cost"], "properties": {"information_gain": {"type": "number"}, "novelty": {"type": "number"}, "tractability": {"type": "number"}, "cost": {"type": "number"}}},
+    "observed_provenance_roots": {"type": "array", "items": {"type": "string"}},
+    "selection_rationale": {"type": "string"},
+    "assumptions": {"type": "object"},
+    "frozen_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

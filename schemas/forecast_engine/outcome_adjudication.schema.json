@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/cs-outcome-adjudication-v1.json",
+  "title": "Human-adjudicated CS outcome",
+  "type": "object",
+  "required": ["adjudication_id", "question_id", "endpoint", "forecast_cutoff", "due_date", "observation_end", "status", "evidence_ids", "assumptions_match", "comparator_match", "metric_match", "reviewer_ids", "independent_review_status", "relation_to_frozen_question", "missingness_status", "criterion_version"],
+  "properties": {
+    "adjudication_id": {"type": "string"},
+    "question_id": {"type": "string"},
+    "endpoint": {"enum": ["attention", "resolution", "premise_revision", "evidence_growth", "impact"]},
+    "forecast_cutoff": {"type": "string", "format": "date"},
+    "due_date": {"type": "string", "format": "date"},
+    "observation_end": {"type": "string", "format": "date"},
+    "status": {"enum": ["AUTHENTICATED_RESOLUTION", "AUTHENTICATED_REFUTATION_OR_PREMISE_REVISION", "AUTHENTICATED_SUBSTANTIVE_PROGRESS", "VERIFIED_UNRESOLVED_AT_HORIZON", "INSUFFICIENT_EVIDENCE", "NOT_YET_DUE"]},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "assumptions_match": {"type": "boolean"},
+    "comparator_match": {"type": "boolean"},
+    "metric_match": {"type": "boolean"},
+    "reviewer_ids": {"type": "array", "items": {"type": "string"}},
+    "independent_review_status": {"enum": ["AGREED", "DISAGREEMENT", "PENDING", "NOT_APPLICABLE"]},
+    "relation_to_frozen_question": {"type": "string", "minLength": 1},
+    "missingness_status": {"type": "string"},
+    "criterion_version": {"type": "string"},
+    "disagreement": {"type": ["string", "null"]}
+  }
+}
