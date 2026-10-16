@@ -507,7 +507,7 @@
     }
   ],
   "last_activation_id": "2026-10-16T01:37:01Z-manual-theory-checkpoint",
-  "last_successful_commit": "a5b82bf",
+  "last_successful_commit": "961aee0",
   "latest_scientific_increment": {
     "decision": "parameterized_active_double_star_exchange_schedule_proved",
     "evidence_level": "tier_3_hand_verified_mathematical_schedule_and_exact_traffic_accounting",
