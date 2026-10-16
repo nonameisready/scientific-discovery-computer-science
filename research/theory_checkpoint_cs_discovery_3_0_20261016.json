@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "CS-DISCOVERY-3.0-OPPORTUNITY-SCAN-20261016",
+  "date": "2026-10-16",
+  "status": "completed_bounded_scan_no_candidate_selected",
+  "task_id": "CS-DISCOVERY-3.0-OPPORTUNITY-SCAN-20261016",
+  "scientific_decision": "NO-GO: eight credible candidates were screened; none had a sufficiently authenticated novelty gap plus a bounded, authorized path to validation.",
+  "confirmed_increment": "Created a CS-primary-scope policy, compared source-grounded mechanisms across inference, retrieval, serving, incremental databases, ANN, dynamic geometry, and cardinality estimation, and specified a falsifiable but unadmitted online heavy-light IVM lead.",
+  "strongest_unselected_lead": "C5_DYNAMIC_INCREMENTAL_VIEW_MAINTENANCE_SKEW_ADAPTATION",
+  "strongest_lead_blocker": "The ACM primary full text for the May 2026 heavy-light IVM paper returned HTTP 403; detailed threshold/maintenance-width claims could not be independently reconstructed, and novelty against adjacent work is unresolved.",
+  "paper3_or_paper4_changed": false,
+  "experiment_run": false,
+  "benchmark_or_inference_run": false,
+  "successor_task_created": false,
+  "historical_checkpoint_preserved": [
+    "research/theory_checkpoint_proof_mechanism_discovery_20261016.json",
+    "research/tracks/theory/state.json"
+  ],
+  "artifacts": [
+    "reports/CS_DISCOVERY_3_0_OPPORTUNITY_SCAN.md",
+    "reports/CS_DISCOVERY_3_0_OPPORTUNITY_SCAN.json",
+    "research/cs_discovery_3_0_ledger_20261016.json"
+  ],
+  "validation": {
+    "research_check": "passed: ok=true, task_count=58, ledger_records=10",
+    "research_status": "passed read-only report; Supervisor ACTIVE, theory/experiments/forecasting tracks IDLE",
+    "unit_tests": "passed: 69 tests; pre-existing DP158 numerical runtime warnings",
+    "json_validation": "passed",
+    "diff_check": "passed before staging"
+  }
+}

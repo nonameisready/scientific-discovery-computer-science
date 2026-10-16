@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "ledger_id": "CS-DISCOVERY-3.0-20261016",
+  "date": "2026-10-16",
+  "append_only": true,
+  "evidence_level": "bounded_primary_source_opportunity_screen",
+  "entries": [
+    {
+      "id": "CS30-01",
+      "claim": "Speculative tree expansion based on token-acceptance or hardware marginal benefit-cost is already directly addressed by Sequoia, OPT-Tree, and SMART.",
+      "status": "prior_art_overlap_confirmed_at_source_scope",
+      "sources": ["https://arxiv.org/abs/2402.12374", "https://arxiv.org/abs/2406.17276", "https://arxiv.org/abs/2604.09731"],
+      "limitation": "This is not a proof that all queueing-aware aggregate objectives are solved; no narrower open gap was authenticated here."
+    },
+    {
+      "id": "CS30-02",
+      "claim": "Recent KV retention/compression methods cover heavy hitters, observation-window selection, reasoning redundancy, and query-agnostic reconstruction.",
+      "status": "prior_art_overlap_no_candidate_admitted",
+      "sources": ["https://arxiv.org/abs/2306.14048", "https://arxiv.org/abs/2404.14469", "https://proceedings.neurips.cc/paper_files/paper/2025/hash/57e0358aed314784cad14a26e1eba642-Abstract-Conference.html", "https://proceedings.neurips.cc/paper_files/paper/2025/hash/f4eaa4b8f2d08edb3f0af990d56134ea-Abstract-Conference.html"],
+      "limitation": "No future-query robust guarantee or fair authorized evaluation was developed."
+    },
+    {
+      "id": "CS30-03",
+      "claim": "Adaptive retrieval, context sizing, and evidence compression already have threshold, bandit, and iterative reranking approaches.",
+      "status": "candidate_gap_not_isolated",
+      "sources": ["https://aclanthology.org/2025.emnlp-main.1017/", "https://aclanthology.org/2025.coling-main.218/", "https://arxiv.org/abs/2507.05633"],
+      "limitation": "A calibrated evidence-coverage risk interface remains a possible issue, but no distinct mechanism or guarantee was established."
+    },
+    {
+      "id": "CS30-04",
+      "claim": "Prompt sharing, prefill/decode placement, SLO goodput, and decode rescheduling have close recent systems treatments.",
+      "status": "candidate_downranked_due_close_prior_art_and_environment",
+      "sources": ["https://arxiv.org/abs/2407.00023", "https://arxiv.org/abs/2508.01989", "https://arxiv.org/abs/2510.13668"],
+      "limitation": "A new method would need a precisely isolated cluster scheduling objective and matched multi-GPU validation."
+    },
+    {
+      "id": "CS30-05",
+      "claim": "Dynamic heavy-light incremental view maintenance is the strongest unselected lead, but its exact 2026 theorem scope could not be reconstructed because the primary ACM PDF was inaccessible.",
+      "status": "unverified_lead_not_selected",
+      "sources": ["https://doi.org/10.1145/3801905", "https://doi.org/10.1007/s00778-023-00817-w"],
+      "limitation": "Do not claim an online skew-adaptation gap until the primary theorem and related update-dependent work are fully audited."
+    },
+    {
+      "id": "CS30-06",
+      "claim": "No candidate passed the originality, exact mechanism, correctness, resource, and authorized-validation gates in this one-cycle screen.",
+      "status": "bounded_no_go",
+      "sources": [],
+      "limitation": "This negative screening result does not imply that these areas lack open research problems."
+    }
+  ]
+}
