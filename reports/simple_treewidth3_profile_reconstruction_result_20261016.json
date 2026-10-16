@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-SIMPLE-TREEWIDTH3-PROFILE-RECONSTRUCTION-001",
+  "date": "2026-10-16",
+  "artifact": "reports/simple_treewidth3_profile_reconstruction_20261016.md",
+  "status": "bounded_cycle_complete_no_go_on_main_conjecture",
+  "experiment_run": false,
+  "paper3_changed": false,
+  "paper4_changed": false,
+  "source_reconstruction": {
+    "primary_sources": [
+      {
+        "title": "Profile and neighbourhood complexity of graphs excluding a minor and tree-structured graphs",
+        "url": "https://arxiv.org/abs/2501.08895v3",
+        "checked_claims": [
+          "profile definition and all-infinite-profile exclusion",
+          "simple-treewidth definition as subgraph of simple t-tree",
+          "treewidth O_t(r^(t+1) k) theorem and LCA guard proof",
+          "outerplanar 1+(2r+2)^2 k theorem and circular-layer monotonicity proof",
+          "simple-treewidth O_t(r^t k) conjecture, proved for t=1,2"
+        ],
+        "version_metadata_note": "arXiv header says v3 dated 2025-12-13; body says 2026-08-24. No inference about when body text changed."
+      },
+      {
+        "title": "Neighborhood complexity of planar graphs",
+        "url": "https://doi.org/10.1007/s00493-024-00110-6",
+        "arxiv_url": "https://arxiv.org/abs/2302.12633v2",
+        "checked_claims": [
+          "earlier treewidth profile upper bound",
+          "minor-free guard/profile estimate",
+          "treewidth lower construction and profile coordinates",
+          "Corollary 37 neighborhood lower-bound distinction"
+        ]
+      }
+    ],
+    "definitions": {
+      "truncated_distance": "cap_r(d)=d if d<=r, and +infinity otherwise",
+      "profile": "p_r(v,A)(a)=cap_r(dist_G(v,a))",
+      "profile_complexity": "number of distinct profiles except the all-infinity vector; pc_r(G,k) maximizes over |A|=k",
+      "simple_treewidth": "minimum t such that G is a subgraph of a simple t-tree; a t-clique is not reused to attach two different vertices"
+    },
+    "verified_bounds": {
+      "general_treewidth_beaudou": "O_t(r^(t+1) k)",
+      "general_treewidth_joret_rambaud_earlier": "O((t+1) binomial(r+t,t) r^t k)=O_t(r^(2t)k)",
+      "outerplanar": "pc_r(G,A)<=1+(2r+2)^2 |A|",
+      "simple_treewidth_conjecture": "for each fixed t, O_t(r^t k); t=3 target O(r^3 k)"
+    }
+  },
+  "claims": [
+    {
+      "id": "general_treewidth_upper",
+      "classification": "published_theorem",
+      "scope": "all graphs of ordinary treewidth at most fixed t",
+      "status": "verified"
+    },
+    {
+      "id": "outerplanar_profile_upper",
+      "classification": "published_theorem",
+      "scope": "outerplanar graphs",
+      "status": "verified"
+    },
+    {
+      "id": "simple_treewidth_exponent_conjecture",
+      "classification": "source_explicit_unresolved_conjecture",
+      "scope": "all subgraphs of simple t-trees",
+      "status": "still_stated_in_checked_primary_text"
+    },
+    {
+      "id": "joret_rambaud_t3_lower_refutes_stw3",
+      "classification": "disproved_claim",
+      "status": "lower_construction_is_nonplanar_and_not_stw3",
+      "verification": "explicit K_3,3 minor model; every simple 3-tree is planar"
+    },
+    {
+      "id": "guard_distances_determine_profile",
+      "classification": "proved_elementary_implication",
+      "status": "valid_when_guard_hits_every_global_short_path_and_distances_use_same_graph"
+    },
+    {
+      "id": "O_k_three_vertex_guard_family",
+      "classification": "unresolved_candidate_not_refuted",
+      "status": "no proof and no counterexample to all possible families"
+    },
+    {
+      "id": "maximal_simple_3_tree_host_profile_bound",
+      "classification": "proved_restricted_structural_lemma_low_novelty",
+      "statement": "pc_r(H,A)<=4|A|(16(r+1)+1)^2 for a maximal simple 3-tree H",
+      "does_not_cover": "proper subgraphs G of H, whose distances may change after edge deletion"
+    },
+    {
+      "id": "corridor_signature_CS3",
+      "classification": "plausible_but_unproved_conjectural_lemma",
+      "statement": "For each standard LCA guard S and its assigned vertices X_S in any G subgraph of a simple 3-tree, the number of truncated G-distance vectors on S is O(r^3), uniformly.",
+      "status": "unresolved"
+    },
+    {
+      "id": "full_stw3_conjecture_refuted",
+      "classification": "not_established",
+      "status": "no_asymptotic_counterexample_found"
+    }
+  ],
+  "proof_obligations": [
+    {
+      "id": "PO-CS3-PARTIAL-METRIC-CORRELATION",
+      "status": "open",
+      "obligation": "Prove a uniform O(r^3) joint signature bound for vertices assigned to each LCA guard of a partial simple-3-tree subgraph, especially two-sided regions, or construct an asymptotic counterexample."
+    }
+  ],
+  "decision": {
+    "go": false,
+    "reason": "The main conjecture remains unresolved; only a low-novelty host-only corollary was proved. No successor task is created.",
+    "publication_value": "Low for the host-only corollary; no publication-level result on simple-treewidth-3 subgraphs established."
+  },
+  "validation": {
+    "research_check": "passed: 58 tasks, 10 ledger records, no errors",
+    "unit_tests": "passed: PYTHONPATH=src python3 -m unittest discover -s tests -v; 69 tests",
+    "json_validation": "passed: result, checkpoint, and opportunity registry parse",
+    "git_diff_check": "passed before staging"
+  }
+}

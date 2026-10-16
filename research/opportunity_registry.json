@@ -1,6 +1,6 @@
 {
   "registry_id": "CS-OPPORTUNITY-REGISTRY-20261015",
-  "updated_at": "2026-10-16T04:53:10Z",
+  "updated_at": "2026-10-16T16:53:28Z",
   "directions": [
     {"id": "QAOA-POSTSELECTION", "status": "temporarily_closed", "reason": "conditional state-quality effect replicated but complete fixed-shot procedure underperformed standard sampling; no new run without a new hypothesis and authorization"},
     {"id": "BADGER", "status": "conditional_no_go", "reason": "missing compatible Java/Ant/Gradle/AFL/JPF/SPF/Z3 stack and fair metric"},
@@ -12,6 +12,7 @@
     {"id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002", "status": "fallback_waiting_authorization", "reason": "only consider after a separately authorized parameter/repair-budget comparison; no experiment is currently authorized"},
     {"id": "CERT-SQLITE-TRANSFER-003", "status": "rejected_endpoint_gate", "reason": "CERT is known prior art and local SQLite lacks a comparable estimated-row endpoint"},
     {"id": "OXIDE-REF-BLIND-SOUNDNESS-004", "status": "rejected_dependency_gate", "reason": "pinned semantics/checker/toolchain unavailable"},
-    {"id": "ORIGINAL-RESEARCH-OPPORTUNITY-SCAN-20261016", "status": "bounded_scan_complete_no_task_admitted", "reason": "Seven cross-area primary-source candidates were compared. The bounded-simple-treewidth profile conjecture ranked first but its O(k)-family of three-vertex guards has no proof and the known treewidth method retains the extra r factor. No candidate passed all six admission gates; theory queue intentionally remains idle. See reports/ORIGINAL_RESEARCH_OPPORTUNITY_SCAN.md and .json."}
+    {"id": "ORIGINAL-RESEARCH-OPPORTUNITY-SCAN-20261016", "status": "bounded_scan_complete_no_task_admitted", "reason": "Seven cross-area primary-source candidates were compared. The bounded-simple-treewidth profile conjecture ranked first but its O(k)-family of three-vertex guards has no proof and the known treewidth method retains the extra r factor. No candidate passed all six admission gates; theory queue intentionally remains idle. See reports/ORIGINAL_RESEARCH_OPPORTUNITY_SCAN.md and .json."},
+    {"id": "SIMPLE-TREEWIDTH3-PROFILE-RECONSTRUCTION-20261016", "status": "bounded_cycle_complete_main_conjecture_unresolved", "reason": "Reconstructed Beaudou et al. and Joret-Rambaud primary results. The cited treewidth-3 lower construction has a K3,3 minor and is not simple-treewidth 3. The valid O(k) size-3 guard implication is not an existence proof. Proved only a low-novelty O(r^2 k) bound for maximal simple-3-tree hosts; edge deletion blocks transfer to the conjectured subgraph class. No successor task admitted. See reports/simple_treewidth3_profile_reconstruction_20261016.md and research/theory_checkpoint_simple_treewidth3_20261016.json."}
   ]
 }

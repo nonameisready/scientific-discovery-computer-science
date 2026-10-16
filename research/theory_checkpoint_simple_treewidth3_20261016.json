@@ -1,0 +1,17 @@
+{
+  "checkpoint_id": "THEORY-SIMPLE-TREEWIDTH3-20261016",
+  "task_id": "THEORY-SIMPLE-TREEWIDTH3-PROFILE-RECONSTRUCTION-001",
+  "date": "2026-10-16",
+  "status": "completed_bounded_cycle_no_successor_admitted",
+  "scientific_decision": "NO-GO on claiming the O(r^3 k) theorem; the source-stated conjecture remains unresolved in the checked primary text.",
+  "confirmed_increment": "The cited t=3 Joret-Rambaud lower-bound construction contains a K3,3 minor, while simple 3-trees are planar; it therefore does not refute the simple-treewidth-3 conjecture. A host-only maximal-simple-3-tree O(r^2 k) profile bound follows from LCA guards and clique-distance signatures.",
+  "open_obligation": "Bound joint truncated distances in the original partial graph to the one-/two-bag LCA guards by O(r^3) per assigned guard, or construct an asymptotic source-eligible counterexample.",
+  "next_task_created": false,
+  "experiment_run": false,
+  "paper3_or_paper4_changed": false,
+  "preexisting_dirty_files_touched": false,
+  "artifacts": [
+    "reports/simple_treewidth3_profile_reconstruction_20261016.md",
+    "reports/simple_treewidth3_profile_reconstruction_result_20261016.json"
+  ]
+}
