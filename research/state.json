@@ -317,8 +317,7 @@
     }
   ],
   "artifact_only_tasks": [
-    "HISTORICAL-OUTCOME-001",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"
+    "HISTORICAL-OUTCOME-001"
   ],
   "blocked_tasks": [],
   "budget_consumption": {
@@ -398,7 +397,8 @@
     "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
     "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
     "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
-    "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005"
+    "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"
   ],
   "current_best_opportunities": [
     {
@@ -501,15 +501,15 @@
   "last_activation_id": "2026-10-16T00:34:47Z-pid20241",
   "last_successful_commit": "67632d8",
   "latest_scientific_increment": {
-    "decision": null,
-    "evidence_level": "tier_3_source_reconstruction_and_finite_certificate_obstruction",
+    "decision": "Refute the arbitrary-tree C+D schedule conjecture with an exact star family; prove the vertex-capacity lower bound and a fixed-hub return correction, while leaving the constant-factor upper-bound question open.",
+    "evidence_level": "tier_3_adversarial_mathematical_proof_obligation_audit",
     "kind": "independent_scientific_reconciliation",
-    "next_falsifiable_action": "Do not queue another minor Zero Extension interface task. Reopen this direction only after formulating a genuinely new simultaneous-gammoid exchange lemma; otherwise select from the ranked external candidates.",
+    "next_falsifiable_action": "Define a dependency-aware lower bound and prove a token-preserving exchange lemma, or produce a hand-checkable family separating the strengthened lower bound from OPT; no execution is authorized in this checkpoint.",
     "scientific_success": true,
-    "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005"
+    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Add or unblock a scientifically justified task; do not invent outcomes.",
+  "next_action": "No further task is auto-admitted from this bounded cycle. Preserve the C+D refutation and require a separate authorization before any future mathematical/computational dependency study; no experiment or budget renewal is authorized.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -519,7 +519,9 @@
     "max_track_worker_seconds": 7200,
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
-  "opportunity_ranking": [],
+  "opportunity_ranking": [
+    {"task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001", "track": "theory", "score": 1.456, "scientific_completion": "proof_obligation_audit", "status": "scientifically_completed_open_upper_bound"}
+  ],
   "pending_tasks": [],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",

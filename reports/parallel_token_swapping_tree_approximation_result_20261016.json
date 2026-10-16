@@ -2,6 +2,72 @@
   "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
   "timestamp": "2026-10-16T00:31:45Z",
   "scientific_status": "completed_bounded_proof_obligation_audit",
+  "evidence_tier": "tier_3_adversarial_mathematical_proof_audit_with_exact_parameterized_counterexample",
+  "sources_and_data": [
+    "Aichholzer et al. ESA 2022 primary paper and full text",
+    "Bansal, Gunluk, Shapley arXiv v2 2025 primary paper and HTML",
+    "Alon, Chung, Graham 1994 primary matching-routing paper",
+    "Direct symbolic arithmetic and hand-checked schedules in the accompanying Markdown note"
+  ],
+  "method": "Define matching-round token swapping on finite trees; derive edge and vertex capacity inequalities from unique tree paths; construct an m-parameter star family; prove its exact schedule length; independently check path, subdivided-star, double-star, binary-tree and hub-return instances; audit primary-source boundaries.",
+  "uncertainty": [
+    "No constant-factor polynomial schedule relative to LB_0 or LB_hub was proved or refuted.",
+    "No unbounded separation between OPT and the strengthened lower bounds was established.",
+    "The literature audit supports a bounded source boundary, not a global absence or novelty theorem through all venues."
+  ],
+  "next_falsifiable_action": "Define a dependency-aware lower bound and prove a token-preserving exchange lemma, or construct a hand-checkable tree family separating that lower bound from OPT; do not execute without separate authorization.",
+  "mathematical_claim": "The universal OPT <= C_max + D + O(1) conjecture is false on arbitrary trees; LB_int is a valid lower bound, and a fixed-hub q+1 return lemma is valid under explicit assumptions.",
+  "assumptions": [
+    "The graph is a finite tree and every vertex is occupied by one distinct token.",
+    "A round is a matching of tree edges and swaps occur simultaneously across the matching.",
+    "C(e) counts unique source-to-destination paths that contain e.",
+    "The fixed-hub strengthening assumes the token initially at v has destination v and q(v)>0."
+  ],
+  "verified_steps": [
+    "For the m-leaf star, D=2 and every edge has C(e)=2.",
+    "All star edges meet at the center, so at most one can be used per round.",
+    "Every star edge must be used and the fixed center token must leave and return, giving OPT>=m+1.",
+    "The explicit edge sequence e0,e1,...,e_{m-1},e0 reaches the target, giving OPT=m+1.",
+    "Every edge requires at least C(e)/2 swaps and every vertex can participate in at most one swap per round.",
+    "The two-vertex exchange gives C_max=2,D=1,OPT=1."
+  ],
+  "gaps": [
+    "A dependency-aware lower bound capturing jointly dependent detours is not yet defined.",
+    "A polynomial-time token-preserving exchange/ordering lemma is not yet proved."
+  ],
+  "counterexamples": [
+    {
+      "name": "parameterized_fixed-center_star_cycle",
+      "status": "exact_counterexample_to_C_plus_D_conjecture",
+      "quantifier": "for every integer m>=2",
+      "parameters": {"C_max": 2, "D": 2, "OPT": "m+1"},
+      "scope": "Refutes only the proposed schedule bound; it is not a lower bound against all approximation algorithms."
+    },
+    {
+      "name": "two_vertex_exchange",
+      "status": "counterexample_to_max_C_D_lower_bound",
+      "parameters": {"C_max": 2, "D": 1, "OPT": 1},
+      "scope": "Corrects the lower-bound formula."
+    }
+  ],
+  "proof_status": {
+    "overall": "counterexample_found",
+    "C_plus_D_schedule": "disproved",
+    "LB_int": "fully_proved",
+    "fixed_hub_q_plus_one": "fully_proved_under_explicit_assumptions",
+    "constant_factor_relative_to_LB": "unresolved"
+  },
+  "independent_review": {
+    "status": "passed_with_scope",
+    "reviewer": "independent manual proof audit",
+    "checks": [
+      "Star lower and upper schedules checked without the experiment runner.",
+      "Edge and vertex load inequalities checked from matching capacity.",
+      "Special-family examples and source-boundary claims kept separate from theorem claims."
+    ],
+    "scope_limit": "The review validates the counterexample and lower bounds, not an arbitrary-tree approximation theorem."
+  },
+  "observed_result_or_blocker": "Exact parameterized falsification of the C+D conjecture and proof of the corrected lower bounds; the upper-bound question remains open.",
   "execution": {
     "mode": "mathematical_reasoning_and_source_audit",
     "experiment_executed": false,
