@@ -307,3 +307,10 @@ variant.
   compact-sparsifier lower bound. The raw dynamic-programming table is not an
   output graph. The SP compression direction is down-ranked and the next
   queued task reassesses the source \(s+1\) certificate layers.
+
+
+## 2026-10-16: New theoretical correction, not a breakthrough
+
+The proposed congestion-plus-dilation schedule bound for parallel token swapping on arbitrary trees is false. On an (m)-leaf star with a fixed center token and a cyclic leaf permutation, every token path has length 2 and every edge has path congestion 2, but the exact optimum is (m+1) rounds. The extra round is forced by the center token's leave-and-return dependency. A separate two-vertex exchange corrects the false lower bound (\max(C,D)); the valid vertex-capacity lower bound uses half the incident edge-crossing load.
+
+This is a rigorous negative result and a narrowed proof program. It does not establish a constant-factor algorithm, a lower-bound separation for the strengthened LB, or a new theorem about arbitrary trees. No experiment ran.

@@ -1,0 +1,168 @@
+{
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
+  "timestamp": "2026-10-16T00:31:45Z",
+  "scientific_status": "completed_bounded_proof_obligation_audit",
+  "execution": {
+    "mode": "mathematical_reasoning_and_source_audit",
+    "experiment_executed": false,
+    "experiment_authorization_renewed": false,
+    "supervisor_started": false,
+    "worker_execution_validation": "not_run_manual_theory_artifact",
+    "historical_event_log_rewritten": false
+  },
+  "model": {
+    "graph": "finite tree T=(V,E)",
+    "state": "one distinct token per vertex",
+    "move": "one matching of E per round; swap tokens across every matching edge",
+    "objective": "minimum number of rounds to realize a target permutation"
+  },
+  "definitions": {
+    "path": "P_t is the unique source-to-destination path of token t",
+    "D": "max_t |P_t|",
+    "edge_crossing_count": "C(e)=number of token paths containing e",
+    "C_max": "max_e C(e)",
+    "vertex_load": "S(v)=sum_{e incident to v} C(e)",
+    "LB_0": "max(D, max_v S(v)/2)",
+    "LB_int": "max(D, max_v ceil(S(v)/2))"
+  },
+  "falsified_claims": [
+    {
+      "claim": "OPT <= C_max + D + O(1) on every tree",
+      "status": "disproved",
+      "witness_family": "m-leaf star, m>=2, center token fixed, leaf tokens in one m-cycle",
+      "parameters": {
+        "D": 2,
+        "every_edge_C": 2,
+        "C_max": 2,
+        "LB_int": "m",
+        "OPT": "m+1"
+      },
+      "proof_boundary": "For any fixed additive constant K, m+1>2+2+K for m>K+3. Exact schedule: e0,e1,...,e_{m-1},e0."
+    },
+    {
+      "claim": "OPT >= max(C_max,D)",
+      "status": "disproved",
+      "witness": "two-vertex tree with the two tokens exchanged",
+      "parameters": {
+        "C_max": 2,
+        "D": 1,
+        "OPT": 1
+      }
+    }
+  ],
+  "proved_claims": [
+    {
+      "claim": "LB_int <= OPT",
+      "status": "fully_proved",
+      "proof": "Each edge e requires at least C(e)/2 swaps; each vertex can be incident to at most one swap per round; each token moves at most one edge per round."
+    },
+    {
+      "claim": "A fixed hub with q active incident edges requires at least q+1 rounds",
+      "status": "fully_proved_under_explicit_assumptions",
+      "assumptions": [
+        "the token initially at v has destination v",
+        "q is the number of incident edges e with C(e)>0",
+        "q>0"
+      ],
+      "bound": "OPT >= q+1"
+    }
+  ],
+  "family_audits": [
+    {
+      "family": "path",
+      "result": "Adjacent exchange has LB_int=OPT=1; no general path theorem asserted."
+    },
+    {
+      "family": "star",
+      "result": "Exact OPT=m+1 for the fixed-center leaf cycle."
+    },
+    {
+      "family": "subdivided star",
+      "result": "Same fixed-center return obstruction gives OPT>=m+1, D=4, C_max=2."
+    },
+    {
+      "family": "double star",
+      "result": "Two local fixed-center cycles run independently; OPT=max(p+1,q+1) for the stated instance."
+    },
+    {
+      "family": "binary tree",
+      "result": "Two disjoint sibling exchanges each require 3 rounds and run in parallel; LB_hub=3."
+    },
+    {
+      "family": "multiple bottlenecks",
+      "result": "Local loads compose by maximum when disjoint; bridge traffic leaves unresolved phase-ordering dependence."
+    }
+  ],
+  "upper_bound_assessment": {
+    "constant_factor_algorithm_relative_to_LB_0": "not established",
+    "constant_factor_algorithm_relative_to_LB_hub": "not established",
+    "unbounded_separation_from_LB_0": "not established",
+    "failed_proof_route": "Coloring static edge-demand slots does not preserve token identities or occupied-vertex exchange dependencies; the star requires a hub-token return not visible in C and D.",
+    "narrow_surviving_conjecture": "A constant-factor algorithm may exist relative to a dependency-aware lower bound extending LB_hub, but the dependency certificate and token-preserving exchange lemma are open."
+  },
+  "claim_classification": {
+    "fully_proved": [
+      "LB_int lower bound",
+      "fixed-hub q+1 lower bound under stated assumptions"
+    ],
+    "finite_exact_family": [
+      "m-leaf star fixed-center cycle OPT=m+1",
+      "double-star local-cycle instance"
+    ],
+    "independently_reproduced": [
+      "All displayed arithmetic and schedules were checked directly from the definitions."
+    ],
+    "known_prior_art": [
+      "matching-round model and tree NP-hardness",
+      "special-class approximations for cycles, subdivided stars, and grids",
+      "worst-case routing-via-matchings bounds"
+    ],
+    "plausible_but_unproved": [
+      "constant-factor scheduling relative to a dependency-aware lower bound",
+      "bounded stretch of LB_0 or LB_hub on arbitrary trees"
+    ],
+    "disproved": [
+      "OPT<=C_max+D+O(1) for arbitrary trees",
+      "OPT>=max(C_max,D)"
+    ]
+  },
+  "literature_audit": [
+    {
+      "source": "Aichholzer et al., Hardness of Token Swapping on Trees, ESA 2022",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2022.3",
+      "finding": "Defines parallel rounds as matching swaps, proves NP-hardness on trees including subdivided stars, and describes the arbitrary-tree approximation question as unresolved in that work."
+    },
+    {
+      "source": "Bansal, Günlük, Shapley, Parallel Token Swapping for Qubit Routing, arXiv v2 2025",
+      "url": "https://arxiv.org/html/2411.18581v2",
+      "finding": "Gives constant-factor algorithms for cycles, subdivided stars, and grids; Theorem 3 is for subdivided stars. It does not supply an arbitrary-tree approximation theorem."
+    },
+    {
+      "source": "Alon, Chung, Graham, Routing Permutations on Graphs via Matchings, SIAM J. Discrete Math. 1994",
+      "url": "https://epubs.siam.org/doi/abs/10.1137/S0895480192236628",
+      "finding": "The matching-exchange routing model is the same combinatorial move model, but worst-case routing-number bounds do not imply an instance-sensitive C+D theorem."
+    }
+  ],
+  "metadata_audit": {
+    "commit_audited": "67632d8",
+    "event_log_rewritten": false,
+    "state_and_ledger": "Nine EXP identifiers intersect between the state snapshot and experiment ledger; audit-only records remain AUDIT-prefixed.",
+    "preserved_mismatches": [
+      "The ledger uses EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015 while the state snapshot uses EXP-NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001 for the related result.",
+      "completed_experiments is 9 while configured_max_experiments is 8; lifetime counters were not changed.",
+      "last_successful_commit remains 90277a9 although 67632d8 is the later direction-selection commit."
+    ],
+    "interpretation": "These are provenance/control-plane consistency issues, not evidence for a new experiment or a scientific result. Historical supervisor events are preserved."
+  },
+  "paper3": {
+    "target_a": "preserved and unscored; no direct historical labels fabricated",
+    "target_b": "preserved and separate; no evidence-growth score created"
+  },
+  "next_action": {
+    "description": "Define and prove, or refute with a hand-checkable family, a dependency-aware lower bound and token-preserving exchange lemma for arbitrary trees.",
+    "authorization_required": true,
+    "executed": false,
+    "why": "The current cycle falsified the original schedule conjecture but did not establish either a constant-factor algorithm or an unbounded lower-bound separation."
+  },
+  "source_note": "Primary-source links were checked on 2026-10-16; no unsupported claim of global absence or novelty is made."
+}

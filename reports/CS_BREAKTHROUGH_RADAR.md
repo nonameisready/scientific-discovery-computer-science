@@ -141,3 +141,8 @@ the first falsifiable proof obligation is a schedule of at most
 `C+D+O(1)` rounds, where `C` is maximum edge-path congestion and `D` maximum
 path length. This is a candidate, not a breakthrough claim. No experiments or
 budget renewal are authorized.
+
+
+## 2026-10-16: Parallel token swapping on arbitrary trees
+
+The first queued conjecture was falsified analytically. A parameterized star family has (C_{\max}=2), (D=2), and exact parallel optimum (m+1), so (C+D+O(1)) is not a valid arbitrary-tree theorem. The corrected vertex-capacity LB is valid, and a fixed-hub return lemma adds (q+1) under explicit assumptions. No constant-factor approximation relative to either LB was established, and no unbounded separation was proved. This direction remains an open mathematical question with a sharper dependency-aware proof obligation, not a validated breakthrough.

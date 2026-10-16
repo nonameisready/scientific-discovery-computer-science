@@ -553,7 +553,7 @@
     },
     {
       "artifact": "reports/parallel_token_swapping_tree_approximation_result_20261016.json",
-      "attempts": 0,
+      "attempts": 1,
       "cost_estimate": 0.45,
       "counts_as_experiment": false,
       "dependencies": [
@@ -565,16 +565,64 @@
         "preserve Zero Extension, Paper 3 and all historical negative results",
         "worker may write only the declared Markdown and JSON artifacts"
       ],
+      "execution_validation": {
+        "raw_output_sha256": null,
+        "reason": "No worker execution was requested; the declared non-experimental proof audit was completed directly.",
+        "scientific_success": false,
+        "status": "not_run_manual_theory",
+        "timestamp": "2026-10-16T00:31:45Z"
+      },
       "expected_information_gain": 0.78,
       "exposition_artifact": "reports/parallel_token_swapping_tree_approximation_proof_20261016.md",
       "failure_handling": "If the C+D bound fails, preserve a hand-checkable obstruction and state whether the failure is to the conjecture or only to the proof route; do not infer a general approximation lower bound.",
+      "finished_at": "2026-10-16T00:31:45Z",
+      "independent_scientific_reconciliation": {
+        "artifact": "reports/parallel_token_swapping_tree_approximation_result_20261016.json",
+        "scientific_success": true,
+        "status": "completed",
+        "timestamp": "2026-10-16T00:31:45Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "The C+D conjecture was refuted by a parameterized exact star family; the corrected lower bound and remaining upper-bound gap are explicit.",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": false,
+        "worker_raw_output_sha256": null
+      },
       "max_attempts": 1,
       "objective": "Determine whether arbitrary trees admit a polynomial-time constant-factor approximation for parallel token swapping. First prove or refute the concrete schedule conjecture rounds(T,pi) <= C(T,pi)+D(T,pi)+O(1), where D is maximum token-path length and C is maximum edge-path congestion; compare the resulting schedule with the lower bound max(C,D). Keep the parallel model distinct from sequential token swapping and from the already solved NP-hardness question.",
       "priority": 87,
       "research_key": "parallel_token_swapping_tree_approximation",
       "scientific_completion": "proof_obligation_audit",
-      "scientific_status": "pending",
-      "status": "pending",
+      "scientific_status": "artifact_only",
+      "scientific_validation": {
+        "missing_or_failed": [
+          "evidence_tier",
+          "sources_and_data",
+          "method",
+          "uncertainty",
+          "next_falsifiable_action",
+          "mathematical_claim",
+          "assumptions",
+          "verified_steps",
+          "gaps",
+          "counterexamples",
+          "proof_status",
+          "independent_review",
+          "proof_status.overall",
+          "nonempty_assumptions",
+          "nonempty_verified_steps",
+          "gaps_list",
+          "counterexamples_list",
+          "independent_review.status",
+          "proof_scope_not_closed"
+        ],
+        "mode": "proof_obligation_audit",
+        "reason": "valid artifact does not satisfy scientific success criteria",
+        "scientific_success": false
+      },
+      "status": "artifact_only",
       "success_criteria": [
         "define the matching-per-round token-swapping model and all quantifiers over trees and permutations",
         "authenticate the primary-source boundary: tree hardness, selected-class approximation results, and no unsupported global absence claim",

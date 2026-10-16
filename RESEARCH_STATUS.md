@@ -140,3 +140,15 @@ supervisor event log was not rewritten. The 005 proof cycle used no experiment
 authorization. No Zero Extension successor is queued; the remaining joint
 gammoid-profile question is a candidate only. Paper 3 Target A/B, frozen
 cohorts, and no-score status are unchanged.
+
+
+## 2026-10-16: parallel token swapping theory checkpoint
+
+The queued C+D schedule conjecture is **disproved** on arbitrary trees. For every (m\ge2), an (m)-leaf star with the center token fixed and leaf tokens in one cycle has (D=2), (C(e)=2) on every edge, but exact (operatorname{OPT}=m+1). The lower bound (m+1) follows because all star edges share the center and the fixed center token must leave and return; the schedule (e_0,e_1,\ldots,e_{m-1},e_0) is exact. Thus no universal additive constant can repair (C+D).
+
+The originally stated (operatorname{OPT}\ge\max(C,D)) is also corrected: a two-vertex exchange has (C=2,D=1,operatorname{OPT}=1). The valid lower bound is
+(LB_0=\max(D,\max_v\frac12\sum_{e\ni v}C(e))), with ceilings for integer rounds. A further fixed-hub lemma gives (q(v)+1) when the token initially and finally at (v) is fixed and (q(v)) incident edges carry demand. This exactly explains the star's extra round.
+
+The theory cycle did not prove or refute a constant-factor polynomial schedule relative to (LB_0) or the hub-strengthened bound. Static congestion slots do not preserve token identities or occupied-vertex dependencies. The narrow surviving obligation is a dependency-aware lower bound plus a token-preserving exchange lemma. The result is a substantive correction and a bounded theoretical advance, not a new approximation theorem.
+
+The 2022 primary tree-hardness source and the 2025 primary special-topology approximation source were checked. Existing constant-factor results cover cycles, subdivided stars and grids, not arbitrary trees. Paper 3 Target A/B remain frozen and unscored; no experiments or budget renewals occurred. See [mathematical proof note](reports/parallel_token_swapping_tree_approximation_proof_20261016.md) and [structured result](reports/parallel_token_swapping_tree_approximation_result_20261016.json).
