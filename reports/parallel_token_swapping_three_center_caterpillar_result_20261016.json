@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-THREE-CENTER-CATERPILLAR-006",
+  "parent_checkpoint": "8892219",
+  "scientific_status": "theorem_proved_restricted_class",
+  "evidence_tier": "tier_3_constructive_mathematical_proof_with_targeted_primary_source_audit",
+  "scope": {
+    "completed": "Trees consisting of backbone u-v-w with arbitrary pendant leaves at exactly those three possible centers; every bijective destination permutation.",
+    "open": "Arbitrary trees and caterpillars with unbounded backbone length.",
+    "prior_double_star_theorem_preserved": true,
+    "proof_scope_not_closed": true,
+    "proof_scope_not_closed_applies_to": "The unrestricted arbitrary-tree approximation question and longer-backbone generalization only; it does not mean the declared three-center theorem is incomplete."
+  },
+  "mathematical_claim": {
+    "algorithm": "Decompose the position-to-destination permutation into cycles. Realize each cycle by q-1 endpoint transpositions; implement each endpoint transposition along the unique tree path by the forward-then-backward edge-swap word, emitting each edge swap in its own round.",
+    "round_bound": "R <= 42 * LB_hub(T,pi) <= 42 * OPT(T,pi)",
+    "complexity": "O(n) construction time and O(n) output rounds for this diameter-at-most-four class.",
+    "proof_scope": "Three-center caterpillar only; not an arbitrary-tree approximation theorem."
+  },
+  "definitions": {
+    "C_e": "Number of token source-to-destination paths crossing edge e.",
+    "r_e": "C_e/2; integral by bijective cut balance.",
+    "W_x": "Sum of r_e over edges incident to x.",
+    "LB_hub": "max(D, max_x W_x), where D is maximum token distance."
+  },
+  "verified_steps": [
+    "For a path of length l, swapping its edges forward and then backward omitting the final edge uses 2l-1 swaps, transposes endpoint tokens, and restores all internal tokens.",
+    "For each directed cycle (z1,...,zq), the ordered logical transpositions (z1,z2),...,(z1,zq) sort the cycle; there are q-1 such transpositions.",
+    "Tree diameter is at most four, so each logical transposition costs at most seven legal edge swaps.",
+    "If m positions are nonfixed, the algorithm uses at most 7m singleton-matching rounds and m <= a+b+c+3.",
+    "W(u)=r(uv)+a, W(v)=r(uv)+r(vw)+b, W(w)=r(vw)+c; therefore a+b+c<=3 LB_hub and m<=3 LB_hub+3.",
+    "For nonidentity permutations LB_hub>=1, yielding R<=42 LB_hub; identity permutations use zero rounds.",
+    "LB_hub is a lower bound on OPT by token distance and per-vertex matching capacity.",
+    "An exact five-vertex configuration disproves the direct two-star local preparation condition at cut uv; this is not an impossibility result for all algorithms."
+  ],
+  "proof_status": {
+    "three_center_bound": "fully_proved",
+    "constructive_polynomial_algorithm": "fully_proved",
+    "token_identity_and_cycle_orientation": "fully_proved",
+    "matching_legality": "fully_proved_by_singleton_rounds",
+    "two_cut_local_preparation_invariant": "disproved_for_the_direct_double_star_rule",
+    "arbitrary_tree_extension": "open_not_claimed",
+    "unbounded_caterpillar_extension": "open_not_claimed",
+    "novelty_priority": "unverified_no_firstness_claim"
+  },
+  "counterexample_to_local_rule": {
+    "tree": "u-v-w with pendant leaf x at u and y at w; no pendant leaf at v",
+    "permutation": "exchange the tokens at x and y; tokens at u,v,w are fixed",
+    "obstruction": "For cut uv, an incoming token destined to x is at y, while center v has its own token and no incident pendant leaf holding an outgoing token. The local center-leaf preparation operation is unavailable."
+  },
+  "prior_art": [
+    {
+      "citation": "Alon, Chung, Graham (1994), Routing Permutations on Graphs via Matchings",
+      "url": "https://doi.org/10.1137/S0895480192236628",
+      "comparison": "Same matching-round model; worst-case routing-number results, not the instance-wise LB_hub bound audited here."
+    },
+    {
+      "citation": "Ramras (1993), Routing Permutations on a Graph; Baumslag and Annexstein (1991), A Unified Framework for Off-Line Permutation Routing in Parallel Networks",
+      "url": "https://doi.org/10.1002/net.3230230420",
+      "comparison": "Equivalent graph-routing and parallel-network terminology checked; no directly equivalent double-star or three-center instance-sensitive bound identified."
+    },
+    {
+      "citation": "Kawahara et al. (2019), The Time Complexity of Permutation Routing via Matching, Token Swapping and a Variant",
+      "url": "https://jgaa.info/index.php/jgaa/article/view/paper483",
+      "comparison": "Defines parallel swaps as matchings; path approximation and complexity results, no matching three-center theorem identified."
+    },
+    {
+      "citation": "Aichholzer et al. (2022), Hardness of Token Swapping on Trees",
+      "url": "https://arxiv.org/abs/2103.06707",
+      "comparison": "Parallel token swapping is NP-hard on general trees; compatible with a fixed-topology subclass result."
+    },
+    {
+      "citation": "Bansal, Gunluk, Shapley (2025 revised preprint), Parallel Token Swapping for Qubit Routing",
+      "url": "https://arxiv.org/abs/2411.18581",
+      "comparison": "Constant-factor results on cycles, subdivided stars and grids; one-junction subdivided stars do not contain the full three-center class."
+    },
+    {
+      "citation": "Sadanandan, Chitturi (2022), Optimal Algorithms for Sorting Permutations with Brooms",
+      "url": "https://doi.org/10.3390/a15070220",
+      "comparison": "Double-broom result optimizes sequential swap count, not matching rounds."
+    }
+  ],
+  "novelty_assessment": {
+    "status": "targeted_audit_only",
+    "direct_equivalent_identified": false,
+    "priority_claim": false,
+    "publication_level_novelty": "not_established",
+    "note": "The checked sources do not state the same instance-wise theorem, but this bounded search cannot establish global novelty; proof ingredients are elementary."
+  },
+  "execution": {
+    "experiment_executed": false,
+    "computation_executed": false,
+    "supervisor_started": false,
+    "experiment_authorization_renewed": false,
+    "paper3_changed": false,
+    "paper4_changed": false
+  },
+  "exposition_artifact": "reports/parallel_token_swapping_three_center_caterpillar_20261016.md"
+}

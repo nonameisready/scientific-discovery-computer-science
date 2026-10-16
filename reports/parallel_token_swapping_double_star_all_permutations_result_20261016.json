@@ -5,6 +5,11 @@
   "timestamp": "2026-10-16T03:00:00Z",
   "scientific_status": "theorem_proved_restricted_class",
   "proof_scope_not_closed": true,
+  "proof_scope": {
+    "completed_class": "All bijective token-destination permutations on finite double-star trees are covered by the proved polynomial-time R <= 2 * LB_hub <= 2 * OPT construction.",
+    "open_scope": "The broader arbitrary-tree approximation problem and extensions beyond double-stars remain open.",
+    "proof_scope_not_closed_semantics": "This legacy umbrella flag refers only to the broader unrestricted research problem; it does not indicate a gap in the declared double-star theorem."
+  },
   "evidence_tier": "tier_3_independently_reviewed_mathematical_proof",
   "sources_and_data": {
     "data_used": "No experimental data. The result is a direct mathematical proof for finite double-star trees with a bijective token-to-destination map.",

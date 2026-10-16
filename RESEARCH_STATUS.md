@@ -1,5 +1,7 @@
 # Research status
 
+**Parallel token-swapping checkpoint (2026-10-16):** The double-star theorem remains proved for all permutations with `R<=2 LB_hub<=2 OPT`; its structured result's legacy `proof_scope_not_closed=true` is now explicitly scoped to unrestricted trees, not the completed double-star theorem. For trees with backbone `u-v-w` and leaves only at these three centers, a separate cycle/path-transposition construction proves `R<=42 LB_hub<=42 OPT` in O(n) time. The bound uses diameter at most four and at most three non-leaf positions; a five-vertex example disproves only the direct double-star local cut-preparation rule, not the existence of other algorithms. The result does not extend the bound to unbounded-backbone caterpillars or arbitrary trees. The bounded prior-art check found the classical matching-routing model, general tree hardness, one-junction subdivided-star approximations, and sequential double-broom algorithms, but no directly equivalent instance-wise theorem; novelty remains unverified. No experiments, budget changes, Paper 3/4 changes, or edits to pre-existing dirty supervisor/checkpoint files occurred. See [proof note](reports/parallel_token_swapping_three_center_caterpillar_20261016.md), [structured result](reports/parallel_token_swapping_three_center_caterpillar_result_20261016.json).
+
 **Direction-selection checkpoint (2026-10-15 20:12 UTC):** The O13 ledger now
 correctly rejects the earlier all-terminal K3: its entire edge set is `E_S`,
 so no source `Y(e)` tuple exists. The corrected raw witness is the two-terminal

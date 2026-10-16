@@ -1,5 +1,17 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-16: three-center caterpillar has a constructive constant bound
+
+- **Proved:** For a backbone `u-v-w` with arbitrary pendant leaves at the three centers and any bijective token destination permutation, a deterministic O(n)-time algorithm gives `R<=42 LB_hub<=42 OPT`.
+- **Construction:** Decompose the position-to-destination permutation into cycles. A logical endpoint transposition on a path of length `ell` is implemented by `2*ell-1` edge swaps that restore every internal token. Since the tree diameter is at most four, each logical transposition costs at most seven rounds when emitted one swap per round.
+- **Bound:** If `a,b,c` count incorrect leaves, then `W(u)=r(uv)+a`, `W(v)=r(uv)+r(vw)+b`, and `W(w)=r(vw)+c`; hence `a+b+c<=3 LB_hub`. At most three more positions (the centers) can be wrong, so `m<=3 LB_hub+3`; the cycle schedule uses at most `7m` swaps, giving factor 42 (with the identity case handled separately).
+- **Counterexample to a rule, not to the theorem:** On `u-v-w` with leaves `x` at `u`, `y` at `w`, and no leaf at `v`, exchanging the tokens at `x,y` leaves the incoming token for cut `uv` at distance two from `v`. Thus the double-star's local center-leaf preparation operation is unavailable. The generic path-transposition algorithm avoids this rule.
+- **Novelty boundary:** Matching routing is classical; known sources include general tree routing-number work, hardness on trees, subdivided-star approximation, and sequential double-broom sorting. No direct instance-wise equivalent was found in this targeted audit, but novelty/priority is unverified. This is a mathematically valid restricted-class theorem, not an arbitrary-tree result.
+- **Longer backbones:** The transposition construction extends, with cost at most `2*diameter-1` per logical transposition, but loses a degree-independent constant relative to `LB_hub` as diameter grows. No longer-caterpillar claim is made.
+- **No experiments** were run; Paper 3/4 and all pre-existing uncommitted supervisor and Paper 3 changes remain untouched.
+
+Full argument and sources: [mathematical note](parallel_token_swapping_three_center_caterpillar_20261016.md). Machine-readable claims: [structured result](parallel_token_swapping_three_center_caterpillar_result_20261016.json).
+
 ## 2026-10-16: constructive bound for arbitrary double-star permutations
 
 - **Newly proved here:** For any double-star and bijective destination permutation, a polynomial-time two-phase matching schedule has length at most `2 LB_hub`, hence at most `2 OPT`.
