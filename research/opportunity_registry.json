@@ -1,6 +1,6 @@
 {
   "registry_id": "CS-OPPORTUNITY-REGISTRY-20261015",
-  "updated_at": "2026-10-15T17:42:22Z",
+  "updated_at": "2026-10-16T04:53:10Z",
   "directions": [
     {"id": "QAOA-POSTSELECTION", "status": "temporarily_closed", "reason": "conditional state-quality effect replicated but complete fixed-shot procedure underperformed standard sampling; no new run without a new hypothesis and authorization"},
     {"id": "BADGER", "status": "conditional_no_go", "reason": "missing compatible Java/Ant/Gradle/AFL/JPF/SPF/Z3 stack and fair metric"},
@@ -11,6 +11,7 @@
     {"id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005", "status": "restricted_tree_and_cactus_lemmas_proved_unrestricted_open", "reason": "A complete block-cut, local-path, pendant, series-bundle and simple-gadget proof establishes exact O(|S|) k^0 preservation for standard connected cactus hosts. These are elementary restricted reductions, not a publication-level novelty claim; the next nontrivial obligation is O7 contraction-only distinguishable metric signatures, with O8 kept separate for the lift to arbitrary sparsifiers."},
     {"id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002", "status": "fallback_waiting_authorization", "reason": "only consider after a separately authorized parameter/repair-budget comparison; no experiment is currently authorized"},
     {"id": "CERT-SQLITE-TRANSFER-003", "status": "rejected_endpoint_gate", "reason": "CERT is known prior art and local SQLite lacks a comparable estimated-row endpoint"},
-    {"id": "OXIDE-REF-BLIND-SOUNDNESS-004", "status": "rejected_dependency_gate", "reason": "pinned semantics/checker/toolchain unavailable"}
+    {"id": "OXIDE-REF-BLIND-SOUNDNESS-004", "status": "rejected_dependency_gate", "reason": "pinned semantics/checker/toolchain unavailable"},
+    {"id": "ORIGINAL-RESEARCH-OPPORTUNITY-SCAN-20261016", "status": "bounded_scan_complete_no_task_admitted", "reason": "Seven cross-area primary-source candidates were compared. The bounded-simple-treewidth profile conjecture ranked first but its O(k)-family of three-vertex guards has no proof and the known treewidth method retains the extra r factor. No candidate passed all six admission gates; theory queue intentionally remains idle. See reports/ORIGINAL_RESEARCH_OPPORTUNITY_SCAN.md and .json."}
   ]
 }

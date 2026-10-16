@@ -1,0 +1,174 @@
+{
+  "scan_id": "ORIGINAL-RESEARCH-OPPORTUNITY-SCAN-20261016",
+  "as_of": "2026-10-16",
+  "evidence_scope": "bounded primary-source and targeted later-work audit; absence from search is not proof of openness",
+  "decision": {
+    "status": "NO_GO",
+    "task_admitted": false,
+    "reason": "No candidate passed every gate. The leading simple-treewidth profile-conjecture has a precise exponent gap, but its proposed O(k) three-vertex guarding lemma is unproved and the proof attempt stalls on two-sided decomposition corridors; known generic treewidth methods retain the extra factor r.",
+    "theory_queue_changed": false,
+    "experiment_or_worker_started": false,
+    "paper3_paper4_or_experiment_records_changed": false
+  },
+  "methodology_assessment": {
+    "zero_extension": {
+      "proof_success": "Several exact restricted statements and feasibility/interface lemmas were proved; contraction-only lower-bound attempts did not improve the source representative-set exponent.",
+      "novelty_boundary": "Restricted reductions are elementary; pairwise signatures do not imply a lower bound against joint contractions or arbitrary sparsifiers.",
+      "classification": "valid partial mathematics; central open parameter dependence unresolved"
+    },
+    "parallel_token_swapping": {
+      "proof_success": "Double-star R <= 2 LB_hub and bounded-nonleaf approximation are valid restricted/parameterized results.",
+      "novelty_boundary": "Double-star result appears elementary and publication-level originality is unverified; fixed-h factors grow with h.",
+      "classification": "proof success on a special class, not a broader arbitrary-tree approximation result"
+    },
+    "caterpillar_event_dag": {
+      "proof_success": "Per-token excess traversal identity and fixed-pairing acyclicity criterion were established.",
+      "novelty_boundary": "Acyclicity criterion is equivalent to the known distance-optimal/happy-swap-only condition; total swap count does not bound parallel makespan.",
+      "classification": "known-result reformulation plus unresolved scheduling gap"
+    },
+    "process_correction": "Prior work often built correct restricted proofs before checking whether the exact statement was already known or whether the result crossed an asymptotic boundary. Future work should demand a primary-source theorem comparison before proof expansion, one theorem-sized first lemma, and an honest idle queue when no candidate passes all gates."
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "id": "PROFILE-COMPLEXITY-BOUNDED-SIMPLE-TREEWIDTH",
+      "area": "graph structure; distance profiles; metric dimension; kernelization",
+      "precise_problem": "For each fixed t >= 1, is there C_t such that every finite simple undirected G with stw(G) <= t, every r >= 1, and every A subset V(G) of size k >= 1 has pc_r(G,k) <= C_t r^t k? First nontrivial target: t=3, O(r^3 k). pc_r counts distinct non-all-infinite vectors of distances to A truncated above r.",
+      "best_known_result": "Beaudou et al. give O_t(r^(t+1)k) for treewidth t, asymptotically tight for general treewidth, and O(r^2 k) for outerplanar graphs. They state O_t(r^t k) for bounded simple treewidth as a conjecture; t=1,2 are covered.",
+      "remaining_gap": "For stw >= 3, remove one factor r relative to general treewidth; asymptotic tightness is claimed conditional on the conjecture.",
+      "sources": [
+        {"title": "Profile and neighbourhood complexity of graphs excluding a minor and tree-structured graphs", "url": "https://arxiv.org/abs/2501.08895v3", "source_type": "primary preprint; v3 submission history 2025-12-13; manuscript body reports 2026-08-24, retained as a date-provenance discrepancy", "specific_claim": "Theorem 6; Theorem 7; Conjecture 33; general treewidth upper bound, outerplanar improvement, and simple-treewidth conjecture."},
+        {"title": "Joret and Rambaud, Neighborhood complexity of planar graphs", "url": "https://doi.org/10.1007/s00493-024-00110-6", "source_type": "primary journal source", "specific_claim": "Source of the general treewidth profile bounds and lower construction cited by Beaudou et al."}
+      ],
+      "later_status": "The latest accessible primary text still states the conjecture. Exact-title and citation-oriented follow-up checks found no matched resolution, but this is not exhaustive and simple-treewidth of the cited lower construction was not reconstructed.",
+      "first_lemma": "Sufficient condition: an O(k)-size family of vertex guards, each of size at most 3, such that for each v with a finite r-profile to A one guard hits every v-a path of length <= r for every a in A. For fixed S, the truncated profile to A is determined by the truncated distance vector from v to S, giving at most (r+2)^3 possibilities per guard.",
+      "proof_attempt": "Generic treewidth guard construction uses sets up to 2(t+1) vertices and yields r^(t+1). Outerplanar proof uses circular BFS-layer monotonicity. For simple treewidth 3, an LCA-closure component can have two marked attachments; both adhesion boundaries may matter. No proof collapses them to a 3-vertex guard or bounds their joint signatures by O(r^3). This fails as a proof route, not as a counterexample to the conjecture.",
+      "fast_falsifier": "Search for simple-3-tree chains with two-sided LCA corridors and A on both sides that realize Omega(r^4 k); a finite example can refute only the guard-family lemma, not the asymptotic conjecture.",
+      "significance": "Would improve a tight profile-complexity exponent for a broad structural graph class, with implications to metric dimension and distance-based kernelization.",
+      "difficulty": "high",
+      "qualitative_scores": {"originality_potential": "high", "importance": "high", "gap_confidence": "medium-high for source-stated conjecture; no proof of globally open status", "proof_strategy": "medium-low", "bounded_progress_likelihood": "low-medium", "independent_verifiability": "high", "rediscovery_risk": "medium"},
+      "gate_results": {"G1_primary_boundary": "pass_with_limited_forward_audit", "G2_precise": "pass", "G3_nontrivial": "pass", "G4_concrete_obligation": "partial_pass", "G5_adversarial_feasibility": "fail_for_admission_now: proposed guard lemma is unsupported and only known method gives the old exponent", "G6_bounded": "pass"},
+      "admission": "not_admitted"
+    },
+    {
+      "rank": 2,
+      "id": "HAPPY_LEAF_PROPERTY_TREE_CHARACTERIZATION",
+      "area": "sequential token swapping; structural graph characterization",
+      "precise_problem": "Characterize trees T such that every bijective token assignment admits an optimal sequential swap sequence that never swaps a leaf holding its destination token.",
+      "best_known_result": "Biniaz et al. disprove the universal happy-leaf conjecture, give a 10-vertex obstruction, and explicitly ask for a characterization.",
+      "remaining_gap": "Whether exclusion of the known subtree obstruction or a stronger structural condition characterizes the property.",
+      "sources": [{"title": "Token Swapping on Trees", "url": "https://dmtcs.episciences.org/en/articles/8383", "source_type": "primary journal paper", "specific_claim": "Section 8 open questions include characterization of trees with the happy-leaf property."}],
+      "later_status": "Targeted exact-phrase search found no later characterization; no exhaustive forward-citation closure claimed.",
+      "first_lemma": "Test whether the published forbidden 10-vertex subtree is sufficient as well as necessary; construct a smallest counterexample if not.",
+      "fast_falsifier": "A tree avoiding that subtree plus a token permutation for which every optimum moves a happy leaf.",
+      "significance": "Could identify when a major algorithmic simplification is valid for every instance.",
+      "difficulty": "very high",
+      "qualitative_scores": {"originality_potential": "high", "importance": "high", "gap_confidence": "medium", "proof_strategy": "low", "bounded_progress_likelihood": "low", "independent_verifiability": "medium", "rediscovery_risk": "medium"},
+      "admission": "not_admitted: overlap with exhausted campaign and no structural proof seed"
+    },
+    {
+      "rank": 3,
+      "id": "METRIC_DIMENSION_TREEWIDTH_TWO",
+      "area": "parameterized complexity; graph metrics",
+      "precise_problem": "Determine whether Metric Dimension is polynomial-time solvable or NP-hard on graphs with treewidth at most 2.",
+      "best_known_result": "W[1]-hard parameterized by treewidth and ETH lower bound (Bonnet-Purohit 2019); NP-hard at treewidth 24 (Li-Pilipczuk 2021); FPT for treewidth on chordal graphs (Bousquet et al. 2023), not all tw-2 graphs.",
+      "remaining_gap": "Complexity boundary at tw=2/partial 2-trees.",
+      "sources": [
+        {"title": "Metric Dimension Parameterized by Treewidth", "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.IPEC.2019.5", "source_type": "primary IPEC paper", "specific_claim": "Explicitly states treewidth-two case open and proves W[1]-hardness."},
+        {"title": "Hardness of Metric Dimension in Graphs of Constant Treewidth", "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.IPEC.2021.24", "source_type": "primary IPEC paper", "specific_claim": "NP-hard at tw=24."},
+        {"title": "Metric dimension parameterized by treewidth in chordal graphs", "url": "https://arxiv.org/abs/2303.10646", "source_type": "primary preprint", "specific_claim": "FPT on chordal graphs; does not cover general partial 2-trees."}
+      ],
+      "later_status": "No checked source closes all tw-2 graphs; not an exhaustive search.",
+      "first_lemma": "Find a finite-state dynamic program on series-parallel decomposition or a reduction preserving tw=2; width-24 hardness cannot be transferred by parameter substitution.",
+      "fast_falsifier": "Attempt to show boundary distance-vector states are unbounded in a partial-2-tree DP; for hardness, audit every gadget's width.",
+      "significance": "A basic unresolved complexity boundary for a classical identification problem.",
+      "difficulty": "very high",
+      "qualitative_scores": {"originality_potential": "medium-high", "importance": "high", "gap_confidence": "medium", "proof_strategy": "low", "bounded_progress_likelihood": "low", "independent_verifiability": "high", "rediscovery_risk": "medium"},
+      "admission": "not_admitted: no theorem-sized DP or reduction seed"
+    },
+    {
+      "rank": 4,
+      "id": "PLANAR_TREELENGTH_AT_MOST_TWO",
+      "area": "structural graph theory; graph decompositions",
+      "precise_problem": "Determine the complexity/structural characterization of deciding treelength(G) <= 2 for planar graphs.",
+      "best_known_result": "Quadratic recognition for series-parallel graphs and a 3/2 approximation on that class; 2023 source says planar treelength complexity is unknown.",
+      "remaining_gap": "Extension of the forbidden-isometric-subgraph characterization or a hardness reduction for planar inputs.",
+      "sources": [{"title": "Treelength of series-parallel graphs", "url": "https://doi.org/10.1016/j.dam.2023.07.022", "source_type": "primary journal paper", "specific_claim": "Series-parallel results; planar complexity identified as unknown."}],
+      "later_status": "No later planar classification found in bounded query; source date means 2026 status is not established.",
+      "first_lemma": "Test whether minimal planar obstructions to treelength 2 have bounded size; stress large isometric cycles and nested separators.",
+      "fast_falsifier": "Construct planar instances with unbounded minimal obstruction size (which falsifies bounded-obstruction methods, not polynomial solvability itself).",
+      "significance": "Would extend metric-constrained decomposition algorithms beyond series-parallel graphs.",
+      "difficulty": "high",
+      "qualitative_scores": {"originality_potential": "medium-high", "importance": "medium-high", "gap_confidence": "low-medium", "proof_strategy": "low", "bounded_progress_likelihood": "low", "independent_verifiability": "medium", "rediscovery_risk": "medium"},
+      "admission": "not_admitted: no narrow reduction or characterization lemma"
+    },
+    {
+      "rank": 5,
+      "id": "MINIMUM_SUM_VERTEX_COVER_APPROXIMATION_GAP",
+      "area": "approximation algorithms; combinatorial optimization",
+      "precise_problem": "Improve the general polynomial-time approximation for MSVC or strengthen conditional hardness to close some portion of the known interval.",
+      "best_known_result": "16/9 approximation and matching natural-LP gap; UGC hardness below 1.0748 (regular graphs have separate 1.225 algorithm and 1.0157 hardness).",
+      "remaining_gap": "A large approximation gap remains, but no narrow algorithmic improvement is specified here.",
+      "sources": [
+        {"title": "Improved Approximations for Min Sum Vertex Cover and Generalized Min Sum Set Cover", "url": "https://epubs.siam.org/doi/10.1137/21M1434052", "source_type": "primary SIAM paper", "specific_claim": "16/9 approximation and matching integrality gap."},
+        {"title": "Some Results on Approximability of Minimum Sum Vertex Cover", "url": "https://drops.dagstuhl.de/doi/10.4230/LIPIcs.APPROX-RANDOM.2022.50", "source_type": "primary APPROX/RANDOM paper", "specific_claim": "UGC hardness below 1.0748."},
+        {"title": "Parameterized Algorithms for Minimum Sum Vertex Cover", "url": "https://arxiv.org/abs/2401.05085", "source_type": "primary preprint/proceedings paper", "specific_claim": "Algorithms under vertex-cover and clique-modulator parameters."}
+      ],
+      "later_status": "The checked sources retain the gap; not an exhaustive update through October 2026.",
+      "first_lemma": "Find a rounding inequality improving 16/9 or a stronger integrality gap; no candidate inequality emerged.",
+      "fast_falsifier": "Small graph test of any proposed inequality, with clear separation between a finite gap and a worst-case ratio theorem.",
+      "significance": "Potential improvement to a classic ordering/covering optimization problem.",
+      "difficulty": "very high",
+      "qualitative_scores": {"originality_potential": "medium", "importance": "high", "gap_confidence": "medium", "proof_strategy": "low", "bounded_progress_likelihood": "very low", "independent_verifiability": "high", "rediscovery_risk": "high"},
+      "admission": "not_admitted: no rounding or hardness proof seed"
+    },
+    {
+      "rank": 6,
+      "id": "DIRECTED_LONGEST_PATH_ABOVE_GIRTH",
+      "area": "parameterized graph algorithms; directed cycles and paths",
+      "precise_problem": "For directed graphs, decide whether there is a path of length at least k times the directed girth; determine whether the known XP algorithm can be improved to FPT or matched by parameterized hardness.",
+      "best_known_result": "Longest Cycle above girth is W[1]-hard, resolving an earlier question; Longest Path above girth is in XP. Hamiltonian cycle/path are W[1]-hard parameterized by directed feedback vertex set.",
+      "remaining_gap": "FPT versus stronger hardness for the path variant.",
+      "sources": [{"title": "Finding Long Directed Cycles Is Hard Even When DFVS Is Small Or Girth Is Large", "url": "https://drops.dagstuhl.de/opus/volltexte/2023/18723/", "source_type": "primary ESA paper", "specific_claim": "W[1]-hardness for cycle and XP membership for path above girth."}],
+      "later_status": "No later exact classification found in bounded query; no claim of open status.",
+      "first_lemma": "Test whether the XP dynamic-program state can be compressed using a DFVS modulator without invoking the known hardness construction.",
+      "fast_falsifier": "Run the proposed state invariant on the source hardness gadgets; likely exposes a direct obstruction.",
+      "significance": "Would clarify parameterized tractability of a classical directed path objective.",
+      "difficulty": "very high",
+      "qualitative_scores": {"originality_potential": "medium", "importance": "high", "gap_confidence": "medium", "proof_strategy": "low", "bounded_progress_likelihood": "low", "independent_verifiability": "high", "rediscovery_risk": "medium"},
+      "admission": "not_admitted: adjacent cycle target is already hardness-resolved and no path lemma survives"
+    },
+    {
+      "rank": 7,
+      "id": "PLANAR_SSUF_COST_ROUNDING_COEFFICIENT",
+      "area": "combinatorial optimization; network flow; discrepancy",
+      "precise_problem": "For acyclic planar SSUF with fractional flow x and maximum demand d_max, determine the minimum universal additive capacity-violation coefficient lambda that permits an unsplittable routing of cost at most c^T x and arc loads at most x + lambda d_max.",
+      "best_known_result": "A 2026 published article proves planar cost-preserving rounding at 2 d_max and a separate exact d_max result for cost-free two-sided flow bounds. A September 2026 Zenodo report independently exact-rational-verifies a 7-vertex counterexample to the cost conjecture at lambda=1, with threshold 16/15; it says the O(d_max) question remains.",
+      "remaining_gap": "The exact lambda threshold for planar cost-preserving rounding, with current lower evidence 16/15 and published upper bound 2; peer-review status of the counterexample remains unsettled in the audited sources.",
+      "sources": [
+        {"title": "Single-source unsplittable flows in planar and bounded-genus graphs", "url": "https://link.springer.com/article/10.1007/s10107-026-02365-x", "source_type": "primary peer-reviewed 2026 journal article", "specific_claim": "Planar 2 d_max cost-preserving bound and related conjecture context."},
+        {"title": "Independent exact verification of the 2026 counterexample", "url": "https://zenodo.org/records/22835200", "source_type": "public exact-rational verification preprint, not peer reviewed", "specific_claim": "Reports independently checked finite counterexample and 16/15 threshold."}
+      ],
+      "later_status": "Exact lambda=1 statement appears refuted by independently checked but not peer-reviewed public verification; do not repeat it as open without caveat.",
+      "first_lemma": "Reconstruct the rational instance and establish the two-terminal lower-threshold case via exact separation or a short analytic certificate.",
+      "fast_falsifier": "Exact enumeration of simple planar two-terminal path routings and a rational LP certificate; this would be mathematical verification, not a campaign experiment, but was not run.",
+      "significance": "Potentially resolves a long-standing cost-preserving rounding boundary with flow/discrepancy implications.",
+      "difficulty": "high",
+      "qualitative_scores": {"originality_potential": "high", "importance": "high", "gap_confidence": "medium", "proof_strategy": "medium", "bounded_progress_likelihood": "medium", "independent_verifiability": "medium-high", "rediscovery_risk": "low-medium"},
+      "admission": "not_admitted: first step is replication and attribution of an unreviewed external counterexample, not original theorem work"
+    }
+  ],
+  "selected_direction": null,
+  "conditional_mathematical_fact": {
+    "statement": "If for every G,A,r in the stw<=3 class there is a family of at most C|A| guards of size <=3, with each chosen guard intersecting every length<=r v-to-a path for all a in A, then pc_r(G,|A|) <= C|A|(r+2)^3.",
+    "status": "elementary conditional counting implication; guard-family existence not proved; not a new graph theorem",
+    "proof_outline": "For a fixed guard S, any shortest path of length at most r to a landmark intersects S, so its distance is min_{s in S}(dist(v,s)+dist(s,a)); a profile is determined by the truncated distance vector to S. There are at most (r+2)^3 such vectors. Sum over O(k) guards.",
+    "adversarial_caveat": "A set guarding one landmark or one selected shortest path is insufficient. Two-sided decomposition corridors can require considering two adhesion boundaries; no correlation bound was proved."
+  },
+  "validation_scope": {
+    "no_computation_or_experiment": true,
+    "frozen_paper3_and_paper4_unchanged": true,
+    "historical_worker_events_rewritten": false,
+    "theory_queue": "left idle; no candidate passed all gates"
+  }
+}
