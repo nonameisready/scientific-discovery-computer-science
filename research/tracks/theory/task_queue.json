@@ -976,6 +976,48 @@
       ],
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BOUNDED-H-CATERPILLAR-007",
       "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_caterpillar_frontier_correction_result_20261016.json",
+      "attempts": 0,
+      "cost_estimate": 0.2,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-PARALLEL-TOKEN-SWAPPING-BOUNDED-H-CATERPILLAR-007"
+      ],
+      "execution_validation": {
+        "experiment_executed": false,
+        "reason": "The inconsistent settled-prefix claim was proved impossible; a consistent frontier variant and a token-identity event-DAG obstruction were proved by hand.",
+        "scientific_success": true,
+        "status": "validated_mathematical_correction_and_structural_obstruction",
+        "timestamp": "2026-10-16T03:12:53Z"
+      },
+      "expected_information_gain": 0.55,
+      "exposition_artifact": "reports/parallel_token_swapping_caterpillar_frontier_correction_20261016.md",
+      "finished_at": "2026-10-16T03:12:53Z",
+      "max_attempts": 1,
+      "objective": "Audit the settled-prefix frontier claim for logical consistency, correct the proposition, and derive an identity-resolved event dependency criterion that accounts for monotone feasibility and necessary detours on caterpillars.",
+      "priority": 80,
+      "research_key": "parallel_token_swapping_caterpillar_frontier_correction",
+      "scientific_completion": "bounded_logic_correction_and_monotone_obstruction",
+      "scientific_status": "bounded_result_complete_universal_caterpillar_bound_open",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "independent_mathematical_audit",
+        "reason": "The settled-prefix incompatibility and fixed-pairing monotone event criterion are proved; a forced star dependency cycle demonstrates necessary detours but not an asymptotic ratio obstruction.",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "prove the settled-prefix and incoming-token conditions are incompatible",
+        "state a nonempty corrected frontier proposition and test the remote family against every hypothesis",
+        "formulate identity-resolved backbone intervals and leaf events",
+        "prove and scope the fixed-pairing acyclicity criterion",
+        "give a valid forced-cycle example requiring an extra crossing",
+        "keep the universal R<=c(D+W_max) question open absent a valid theorem or asymptotic obstruction"
+      ],
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-FRONTIER-CORRECTION-008",
+      "track": "theory"
     }
   ],
   "track": "theory"

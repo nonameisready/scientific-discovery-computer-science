@@ -4,6 +4,8 @@
 **Parent checkpoint:** `a8da720`
 **Method:** mathematical proof and primary-source audit only; no experiment
 
+> **Logical correction (2026-10-16):** The frontier sentence below combined a settled entire prefix with an incoming token destined for that prefix; bijectivity makes the state impossible. Thus the remote-endpoint example did not refute that sentence as written. The corrected nonempty hypothesis and a valid event-dependency obstruction are stated in the [follow-up audit](parallel_token_swapping_caterpillar_frontier_correction_20261016.md). The bounded-h theorem in Section 1 is unchanged.
+
 ## 1. General parameterized theorem
 
 Let (T) be a finite tree with (h\ge1) non-leaf vertices, one distinct token at every vertex, and a bijection from tokens to destination vertices. For each edge (e), let (C(e)) be the number of token-to-destination paths using (e), and (r(e)=C(e)/2). Since the destination map is a permutation, every cut has equally many tokens leaving and entering, so (C(e)) is even. Define
@@ -73,7 +75,7 @@ W(v_i)=r(v_{i-1}v_i)+r(v_iv_{i+1})+a_i,
 
 where (a_i) is the number of initially incorrect pendant leaves at (v_i); at the endpoints omit the missing spine edge. This exactly lower-bounds rounds spent at that vertex, because each incident edge needs at least (r(e)) swaps and one vertex cannot participate in two swaps in a round. Across each spine cut the two directional token counts agree. These facts account for interval traffic and matching capacity, but do not by themselves order exchanges of specific token identities.
 
-### Falsified local frontier lemma
+### Historical frontier claim (its original hypotheses were inconsistent)
 
 Consider this candidate lemma for a left-to-right monotone cut sweep:
 

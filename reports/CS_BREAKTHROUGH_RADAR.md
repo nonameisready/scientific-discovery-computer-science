@@ -1,5 +1,9 @@
 # CS breakthrough radar
 
+## Caterpillar frontier audit corrected; monotone dependency cycles identified (2026-10-16)
+
+The previous “settled prefix + incoming token for that prefix” proposition has inconsistent hypotheses under a bijective destination map, so its endpoint example was not a valid refutation. Under a corrected open-current-block hypothesis, the one-hop local access claim is refuted. An identity-resolved crossing-event DAG exactly characterizes monotone routability for fixed edge pairings. A forced 3-cycle on a 3-leaf star proves some instances require off-path displacement; this is a bounded structural obstruction only. The universal `R<=c(D+W_max)` caterpillar question remains open. [Proof and correction](parallel_token_swapping_caterpillar_frontier_correction_20261016.md).
+
 ## Arbitrarily long caterpillars: parameterized bound, universal factor unresolved (2026-10-16)
 
 For any tree with (h\) non-leaf vertices, path transpositions give `R <= (4h^2-1) LB_hub` (and the requested coarser factor `2h(2h+1)`). This is elementary and h-dependent. It recovers factors 35/42 at h=3, but does not solve the arbitrary-tree or long-caterpillar problem. A one-swap local frontier-access lemma is explicitly false on an endpoint-leaf exchange; this only rejects a local cut-sweep rule, not all algorithms. The universal constant bound `R<=c LB_hub` on arbitrary-length caterpillars remains open. Prior tree routing-number results are worst-case in n, not instance-relative. [Proof and audit](parallel_token_swapping_bounded_h_caterpillar_20261016.md).

@@ -2853,6 +2853,15 @@
       "status": "completed",
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BOUNDED-H-CATERPILLAR-007",
       "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_caterpillar_frontier_correction_result_20261016.json",
+      "counts_as_experiment": false,
+      "objective": "Correct the logically inconsistent settled-prefix frontier claim and derive an identity-resolved monotone crossing-event criterion with a valid detour obstruction; keep the universal caterpillar approximation question open.",
+      "scientific_status": "bounded_result_complete_universal_caterpillar_bound_open",
+      "status": "completed",
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-FRONTIER-CORRECTION-008",
+      "track": "theory"
     }
   ]
 }

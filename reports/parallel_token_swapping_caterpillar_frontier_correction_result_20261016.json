@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-FRONTIER-CORRECTION-008",
+  "parent_checkpoint": "8072b07",
+  "timestamp": "2026-10-16T03:12:53Z",
+  "evidence_tier": "tier_3_mathematical_logic_audit_and_constructive_structural_obstruction",
+  "scientific_status": "bounded_correction_and_monotone_obstruction_complete_universal_caterpillar_bound_open",
+  "historical_bounded_h_result": {
+    "preserved": true,
+    "claim": "R <= (4*h^2-1)*LB_hub",
+    "coarse_bound": "R <= 2*h*(2*h+1)*LB_hub",
+    "h3_factors": [35, 42]
+  },
+  "settled_prefix_audit": {
+    "settled_definition": "Every vertex in prefix P currently holds the unique token whose destination is that vertex.",
+    "proved_incompatibility": "If P is settled, no token outside P can have its destination in P.",
+    "reason": "The unique token destined for each z in P already occupies z; bijective occupancy prevents the same token from being outside P.",
+    "old_counterexample_status": "invalid_as_a_refutation_of_the_original_proposition_because_its_hypotheses_are_inconsistent"
+  },
+  "corrected_frontier_claim": {
+    "preconditions": "Earlier blocks B_1,...,B_(i-1) are settled; current block B_i is open; a token destined in B_i is currently in B_(i+2) or farther.",
+    "claim_tested": "The exact incoming token can be prepared to cross cut v_i v_(i+1) using at most one swap at v_(i+1) with one of its pendant leaves before crossing that cut.",
+    "status": "disproved",
+    "counterexample": "Bare backbone v_1,...,v_t with leaves x at v_1 and y at v_t, only tokens at x,y exchanged; set i=1 and give v_2 no pendant leaves.",
+    "scope": "Refutes only one-hop local access; D=t+1 pays for the remote token travel and no unbounded approximation ratio follows."
+  },
+  "identity_resolved_monotone_event_model": {
+    "input_data": [
+      "For each token, source and destination vertices and their backbone block indices.",
+      "For every backbone cut, the exact left-to-right and right-to-left token identity sets; both have size r_i.",
+      "For each pendant edge, whether its leaf token must be loaded/unloaded."
+    ],
+    "fixed_pairing_lemma": {
+      "statement": "For a fixed bijective pairing of opposite-direction path tokens at every edge, a legal monotone schedule exists iff the directed crossing-event precedence graph is acyclic.",
+      "proof_status": "proved",
+      "verification_complexity": "Polynomial in the number of token-edge path incidences.",
+      "limitation": "Searching edge pairings is not shown polynomial; a topological schedule may take sum_e r(e) singleton rounds and does not imply O(D+W_max)."
+    },
+    "detour_classification": "An actual swap event is extra if at least one swapped token crosses an edge absent from that token's unique source-destination path; this captures temporary displacement, including correctly placed tokens moved away and later returned."
+  },
+  "forced_cycle_obstruction": {
+    "graph": "3-leaf star",
+    "permutation": "Leaf tokens A,B,C route 1->2, 2->3, 3->1; center token Z is fixed.",
+    "forced_event_dependencies": ["E1<E2", "E2<E3", "E3<E1"],
+    "conclusion": "No monotone schedule exists; every valid schedule contains an off-path displacement or repeated path-edge crossing.",
+    "verified_schedule": [["center", "leaf1"], ["center", "leaf2"], ["center", "leaf3"], ["center", "leaf1"]],
+    "metrics": {"D": 2, "W_max": 3, "LB_hub": 3, "schedule_rounds": 4},
+    "scope": "Finite structural obstruction to monotone routing, not an asymptotic lower bound against constant-factor schedules."
+  },
+  "universal_caterpillar_question": {
+    "target": "A deterministic polynomial-time matching schedule with R<=c*(D+W_max) for a universal constant c on all caterpillars.",
+    "status": "open_not_proved_or_refuted",
+    "next_proof_obligation": "Find a polynomially computable, token-realizable augmentation of the event DAG by extra crossings with matching-round schedule length O(D+W_max), or prove a parameterized lower bound ruling out the target."
+  },
+  "prior_art_scope": [
+    {
+      "source": "Kawahara et al., The Time Complexity of Permutation Routing via Matching, Token Swapping and a Variant (JGAA 2019)",
+      "url": "https://jgaa.info/index.php/jgaa/article/view/paper483",
+      "relevance": "Gives an optimal polynomial algorithm for sequential token swapping on star-path graphs, a restricted caterpillar shape; this is not a matching-round bound."
+    },
+    {
+      "source": "Alon, Chung, Graham (1994), Routing Permutations on Graphs via Matchings",
+      "url": "https://doi.org/10.1137/S0895480192236628",
+      "relevance": "Classical matching-round model and worst-case tree routing bounds, not the instance-wise caterpillar target."
+    },
+    {
+      "source": "Aichholzer et al. (2022), Hardness of Token Swapping on Trees",
+      "url": "https://arxiv.org/abs/2103.06707",
+      "relevance": "Parallel token swapping hardness on general trees; does not settle this caterpillar subclass or bound."
+    }
+  ],
+  "execution": {
+    "computation_or_experiment": false,
+    "paper3_changed": false,
+    "paper4_changed": false,
+    "supervisor_started": false
+  },
+  "exposition_artifact": "reports/parallel_token_swapping_caterpillar_frontier_correction_20261016.md"
+}

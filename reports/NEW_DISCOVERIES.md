@@ -1,5 +1,15 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-16: corrected caterpillar frontier logic; exact monotone event criterion
+
+- **Correction:** A fully settled prefix cannot simultaneously have a token destined there still on the right. The earlier endpoint example was not a counterexample to the original, inconsistent proposition.
+- **Valid narrowed result:** With only earlier blocks settled and the current block left open, the one-hop frontier-access claim is false on the endpoint-leaf family. This rejects only that local rule.
+- **Structural lemma:** For fixed pairings of opposite-direction token identities at each edge, monotone routing is possible exactly when the token-path crossing-event precedence digraph is acyclic. This certificate is polynomially verifiable; finding pairings and bounding schedule length remain open.
+- **New obstruction:** A 3-leaf star with a cyclic leaf permutation forces a directed 3-cycle in the event graph; any schedule must use at least one off-path displacement. Its `D=2`, `W_max=3`, and a 4-swap schedule show only bounded extra cost.
+- **Open target:** No proof or asymptotic counterexample for a universal polynomial-time `R<=c(D+W_max)` caterpillar schedule. The bounded-h theorem remains unchanged. No experiments or Paper 3/4 modifications.
+
+Formal proof and exact scope: [frontier correction](parallel_token_swapping_caterpillar_frontier_correction_20261016.md), [structured result](parallel_token_swapping_caterpillar_frontier_correction_result_20261016.json).
+
 ## 2026-10-16: general h-dependent routing bound; long-caterpillar gap remains
 
 - **Fully proved, elementary:** A tree with (h\ge1) non-leaf vertices has diameter at most (h+1); the number of wrong leaves is at most (hLB_{\rm hub}); and at most (hLB_{\rm hub}+h) positions are wrong.
