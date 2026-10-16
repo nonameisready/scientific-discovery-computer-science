@@ -501,7 +501,7 @@
     }
   ],
   "last_activation_id": "2026-10-16T01:37:01Z-manual-theory-checkpoint",
-  "last_successful_commit": "67632d8",
+  "last_successful_commit": "a5b82bf",
   "latest_scientific_increment": {
     "decision": "naive_branch_flow_cycle_lower_bound_disproved",
     "evidence_level": "tier_3_adversarial_mathematical_proof_with_exact_overlapping_hub_counterexample",
