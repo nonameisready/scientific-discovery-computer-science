@@ -1,5 +1,9 @@
 # Research status
 
+## 2026-10-16: double-star theorem novelty boundary refined
+
+A second theorem-level pass against the Springer statement of Roberts–Symvonis–Zhang (WADS 1995) confirms that their results are worst-case routing-number bounds: `2n` for maximum-degree-3 trees, `2n+o(n)` for bounded-degree trees, and `13n/5` for arbitrary trees. General double-stars have unbounded center degrees; the general-tree statement is size-based and does not directly imply the fixed-instance `R≤2 LB_hub` guarantee. Zhang's later `3n/2+O(log n)` bound has the same worst-case-vs-instance distinction. No diameter-three/double-star theorem was found in this targeted primary-source check. The direct-implication answer is therefore **no direct implication found**, not a claim of global absence. The existing two-phase result is now classified more firmly as an elementary restricted-class theorem/algorithmic corollary, with priority unverified and standalone publication value weak absent a broader theorem or sharp exact double-star characterization. The already-completed candidate screen is preserved and no new task is admitted; the theory queue remains idle. Paper 3/4 and experiments remain untouched. See [expanded theorem-level audit](reports/double_star_theorem_independent_audit_20261016.md).
+
 ## 2026-10-16: traversal attribution corrected; double-star theorem independently audited
 
 The per-token traversal identities remain valid, but the previous prose incorrectly assigned whole integer `b` units to individual swaps. `b_t(e)` is an aggregate count of pairs of excess traversal incidences; a swap may contain one excess incidence, which cannot be charged one integer `b` unit. The requested `x-m-y` endpoint-swap schedule is now worked through explicitly, including `L=4`, `S=3`, and edgewise `s-r` values.

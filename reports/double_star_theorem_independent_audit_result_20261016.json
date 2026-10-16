@@ -2,9 +2,9 @@
   "schema_version": 1,
   "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-AUDIT-010",
   "parent_checkpoint": "c560141",
-  "timestamp": "2026-10-16T04:37:16Z",
+  "timestamp": "2026-10-16T04:44:52Z",
   "evidence_tier": "tier_3_independent_mathematical_proof_review_and_primary_source_audit; no_experiment",
-  "scientific_status": "traversal_event_accounting_corrected; double_star_theorem_independently_reproved; novelty_unverified_category_B; no_successor_admitted",
+  "scientific_status": "traversal_event_accounting_corrected; double_star_theorem_independently_reproved; no_direct_prior_implication_found; contribution_assessed_as_routine_restricted_result_not_standalone_publishable; no_successor_admitted",
   "traversal_accounting_correction": {
     "preserved_identities": [
       "N_t(e)=1[e in P_t]+2b_t(e)",
@@ -42,9 +42,27 @@
     "independent_review": "passed; reconstructed cut invariant, token identities, leaf non-reuse, cycle words, matching legality, total bound, and running time from first principles"
   },
   "prior_art_audit": {
-    "classification": "B_apparently_distinct_but_publication_level_originality_unverified",
-    "publication_assessment": "Retain as a correct restricted theorem and potential lemma. The two-phase construction is elementary and local star transposition words are classical; a standalone publication claim is not presently justified without a stronger result or broader principle.",
+    "classification": "no_direct_implication_found_but_routine_elementary_restricted_result; priority_unverified",
+    "publication_assessment": "Retain as a correct restricted-class theorem/algorithmic corollary. It is not presently a credible standalone paper contribution: the single-cut decomposition is elementary, star-transposition words are classical, and the result has no broader structural principle beyond double-stars. A publishable direction would require a nontrivial instance-sensitive theorem for unboundedly many interacting hubs or a sharp exact double-star characterization.",
+    "theorem_level_comparison": {
+      "Roberts_Symvonis_Zhang_1995": {
+        "source_url": "https://doi.org/10.1007/3-540-60220-8_67",
+        "published_guarantees": [
+          "rt(T)<=2n for maximum-degree-3 trees",
+          "rt(T)<=2n+o(n) for bounded-degree trees",
+          "rt(T)<=13n/5 for arbitrary trees"
+        ],
+        "scope_analysis": "These are offline worst-case routing-number bounds in the matching model. General double-stars have unbounded center degrees, so the degree-3 case does not cover them except bounded tiny cases. The arbitrary-tree O(n) statement covers the host but is not instance-sensitive in LB_hub and does not directly imply R<=2*LB_hub. No diameter-three-specific statement appears in the publisher theorem summary."
+      },
+      "Zhang_1999": {
+        "source_url": "https://doi.org/10.1137/S0895480197323159",
+        "published_guarantee": "rt(T)<=3n/2+O(log n) for every n-vertex tree",
+        "scope_analysis": "Broader graph-class coverage, still a worst-case-in-n statement; does not directly imply the fixed-permutation 2*LB_hub guarantee."
+      },
+      "nonimplication_witness_to_naive_size_argument": "A double-star may have arbitrarily many leaves while a permutation moves only two leaves, for which LB_hub=2. Therefore an O(n) routing-number bound alone cannot yield R<=2*LB_hub. This distinguishes theorem forms; it does not rule out deriving a result using additional instance reduction."
+    },
     "sources": [
+      {"citation":"Roberts, Symvonis, Zhang (1995), Routing on Trees via Matchings","url":"https://doi.org/10.1007/3-540-60220-8_67","comparison":"Publisher states worst-case bounds rt(T)<=2n for maximum-degree-3 trees, <=2n+o(n) for bounded-degree trees, and <=13n/5 for arbitrary trees. A general double-star may have unbounded degree. These bounds depend on n and do not directly give the permutation-specific 2*LB_hub guarantee."},
       {"citation":"Alon, Chung, Graham (1994), Routing Permutations on Graphs via Matchings","url":"https://doi.org/10.1137/S0895480192236628","comparison":"Same matching-round model; worst-case routing number, not this instance-wise double-star LB_hub guarantee."},
       {"citation":"Zhang (1999), Optimal Bounds for Matching Routing on Trees","url":"https://doi.org/10.1137/S0895480197323159","comparison":"Worst-case 3n/2+O(log n) bound for arbitrary n-node trees; incomparable with the instance-relative double-star bound."},
       {"citation":"Aichholzer et al. (ESA 2022), Hardness of Token Swapping on Trees","url":"https://doi.org/10.4230/LIPIcs.ESA.2022.3","comparison":"Parallel matching-round PTS is NP-complete on trees; hardness is not an approximation lower bound and does not imply this restricted guarantee."},
@@ -52,8 +70,9 @@
       {"citation":"Sadanandan, Chitturi (2022), Optimal Algorithms for Sorting Permutations with Brooms","url":"https://doi.org/10.3390/a15070220","comparison":"Optimal sequential swap count on broom/double-broom classes, not parallel matching-round makespan."},
       {"citation":"Irving, Rattan (2009), Minimal Factorizations of Permutations into Star Transpositions","url":"https://doi.org/10.1016/j.disc.2008.02.018","comparison":"Classical context for local star cycle words; no double-star matching schedule result."}
     ],
+    "direct_prior_theorem_implies_2_LB_hub": false,
     "priority_claim": false,
-    "audit_boundary": "Targeted primary-source comparison, not an exhaustive literature search or proof of firstness."
+    "audit_boundary": "Targeted theorem-level comparison of primary sources, including the Springer publisher statement for Roberts-Symvonis-Zhang; not an exhaustive literature search or proof of firstness. The result is no direct implication found, not global absence."
   },
   "candidate_directions": [
     {"rank":1,"direction":"Arbitrary-tree parallel token swapping approximation relative to path length and vertex workload","evidence":"Primary work establishes tree hardness and selected-class approximations, but no source audited here implies the desired instance-sensitive bound.","first_obligation":"A token-identity-preserving exchange/order lemma controlling both resource contention and critical-path depth.","feasibility_review":"High importance, but repeated prior attempts left no surviving concrete lemma; too broad to admit now.","status":"not_admitted"},
