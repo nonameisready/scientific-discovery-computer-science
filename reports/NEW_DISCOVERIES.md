@@ -1,5 +1,15 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-16: exact detour accounting; monotone DAG criterion reconciled to known result
+
+- **Proved:** On any tree, `N_t(e)=1[e in P_t]+2b_t(e)` for each token-edge pair, with `b_t(e)>=0`; hence `sum_t b_t(e)=s(e)-r(e)`. This is exact per-token traversal accounting, not a statement that any swap sharing two original paths is mandatory.
+- **Novelty audit:** Acyclicity of some fixed opposite-flow pairing DAG is equivalent to a sequential schedule of exactly half the total distance. The equivalence is the known happy-swap-only equality criterion for the `L/2` lower bound, so no new theorem claim is made. Sequential swaps remain distinct from matching-round schedules.
+- **Failed/open:** One bounded cycle yielded neither a polynomial universal `O(D+W_max)` caterpillar schedule nor an unbounded lower-bound family. Extra traversal counts alone do not control makespan; identity-feasible precedence depth and matching-resource contention remain unbounded in the analysis.
+- **Prior-art rerank:** Star-path trees are a special case of subdivided stars; Bansal–Günlük–Shapley (2025) already provide a parallel constant-factor approximation for that class. Generic star-path routing is therefore down-ranked. Only a non-DAG caterpillar scheduling invariant remains as a research lead, with no successor task admitted absent a precise exchange lemma.
+- **Decision:** Close this DAG-augmentation route. No experiment, Paper 3/4 change, or budget renewal.
+
+Proof, exact unresolved obligation and citations: [mathematical note](parallel_token_swapping_caterpillar_distance_accounting_20261016.md); [machine-readable result](parallel_token_swapping_caterpillar_distance_accounting_result_20261016.json).
+
 ## 2026-10-16: corrected caterpillar frontier logic; exact monotone event criterion
 
 - **Correction:** A fully settled prefix cannot simultaneously have a token destined there still on the right. The earlier endpoint example was not a counterexample to the original, inconsistent proposition.

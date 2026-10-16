@@ -404,7 +404,11 @@
     "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
     "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
     "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005"
+    "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-THREE-CENTER-CATERPILLAR-006",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-BOUNDED-H-CATERPILLAR-007",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-FRONTIER-CORRECTION-008",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009"
   ],
   "current_best_opportunities": [
     {
@@ -428,7 +432,7 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "completed-theory-parallel-token-swapping-double-star-all-permutations-005",
+  "current_phase": "completed-theory-parallel-token-swapping-caterpillar-distance-accounting-009",
   "current_research_round": 41,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
@@ -506,20 +510,36 @@
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
       "timestamp": "2026-10-16T00:31:45Z",
       "worker_execution_scientific_success": false
+    },
+    {
+      "event_history_rewritten": false,
+      "independent_scientific_success": true,
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-FRONTIER-CORRECTION-008",
+      "timestamp": "2026-10-16T03:35:38Z",
+      "worker_execution_scientific_success": null,
+      "note": "Main state reconciled to the completed theory-track artifact; historical worker/event records are unchanged."
+    },
+    {
+      "event_history_rewritten": false,
+      "independent_scientific_success": true,
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009",
+      "timestamp": "2026-10-16T03:35:38Z",
+      "worker_execution_scientific_success": null,
+      "note": "Manual proof and prior-art audit; no worker or experiment was started."
     }
   ],
   "last_activation_id": "2026-10-16T02:19:50Z-pid61130",
   "last_successful_commit": "31c31b6",
   "latest_scientific_increment": {
-    "decision": "proved_constructive_two_approximation_for_all_permutations_on_double_stars",
-    "evidence_level": "tier_3_independently_reviewed_mathematical_proof",
-    "kind": "bounded_theory_task_completion",
-    "next_falsifiable_action": "A proof-only follow-up may test whether the side-correction invariant extends to a three-center path; overlapping cuts share a middle center and leave a residual backbone. No counterexample or arbitrary-tree theorem is claimed.",
+    "decision": "Exact per-token extra-traversal identity proved; fixed-pairing event-DAG equivalence is a restatement of the known happy-swap distance-optimality criterion. Close the DAG-augmentation route; no universal caterpillar makespan theorem or asymptotic obstruction obtained.",
+    "evidence_level": "tier_3_mathematical_identity_and_primary_source_prior_art_reconciliation",
+    "kind": "independent_scientific_reconciliation",
+    "next_falsifiable_action": "Consider a non-DAG caterpillar block-scheduling invariant only if a precise token-identity exchange lemma can be stated; do not admit a task until it bounds both precedence depth and center contention.",
     "scientific_success": true,
-    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005"
+    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "No eligible admitted task remains; preserve the double-star theorem and wait for a separately justified proof task. Do not run experiments or renew budgets.",
+  "next_action": "No successor task is admitted. Continue only if a precise non-DAG caterpillar exchange lemma is identified; otherwise leave the theory queue idle rather than generating low-information work.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -530,19 +550,35 @@
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
   "opportunity_ranking": [
-    {
-      "scientific_completion": "proved_restricted_constructive_approximation",
-      "score": 95.2,
-      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
-      "track": "theory",
-      "status": "completed; no successor admitted pending separate review"
-    }
+    {"rank": 1, "direction": "Caterpillar matching-round block scheduling outside monotone-DAG augmentation", "status": "research_lead_not_admitted", "reason": "Needs a concrete identity-preserving exchange lemma that bounds both precedence depth and center contention; no task is admitted yet."},
+    {"rank": 2, "direction": "Instance-relative D+W_max refinement on subdivided stars", "status": "downranked_prior_approximation_exists", "reason": "Generic constant-factor parallel approximation is already known on this class; any new claim must improve on the 2025 result."},
+    {"rank": 3, "direction": "General-tree instance-relative routing approximation", "status": "downranked", "reason": "No concrete theorem-sized parameter currently justifies admission."}
   ],
   "pending_tasks": [],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
   "scientific_artifact_audits": [
+    {
+      "artifact": "reports/parallel_token_swapping_caterpillar_frontier_correction_result_20261016.json",
+      "evidence_level": "tier_3_mathematical_logic_audit_and_constructive_structural_obstruction",
+      "next_falsifiable_action": "Exact traversal accounting and a source-level audit of distance-optimal monotone routing; the universal caterpillar matching-round bound remains open.",
+      "observed_result_or_blocker": "Task 008's settled-prefix contradiction and fixed-pairing event-DAG result are recorded as completed bounded theory; the root checkpoint now reflects this without altering historical execution records.",
+      "scientific_success": true,
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-FRONTIER-CORRECTION-008",
+      "timestamp": "2026-10-16T03:35:38Z",
+      "uncertainty": ["No universal constant-factor matching-round schedule for arbitrary caterpillars was proved or refuted."]
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_caterpillar_distance_accounting_result_20261016.json",
+      "evidence_level": "tier_3_mathematical_identity_and_prior_art_reconciliation; no_experiment",
+      "next_falsifiable_action": "Source-audit star-path matching-round routing and formulate a distinct instance-relative theorem only if uncovered.",
+      "observed_result_or_blocker": "For every token-edge pair, N_t(e)=chi_t(e)+2b_t(e); summing gives sum_t b_t(e)=s(e)-r(e). Acyclic fixed-pairing event DAG exists iff a sequential L/2 happy-swap solution exists, which is known distance-optimality, not a new approximation theorem. No c(D+W_max) caterpillar construction or unbounded separation was obtained.",
+      "scientific_success": true,
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009",
+      "timestamp": "2026-10-16T03:35:38Z",
+      "uncertainty": ["The O(D+W_max) caterpillar matching-round theorem remains unresolved.", "No asymptotic obstruction against all schedules was established."]
+    },
     {
       "artifact": "reports/parallel_token_swapping_lb_hub_structural_review_result_20261016.json",
       "evidence_level": "tier_3_adversarial_mathematical_proof_audit_with_exact_star_extension",

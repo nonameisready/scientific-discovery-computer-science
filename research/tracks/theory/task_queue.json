@@ -1018,6 +1018,15 @@
       ],
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-FRONTIER-CORRECTION-008",
       "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_caterpillar_distance_accounting_result_20261016.json",
+      "counts_as_experiment": false,
+      "objective": "Prove exact per-token extra-traversal accounting, reconcile fixed-pairing monotone-event DAG with the known happy-swap distance-optimality criterion, and make one bounded attempt at an O(D+W_max) caterpillar augmentation theorem.",
+      "scientific_status": "exact_identity_proved_known_equivalence_reconciled_augmentation_route_closed_unresolved",
+      "status": "completed",
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009",
+      "track": "theory"
     }
   ],
   "track": "theory"

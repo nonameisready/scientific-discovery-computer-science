@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009",
+  "parent_checkpoint": "24d026d",
+  "timestamp": "2026-10-16T03:35:38Z",
+  "evidence_tier": "tier_3_mathematical_identity_and_prior_art_reconciliation; no_experiment",
+  "scientific_status": "exact_traversal_accounting_proved; fixed_pairing_dag_equivalence_reconciled_to_known_happy_swap_criterion; caterpillar_augmentation_closed_unresolved",
+  "traversal_accounting": {
+    "definition": "For token t and edge e in a tree, N_t(e) is the number of traversals in a legal schedule, chi_t(e)=1 iff e lies on the unique original source-destination path P_t, and b_t(e)=(N_t(e)-chi_t(e))/2.",
+    "proof_status": "proved",
+    "identity": "N_t(e)=chi_t(e)+2*b_t(e), with b_t(e) a unique nonnegative integer",
+    "edge_identity": "sum_t b_t(e)=s(e)-r(e), where s(e) is the number of swaps on e and r(e)=C(e)/2",
+    "reason": "Each traversal toggles the component of T-e containing the token, so N_t(e) mod 2 equals chi_t(e). Every swap contributes exactly two token traversals on e, and bijective destinations balance the cut so C(e)=2r(e).",
+    "correction": "A swap is not mandatory just because its edge belongs to both original token paths; extra status is counted per token traversal and wrong-direction/repeated traversals contribute to b."
+  },
+  "fixed_pairing_dag": {
+    "equivalence": "There exists an opposite-direction pairing at every edge with acyclic token-event precedence graph iff there exists a sequential schedule using exactly half the total initial token distance L/2 swaps.",
+    "proof_status": "proved_as_reformulation_of_known_criterion",
+    "known_boundary": "Miltzow et al. (ESA 2016, Lemma 2) prove the L/2 lower bound; Bonnet, Miltzow, and Rzążewski (Algorithmica 2018, Proposition 2) state equality iff a happy-swap-only solution exists. The DAG encodes identity-level precedence constraints of a chosen happy-swap pairing.",
+    "scope": "Sequential swap count only; it does not give a matching-round makespan bound or cover schedules requiring shoves/detours.",
+    "novelty": "No novelty claim; fixed-pairing DAG criterion is a representation of known distance-optimality."
+  },
+  "caterpillar_augmentation": {
+    "target": "A polynomial-time matching schedule with R<=c*(D+W_max) for a universal constant c on every caterpillar.",
+    "status": "unresolved; this DAG-augmentation route is closed for now",
+    "established_bounds": ["R>=D", "R>=max_v sum_{e incident to v}s(e)", "sum_{e incident to v}s(e)=W(v)+sum_{e incident to v}sum_t b_t(e)"],
+    "missing_obligation": "Construct polynomially many realizable token-labeled extra traversals and a matching-round schedule whose resource contention and precedence-chain depth are both O(D+W_max), or prove a schedule-independent parameterized obstruction.",
+    "no_overclaim": "No constant-bound algorithm, asymptotic separation, or experimental result is claimed."
+  },
+  "prior_art": [
+    {"citation": "Miltzow et al., Approximation and Hardness for Token Swapping, ESA 2016, Lemma 2", "url": "https://drops.dagstuhl.de/opus/volltexte/2016/6408/pdf/LIPIcs-ESA-2016-66.pdf", "relevance": "Proves the distance-sum L/2 lower bound."},
+    {"citation": "Bonnet, Miltzow, and Rzążewski, Complexity of Token Swapping and Its Variants, Algorithmica 80 (2018), Proposition 2", "url": "https://doi.org/10.1007/s00453-017-0387-0", "relevance": "States the exact criterion: optimum equals L/2 iff there is a solution using happy swaps only."},
+    {"citation": "Biniaz et al., Token Swapping on Trees, DMTCS 2022", "url": "https://doi.org/10.46298/dmtcs.8383", "relevance": "Reviews Akers-Krishnamurthy's happy-swap/shove method and documents that optimal solutions may move correctly placed leaves; relevant to limits of monotone routing."},
+    {"citation": "Akers and Krishnamurthy, A Group-Theoretic Model for Symmetric Interconnection Networks, IEEE Transactions on Computers 38(4), 1989", "url": "https://doi.org/10.1109/12.21148", "relevance": "Classical group-theoretic routing source; Biniaz et al. identify its tree happy-swap/shove method. This is not the parallel matching-round makespan objective."},
+    {"citation": "Kawahara et al., The Time Complexity of Permutation Routing via Matching, Token Swapping and a Variant, JGAA 2019", "url": "https://jgaa.info/index.php/jgaa/article/view/paper483", "relevance": "Polynomial optimal sequential algorithm for star-path graphs; its matching-round approximation theorem is stated for paths, not the star-path subclass."},
+    {"citation": "Bansal, Günlük, and Shapley, Parallel Token Swapping for Qubit Routing, arXiv:2411.18581v2 (2025), Theorem 3", "url": "https://arxiv.org/abs/2411.18581", "relevance": "Gives R<=4OPT+min{OPT,h}+1 for subdivided stars (trees with exactly one vertex of degree greater than two); star-path graphs are a special case, so generic star-path matching-round approximation is already covered."}
+  ],
+  "next_opportunity_ranking": [
+    {"rank": 1, "direction": "Caterpillar matching-round block scheduling not based on monotone-DAG augmentation", "status": "research_lead_not_admitted", "gate": "Requires a concrete identity-preserving exchange lemma that bounds both critical path and center contention; no task is admitted yet."},
+    {"rank": 2, "direction": "Instance-relative D+W_max refinement on subdivided stars", "status": "downranked_prior_approximation_exists", "gate": "Generic parallel approximation is already known; any new claim must be strictly stronger than the 2025 subdivided-star result."},
+    {"rank": 3, "direction": "General-tree instance-relative parallel routing approximation", "status": "downranked_until_concrete_parameter", "gate": "Do not enqueue without a specific theorem-sized invariant or source-verified gap."}
+  ],
+  "execution": {"experiment_executed": false, "computation_executed": false, "supervisor_started": false, "experiment_budget_renewed": false, "paper3_changed": false, "paper4_changed": false}
+}

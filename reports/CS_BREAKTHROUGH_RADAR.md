@@ -1,5 +1,9 @@
 # CS breakthrough radar
 
+## Caterpillar traversal accounting; fixed-pairing DAG is known happy-swap optimality (2026-10-16)
+
+For each token-edge pair, cut parity gives `N_t(e)=1[e in P_t]+2b_t(e)` and summing over tokens gives the exact identity `sum_t b_t(e)=s(e)-r(e)`. The fixed-pairing crossing-event DAG is acyclic for some pairing exactly when sequential swap count attains the `L/2` distance lower bound, i.e. when a happy-swap-only solution exists. This is a reformulation of the established criterion, not a novelty claim. No universal `R<=c(D+W_max)` caterpillar algorithm or asymptotic separation was obtained, so the DAG-augmentation route is closed. Star-path matching-round approximation is down-ranked because star-path is a subdivided star, already covered by a 2025 constant-factor algorithm. The only remaining lead is a non-DAG caterpillar scheduling invariant; no task is admitted without a concrete exchange lemma. See [proof note](parallel_token_swapping_caterpillar_distance_accounting_20261016.md).
+
 ## Caterpillar frontier audit corrected; monotone dependency cycles identified (2026-10-16)
 
 The previous “settled prefix + incoming token for that prefix” proposition has inconsistent hypotheses under a bijective destination map, so its endpoint example was not a valid refutation. Under a corrected open-current-block hypothesis, the one-hop local access claim is refuted. An identity-resolved crossing-event DAG exactly characterizes monotone routability for fixed edge pairings. A forced 3-cycle on a 3-leaf star proves some instances require off-path displacement; this is a bounded structural obstruction only. The universal `R<=c(D+W_max)` caterpillar question remains open. [Proof and correction](parallel_token_swapping_caterpillar_frontier_correction_20261016.md).
