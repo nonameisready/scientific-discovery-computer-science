@@ -2,7 +2,7 @@
   "active_task_ids": [],
   "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-15T19:57:38Z",
+  "checkpoint_time": "2026-10-16T00:19:47Z",
   "completed_task_ids": [
     "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
     "THEORY-ZEROEXT-CACTUS-CYCLE-001",
@@ -13,7 +13,9 @@
     "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005"
   ],
   "last_supervisor_status": "ACTIVE",
-  "pending_task_ids": [],
+  "pending_task_ids": [
+    "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"
+  ],
   "schema_version": 1,
   "status": "IDLE",
   "track": "theory"

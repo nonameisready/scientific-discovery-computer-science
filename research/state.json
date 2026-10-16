@@ -117,7 +117,7 @@
     {
       "artifact": "results/qaoa_source_baseline_sensitivity_20261015/result.json",
       "evidence_level": "tier_4_local_exact_state_vector_pilot_sensitivity_recomputation",
-      "experiment_id": "AUDIT-PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
+      "experiment_id": "EXP-PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
       "limitation": "['The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.', 'The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.', 'The same 20 hash-seeded n=8 simple 3-regular graphs, fixed alternating assignment, beta/gamma, and greedy pair rule were retained; ",
       "result": "{'strict_valid_set': {'valid_graphs': 16, 'denominator': '16/20', 'paired_delta': {'n': 16, 'mean': 0.3435041777311078, 'sample_sd': 0.09348118309114006, 'standard_error': 0.023370295772785016}, 'paired_delta_sum': 5.496066843697725, 'positive_deltas': 16}, 'all_20_sensitivity': {'valid_graphs': 16, 'denominator': '20/20 rows retained; 16 observed valid outcomes + 4 structural-missing codes', 'paired_delta': {'n': 20, 'mean': 0.2748033421848862, 'sample_sd': 0.16362108959771193, 'standard_error': 0.036586787889306756}, 'paired_delta_sum': 5.496066843697725, 'change_vs_strict_mean': -0.06870083554622158, 'relative_to_strict_mean': 0.7999999999999999, 'positive_observed_deltas': 16, 'structural_missing_rows': 4}, 'interpretation': 'The strict conditional A1 mean remains +0.3435041777311078 on 16/20 graphs. Under the frozen all-20 structural-missing-zero sensitivity coding, the paired-delta mean is lower at +0.2748033421848862; the denominator changes from 16 to 20 rows, a reduction of 0."
     },
@@ -152,7 +152,7 @@
     {
       "artifact": "results/qaoa_source_baseline_larger_n_20261015/result.json",
       "evidence_level": "tier_4_local_exact_state_vector_robustness_experiment",
-      "experiment_id": "AUDIT-PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
+      "experiment_id": "EXP-PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
       "limitation": "['The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.', 'The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.', 'This local exact-state-vector computation does not establish source implementation equivalence, hardware performance, general QAOA behavi",
       "result": "{'status': 'completed', 'result': 'All 20 graphs admitted the predeclared conditioning event; graph-level paired conditioned-minus-unconditioned expected cuts were computed.'}"
     },
@@ -173,7 +173,7 @@
     {
       "artifact": "reports/edcs_experiment_result_20261015.json",
       "evidence_level": "tier_4_independently_verified_finite_variant_counterexample",
-      "experiment_id": "AUDIT-NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+      "experiment_id": "EXP-NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
       "falsification_outcome": {
         "original_dynamic_edcs_algorithm_tested": false,
         "original_edcs_theory_refuted": false,
@@ -321,7 +321,7 @@
   ],
   "blocked_tasks": [],
   "budget_consumption": {
-    "activations_started": 79,
+    "activations_started": 97,
     "completed_experiments": 9,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
@@ -350,7 +350,7 @@
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-15T19:59:52Z",
+  "checkpoint_time": "2026-10-16T00:19:47Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -402,9 +402,9 @@
   "current_best_opportunities": [
     {
       "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
-      "next_task": null,
-      "reason": "The proposed deletion of the uniform certificate coordinate fails on a source-eligible two-terminal series-parallel parallel-bundle graph with two essential internal crossing edges. The s gammoid layers remain uncompressed; no immediate successor is queued without a new joint-extension lemma.",
-      "status": "specific_layer_deletion_closed_joint_profile_unresolved"
+      "next_task": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
+      "reason": "The joint-profile cycle formalized the exact Gamma(X)\\B query and corrected the O13 witness scope, but produced no simultaneous exchange lemma or universal-exponent improvement. Zero Extension is closed for this bounded route; the next theory task is a separate authenticated token-swapping problem.",
+      "status": "joint_profile_route_closed_after_bounded_cycle"
     },
     {
       "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
@@ -417,8 +417,8 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "theory-zeroext-certificate-boundary-005",
-  "current_research_round": 37,
+  "current_phase": "theory-parallel-token-swapping-tree-approx-001",
+  "current_research_round": 38,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -474,18 +474,34 @@
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
-  "last_activation_id": "2026-10-15T19:49:30Z-pid27709",
+  "independent_scientific_reconciliations": [
+    {
+      "event_history_rewritten": false,
+      "independent_scientific_success": true,
+      "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
+      "timestamp": "2026-10-15T19:57:38Z",
+      "worker_execution_scientific_success": false
+    },
+    {
+      "event_history_rewritten": false,
+      "independent_scientific_success": true,
+      "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
+      "timestamp": "2026-10-15T19:57:38Z",
+      "worker_execution_scientific_success": false
+    }
+  ],
+  "last_activation_id": "2026-10-16T00:19:46Z-pid13959",
   "last_successful_commit": "90277a9",
   "latest_scientific_increment": {
-    "decision": "Close the attempted uniform-layer deletion; preserve the restricted trivial singleton certificate only as a sanity check.",
-    "evidence_level": "tier_3_source_reconstruction_and_counterexample_to_certificate_layer_deletion",
+    "decision": "Close the current Zero Extension joint-profile route after one bounded proof cycle; admit one distinct theory task on parallel token swapping for arbitrary trees.",
+    "evidence_level": "tier_3_adversarial_mathematical_direction_selection",
     "kind": "independent_scientific_reconciliation",
-    "next_falsifiable_action": "Rank other original-CS directions; reopen Zero Extension only with a new simultaneous gammoid-extension lemma. No experiment is authorized.",
+    "next_falsifiable_action": "Execute THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001 as a non-experimental proof task; first prove or refute the C+D schedule bound.",
     "scientific_success": true,
-    "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005"
+    "task_id": "DIRECTION-SELECTION-ZEROEXT-JOINT-PROFILE-20261015"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "No automatic experiment or elementary Zero Extension successor is queued. Review the ranked alternatives; preserve exhausted experimental authorization and Paper 3 no-score status.",
+  "next_action": "Execute THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001; no experiment or budget renewal is authorized.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -496,16 +512,9 @@
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
   "opportunity_ranking": [
-    {"rank": 1, "id": "ZEROEXT-JOINT-GAMMOID-PROFILES", "status": "candidate_only", "readiness": "pure mathematical work", "decision_gate": "Only proceed if a concrete simultaneous-exchange lemma or adversarial family is formulated; do not repeat M0 deletion or scalar-interface variants."},
-    {"rank": 2, "id": "OXIDE-REF-BLIND-SOUNDNESS-004", "status": "blocked_candidate", "readiness": "requires pinned semantics/checker/toolchain", "decision_gate": "No enumeration until executable formal semantics and checker are available."},
-    {"rank": 3, "id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002", "status": "authorization_required", "readiness": "local experiment", "decision_gate": "Do not execute without new explicit experiment budget; novelty is limited to the frozen rule."},
-    {"rank": 4, "id": "CERT-SQLITE-TRANSFER-003", "status": "downranked", "readiness": "endpoint mismatch", "decision_gate": "Reopen only if a source-comparable estimated-row endpoint is identified."}
+    {"task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001", "track": "theory", "score": 1.456, "scientific_completion": "proof_obligation_audit"}
   ],
-  "independent_scientific_reconciliations": [
-    {"task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004", "worker_execution_scientific_success": false, "independent_scientific_success": true, "timestamp": "2026-10-15T19:57:38Z", "event_history_rewritten": false},
-    {"task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005", "worker_execution_scientific_success": false, "independent_scientific_success": true, "timestamp": "2026-10-15T19:57:38Z", "event_history_rewritten": false}
-  ],
-  "pending_tasks": [],
+  "pending_tasks": ["THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
@@ -542,7 +551,7 @@
         "scientific_success": true
       },
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
         "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
@@ -577,7 +586,7 @@
         "scientific_success": true
       },
       "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
         "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
@@ -669,7 +678,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
         "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
@@ -708,7 +717,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
         "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
@@ -730,7 +739,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.",
         "No confidence interval or population claim is warranted for this small, hash-seeded pilot.",
@@ -763,7 +772,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "Bounded citation-tracing/full-text audit, not exhaustive review.",
         "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.",
@@ -788,7 +797,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": null
     },
     {
@@ -826,7 +835,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
         "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
@@ -877,7 +886,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
         "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
@@ -906,7 +915,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "These are deterministic, bounded cohorts rather than representative CS population samples.",
         "Round 4 is an independent retrieval audit but not an independent question cohort.",
@@ -988,7 +997,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
         "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
@@ -1025,7 +1034,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
         "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
@@ -1062,7 +1071,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
         "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
@@ -1087,7 +1096,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.",
         "The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.",
@@ -1108,7 +1117,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "Graph-level sample SD/SE are descriptive over these 20 new seeded units only.",
         "The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.",
@@ -1130,7 +1139,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "All procedures use the same exact state convention and graph sample, but postselection uses fewer retained samples by design.",
         "C is a declared matched-preparation reference with approximately 400 accepted-shot-equivalent preparations, not a separate quantum algorithm.",
@@ -1150,7 +1159,7 @@
         "scientific_success": true
       },
       "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
         "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",
@@ -1180,7 +1189,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The theorem is restricted to finite connected unweighted trees.",
         "Cycle interactions prevent automatic extension to cacti; this remains an unproved obligation rather than a negative result.",
@@ -1209,7 +1218,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The theorem is restricted to standard connected cactus hosts and the explicit output conventions.",
         "A contraction-only output on the original vertex set is a separate representation restriction.",
@@ -1234,7 +1243,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The Omega(k) result is for the explicit contraction-only quotient model, not the unrestricted sparsifier model.",
         "The infeasible-instance unboundedness is a model obstruction and may disappear under a source-style no-instance replacement convention.",
@@ -1259,7 +1268,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The blocked route is a construction failure, not a theorem ruling out all feasible superlinear families.",
         "The series-parallel alternative is a proof program, not an established bound.",
@@ -1284,7 +1293,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The obstruction refutes scalar label-independent closure, not every possible compressed interface with additional metric structure.",
         "No feasible superlinear contraction-only lower bound was proved.",
@@ -1315,7 +1324,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
-      "timestamp": "2026-10-15T19:49:30Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
         "The fixed-metric path witness rules out the stated label-blind state class, not every possible compressed representation.",
         "Raw interface-table cardinality does not establish a sparsifier lower bound.",
@@ -1324,34 +1333,22 @@
     },
     {
       "artifact": "reports/zero_extension_certificate_boundary_result_20261015.json",
-      "evidence_level": "tier_3_source_reconstruction_and_counterexample_to_certificate_layer_deletion",
-      "next_falsifiable_action": "Rank alternative original-CS directions; do not queue another Zero Extension minor variant without a new simultaneous-gammoid exchange lemma.",
-      "observed_result_or_blocker": {
-        "attempt_status": "closed_after_corrected_source-eligible_counterexample_to_specific_layer_deletion",
-        "general_bound": "unchanged O_s(k^(s+1)) source theorem; no f(s)k^c theorem established",
-        "source_eligible_obstruction": "Two internal edges outside E_S in a feasible two-terminal series-parallel multigraph are both essential and extend the same gammoid-only query; M0 distinguishes the requested edge.",
-        "invalid_initial_attempt": "All-terminal K3 had E_S=E and is explicitly discarded because no Y(e) tuple is defined for its edges.",
-        "restricted_bound": {
-          "bound": "O(k), with f(s)=1 and c=1",
-          "certificate_size": "exactly m, at most k",
-          "class": "abstract singleton identity certificate on a ground set with m<=k; not a graph compression",
-          "novelty": "trivial identity bound; no graph-sparsifier implication",
-          "representative_parameter": 1
-        }
-      },
+      "evidence_level": "tier_3_source_reconstruction_and_finite_certificate_obstruction",
+      "next_falsifiable_action": "Do not queue another minor Zero Extension interface task. Reopen this direction only after formulating a genuinely new simultaneous-gammoid exchange lemma; otherwise select from the ranked external candidates.",
+      "observed_result_or_blocker": null,
       "scientific_success": true,
       "scientific_validation": {
-          "missing_or_failed": [],
-          "mode": "proof_obligation_audit",
-          "reason": "independent source and counterexample review; worker validation remains false",
-          "scientific_success": true
-        },
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
       "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
-      "timestamp": "2026-10-15T19:57:38Z",
+      "timestamp": "2026-10-16T00:19:46Z",
       "uncertainty": [
-        "No joint gammoid compression theorem or all-certificate lower bound was proved.",
-        "No arbitrary sparsifier lower bound or universal-exponent theorem follows.",
-        "The prior worker artifact-only event remains unchanged in the append-only event log."
+        "The example refutes the uniform-layer deletion as a drop-in source-proof step only; a different common representative-family argument may exist.",
+        "No global joint-gammoid compression lower bound and no arbitrary-sparsifier lower bound was proved.",
+        "Novelty is limited to a finite adversarial audit; no new theorem or improvement to the general bound is claimed."
       ]
     }
   ],

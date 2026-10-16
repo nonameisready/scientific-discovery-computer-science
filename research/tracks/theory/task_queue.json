@@ -15,10 +15,30 @@
         "preserve exact definitions, proof gaps, counterexamples and negative findings",
         "Paper 3 Target A and Target B remain unchanged"
       ],
+      "execution_validation": {
+        "raw_output_sha256": "3246bbe87a4349647fc5c034ae32016cbfb700adbfbf5a03b4ee7eba50cc2f75",
+        "scientific_success": true,
+        "status": "validated",
+        "timestamp": "2026-10-15T17:42:22Z"
+      },
       "expected_information_gain": 0.9,
       "exposition_artifact": "reports/zero_extension_boundary_signature_proof_20261015.md",
       "failure_handling": "If the tree/cactus signature lemma fails or is already implied by prior art, preserve the obstruction and down-rank the candidate; do not replace the target with a mismatched cut/flow theorem.",
       "finished_at": "2026-10-15T17:42:22Z",
+      "independent_scientific_reconciliation": {
+        "artifact": "reports/zero_extension_boundary_signature_result_20261015.json",
+        "scientific_success": true,
+        "status": "completed",
+        "timestamp": "2026-10-15T20:04:38Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "scientific criteria satisfied",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": true,
+        "worker_raw_output_sha256": "3246bbe87a4349647fc5c034ae32016cbfb700adbfbf5a03b4ee7eba50cc2f75"
+      },
       "last_result": {
         "artifact_bytes": 4177,
         "artifact_valid": true,
@@ -75,10 +95,30 @@
         "no experiment authorization renewal",
         "preserve unresolved and negative results"
       ],
+      "execution_validation": {
+        "raw_output_sha256": "4394a21fd37f53d990df912c52067fe28a57c0a147ac42136c4835c894c5cf67",
+        "scientific_success": true,
+        "status": "validated",
+        "timestamp": "2026-10-15T17:58:16Z"
+      },
       "expected_information_gain": 0.75,
       "exposition_artifact": "reports/zero_extension_cactus_signature_proof_20261015.md",
       "failure_handling": "If the single-cycle signature fails, preserve the exact obstruction and reassess O7; do not infer an asymptotic lower bound or substitute a mismatched cut/flow theorem.",
       "finished_at": "2026-10-15T17:58:16Z",
+      "independent_scientific_reconciliation": {
+        "artifact": "reports/zero_extension_cactus_signature_result_20261015.json",
+        "scientific_success": true,
+        "status": "completed",
+        "timestamp": "2026-10-15T20:04:38Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "scientific criteria satisfied",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": true,
+        "worker_raw_output_sha256": "4394a21fd37f53d990df912c52067fe28a57c0a147ac42136c4835c894c5cf67"
+      },
       "last_result": {
         "artifact_bytes": 2821,
         "artifact_valid": true,
@@ -135,10 +175,30 @@
         "no experiment authorization renewal",
         "preserve finite obstructions and failed constructions"
       ],
+      "execution_validation": {
+        "raw_output_sha256": null,
+        "scientific_success": true,
+        "status": "validated",
+        "timestamp": "2026-10-15T19:30:00Z"
+      },
       "expected_information_gain": 0.8,
       "exposition_artifact": "reports/zero_extension_contraction_lower_bound_proof_20261015.md",
       "failure_handling": "The pair-bundle route is closed as an s-exponent witness; retain the feasible joint-contraction question and O8 as separate obligations.",
       "finished_at": "2026-10-15T19:30:00Z",
+      "independent_scientific_reconciliation": {
+        "artifact": "reports/zero_extension_contraction_lower_bound_result_20261015.json",
+        "scientific_success": true,
+        "status": "completed",
+        "timestamp": "2026-10-15T20:04:38Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "scientific criteria satisfied",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": true,
+        "worker_raw_output_sha256": null
+      },
       "last_result": {
         "artifact_valid": true,
         "independent_validation": "reports/zero_extension_contraction_lower_bound_result_20261015.json",
@@ -183,10 +243,30 @@
         "no experiment authorization renewal",
         "exclude infeasible-instance shortcuts and preserve the pair-bundle obstruction"
       ],
+      "execution_validation": {
+        "raw_output_sha256": "085fa4f15662bff2d0c73cd1e9834d7e4b1fce6c805cdaa7786b9f3833b69538",
+        "scientific_success": true,
+        "status": "validated",
+        "timestamp": "2026-10-15T20:05:00Z"
+      },
       "expected_information_gain": 0.85,
       "exposition_artifact": "reports/zero_extension_feasible_contraction_lower_bound_proof_20261015.md",
       "failure_handling": "If no feasible joint-contraction lower bound survives, record the obstruction and keep O8 separate; do not reopen cactus or pair-bundle proofs.",
       "finished_at": "2026-10-15T20:05:00Z",
+      "independent_scientific_reconciliation": {
+        "artifact": "reports/zero_extension_feasible_contraction_lower_bound_result_20261015.json",
+        "scientific_success": true,
+        "status": "completed",
+        "timestamp": "2026-10-15T20:04:38Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "scientific criteria satisfied",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": true,
+        "worker_raw_output_sha256": "085fa4f15662bff2d0c73cd1e9834d7e4b1fce6c805cdaa7786b9f3833b69538"
+      },
       "last_result": {
         "artifact_bytes": 3172,
         "artifact_valid": true,
@@ -246,10 +326,30 @@
         "preserve the Multiway-Cut feasibility theorem and O7 negative route",
         "Paper 3 Target A and Target B remain unchanged"
       ],
+      "execution_validation": {
+        "raw_output_sha256": "299001373c58603d54178915611cfba4d518b4ff411be8bee59cd75bede739bb",
+        "scientific_success": true,
+        "status": "validated",
+        "timestamp": "2026-10-15T19:01:29Z"
+      },
       "expected_information_gain": 0.78,
       "exposition_artifact": "reports/zero_extension_series_parallel_interface_proof_20261015.md",
       "failure_handling": "If the exact interface does not close, preserve the smallest series-parallel obstruction and down-rank this route; do not repeat pair bundles or infer an unrestricted lower bound.",
       "finished_at": "2026-10-15T19:01:29Z",
+      "independent_scientific_reconciliation": {
+        "artifact": "reports/zero_extension_series_parallel_interface_result_20261015.json",
+        "scientific_success": true,
+        "status": "completed",
+        "timestamp": "2026-10-15T20:04:38Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "scientific criteria satisfied",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": true,
+        "worker_raw_output_sha256": "299001373c58603d54178915611cfba4d518b4ff411be8bee59cd75bede739bb"
+      },
       "last_result": {
         "artifact_bytes": 3754,
         "artifact_valid": true,
@@ -320,10 +420,17 @@
       "finished_at": "2026-10-15T19:17:48Z",
       "independent_scientific_reconciliation": {
         "artifact": "reports/zero_extension_sp_terminal_compression_result_20261015.json",
-        "basis": "Independent structured proof audit and exposition; historical worker artifact-only event is preserved.",
         "scientific_success": true,
         "status": "completed",
-        "timestamp": "2026-10-15T19:57:38Z"
+        "timestamp": "2026-10-15T20:04:38Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "scientific criteria satisfied",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": false,
+        "worker_raw_output_sha256": "54f6688584f9e4b02b8de2baa51fa73983977b56c5cb5ec8b5885b05bd918654"
       },
       "last_result": {
         "artifact_bytes": 4841,
@@ -349,7 +456,7 @@
       "scientific_validation": {
         "missing_or_failed": [],
         "mode": "proof_obligation_audit",
-        "reason": "independently reconciled; original worker validation remains false",
+        "reason": "scientific criteria satisfied",
         "scientific_success": true
       },
       "started_at": "2026-10-15T19:16:31Z",
@@ -392,10 +499,17 @@
       "finished_at": "2026-10-15T19:34:23Z",
       "independent_scientific_reconciliation": {
         "artifact": "reports/zero_extension_certificate_boundary_result_20261015.json",
-        "basis": "Independent source reconstruction and explicit K3 counterexample establish a bounded negative scientific result without changing worker execution validation.",
         "scientific_success": true,
         "status": "completed",
-        "timestamp": "2026-10-15T19:57:38Z"
+        "timestamp": "2026-10-15T20:04:38Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "scientific criteria satisfied",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": false,
+        "worker_raw_output_sha256": "786b8ac6a507c2fb169e347c3b82e2b118e31708d856f1dbff0f144fe47642ca"
       },
       "last_result": {
         "artifact_bytes": 5036,
@@ -421,7 +535,7 @@
       "scientific_validation": {
         "missing_or_failed": [],
         "mode": "proof_obligation_audit",
-        "reason": "independently reconciled after adversarial proof review; original worker validation remains false",
+        "reason": "scientific criteria satisfied",
         "scientific_success": true
       },
       "started_at": "2026-10-15T19:32:48Z",
@@ -435,6 +549,42 @@
         "Paper 3 Target A and Target B remain unchanged"
       ],
       "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_tree_approximation_result_20261016.json",
+      "attempts": 0,
+      "cost_estimate": 0.45,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005"
+      ],
+      "execution_requirements": [
+        "non-experimental mathematical proof audit only",
+        "no experiment, network-dependent search, or experiment-budget renewal",
+        "preserve Zero Extension, Paper 3 and all historical negative results",
+        "worker may write only the declared Markdown and JSON artifacts"
+      ],
+      "expected_information_gain": 0.78,
+      "exposition_artifact": "reports/parallel_token_swapping_tree_approximation_proof_20261016.md",
+      "failure_handling": "If the C+D bound fails, preserve a hand-checkable obstruction and state whether the failure is to the conjecture or only to the proof route; do not infer a general approximation lower bound.",
+      "max_attempts": 1,
+      "objective": "Determine whether arbitrary trees admit a polynomial-time constant-factor approximation for parallel token swapping. First prove or refute the concrete schedule conjecture rounds(T,pi) <= C(T,pi)+D(T,pi)+O(1), where D is maximum token-path length and C is maximum edge-path congestion; compare the resulting schedule with the lower bound max(C,D). Keep the parallel model distinct from sequential token swapping and from the already solved NP-hardness question.",
+      "priority": 87,
+      "research_key": "parallel_token_swapping_tree_approximation",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "pending",
+      "status": "pending",
+      "success_criteria": [
+        "define the matching-per-round token-swapping model and all quantifiers over trees and permutations",
+        "authenticate the primary-source boundary: tree hardness, selected-class approximation results, and no unsupported global absence claim",
+        "prove the C+D schedule bound or give a minimal hand-verifiable counterexample to it",
+        "if proved, derive an explicit approximation factor from max(C,D) <= OPT",
+        "if refuted, identify the missing scheduling invariant and the narrowest surviving conjecture",
+        "separate a theorem from a heuristic, a finite example and an experimental result",
+        "do not run computational experiments or renew any budget"
+      ],
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
       "track": "theory"
     }
   ],

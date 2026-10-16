@@ -1,5 +1,12 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: joint certificate route closed and one theory successor admitted
+
+- **Correction:** The O13 all-terminal K3 was invalid because every edge is in `E_S`. The corrected raw witness is the two-terminal 3-2-3 parallel bundle with two essential middle edges; Corollary 4.2 absorbs that raw corridor into the terminal boundary, so the report now distinguishes raw certificate eligibility from post-preprocessing eligibility.
+- **Independent scope check:** A four-terminal construction with two central parallel edges and four `L`-edge terminal bundles (`L>=3`) survives the isolating-cut preprocessing and retains two essential internal edges at `k=q=2L+2`. This is a finite adversarial check, not an asymptotic lower bound.
+- **Mathematical increment:** The exact source query is `Q(X,B)=Gamma(X)\\B`. If `|Gamma(X)|<=k`, uniform exclusions force every edge in that profile into any exact representative. No bound on the union of all profiles or simultaneous exchange theorem was obtained, so the joint-gammoid route is closed after one cycle without disproving the general possibility.
+- **Direction decision:** Exactly one theory task was admitted: determine whether arbitrary trees have a constant-factor approximation for parallel token swapping, beginning with a `C+D+O(1)` congestion-plus-dilation schedule proof obligation. No experiment budget changed; Paper 3 remains frozen/no-score.
+
 ## 2026-10-15: feasibility gate closes the O7 infeasible-instance shortcut
 
 - **Fully proved:** For every finite undirected multigraph, integer (k), finite metric, and injective terminal labeling, the exact (k)-bounded Zero Extension objective is finite if and only if the terminal Multiway Cut optimum is at most (k). The proof is two-sided and covers loops, parallel edges, disconnected graphs, and terminal-free components.

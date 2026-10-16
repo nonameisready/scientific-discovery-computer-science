@@ -1,0 +1,82 @@
+{
+  "task_id": "DIRECTION-SELECTION-ZEROEXT-JOINT-PROFILE-20261015",
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "evidence_tier": "tier_3_bounded_mathematical_direction_selection",
+  "sources_and_data": [
+    {"source": "https://arxiv.org/html/1802.06026v1", "use": "Primary Zero Extension definition, certificate construction and representative-set proof."},
+    {"source": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2022.3", "use": "Primary source for tree parallel-token-swapping hardness and open approximation boundary at the time."},
+    {"source": "https://arxiv.org/abs/2411.18581", "use": "Primary source for constant-factor parallel-token-swapping results on selected graph classes."}
+  ],
+  "method": {
+    "type": "adversarial source-proof review and hand-verifiable mathematical direction selection",
+    "experiment_or_computation": false,
+    "frozen_scope": ["no experiments", "no budget renewal", "do not reopen completed tree/cactus/SP reductions", "preserve Paper 3 Target A/B"]
+  },
+  "uncertainty": [
+    "The two-terminal bundle is raw-source eligible but is absorbed into terminal boundary under the source preprocessing; the four-terminal construction supplies a post-preprocessing check.",
+    "No asymptotic lower bound on joint representative families was proved.",
+    "The targeted external literature check does not prove a universal absence of a later arbitrary-tree approximation result."
+  ],
+  "next_falsifiable_action": "Execute THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001 as a non-experimental theory task; first prove or refute the C+D schedule bound, and keep any result separate from Zero Extension.",
+  "mathematical_claim": "The source's exact joint representative query is Gamma(X)\\B, where Gamma requires simultaneous extension in all s gammoid layers and B is an arbitrary uniform-layer exclusion of size at most k-1. A candidate union-of-small-profiles bound would be sufficient but was not proved; deleting M0 or intersecting layer systems does not establish it.",
+  "assumptions": [
+    "The source preprocessing and its distinction from the raw certificate ground set are respected.",
+    "All metrics are finite metrics and terminal labelings are injective.",
+    "Representative-family claims are kept separate from graph sparsifier and contraction claims."
+  ],
+  "verified_steps": [
+    "The all-terminal K3 witness is invalid because E_S equals its edge set.",
+    "The two-terminal 3-2-3 parallel bundle gives the corrected raw M0-deletion witness, with both central edges essential under the stated discrete metric and budget.",
+    "Corollary 4.2 absorbs those central edges into the terminal boundary; this qualification is now explicit.",
+    "A four-terminal two-central-edge bundle with L>=3 has singleton furthest isolating cuts and retains two essential internal central edges under k=q=2L+2.",
+    "For any gammoid profile X and uniform exclusion B, direct-sum extension is exactly Gamma(X)\\B.",
+    "If |Gamma(X)|<=k, setting B=Gamma(X)\\{e} forces every e in Gamma(X) into any exact representative family.",
+    "No exchange axiom was obtained for the intersection of layer-wise extension systems."
+  ],
+  "gaps": [
+    "Bound the union of all admissible Gamma profiles, or find a different reconstruction theorem.",
+    "Establish or refute a simultaneous exchange surrogate with explicit f(s) and universal k exponent.",
+    "Prove any conversion from a new certificate to a sequential contraction algorithm or arbitrary terminal-preserving sparsifier."
+  ],
+  "counterexamples": [
+    {"claim": "K3 is a source Y(e) witness", "status": "disproved", "reason": "all edges lie in E_S"},
+    {"claim": "The raw two-terminal bundle remains internal after Corollary 4.2", "status": "disproved", "reason": "the furthest minimum terminal cut contracts the middle corridor to a terminal"},
+    {"claim": "Dropping M0 preserves the source unique-extension query", "status": "disproved_for_the_specific_transformation", "reason": "the two central edges extend the same gammoid-only profile and M0 distinguishes them"}
+  ],
+  "proof_status": {
+    "overall": "partially_proved",
+    "claim_classification": [
+      {"claim": "Exact Gamma(X)\\B joint query", "status": "fully_proved"},
+      {"claim": "M0 deletion is a valid drop-in replacement", "status": "disproved"},
+      {"claim": "A smaller simultaneous representative family exists", "status": "plausible_but_unproved"},
+      {"claim": "Universal-exponent Zero Extension improvement", "status": "unresolved"}
+    ]
+  },
+  "independent_review": {
+    "status": "passed_with_scope",
+    "reviewer_checks": [
+      "recomputed the bundle cut sizes and discrete-metric thresholds",
+      "checked the Corollary 4.2 preprocessing caveat",
+      "challenged the union-of-profiles lemma as a possible restatement of essential-edge enumeration",
+      "checked that the alternative task has a distinct objective and no experiment requirement"
+    ]
+  },
+  "novelty_assessment": {
+    "zero_extension_route": "No new theorem or sparsifier bound. The contribution is a corrected proof boundary and a precise joint query.",
+    "alternative_route": "Eligible theory lead, not a novelty claim; source comparison is bounded and the first proof obligation is explicit."
+  },
+  "ranked_alternative_research_directions": [
+    {"rank": 1, "id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001", "novelty_confidence": 0.70, "mathematical_tractability": 0.55, "proof_obligation_specificity": 0.90, "expected_information_gain": 0.78, "status": "admitted"},
+    {"rank": 2, "id": "ZEROEXT-JOINT-GAMMOID-PROFILES", "novelty_confidence": 0.76, "mathematical_tractability": 0.22, "proof_obligation_specificity": 0.95, "expected_information_gain": 0.70, "status": "closed_after_one_bounded_cycle"},
+    {"rank": 3, "id": "EFX-COMPLETE-FOUR-AGENTS-EXTENSION", "novelty_confidence": 0.55, "mathematical_tractability": 0.35, "proof_obligation_specificity": 0.65, "expected_information_gain": 0.60, "status": "not_admitted_active_frontier"}
+  ],
+  "execution_provenance": {
+    "worker_execution": "none",
+    "independent_scientific_reconciliation": true,
+    "historical_worker_records_rewritten": false,
+    "experiment_authorization_used": false
+  },
+  "paper3_state": {"target_a": "frozen_no_score", "target_b": "frozen_no_score", "labels_added": 0},
+  "experiment": {"performed": false, "authorization_renewed": false},
+  "exposition_artifact": "reports/zero_extension_joint_profile_direction_selection_20261015.md"
+}

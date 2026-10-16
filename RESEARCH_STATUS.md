@@ -1,5 +1,32 @@
 # Research status
 
+**Direction-selection checkpoint (2026-10-15 20:12 UTC):** The O13 ledger now
+correctly rejects the earlier all-terminal K3: its entire edge set is `E_S`,
+so no source `Y(e)` tuple exists. The corrected raw witness is the two-terminal
+3-2-3 parallel bundle with two essential middle edges, but an adversarial
+source audit records that Corollary 4.2 subsequently contracts that middle
+corridor into the terminal boundary. A separate four-terminal two-central-edge
+construction with `L>=3` survives the isolating-cut preprocessing and confirms
+that the uniform coordinate can remain a real discriminator. Neither example
+is an asymptotic lower bound.
+
+The bounded Priority-A review formalized the exact source query
+`Q(X,B)=Gamma(X)\\B`: `Gamma(X)` requires simultaneous extension in all `s`
+gammoid layers and `B` is an arbitrary uniform-layer exclusion of size at most
+`k-1`. When `|Gamma(X)|<=k`, singleton exclusions force every edge in that
+profile into any exact representative. This defeats uniform-layer deletion and
+unjustified layer intersections, but no bound on the union of all profiles or
+new exchange theorem emerged. The joint-gammoid route is therefore closed
+after one bounded cycle, unresolved rather than disproved; the original
+`O_s(k^(s+1))` theorem is unchanged.
+
+Exactly one new theory task is admitted: **parallel token swapping on arbitrary
+trees**. Primary sources establish tree NP-completeness and constant-factor
+algorithms on selected subclasses, but not the arbitrary-tree approximation
+question. The first proof obligation is the concrete congestion-plus-dilation
+schedule bound `rounds <= C+D+O(1)`. This is a theory-only task; no experiment
+authorization was renewed. Paper 3 Target A/B remain frozen and no-score.
+
 **Zero Extension terminal-bearing compression checkpoint (2026-10-15):** The layer-cake proof is corrected: the edgewise absolute-difference sum is \(\int_0^\infty|\delta(U_r)|dr\), which is only bounded below by the truncated integral over \([0,\mu(a,b)]\). The terminal-free scalar interface uses no series-parallel property and therefore holds for every finite unweighted multigraph with two distinguished boundaries; it is a standard metric/min-cut consequence, not a new sparsifier result. A feasible three-terminal path was strengthened with two valid metrics sharing \(\mu(a,b)=2\) but giving internal sums 3 and 4. This refutes only endpoint/connectivity/budget-only closure, not compact metric-aware graph sparsification. Task 004 is independently reconciled as a completed bounded obstruction; its worker artifact-only validation remains preserved. The route is down-ranked, and task 005 now targets the source \(s+1\) representative-set certificate boundary. No experiment or budget renewal occurred; Paper 3 Target A/B remain unchanged.
 
 **Zero Extension feasibility-gate checkpoint (2026-10-15):** The exact gate requested for O7 is now proved: for every finite undirected multigraph, integer k, finite metric and injective terminal labeling, the k-bounded objective is finite if and only if the graph has a terminal Multiway Cut of size at most k. The forward direction takes the crossing edges of any feasible extension; the reverse direction labels each post-cut component constantly. Loops, parallel edges, disconnected graphs and terminal-free components are covered explicitly. This rules out the earlier infeasible-quotient shortcut as evidence for a feasible lower bound. The attempted feasible superlinear joint-contraction route did not survive adversarial review: no hitting-set theorem was obtained, and pairwise signatures can be preserved by correlated joint contractions. This is a scoped negative result, not a universal O(k) upper bound and not a result for arbitrary terminal-preserving sparsifiers. The automated worker's artifact-only attempt is preserved with its hash and validation failure; the structured result was independently reconciled. The next queued proof obligation is a two-terminal series-parallel cost/crossing interface beyond cactus. No experiment or budget renewal occurred; Paper 3 Target A/B are unchanged. See [feasibility proof](reports/zero_extension_feasible_contraction_lower_bound_proof_20261015.md), [structured result](reports/zero_extension_feasible_contraction_lower_bound_result_20261015.json), [worker attempt record](reports/zero_extension_feasible_contraction_lower_bound_worker_attempt_20261015.json), and [proof ledger](research/zero_extension_proof_obligation_ledger_v1.json).

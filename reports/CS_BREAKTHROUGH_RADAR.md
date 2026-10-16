@@ -125,3 +125,19 @@ bound for arbitrary sparsifiers or prove that metric-aware compression is
 impossible. The graph-realizable SP compression route is down-ranked; the next
 research opportunity is the source \(s+1\) representative-set certificate
 boundary, with certificates kept separate from output graphs.
+# 2026-10-15 direction-selection checkpoint
+
+The Zero Extension certificate audit is closed for this cycle. The raw
+two-terminal parallel-bundle witness is retained with the Corollary 4.2
+preprocessing caveat; the invalid K3 claim is explicitly rejected. The exact
+joint representative query `Gamma(X)\\B` shows why dropping the uniform layer
+or intersecting gammoid layers is not a theorem. No universal-exponent
+improvement was established.
+
+The highest-ranked eligible next direction is a theory-only question on
+parallel token swapping on arbitrary trees. The authenticated boundary is
+tree NP-completeness plus constant-factor algorithms on selected subclasses;
+the first falsifiable proof obligation is a schedule of at most
+`C+D+O(1)` rounds, where `C` is maximum edge-path congestion and `D` maximum
+path length. This is a candidate, not a breakthrough claim. No experiments or
+budget renewal are authorized.
