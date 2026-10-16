@@ -317,11 +317,12 @@
     }
   ],
   "artifact_only_tasks": [
-    "HISTORICAL-OUTCOME-001"
+    "HISTORICAL-OUTCOME-001",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
   ],
   "blocked_tasks": [],
   "budget_consumption": {
-    "activations_started": 98,
+    "activations_started": 102,
     "completed_experiments": 9,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
@@ -350,7 +351,7 @@
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-16T01:20:57Z",
+  "checkpoint_time": "2026-10-16T01:37:01Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -399,14 +400,14 @@
     "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
     "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
     "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
+    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"
   ],
   "current_best_opportunities": [
     {
       "id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
-      "next_task": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
-      "reason": "The cut-demand parity and exact multi-cycle star formula are proved, but arbitrary-tree LB_hub stretch remains unresolved. The next task tests a branch-flow dependency certificate without experiments.",
-      "status": "queued_narrow_theory_obligation"
+      "reason": "The naive flow-cycle lower bound is disproved by an exact adjacent-hub family. The general LB_hub stretch question remains unresolved; any continuation must use schedule-independent precedence chains rather than cycle counts.",
+      "status": "completed_bounded_obstruction"
     },
     {
       "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
@@ -419,12 +420,8 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "theory-parallel-token-swapping-lb-hub-structural-002",
-  "current_research_round": 39,
-  "artifact_only_tasks": [
-    "HISTORICAL-OUTCOME-001",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
-  ],
+  "current_phase": "theory-parallel-token-swapping-branch-flow-dependency-003",
+  "current_research_round": 40,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -503,18 +500,18 @@
       "worker_execution_scientific_success": false
     }
   ],
-  "last_activation_id": "2026-10-16T01:19:49Z-pid37424",
+  "last_activation_id": "2026-10-16T01:37:01Z-manual-theory-checkpoint",
   "last_successful_commit": "67632d8",
   "latest_scientific_increment": {
-    "decision": "partial_structural_progress; central_LB_hub_stretch_conjecture_unresolved",
-    "evidence_level": "tier_3_partial_adversarial_mathematical_proof_audit_with_exact_cut_parity_and_star_cycle_formula",
-    "kind": "independent_scientific_reconciliation",
-    "next_falsifiable_action": "Define a branch-flow dependency certificate at one vertex and prove or refute it on an overlapping-hub tree; do not execute experiments or renew budget.",
-    "scientific_success": false,
-    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
+    "decision": "naive_branch_flow_cycle_lower_bound_disproved",
+    "evidence_level": "tier_3_adversarial_mathematical_proof_with_exact_overlapping_hub_counterexample",
+    "kind": "bounded_theory_task_completion",
+    "next_falsifiable_action": "Prove or refute a schedule-independent precedence-chain certificate that strictly refines LB_hub on overlapping active hubs; do not execute an experiment.",
+    "scientific_success": true,
+    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Execute THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003 as a bounded pure-theory proof audit; no experiments or budget renewal.",
+  "next_action": "Do not count branch-flow cycles as a lower bound. The next mathematical gate is a schedule-independent precedence-chain certificate; no experiment is authorized.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -525,13 +522,31 @@
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
   "opportunity_ranking": [],
-  "pending_tasks": [
-    "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"
-  ],
+  "pending_tasks": [],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
   "scientific_artifact_audits": [
+    {
+      "artifact": "reports/parallel_token_swapping_lb_hub_structural_review_result_20261016.json",
+      "evidence_level": "tier_3_adversarial_mathematical_proof_audit_with_exact_star_extension",
+      "next_falsifiable_action": "Define a branch-flow dependency certificate at one vertex and prove or refute its lower-bound validity on an overlapping-hub tree; then state the exact token-preserving exchange-ordering lemma required for any LB_hub-relative schedule.",
+      "observed_result_or_blocker": "C(e) is always even; r(e)=C(e)/2 gives exact directional demand; actual vertex workload is mandatory load plus edge-use slack; fixed-center stars with q leaf cycles have OPT=m'+q and therefore disprove LB_hub exactness but not bounded stretch.",
+      "scientific_success": false,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "Partial structural lemmas are verified, but strict proof-obligation validation leaves the central arbitrary-tree upper-bound task incomplete.",
+        "scientific_success": false
+      },
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
+      "timestamp": "2026-10-16T01:20:57Z",
+      "uncertainty": [
+        "No universal constant-factor schedule relative to LB_hub was proved.",
+        "No unbounded separation from LB_hub was constructed.",
+        "The branch-flow generalization is an unproved next obligation, not a result."
+      ]
+    },
     {
       "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
       "evidence_level": "tier_3_source_and_feasibility_audit; no_direct_outcome",
@@ -564,7 +579,7 @@
         "scientific_success": true
       },
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
         "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
@@ -599,7 +614,7 @@
         "scientific_success": true
       },
       "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
         "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
@@ -691,7 +706,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
         "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
@@ -730,7 +745,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
         "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
@@ -752,7 +767,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.",
         "No confidence interval or population claim is warranted for this small, hash-seeded pilot.",
@@ -785,7 +800,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "Bounded citation-tracing/full-text audit, not exhaustive review.",
         "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.",
@@ -810,7 +825,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": null
     },
     {
@@ -848,7 +863,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
         "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
@@ -899,7 +914,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
         "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
@@ -928,7 +943,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "These are deterministic, bounded cohorts rather than representative CS population samples.",
         "Round 4 is an independent retrieval audit but not an independent question cohort.",
@@ -1010,7 +1025,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
         "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
@@ -1047,7 +1062,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
         "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
@@ -1084,7 +1099,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
         "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
@@ -1109,7 +1124,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.",
         "The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.",
@@ -1130,7 +1145,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "Graph-level sample SD/SE are descriptive over these 20 new seeded units only.",
         "The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.",
@@ -1152,7 +1167,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "All procedures use the same exact state convention and graph sample, but postselection uses fewer retained samples by design.",
         "C is a declared matched-preparation reference with approximately 400 accepted-shot-equivalent preparations, not a separate quantum algorithm.",
@@ -1172,7 +1187,7 @@
         "scientific_success": true
       },
       "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
         "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",
@@ -1202,7 +1217,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The theorem is restricted to finite connected unweighted trees.",
         "Cycle interactions prevent automatic extension to cacti; this remains an unproved obligation rather than a negative result.",
@@ -1231,7 +1246,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The theorem is restricted to standard connected cactus hosts and the explicit output conventions.",
         "A contraction-only output on the original vertex set is a separate representation restriction.",
@@ -1256,7 +1271,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-CONTRACTION-LOWER-BOUND-001",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The Omega(k) result is for the explicit contraction-only quotient model, not the unrestricted sparsifier model.",
         "The infeasible-instance unboundedness is a model obstruction and may disappear under a source-style no-instance replacement convention.",
@@ -1281,7 +1296,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-FEASIBLE-CONTRACTION-LOWER-BOUND-002",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The blocked route is a construction failure, not a theorem ruling out all feasible superlinear families.",
         "The series-parallel alternative is a proof program, not an established bound.",
@@ -1306,7 +1321,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The obstruction refutes scalar label-independent closure, not every possible compressed interface with additional metric structure.",
         "No feasible superlinear contraction-only lower bound was proved.",
@@ -1337,7 +1352,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The fixed-metric path witness rules out the stated label-blind state class, not every possible compressed representation.",
         "Raw interface-table cardinality does not establish a sparsifier lower bound.",
@@ -1357,7 +1372,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
-      "timestamp": "2026-10-16T00:34:47Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "The example refutes the uniform-layer deletion as a drop-in source-proof step only; a different common representative-family argument may exist.",
         "No global joint-gammoid compression lower bound and no arbitrary-sparsifier lower bound was proved.",
@@ -1377,7 +1392,7 @@
         "scientific_success": true
       },
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
-      "timestamp": "2026-10-16T01:19:49Z",
+      "timestamp": "2026-10-16T01:34:49Z",
       "uncertainty": [
         "No constant-factor polynomial schedule relative to LB_0 or LB_hub was proved or refuted.",
         "No unbounded separation between OPT and the strengthened lower bounds was established.",
@@ -1385,23 +1400,23 @@
       ]
     },
     {
-      "artifact": "reports/parallel_token_swapping_lb_hub_structural_review_result_20261016.json",
-      "evidence_level": "tier_3_adversarial_mathematical_proof_audit_with_exact_star_extension",
-      "next_falsifiable_action": "Define a branch-flow dependency certificate at one vertex and prove or refute its lower-bound validity on an overlapping-hub tree; then state the exact token-preserving exchange-ordering lemma required for any LB_hub-relative schedule.",
-      "observed_result_or_blocker": "C(e) is always even; r(e)=C(e)/2 gives exact directional demand; actual vertex workload is mandatory load plus edge-use slack; fixed-center stars with q leaf cycles have OPT=m'+q and therefore disprove LB_hub exactness but not bounded stretch.",
-      "scientific_success": false,
+      "artifact": "reports/parallel_token_swapping_branch_flow_dependency_result_20261016.json",
+      "evidence_level": "tier_3_adversarial_mathematical_proof_with_exact_overlapping_hub_counterexample",
+      "next_falsifiable_action": "Prove or refute a schedule-independent precedence-chain certificate that strictly refines LB_hub on overlapping active hubs; do not execute an experiment.",
+      "observed_result_or_blocker": "The fixed-center star formula is known prior art. A token-labelled branch-flow object was defined, and the naive one-extra-swap-per-flow-cycle lower bound was disproved by H_h with OPT=4 and LB_hub=3.",
+      "scientific_success": true,
       "scientific_validation": {
         "missing_or_failed": [],
         "mode": "proof_obligation_audit",
-        "reason": "Partial structural lemmas are verified, but strict proof-obligation validation leaves the central arbitrary-tree upper-bound task incomplete.",
-        "scientific_success": false
+        "reason": "The declared bounded obstruction is complete and independently reviewed.",
+        "scientific_success": true
       },
-      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
-      "timestamp": "2026-10-16T01:20:57Z",
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
+      "timestamp": "2026-10-16T01:37:01Z",
       "uncertainty": [
-        "No universal constant-factor schedule relative to LB_hub was proved.",
-        "No unbounded separation from LB_hub was constructed.",
-        "The branch-flow generalization is an unproved next obligation, not a result."
+        "No refined schedule-independent dependency certificate was proved.",
+        "No constant-factor LB_hub schedule or unbounded separation was established.",
+        "The active obstruction is constant-size; high degree is carried by fixed inert leaves."
       ]
     }
   ],

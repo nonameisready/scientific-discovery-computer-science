@@ -1,0 +1,142 @@
+{
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
+  "parent_task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
+  "timestamp": "2026-10-16T01:37:01Z",
+  "scientific_status": "scientifically_completed_bounded_obstruction",
+  "evidence_tier": "tier_3_adversarial_mathematical_proof_with_exact_overlapping_hub_counterexample",
+  "sources_and_data": [
+    "Direct symbolic proof from the finite-tree matching-swap definitions",
+    "Irving and Rattan, Minimal Factorizations of Permutations into Star Transpositions, arXiv:math/0610640, Theorem 1.1 and Corollary 1.2",
+    "Pak, Reduced decompositions of permutations in terms of star transpositions, Discrete Mathematics 204 (1999)"
+  ],
+  "method": "Define a token-labelled branch-flow multigraph and a schedule-specific occupancy dependency graph; audit the fixed-center star formula against primary star-factorization literature; then construct and hand-verify an overlapping adjacent-hub family with a forced four-round schedule.",
+  "uncertainty": [
+    "The exact H_h obstruction is finite and does not establish an asymptotic approximation gap.",
+    "The high-degree parameter is carried by fixed inert leaves, so active high-load hub growth remains untested.",
+    "A refined schedule-independent precedence-chain certificate and a constructive exchange-ordering theorem remain open."
+  ],
+  "mathematical_claim": "The fixed-center star formula m'+q is known star-transposition factorization prior art. For the high-degree double-hub family H_h obtained from a-u-v-b by adding fixed leaves at u and v, with A<->B and U<->V, OPT(H_h,d)=4 while LB_hub(H_h,d)=3. The naive flow-cycle certificate max_v(W(v)+c_v), where c_v counts labelled branch-flow cycles, is therefore unsound: it predicts at least 5 on this family.",
+  "assumptions": [
+    "T is a finite undirected tree with one token initially at each vertex and a bijective destination map.",
+    "A parallel round is a matching and swaps the endpoint tokens on every selected edge.",
+    "H_h has active path a-u-v-b and h-2 fixed pendant leaves at each hub for every integer h>=2.",
+    "The active target sends A at a to b, B at b to a, U at u to v, and V at v to u; all added leaf tokens are fixed.",
+    "The candidate cycle certificate charges one extra incident swap for each directed cycle of the token-labelled branch-flow multigraph after deleting zero-flow inert branches."
+  ],
+  "verified_steps": [
+    "Irving-Rattan's primary theorem gives minimal transitive star-factorization length n+m-2, and its fixed-point corollary yields m'+q for the fixed-center star; Pak is the earlier restricted fixed-pivot result.",
+    "For every vertex v, source and destination branch maps define a labelled balanced directed multigraph F_v; token labels are retained and branch multiplicity is not collapsed.",
+    "The schedule-specific dependency graph P(sigma) records same-token order, same-vertex capacity order, and actual occupancy order, showing why F_v alone cannot determine all scheduling dependencies.",
+    "For H_h, r(au)=1, r(uv)=2, r(vb)=1, D=3, W(u)=W(v)=3, and no fixed-hub term applies, so LB_hub=3.",
+    "The four matching rounds {au,vb}, {uv}, {au,vb}, {uv} reach the target while leaving inert leaves fixed.",
+    "In any hypothetical three-round schedule, A and B must move every round along their unique length-three paths, forcing exactly the first three matching patterns; the resulting state has U and V unswapped, so round four is necessary.",
+    "At each active hub, F_v is the disjoint union of two directed 2-cycles, so the candidate W(v)+c_v lower bound would be 5 and is contradicted by the exact four-round schedule."
+  ],
+  "gaps": [
+    "No schedule-independent refined dependency certificate beyond the falsified naive cycle count was proved.",
+    "No universal constant-factor upper bound relative to LB_hub was proved.",
+    "No unbounded separation between OPT and LB_hub was established.",
+    "No polynomial token-preserving exchange-ordering algorithm was established.",
+    "The high-degree parameter h is carried by fixed inert leaves; the result does not prove a growing high-load obstruction at active hubs."
+  ],
+  "counterexamples": [
+    {
+      "name": "adjacent_overlapping_hubs_H_h",
+      "status": "exact_finite_counterexample_to_naive_flow_cycle_lower_bound",
+      "parameters": {
+        "h": "any integer >=2",
+        "active_core": "a-u-v-b",
+        "fixed_inert_leaves": "h-2 at each of u and v",
+        "destination": "A:a->b, B:b->a, U:u->v, V:v->u"
+      },
+      "values": {
+        "r": {"au": 1, "uv": 2, "vb": 1},
+        "D": 3,
+        "W_u": 3,
+        "W_v": 3,
+        "LB_hub": 3,
+        "OPT": 4,
+        "cycles_at_each_active_hub": 2,
+        "naive_cycle_bound": 5
+      },
+      "forced_schedule_states": [
+        ["A", "U", "V", "B"],
+        ["U", "A", "B", "V"],
+        ["U", "B", "A", "V"],
+        ["B", "U", "V", "A"],
+        ["B", "V", "U", "A"]
+      ]
+    }
+  ],
+  "proof_status": {
+    "overall": "counterexample_found",
+    "fixed_center_star_novelty": "known_prior_art",
+    "token_labelled_branch_flow_definition": "fully_specified",
+    "H_h_exact_optimum": "fully_proved",
+    "naive_flow_cycle_certificate": "disproved",
+    "LB_hub_constant_factor": "unresolved",
+    "constructive_exchange_ordering": "unresolved",
+    "unbounded_separation": "not_established"
+  },
+  "independent_review": {
+    "status": "passed_with_scope",
+    "reviewer": "adversarial manual mathematical review",
+    "checks": [
+      "The star formula was independently mapped to the primary Irving-Rattan length theorem and Pak's earlier restricted result.",
+      "The H_h lower bound uses only unique-path distance forcing, not computation or an unverified schedule assertion.",
+      "The four-round upper schedule was written round by round and every round is a matching.",
+      "The branch-flow cycle count was evaluated with token labels and the inert high-degree branches were explicitly separated.",
+      "The finite obstruction was not promoted to an unbounded lower bound or an approximation theorem."
+    ],
+    "scope_limit": "The counterexample closes only the stated naive cycle-count certificate. It does not resolve the general LB_hub stretch conjecture or every possible dependency-aware certificate."
+  },
+  "claim_classification": {
+    "fully_proved": [
+      "OPT(H_h,d)=4 for every h>=2",
+      "LB_hub(H_h,d)=3",
+      "The candidate max_v(W(v)+c_v) is false on H_h",
+      "The token-labelled branch-flow and schedule-specific dependency objects are well-defined"
+    ],
+    "independently_reproduced": [
+      "The exact H_h value follows both from the explicit four-round schedule and the forced three-round contradiction"
+    ],
+    "known_prior_art": [
+      "Fixed-center multi-cycle star formula as a star-transposition factorization length",
+      "Pak's restricted fixed-pivot star factorization result",
+      "Irving-Rattan's general minimal star-factorization theorem"
+    ],
+    "finite_counterexample_only": [
+      "The H_h family is a constant-size active obstruction embedded at arbitrary degree; it is not an asymptotic approximation lower bound"
+    ],
+    "plausible_but_unproved": [
+      "A refined dependency certificate based on schedule-independent precedence chains",
+      "A constant-factor schedule relative to LB_hub",
+      "A polynomial token-preserving exchange-ordering algorithm"
+    ],
+    "disproved": [
+      "One extra incident swap per labelled branch-flow cycle is a valid arbitrary-tree lower bound"
+    ]
+  },
+  "literature_audit": [
+    {
+      "source": "Irving and Rattan, Minimal Factorizations of Permutations into Star Transpositions",
+      "url": "https://arxiv.org/abs/math/0610640",
+      "finding": "Theorem 1.1 and Corollary 1.2 give the minimal star-factorization length and remove irrelevant fixed points; the fixed-center m'+q formula is a direct specialization."
+    },
+    {
+      "source": "Pak, Reduced decompositions of permutations in terms of star transpositions, Discrete Mathematics 204 (1999)",
+      "url": "https://www.math.ucla.edu/~pak/papers/research.htm",
+      "finding": "Earlier restricted fixed-pivot result; the author's bibliography states that Irving-Rattan generalized it."
+    }
+  ],
+  "next_falsifiable_action": "Without executing an experiment, prove or refute a schedule-independent precedence-chain certificate that strictly refines LB_hub on overlapping active hubs; if no such certificate survives, close branch-flow cycle counting and move to a different tree-scheduling invariant.",
+  "observed_result_or_blocker": "A complete bounded mathematical increment was obtained: the star novelty claim was corrected, a token-labelled dependency formalism was fixed, and the naive flow-cycle lower bound was disproved by an exact adjacent-hub family. The general LB_hub approximation question remains open.",
+  "execution": {
+    "mode": "mathematical_reasoning_and_primary_source_audit",
+    "experiment_executed": false,
+    "experiment_authorization_renewed": false,
+    "supervisor_started": false,
+    "paper3_changed": false,
+    "paper4_changed": false
+  }
+}

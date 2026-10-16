@@ -161,3 +161,10 @@ already identify the same fixed-center star as the `Theta(h)` stretch witness
 for the maximum-distance bound on subdivided stars, so no novelty is claimed for
 the high-degree bottleneck. The arbitrary-tree constant-stretch question remains
 unresolved; the next narrow obligation is a branch-flow dependency certificate.
+
+## 2026-10-16: branch-flow cycle certificate is falsified
+
+- **Novelty correction:** the fixed-center star value `m'+q` is a direct specialization of Irving--Rattan's minimal star-factorization theorem and Pak's earlier restricted fixed-pivot result, so it is retained as a checked boundary, not a new theorem.
+- **New mathematical result:** a token-labelled branch-flow object and schedule-specific occupancy dependency graph were defined. For adjacent hubs with active core `a-u-v-b`, target `A<->B` and `U<->V`, and arbitrary fixed inert leaves at both hubs, the exact matching optimum is 4 while `LB_hub=3`.
+- **Falsified route:** charging one extra swap per directed branch-flow cycle would give 5 on this family, but the explicit four-round schedule disproves it. Local cycles at overlapping hubs cannot be summed without a schedule-independent precedence proof.
+- **Boundary:** the active obstruction is constant-size even though the hubs can have arbitrary degree. It does not prove an unbounded `OPT/LB_hub` ratio, a constant-factor algorithm, or a new approximation theorem. The next gate is a precedence-chain certificate; no experiment ran.

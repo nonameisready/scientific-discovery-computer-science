@@ -2533,14 +2533,14 @@
         "artifact": "reports/parallel_token_swapping_tree_approximation_result_20261016.json",
         "scientific_success": true,
         "status": "completed",
-        "timestamp": "2026-10-16T00:31:45Z",
+        "timestamp": "2026-10-16T00:49:47Z",
         "validation": {
           "missing_or_failed": [],
           "mode": "proof_obligation_audit",
-          "reason": "The C+D conjecture was refuted by a parameterized exact star family; the corrected lower bound and remaining upper-bound gap are explicit.",
+          "reason": "scientific criteria satisfied",
           "scientific_success": true
         },
-        "worker_execution_scientific_success": false,
+        "worker_execution_scientific_success": null,
         "worker_raw_output_sha256": null
       },
       "max_attempts": 1,
@@ -2614,12 +2614,14 @@
       "scientific_completion": "proof_obligation_audit",
       "scientific_status": "artifact_only",
       "scientific_validation": {
-        "missing_or_failed": [],
+        "missing_or_failed": [
+          "proof_scope_not_closed"
+        ],
         "mode": "proof_obligation_audit",
-        "reason": "partial proof progress is preserved, but the arbitrary-tree upper-bound gap is not closed",
+        "reason": "valid artifact does not satisfy scientific success criteria",
         "scientific_success": false
       },
-      "status": "completed",
+      "status": "artifact_only",
       "success_criteria": [
         "prove C(e) even and define exact directional demand r(e)",
         "derive exact vertex workload decomposition into mandatory load and schedule slack",
@@ -2632,8 +2634,16 @@
       "track": "theory"
     },
     {
-      "artifact": "reports/parallel_token_swapping_branch_flow_dependency_pending.json",
-      "attempts": 0,
+      "artifact": "reports/parallel_token_swapping_branch_flow_dependency_result_20261016.json",
+      "exposition_artifact": "reports/parallel_token_swapping_branch_flow_dependency_20261016.md",
+      "attempts": 1,
+      "execution_validation": {
+        "raw_output_sha256": null,
+        "reason": "Completed as a bounded main-agent mathematical proof audit with primary-source review; no worker or experiment was started.",
+        "scientific_success": true,
+        "status": "scientifically_completed",
+        "timestamp": "2026-10-16T01:37:01Z"
+      },
       "cost_estimate": 0.4,
       "counts_as_experiment": false,
       "dependencies": [
@@ -2646,20 +2656,21 @@
         "preserve Paper 3, Paper 4, and all historical negative results"
       ],
       "expected_information_gain": 0.74,
+      "finished_at": "2026-10-16T01:37:01Z",
       "failure_handling": "If branch-flow cycle demand is not a valid lower bound, record a hand-checkable overlapping-hub obstruction and close the route rather than inventing a dependency certificate.",
       "max_attempts": 1,
       "objective": "Define a branch-flow dependency certificate at a vertex for arbitrary-tree token swapping and prove or refute its lower-bound validity on an overlapping-hub tree; state the exact token-preserving exchange-ordering lemma required for any LB_hub-relative schedule.",
       "priority": 85,
       "research_key": "parallel_token_swapping_branch_flow_dependency",
       "scientific_completion": "proof_obligation_audit",
-      "scientific_status": "pending",
+      "scientific_status": "scientifically_completed",
       "scientific_validation": {
-        "missing_or_failed": ["not_yet_executed"],
+        "missing_or_failed": [],
         "mode": "proof_obligation_audit",
-        "reason": "Admitted as the next narrow theory obligation; no result is claimed.",
-        "scientific_success": false
+        "reason": "The naive dependency-cycle certificate is fully refuted within the declared scope by an exact matching schedule and a forced lower bound.",
+        "scientific_success": true
       },
-      "status": "pending",
+      "status": "completed",
       "success_criteria": [
         "define all branch-flow quantifiers and the candidate dependency certificate",
         "prove the certificate is a lower bound or give an explicit valid counterexample",

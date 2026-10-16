@@ -119,6 +119,12 @@ Last checkpoint: 2026-10-15 UTC. No paid model worker was started. The bounded l
 Next falsifiable action: Analyze fixed-r terminal-bearing series-parallel modules with at least one unprescribed vertex: prove a bounded-rank replacement for the uniform crossing layer with both reconstruction directions, or give a feasible family where deleting it changes the exact k-bounded objective.
 <!-- supervisor-auto-checkpoint:end -->
 
+## 2026-10-16: branch-flow dependency cycle closed with a bounded obstruction
+
+Irving--Rattan's primary star-factorization theorem and Pak's earlier fixed-pivot result establish the fixed-center `m'+q` formula as known prior art. The new note defines a token-labelled branch-flow multigraph and a schedule-specific occupancy dependency graph. For adjacent hubs with active core `a-u-v-b`, target `A<->B` and `U<->V`, and arbitrary fixed inert leaves attached to both hubs, unique-path forcing gives `OPT=4` while `LB_hub=3`. The explicit matching schedule is `({au,vb},{uv},{au,vb},{uv})`.
+
+The tempting lower bound `max_v(W(v)+c_v)`, with one extra swap per labelled branch-flow cycle, is false: both active hubs have two flow cycles, which would predict 5, but the exact schedule uses 4. This is a concrete falsification of the naive dependency certificate, not an unbounded lower bound or approximation theorem. The remaining mathematical gate is a schedule-independent precedence-chain certificate; no experiment, budget renewal, or Paper 3/4 change occurred.
+
 ## Independent mathematical reconciliation (2026-10-15 19:57 UTC)
 
 The subsequent proof review independently reconstructed the Reidl–Wahlström
