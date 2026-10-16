@@ -11,7 +11,18 @@
     "identity": "N_t(e)=chi_t(e)+2*b_t(e), with b_t(e) a unique nonnegative integer",
     "edge_identity": "sum_t b_t(e)=s(e)-r(e), where s(e) is the number of swaps on e and r(e)=C(e)/2",
     "reason": "Each traversal toggles the component of T-e containing the token, so N_t(e) mod 2 equals chi_t(e). Every swap contributes exactly two token traversals on e, and bijective destinations balance the cut so C(e)=2r(e).",
-    "correction": "A swap is not mandatory just because its edge belongs to both original token paths; extra status is counted per token traversal and wrong-direction/repeated traversals contribute to b."
+    "correction": "b_t(e) is an aggregate per-token-edge integer counting pairs of excess traversal incidences, not an integer contribution assigned to each individual swap. A swap can contain zero, one, or two excess traversal incidences; s(e)-r(e)=sum_t b_t(e) is an aggregate identity and does not provide a canonical event-by-event charge. Wrong-direction and repeated traversals are included through the parity-based excess count.",
+    "hand_checkable_example": {
+      "tree": "path x-m-y",
+      "initial_tokens": {"x": "X", "m": "M", "y": "Y"},
+      "destinations": {"X": "y", "M": "m", "Y": "x"},
+      "schedule": [["x", "m"], ["m", "y"], ["x", "m"]],
+      "total_initial_distance_L": 4,
+      "total_swaps_S": 3,
+      "edge_xm": {"C": 2, "r": 1, "s": 2, "b_by_token": {"X": 0, "M": 1, "Y": 0}, "excess_traversal_incidences": 2, "excess_swap_count_s_minus_r": 1},
+      "edge_my": {"C": 2, "r": 1, "s": 1, "b_by_token": {"X": 0, "M": 0, "Y": 0}, "excess_traversal_incidences": 0, "excess_swap_count_s_minus_r": 0},
+      "lesson": "The first and third swaps each have one excess traversal incidence and one baseline traversal incidence on xm; together they give 2 excess incidences = 2*sum_t b_t(xm), not 2 units of b."
+    }
   },
   "fixed_pairing_dag": {
     "equivalence": "There exists an opposite-direction pairing at every edge with acyclic token-event precedence graph iff there exists a sequential schedule using exactly half the total initial token distance L/2 swaps.",

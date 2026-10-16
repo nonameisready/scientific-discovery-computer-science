@@ -352,7 +352,7 @@
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-16T02:27:15Z",
+  "checkpoint_time": "2026-10-16T04:37:16Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -408,7 +408,8 @@
     "THEORY-PARALLEL-TOKEN-SWAPPING-THREE-CENTER-CATERPILLAR-006",
     "THEORY-PARALLEL-TOKEN-SWAPPING-BOUNDED-H-CATERPILLAR-007",
     "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-FRONTIER-CORRECTION-008",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009"
+    "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-AUDIT-010"
   ],
   "current_best_opportunities": [
     {
@@ -432,7 +433,7 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "completed-theory-parallel-token-swapping-caterpillar-distance-accounting-009",
+  "current_phase": "completed-theory-parallel-token-swapping-double-star-audit-010",
   "current_research_round": 41,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
@@ -522,24 +523,32 @@
     {
       "event_history_rewritten": false,
       "independent_scientific_success": true,
+      "note": "Manual proof and prior-art audit; no worker or experiment was started.",
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009",
       "timestamp": "2026-10-16T03:35:38Z",
-      "worker_execution_scientific_success": null,
-      "note": "Manual proof and prior-art audit; no worker or experiment was started."
+      "worker_execution_scientific_success": null
+    },
+    {
+      "event_history_rewritten": false,
+      "independent_scientific_success": true,
+      "note": "Independent proof review and bounded primary-source audit; the historical worker artifact-only validation remains unchanged.",
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-AUDIT-010",
+      "timestamp": "2026-10-16T04:37:16Z",
+      "worker_execution_scientific_success": null
     }
   ],
   "last_activation_id": "2026-10-16T02:19:50Z-pid61130",
   "last_successful_commit": "31c31b6",
   "latest_scientific_increment": {
-    "decision": "Exact per-token extra-traversal identity proved; fixed-pairing event-DAG equivalence is a restatement of the known happy-swap distance-optimality criterion. Close the DAG-augmentation route; no universal caterpillar makespan theorem or asymptotic obstruction obtained.",
-    "evidence_level": "tier_3_mathematical_identity_and_primary_source_prior_art_reconciliation",
+    "decision": "Corrected excess-traversal event attribution; independently confirmed the double-star 2*LB_hub theorem for its restricted class. Novelty remains unverified (category B); no successor task admitted.",
+    "evidence_level": "tier_3_independent_mathematical_proof_review_and_primary_source_audit_no_experiment",
     "kind": "independent_scientific_reconciliation",
-    "next_falsifiable_action": "Consider a non-DAG caterpillar block-scheduling invariant only if a precise token-identity exchange lemma can be stated; do not admit a task until it bounds both precedence depth and center contention.",
+    "next_falsifiable_action": "No task admitted. Reopen theory work only when a specific proof obligation survives source and adversarial feasibility review; retain arbitrary-tree PTS and the happy-leaf characterization as unadmitted leads.",
     "scientific_success": true,
-    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-CATERPILLAR-DISTANCE-ACCOUNTING-009"
+    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-AUDIT-010"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "No successor task is admitted. Continue only if a precise non-DAG caterpillar exchange lemma is identified; otherwise leave the theory queue idle rather than generating low-information work.",
+  "next_action": "Theory queue intentionally idle: no reviewed lead currently has both a verified gap and a concrete theorem-sized proof objective. Preserve Paper 3 no-score status and do not create a task solely to continue activity.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -550,9 +559,10 @@
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
   "opportunity_ranking": [
-    {"rank": 1, "direction": "Caterpillar matching-round block scheduling outside monotone-DAG augmentation", "status": "research_lead_not_admitted", "reason": "Needs a concrete identity-preserving exchange lemma that bounds both precedence depth and center contention; no task is admitted yet."},
-    {"rank": 2, "direction": "Instance-relative D+W_max refinement on subdivided stars", "status": "downranked_prior_approximation_exists", "reason": "Generic constant-factor parallel approximation is already known on this class; any new claim must improve on the 2025 result."},
-    {"rank": 3, "direction": "General-tree instance-relative routing approximation", "status": "downranked", "reason": "No concrete theorem-sized parameter currently justifies admission."}
+    {"rank": 1, "direction": "Arbitrary-tree parallel token-swapping approximation relative to path length and vertex workload", "status": "lead_not_admitted", "reason": "High significance and neighboring results exist, but prior bounded attempts have no surviving identity-preserving exchange lemma controlling both contention and precedence depth."},
+    {"rank": 2, "direction": "Characterize trees where every sequential token-swapping instance admits an optimum preserving happy leaves", "status": "lead_not_admitted", "reason": "Explicitly posed by Biniaz et al.; no candidate structural characterization or proof seed established in this cycle."},
+    {"rank": 3, "direction": "Improve positive-weight token-swapping approximation dependence on W/w for trees", "status": "deferred_existing_result", "reason": "A 2025 tree approximation and barrier results exist; no concrete residual gap isolated."},
+    {"rank": 4, "direction": "Extend exact sequential sorting beyond broom/double-broom classes", "status": "rejected_for_now", "reason": "Close exact algorithms already exist; no non-subsumed class or new recurrence identified."}
   ],
   "pending_tasks": [],
   "rejected_hypotheses": [],

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-AUDIT-010",
+  "parent_checkpoint": "c560141",
+  "timestamp": "2026-10-16T04:37:16Z",
+  "evidence_tier": "tier_3_independent_mathematical_proof_review_and_primary_source_audit; no_experiment",
+  "scientific_status": "traversal_event_accounting_corrected; double_star_theorem_independently_reproved; novelty_unverified_category_B; no_successor_admitted",
+  "traversal_accounting_correction": {
+    "preserved_identities": [
+      "N_t(e)=1[e in P_t]+2b_t(e)",
+      "sum_t b_t(e)=s(e)-r(e)",
+      "S=L/2+sum_e sum_t b_t(e)"
+    ],
+    "correction": "b_t(e) is an aggregate per-token-edge integer counting pairs of excess traversal incidences. It is not an integer contribution attached canonically to an individual swap. A swap may contain zero, one, or two excess traversal incidences; only the aggregate equation s(e)-r(e)=sum_t b_t(e) follows.",
+    "example": {
+      "tree": "x-m-y",
+      "initial_tokens": {"x":"X","m":"M","y":"Y"},
+      "destinations": {"X":"y","M":"m","Y":"x"},
+      "schedule": [["x","m"],["m","y"],["x","m"]],
+      "L": 4,
+      "S": 3,
+      "edge_xm": {"C":2,"r":1,"s":2,"b": {"X":0,"M":1,"Y":0},"excess_traversal_incidences":2,"s_minus_r":1},
+      "edge_my": {"C":2,"r":1,"s":1,"b": {"X":0,"M":0,"Y":0},"excess_traversal_incidences":0,"s_minus_r":0},
+      "verification": "The first and third x-m swaps each contain one baseline and one excess traversal incidence. Together these are two excess incidences, or 2*b_M(xm), while the aggregate excess-swap count is one."
+    }
+  },
+  "double_star_theorem": {
+    "status": "independently_reproved; no counterexample or proof gap found",
+    "class": "Finite tree with adjacent centers u,v, arbitrary pendant leaf sets L,R (possibly empty), and a bijective token-to-vertex destination map.",
+    "claim": "Deterministic O(n)-time matching-round schedule with R <= 2r+2max(a,b)=2max(W(u),W(v))<=2*LB_hub<=2*OPT.",
+    "proof_checks": [
+      "Bijective cut balance gives r outward tokens in each direction across the central edge.",
+      "If a center lacks an outgoing token while its side has positive remaining demand, an outgoing token lies on an incident leaf.",
+      "After preparation and a bridge swap, each side's outgoing count decreases by one; induction reaches zero without stranding a token.",
+      "A prepared leaf receives a locally destined center token and is never outgoing again; initially correct leaves are not selected.",
+      "Center-containing cycles sort in q center swaps; leaf-only q-cycles sort in q+1<=2q swaps; fixed points are skipped.",
+      "Within-star swaps are serialized; the disjoint left and right star sequences run in lockstep as matchings.",
+      "Phase I costs <=2r, Phase II <=2max(a,b), and W(u)=r+a, W(v)=r+b.",
+      "Identity and two-vertex degenerate cases are covered; output has O(n) rounds and swaps."
+    ],
+    "scope": "This theorem is complete for double-stars only. It proves no result for three or more hubs or arbitrary trees.",
+    "independent_review": "passed; reconstructed cut invariant, token identities, leaf non-reuse, cycle words, matching legality, total bound, and running time from first principles"
+  },
+  "prior_art_audit": {
+    "classification": "B_apparently_distinct_but_publication_level_originality_unverified",
+    "publication_assessment": "Retain as a correct restricted theorem and potential lemma. The two-phase construction is elementary and local star transposition words are classical; a standalone publication claim is not presently justified without a stronger result or broader principle.",
+    "sources": [
+      {"citation":"Alon, Chung, Graham (1994), Routing Permutations on Graphs via Matchings","url":"https://doi.org/10.1137/S0895480192236628","comparison":"Same matching-round model; worst-case routing number, not this instance-wise double-star LB_hub guarantee."},
+      {"citation":"Zhang (1999), Optimal Bounds for Matching Routing on Trees","url":"https://doi.org/10.1137/S0895480197323159","comparison":"Worst-case 3n/2+O(log n) bound for arbitrary n-node trees; incomparable with the instance-relative double-star bound."},
+      {"citation":"Aichholzer et al. (ESA 2022), Hardness of Token Swapping on Trees","url":"https://doi.org/10.4230/LIPIcs.ESA.2022.3","comparison":"Parallel matching-round PTS is NP-complete on trees; hardness is not an approximation lower bound and does not imply this restricted guarantee."},
+      {"citation":"Bansal, Günlük, Shapley (2025 version), Parallel Token Swapping for Qubit Routing","url":"https://arxiv.org/abs/2411.18581","comparison":"Constant-factor approximations for cycles, subdivided stars and grids; genuine double-stars with both branching centers are outside the one-junction subdivided-star class."},
+      {"citation":"Sadanandan, Chitturi (2022), Optimal Algorithms for Sorting Permutations with Brooms","url":"https://doi.org/10.3390/a15070220","comparison":"Optimal sequential swap count on broom/double-broom classes, not parallel matching-round makespan."},
+      {"citation":"Irving, Rattan (2009), Minimal Factorizations of Permutations into Star Transpositions","url":"https://doi.org/10.1016/j.disc.2008.02.018","comparison":"Classical context for local star cycle words; no double-star matching schedule result."}
+    ],
+    "priority_claim": false,
+    "audit_boundary": "Targeted primary-source comparison, not an exhaustive literature search or proof of firstness."
+  },
+  "candidate_directions": [
+    {"rank":1,"direction":"Arbitrary-tree parallel token swapping approximation relative to path length and vertex workload","evidence":"Primary work establishes tree hardness and selected-class approximations, but no source audited here implies the desired instance-sensitive bound.","first_obligation":"A token-identity-preserving exchange/order lemma controlling both resource contention and critical-path depth.","feasibility_review":"High importance, but repeated prior attempts left no surviving concrete lemma; too broad to admit now.","status":"not_admitted"},
+    {"rank":2,"direction":"Characterize trees for which every sequential token-swapping instance admits an optimum preserving happy leaves","evidence":"Biniaz et al. explicitly pose this characterization question and provide a finite obstruction.","url":"https://doi.org/10.46298/dmtcs.8383","first_obligation":"Find a structural characterization beyond the known forbidden-subtree necessity and test it against the published witness.","feasibility_review":"Source-grounded open boundary, but no candidate characterization or proof route yet.","status":"not_admitted"},
+    {"rank":3,"direction":"Improve positive-weight token-swapping approximation dependence on W/w for trees","evidence":"Wein and Zhang (2025) provide a 1+W/w approximation for positive weights on trees and barrier results.","url":"https://arxiv.org/abs/2507.22450","first_obligation":"Identify a concrete instance-sensitive benchmark or weight-ratio improvement not addressed by that theorem.","feasibility_review":"No specific gap isolated in this cycle.","status":"rejected_for_now"},
+    {"rank":4,"direction":"Extend exact sequential sorting algorithms near broom/double-broom trees","evidence":"Sadanandan and Chitturi already give exact sequential algorithms on broom and double-broom trees.","url":"https://doi.org/10.3390/a15070220","first_obligation":"Specify a non-subsumed tree class and derive a new exact recurrence.","feasibility_review":"Too close to established restricted-class results without a specific lemma.","status":"rejected_for_now"}
+  ],
+  "successor_decision": {"admitted": false, "pending_theory_tasks": 0, "reason": "No candidate has both a verified current gap and a concrete theorem-sized first proof obligation that survives adversarial feasibility review. Keep the queue idle."},
+  "execution": {"experiment_executed": false, "computation_executed": false, "supervisor_started": false, "experiment_budget_changed": false, "paper3_changed": false, "paper4_changed": false, "historical_execution_records_rewritten": false}
+}

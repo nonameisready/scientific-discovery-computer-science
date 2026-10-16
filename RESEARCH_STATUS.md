@@ -1,5 +1,13 @@
 # Research status
 
+## 2026-10-16: traversal attribution corrected; double-star theorem independently audited
+
+The per-token traversal identities remain valid, but the previous prose incorrectly assigned whole integer `b` units to individual swaps. `b_t(e)` is an aggregate count of pairs of excess traversal incidences; a swap may contain one excess incidence, which cannot be charged one integer `b` unit. The requested `x-m-y` endpoint-swap schedule is now worked through explicitly, including `L=4`, `S=3`, and edgewise `s-r` values.
+
+An independent first-principles review found no flaw in the double-star schedule: its bidirectional cut induction, center preparation, one-use leaves, center/leaf cycle words, matching rounds, and `R<=2 LB_hub<=2 OPT` bound all hold, including empty-side and identity cases. The theorem is complete only for double-stars. A bounded primary-source comparison finds related but non-implying worst-case matching-routing bounds, one-junction subdivided-star approximations, and sequential double-broom algorithms. Novelty is **category B** (apparently distinct, publication-level originality unverified); retain as a sound restricted theorem, not a standalone breakthrough claim.
+
+Four independent research leads were reviewed. Arbitrary-tree parallel token swapping is significant but has no surviving concrete exchange lemma after the campaign's prior bounded attempts. The happy-leaf characterization is an explicit source-stated open question but lacks a candidate structural theorem here. Weighted tree swapping and double-broom sequential routing already have substantial close results. **No successor theory task is admitted; the theory queue remains idle.** No experiment, Paper 3/4 change, budget change, or historical event rewrite occurred. See [independent audit](reports/double_star_theorem_independent_audit_20261016.md) and [structured result](reports/double_star_theorem_independent_audit_result_20261016.json).
+
 ## 2026-10-16: caterpillar extra-traversal accounting and DAG novelty audit
 
 **Exact identity proved:** For every token `t` and edge `e` on a tree, `N_t(e)=1[e in P_t]+2b_t(e)` for a unique integer `b_t(e)>=0`, by cut-side parity. If `s(e)` counts swaps and `r(e)=C(e)/2`, then `sum_t b_t(e)=s(e)-r(e)`. This counts extra traversals per token; sharing an edge with both original paths does not make a particular swap “mandatory.”
