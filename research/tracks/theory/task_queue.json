@@ -861,14 +861,32 @@
       "priority": 84,
       "research_key": "parallel_token_swapping_double_star_all_permutations",
       "scientific_completion": "proof_obligation_audit",
-      "scientific_status": "scientifically_completed",
+      "scientific_status": "scientifically_completed_after_independent_reconciliation",
       "scientific_validation": {
-        "missing_or_failed": [],
+        "missing_or_failed": [
+          "proof_status.overall",
+          "independent_review.status",
+          "proof_scope_not_closed"
+        ],
         "mode": "proof_obligation_audit",
-        "reason": "Independent mathematical review passed; the theorem is complete on its declared double-star class, while the arbitrary-tree extension remains explicitly open.",
-        "scientific_success": true
+        "reason": "valid artifact does not satisfy scientific success criteria",
+        "scientific_success": false
       },
-      "status": "completed",
+      "status": "artifact_only",
+      "restricted_scope_reconciliation": {
+        "artifact": "reports/parallel_token_swapping_double_star_all_permutations_result_20261016.json",
+        "scientific_success": true,
+        "status": "completed",
+        "timestamp": "2026-10-16T03:03:50Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "restricted_theorem_scope_audit",
+          "reason": "The double-star theorem is complete on its declared class. The legacy proof_scope_not_closed flag is explicitly scoped to unrestricted trees; the prior worker/artifact-only validation remains unchanged as execution history.",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": null,
+        "worker_raw_output_sha256": null
+      },
       "success_criteria": [
         "define arbitrary double-star permutations and LB_hub precisely",
         "handle within-side leaf cycles, cross-side cycles, center destinations, and mixed cycles without collapsing branches into abstract tokens",
@@ -877,6 +895,86 @@
         "do not infer an arbitrary-tree theorem or claim novelty from a routine construction"
       ],
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_three_center_caterpillar_result_20261016.json",
+      "attempts": 0,
+      "cost_estimate": 0.25,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005"
+      ],
+      "execution_validation": {
+        "experiment_executed": false,
+        "reason": "Direct proof and targeted source audit; no experiment, computation, worker, or supervisor was run.",
+        "scientific_success": true,
+        "status": "validated_manual_mathematical_proof",
+        "timestamp": "2026-10-16T02:57:42Z"
+      },
+      "expected_information_gain": 0.62,
+      "exposition_artifact": "reports/parallel_token_swapping_three_center_caterpillar_20261016.md",
+      "finished_at": "2026-10-16T02:57:42Z",
+      "max_attempts": 1,
+      "objective": "Prove or refute a polynomial matching-round approximation bound relative to LB_hub for every token permutation on trees with three adjacent backbone centers and arbitrary pendant leaves; test the double-star cut-correction invariant and audit prior art.",
+      "priority": 83,
+      "research_key": "parallel_token_swapping_three_center_caterpillar",
+      "scientific_completion": "restricted_constructive_theorem",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "constructive_proof_audit",
+        "reason": "A deterministic O(n) cycle/path-transposition algorithm is proved with R<=42 LB_hub<=42 OPT; a concrete input refutes only the direct local cut-preparation rule.",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "prove schedule legality and token identity preservation",
+        "give a bound independent of the three center degrees",
+        "separate failure of a normal form from impossibility of other algorithms",
+        "state arbitrary-tree and longer-backbone limits and avoid priority claims"
+      ],
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-THREE-CENTER-CATERPILLAR-006",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_bounded_h_caterpillar_result_20261016.json",
+      "attempts": 0,
+      "cost_estimate": 0.35,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-PARALLEL-TOKEN-SWAPPING-THREE-CENTER-CATERPILLAR-006"
+      ],
+      "execution_validation": {
+        "experiment_executed": false,
+        "reason": "A general parameterized path-transposition proof and a source-audited, exact failed local exchange lemma were completed; the universal caterpillar question remains unresolved.",
+        "scientific_success": true,
+        "status": "validated_manual_mathematical_proof_and_obstruction",
+        "timestamp": "2026-10-16T03:03:50Z"
+      },
+      "expected_information_gain": 0.7,
+      "exposition_artifact": "reports/parallel_token_swapping_bounded_h_caterpillar_20261016.md",
+      "finished_at": "2026-10-16T03:03:50Z",
+      "max_attempts": 1,
+      "objective": "Derive and adversarially review the h-nonleaf parameterized approximation theorem, then make one bounded proof attempt toward a universal LB_hub-relative algorithm on arbitrary-length caterpillars; preserve an exact failed exchange lemma if no full theorem follows.",
+      "priority": 82,
+      "research_key": "parallel_token_swapping_bounded_h_and_caterpillar",
+      "scientific_completion": "parameterized_theorem_plus_bounded_open_problem_audit",
+      "scientific_status": "scientifically_completed_with_open_generalization",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "The h-dependent bound and h=3 constants are proved. A parameterized instance refutes the stated one-hop frontier lemma; no universal caterpillar theorem or impossibility claim is made.",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "prove diameter, incorrect-leaf, and incorrect-position inequalities with degenerate cases",
+        "derive coarse and sharpened h-dependent factors",
+        "identify a precise failed caterpillar exchange lemma or prove a universal bound",
+        "audit primary prior art and keep the unbounded-backbone question open absent proof"
+      ],
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BOUNDED-H-CATERPILLAR-007",
       "track": "theory"
     }
   ],

@@ -2713,12 +2713,26 @@
       "expected_information_gain": 0.72,
       "exposition_artifact": "reports/parallel_token_swapping_double_star_exchange_20261016.md",
       "finished_at": "2026-10-16T01:45:08Z",
+      "independent_scientific_reconciliation": {
+        "artifact": "reports/parallel_token_swapping_double_star_exchange_result_20261016.json",
+        "scientific_success": true,
+        "status": "completed",
+        "timestamp": "2026-10-16T02:27:15Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "The paired-exchange theorem is preserved and independently reconciled as completed; the earlier supervisor artifact-only classification and its failed strict-field validation remain unchanged as execution history.",
+          "scientific_success": true
+        },
+        "worker_execution_scientific_success": false,
+        "worker_raw_output_sha256": null
+      },
       "max_attempts": 1,
       "objective": "Replace inactive degree padding in H_h with a parameterized family of two active hubs and growing active leaf branches. Prove an explicit token-preserving exchange-ordering schedule or a schedule-independent unbounded lower bound relative to LB_hub.",
       "priority": 85,
       "research_key": "parallel_token_swapping_double_star_exchange",
       "scientific_completion": "proof_obligation_audit",
-      "scientific_status": "artifact_only",
+      "scientific_status": "scientifically_completed_after_independent_reconciliation",
       "scientific_validation": {
         "missing_or_failed": [
           "sources_and_data",
@@ -2753,21 +2767,6 @@
         "audit primary-source novelty boundaries without claiming a breakthrough",
         "do not execute experiments or renew budgets"
       ],
-      "independent_scientific_reconciliation": {
-        "artifact": "reports/parallel_token_swapping_double_star_exchange_result_20261016.json",
-        "scientific_success": true,
-        "status": "completed",
-        "timestamp": "2026-10-16T02:27:15Z",
-        "validation": {
-          "missing_or_failed": [],
-          "mode": "proof_obligation_audit",
-          "reason": "The paired-exchange theorem is preserved and independently reconciled as completed; the earlier supervisor artifact-only classification and its failed strict-field validation remain unchanged as execution history.",
-          "scientific_success": true
-        },
-        "worker_execution_scientific_success": false,
-        "worker_raw_output_sha256": null
-      },
-      "scientific_status": "scientifically_completed_after_independent_reconciliation",
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004",
       "track": "theory"
     },
@@ -2786,15 +2785,6 @@
         "preserve the d2a9829 branch-flow negative result and the completed paired-exchange lemma",
         "distinguish an existential schedule, a constructive polynomial algorithm, and an approximation theorem"
       ],
-      "expected_information_gain": 0.68,
-      "exposition_artifact": "reports/parallel_token_swapping_double_star_all_permutations_20261016.md",
-      "failure_handling": "If mixed-cycle interactions defeat the proposed normal form, record the smallest exact symbolic obstruction and down-rank the double-star direction; do not launch an experiment.",
-      "max_attempts": 1,
-      "objective": "For arbitrary destination permutations on double-stars, derive a token-preserving polynomial schedule and determine whether its length is bounded by a universal constant times LB_hub; handle mixed center/leaf cycles and within-side cycles explicitly.",
-      "priority": 84,
-      "research_key": "parallel_token_swapping_double_star_all_permutations",
-      "scientific_completion": "proof_obligation_audit",
-      "scientific_status": "scientifically_completed",
       "execution_validation": {
         "experiment_executed": false,
         "reason": "Completed by direct proof and bounded primary-source audit; no worker, experiment, or supervisor was started.",
@@ -2802,6 +2792,9 @@
         "status": "validated_manual_mathematical_proof",
         "timestamp": "2026-10-16T02:27:15Z"
       },
+      "expected_information_gain": 0.68,
+      "exposition_artifact": "reports/parallel_token_swapping_double_star_all_permutations_20261016.md",
+      "failure_handling": "If mixed-cycle interactions defeat the proposed normal form, record the smallest exact symbolic obstruction and down-rank the double-star direction; do not launch an experiment.",
       "independent_scientific_reconciliation": {
         "artifact": "reports/parallel_token_swapping_double_star_all_permutations_result_20261016.json",
         "scientific_success": true,
@@ -2816,13 +2809,23 @@
         "worker_execution_scientific_success": null,
         "worker_raw_output_sha256": null
       },
+      "max_attempts": 1,
+      "objective": "For arbitrary destination permutations on double-stars, derive a token-preserving polynomial schedule and determine whether its length is bounded by a universal constant times LB_hub; handle mixed center/leaf cycles and within-side cycles explicitly.",
+      "priority": 84,
+      "research_key": "parallel_token_swapping_double_star_all_permutations",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "artifact_only",
       "scientific_validation": {
-        "missing_or_failed": [],
+        "missing_or_failed": [
+          "proof_status.overall",
+          "independent_review.status",
+          "proof_scope_not_closed"
+        ],
         "mode": "proof_obligation_audit",
-        "reason": "Independent mathematical review passed; the theorem is complete on its declared double-star class, while the arbitrary-tree extension remains explicitly open.",
-        "scientific_success": true
+        "reason": "valid artifact does not satisfy scientific success criteria",
+        "scientific_success": false
       },
-      "status": "completed",
+      "status": "artifact_only",
       "success_criteria": [
         "define arbitrary double-star permutations and LB_hub precisely",
         "handle within-side leaf cycles, cross-side cycles, center destinations, and mixed cycles without collapsing branches into abstract tokens",
@@ -2831,6 +2834,24 @@
         "do not infer an arbitrary-tree theorem or claim novelty from a routine construction"
       ],
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_three_center_caterpillar_result_20261016.json",
+      "counts_as_experiment": false,
+      "objective": "Prove or refute an LB_hub-relative matching-round approximation for arbitrary permutations on a three-center caterpillar; preserve the exact failed local cut-preparation rule and distinguish it from a general impossibility result.",
+      "scientific_status": "scientifically_completed",
+      "status": "completed",
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-THREE-CENTER-CATERPILLAR-006",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_bounded_h_caterpillar_result_20261016.json",
+      "counts_as_experiment": false,
+      "objective": "Prove the general h-nonleaf path-transposition bound and make a bounded proof attempt toward a universal LB_hub-relative approximation on arbitrary-length caterpillars.",
+      "scientific_status": "scientifically_completed_with_open_generalization",
+      "status": "completed",
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BOUNDED-H-CATERPILLAR-007",
       "track": "theory"
     }
   ]

@@ -1,5 +1,17 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-16: general h-dependent routing bound; long-caterpillar gap remains
+
+- **Fully proved, elementary:** A tree with (h\ge1) non-leaf vertices has diameter at most (h+1); the number of wrong leaves is at most (hLB_{\rm hub}); and at most (hLB_{\rm hub}+h) positions are wrong.
+- **Constructive bound:** Path endpoint transpositions yield `R<=2h(2h+1) LB_hub`; counting at most `m-1` logical transpositions improves it to `(2h-1)(2h+1) LB_hub=(4h^2-1)LB_hub`. At h=3 the factors are 42 and 35. The bound is polynomial but grows with h and is not a constant-factor arbitrary-tree result.
+- **Caterpillar proof attempt:** A left-to-right rule claiming every incoming identity can be prepared by one adjacent pendant-leaf swap is false: exchange endpoint leaves on a long bare backbone. This only falsifies one-hop frontier access; the long distance is already paid by D, so no unbounded OPT/LB example follows.
+- **Open obligation:** Prove a token-preserving nonlocal frontier exchange lemma with O(max(D,max W)) delay on arbitrary caterpillars, or construct a schedule-independent asymptotic obstruction. Opposing cut loads and vertex capacities are understood, but neither alone orders token identities.
+- **Prior art:** Alon--Chung--Graham and Zhang provide worst-case matching-routing bounds for trees (`<3n` and `3n/2+O(log n)` respectively); neither is an instance-relative LB_hub theorem. Bansal--Günlük--Shapley study one-junction subdivided stars, and double-broom sequential results optimize a different objective. No priority claim is made.
+- **State:** The prior three-center theorem and this result are linked in the theory task queue/state. The prior double-star worker validation remains recorded as artifact-only and is separately reconciled scientifically after clarifying its restricted proof scope.
+- **No computation or experiment** was run; Paper 3/4 and all other tracks remain unchanged.
+
+Full proof, failed-lemma scope, and references: [mathematical note](parallel_token_swapping_bounded_h_caterpillar_20261016.md). [Structured result](parallel_token_swapping_bounded_h_caterpillar_result_20261016.json).
+
 ## 2026-10-16: three-center caterpillar has a constructive constant bound
 
 - **Proved:** For a backbone `u-v-w` with arbitrary pendant leaves at the three centers and any bijective token destination permutation, a deterministic O(n)-time algorithm gives `R<=42 LB_hub<=42 OPT`.

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BOUNDED-H-CATERPILLAR-007",
+  "parent_checkpoint": "a8da720",
+  "timestamp": "2026-10-16T03:03:50Z",
+  "evidence_tier": "tier_3_mathematical_proof_and_bounded_primary_source_audit",
+  "scientific_status": "parameterized_theorem_proved_caterpillar_constant_question_open",
+  "bounded_internal_vertex_theorem": {
+    "assumptions": [
+      "T is a finite tree with h>=1 non-leaf vertices.",
+      "Each vertex initially has one distinct token and destinations form a bijection on V(T).",
+      "Each round is a matching of tree edges, swapping endpoint tokens."
+    ],
+    "definitions": {
+      "C_e": "Number of token source-to-destination paths using e.",
+      "r_e": "C_e/2; integral because bijections balance every tree cut.",
+      "W_x": "sum_{e incident to x} r_e.",
+      "LB_hub": "max(D,max_x W_x), where D is the maximum token distance."
+    },
+    "proved_claims": [
+      "diam(T)<=h+1",
+      "number_of_incorrect_leaves<=h*LB_hub",
+      "number_of_incorrect_positions m<=h*LB_hub+h",
+      "path endpoint transposition on length ell uses 2*ell-1 edge swaps, exchanges endpoints, restores internal tokens",
+      "deterministic cycle/path-transposition schedule uses polynomial O(nh) operations and singleton matching rounds"
+    ],
+    "approximation_bounds": {
+      "requested_coarse": "R<=2*h*(2*h+1)*LB_hub<=2*h*(2*h+1)*OPT",
+      "sharper_using_at_most_m_minus_1_logical_transpositions": "R<=(2*h-1)*(2*h+1)*LB_hub=(4*h^2-1)*LB_hub<= (4*h^2-1)*OPT",
+      "h3": {
+        "coarse_factor": 42,
+        "sharper_factor": 35
+      }
+    },
+    "degenerate_cases": {
+      "h_zero": "A connected tree has one vertex or one edge. The singleton is identity (R=LB=0); on one edge identity takes 0 and the transposition takes 1 round with LB=1.",
+      "identity_for_h_positive": "R=m=D=LB_hub=0; handled separately before dividing by LB_hub."
+    },
+    "novelty_classification": "Elementary parameterized path-transposition consequence; factor depends quadratically on h and is not a constant-factor arbitrary-tree result."
+  },
+  "arbitrary_caterpillar_question": {
+    "question": "Does a deterministic polynomial-time algorithm exist with R<=c*LB_hub for a universal constant c on caterpillars with arbitrary backbone length, leaves, and bijective destination permutations?",
+    "status": "open_not_proved_or_refuted",
+    "precise_failed_lemma": {
+      "claim": "After freezing the prefix in a left-to-right cut sweep, any remaining incoming token can be prepared for the next cut by at most one swap at the adjacent frontier center with one of its pendant leaves.",
+      "family": "Bare spine v1...vt, one leaf x at v1, one leaf y at vt, no interior leaves; exchange tokens at x,y and fix all spine tokens.",
+      "failure": "At cut v1v2 the token for x is at y, distance t-1 from v2, and v2 has no pendant leaf, so the claimed local swap is unavailable.",
+      "scope": "Refutes one-hop local access only; D=t+1 already reflects endpoint distance, so it is not an OPT/LB_hub lower-bound family."
+    },
+    "exact_remaining_obligation": "Prove a token-preserving nonlocal frontier-exchange lemma with total delay O(max(D,max_i W(v_i))) and matching-round legality, or construct a schedule-independent asymptotic family disproving a universal factor.",
+    "adversarial_checks": [
+      "opposing cut flows are balanced and contribute r(e) to both endpoint hub loads",
+      "adjacent busy hubs are constrained by W(v_i)=r(left edge)+r(right edge)+incorrect pendant leaves, but counts do not encode token identity order",
+      "fixed internal tokens can be temporarily displaced by path transposition and are restored exactly",
+      "a three-token cycle on a three-vertex spine resolves in two matching rounds and is not a counterexample",
+      "remote endpoint exchange falsifies local access but is paid for by token distance D"
+    ]
+  },
+  "prior_art": [
+    {
+      "citation": "Alon, Chung, Graham (1994), Routing Permutations on Graphs via Matchings",
+      "url": "https://doi.org/10.1137/S0895480192236628",
+      "comparison": "Same matching-round model; worst-case tree routing number <3n, not instance-relative LB_hub."
+    },
+    {
+      "citation": "Zhang (1999), Optimal Bounds for Matching Routing on Trees",
+      "url": "https://doi.org/10.1137/S0895480197323159",
+      "comparison": "Worst-case routing number <=3n/2+O(log n) for every tree using a caterpillar-tree partition; not an instance-wise caterpillar theorem."
+    },
+    {
+      "citation": "Kawahara et al. (2019), The Time Complexity of Permutation Routing via Matching, Token Swapping and a Variant",
+      "url": "https://jgaa.info/index.php/jgaa/article/view/paper483",
+      "comparison": "Matching-round terminology and additive-one path approximation; distinguishes sequential and matching objectives."
+    },
+    {
+      "citation": "Aichholzer et al. (2022), Hardness of Token Swapping on Trees",
+      "url": "https://arxiv.org/abs/2103.06707",
+      "comparison": "Parallel token swapping is NP-hard on trees; does not rule out this caterpillar subclass bound."
+    },
+    {
+      "citation": "Bansal, Gunluk, Shapley (2025 revised preprint), Parallel Token Swapping for Qubit Routing",
+      "url": "https://arxiv.org/abs/2411.18581",
+      "comparison": "Subdivided-star, cycle and grid results; subdivided-star is a one-junction class and its bound depends on degree."
+    },
+    {
+      "citation": "Sadanandan, Chitturi (2022), Optimal Algorithms for Sorting Permutations with Brooms",
+      "url": "https://doi.org/10.3390/a15070220",
+      "comparison": "Sequential swap objective, not parallel matching rounds."
+    }
+  ],
+  "novelty": {
+    "bounded_h_theorem": "elementary_consequence_no_priority_claim",
+    "unbounded_caterpillar_universal_factor": "bounded_source_audit_found_no_direct_equivalent_but_novelty_unverified",
+    "general_tree_constant_factor": "not_established"
+  },
+  "execution": {
+    "experiment_executed": false,
+    "computation_executed": false,
+    "supervisor_started": false,
+    "experiment_budget_renewed": false,
+    "paper3_changed": false,
+    "paper4_changed": false
+  },
+  "exposition_artifact": "reports/parallel_token_swapping_bounded_h_caterpillar_20261016.md"
+}

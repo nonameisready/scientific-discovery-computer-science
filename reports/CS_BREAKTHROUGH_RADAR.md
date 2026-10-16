@@ -1,5 +1,9 @@
 # CS breakthrough radar
 
+## Arbitrarily long caterpillars: parameterized bound, universal factor unresolved (2026-10-16)
+
+For any tree with (h\) non-leaf vertices, path transpositions give `R <= (4h^2-1) LB_hub` (and the requested coarser factor `2h(2h+1)`). This is elementary and h-dependent. It recovers factors 35/42 at h=3, but does not solve the arbitrary-tree or long-caterpillar problem. A one-swap local frontier-access lemma is explicitly false on an endpoint-leaf exchange; this only rejects a local cut-sweep rule, not all algorithms. The universal constant bound `R<=c LB_hub` on arbitrary-length caterpillars remains open. Prior tree routing-number results are worst-case in n, not instance-relative. [Proof and audit](parallel_token_swapping_bounded_h_caterpillar_20261016.md).
+
 ## Three-center caterpillars: bounded constructive theorem (2026-10-16)
 
 For a tree with backbone `u-v-w` and arbitrary pendant leaves at those centers, a cycle decomposition plus endpoint swaps along unique paths yields `R<=42 LB_hub<=42 OPT` in O(n) time for every token permutation. Every edge swap is emitted as a singleton matching. The proof uses diameter at most four and at most three potentially incorrect internal positions; it is not a result for unbounded-backbone caterpillars or arbitrary trees. A concrete five-vertex instance shows only that the double-star center-leaf preparation invariant cannot be applied directly to the first backbone cut. Prior art confirms the matching-routing model and nearby special-class results, but no firstness claim is supported. See [proof](parallel_token_swapping_three_center_caterpillar_20261016.md) and [structured result](parallel_token_swapping_three_center_caterpillar_result_20261016.json).
