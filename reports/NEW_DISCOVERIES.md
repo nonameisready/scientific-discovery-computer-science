@@ -314,3 +314,11 @@ variant.
 The proposed congestion-plus-dilation schedule bound for parallel token swapping on arbitrary trees is false. On an (m)-leaf star with a fixed center token and a cyclic leaf permutation, every token path has length 2 and every edge has path congestion 2, but the exact optimum is (m+1) rounds. The extra round is forced by the center token's leave-and-return dependency. A separate two-vertex exchange corrects the false lower bound (\max(C,D)); the valid vertex-capacity lower bound uses half the incident edge-crossing load.
 
 This is a rigorous negative result and a narrowed proof program. It does not establish a constant-factor algorithm, a lower-bound separation for the strengthened LB, or a new theorem about arbitrary trees. No experiment ran.
+
+## 2026-10-16: exact cut-flow and multi-cycle hub analysis
+
+- **Proved:** On every finite tree carrying one distinct token per vertex and a destination permutation, each edge cut is balanced. If `C(e)` counts token paths crossing the edge, then `C(e)` is even and `r(e)=C(e)/2` is the exact number of tokens that must cross in either direction.
+- **Proved:** For any concrete matching schedule, the number of uses of an edge is `r(e)+Delta(e)` with `Delta(e)>=0`; hence vertex workload is mandatory load plus explicit schedule slack. The slack captures occupancy/restoration detours but is not recoverable from static path counts alone.
+- **Proved:** For a fixed-center star whose leaf permutation moves `m'` leaves in `q` disjoint nontrivial cycles, exact parallel depth is `m'+q`. This gives a finite, parameterized obstruction to `LB_hub` exactness, but the ratio is at most `3/2`, so it does not refute bounded `LB_hub` stretch.
+- **Novelty boundary:** Bansal--Günlük--Shapley's primary 2025 paper already gives the fixed-center star as the `Theta(h)` stretch witness for the maximum-distance lower bound on subdivided stars. The present result is therefore a structural clarification and exact star extension, not a new approximation theorem or breakthrough.
+- **Open:** No universal `OPT <= alpha * LB_hub` schedule, no polynomial constructive exchange lemma, and no unbounded separation were established. The next queued task tests a branch-flow dependency certificate on overlapping hubs without experiments or budget renewal.

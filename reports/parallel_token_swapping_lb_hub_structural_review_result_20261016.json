@@ -1,0 +1,141 @@
+{
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
+  "parent_task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
+  "timestamp": "2026-10-16T01:19:26Z",
+  "scientific_status": "completed_bounded_structural_proof_review_artifact_only",
+  "evidence_tier": "tier_3_adversarial_mathematical_proof_audit_with_exact_star_extension",
+  "sources_and_data": [
+    "Direct symbolic proof from the finite-tree matching-swap definitions",
+    "Alon-Chung-Graham 1994 primary matching-routing paper",
+    "Aichholzer et al. ESA 2022 primary tree-hardness paper",
+    "Bansal-Gunluk-Shapley 2025 primary parallel-token-swapping paper",
+    "Zhang 1999 primary tree matching-routing bound"
+  ],
+  "method": "Prove cut balance on every tree edge, define exact directional demand r(e), decompose actual edge use into mandatory traffic plus nonnegative slack, and derive an exact star formula for a fixed center with multiple disjoint leaf cycles. Compare the result with the published subdivided-star stretch theorem and adversarially review the LB_hub upper-bound conjecture.",
+  "mathematical_claim": "For every tree edge e under a one-token-per-vertex permutation, C(e) is even and r(e)=C(e)/2 is the exact directional cut demand. For a schedule sigma, actual incident workload equals mandatory vertex load plus edge-use slack. On a star with a fixed center, m' moved leaves and q nontrivial leaf cycles, OPT=m'+q.",
+  "assumptions": [
+    "The graph is a finite undirected tree.",
+    "There is exactly one distinct token at every vertex and destinations form a permutation.",
+    "Every parallel round is a matching and swaps tokens on all selected edges.",
+    "For the exact star formula, the center token is fixed and the leaf target permutation fixes the remaining leaves.",
+    "The Bansal-Gunluk-Shapley comparison concerns their uncolored parallel token-swapping model and their d_max lower bound."
+  ],
+  "verified_steps": [
+    "For every edge cut, the number of tokens leaving one side equals the number entering it because the destination map is bijective.",
+    "Therefore C(e)=2r(e), where r(e) is an integer exact directional crossing demand.",
+    "For every schedule, the number of swaps on e is at least r(e); defining Delta_sigma(e)=s_sigma(e)-r(e) yields exact vertex workload decomposition.",
+    "A matching permits at most one incident swap per vertex per round, giving the vertex-load lower bound together with the token-distance lower bound.",
+    "For a fixed-center star, any schedule is a word of star transpositions because at most one star edge can be used per round.",
+    "The cycle-count argument proves the exact fixed-center star value m'+q, including arbitrary extra swaps on fixed leaves.",
+    "The ratio on this family is at most 3/2 relative to LB_hub, so it is not an unbounded separation.",
+    "The Bansal-Gunluk-Shapley primary paper explicitly gives Theta(h) d_max stretch on subdivided stars and uses a fixed-center star lower-bound instance, so the high-degree phenomenon is known prior art."
+  ],
+  "gaps": [
+    "No universal constant alpha with OPT<=alpha*LB_hub was proved.",
+    "No parameterized family with OPT/LB_hub tending to infinity was constructed.",
+    "A branch-flow cycle count has not been proved to be a valid lower bound in general trees with multiple tokens per branch.",
+    "No token-preserving exchange-ordering lemma converts static edge slots into a schedule on arbitrary trees.",
+    "No polynomial-time constructive schedule relative to LB_hub was established."
+  ],
+  "uncertainty": [
+    "The cut-parity and workload-decomposition lemmas are complete under the stated permutation model.",
+    "The exact multi-cycle star formula is complete, but its bounded 3/2 ratio does not decide arbitrary-tree LB_hub stretch.",
+    "The branch-flow dependency certificate and token-preserving exchange-ordering lemma remain open.",
+    "The source audit establishes the subdivided-star novelty boundary for the claims used here, not a global absence theorem through every venue."
+  ],
+  "counterexamples": [
+    {
+      "name": "multi_cycle_fixed_center_star",
+      "status": "counterexample_to_LB_hub_exactness_only",
+      "parameters": {
+        "moved_leaves": "m'",
+        "nontrivial_leaf_cycles": "q",
+        "r_per_moved_leaf_edge": 1,
+        "D": 2,
+        "LB_hub": "m'+1",
+        "OPT": "m'+q"
+      },
+      "scope": "The ratio is at most 3/2; this does not refute bounded LB_hub stretch."
+    }
+  ],
+  "proof_status": {
+    "overall": "partially_proved",
+    "tree_cut_parity": "fully_proved",
+    "mandatory_vs_detour_decomposition": "fully_proved",
+    "fixed_center_star_multi_cycle_formula": "fully_proved",
+    "LB_hub_exactness": "disproved_by_finite_star_family",
+    "constant_factor_relative_to_LB_hub": "unresolved",
+    "polynomial_constructive_schedule_relative_to_LB_hub": "unresolved",
+    "unbounded_separation": "not_established"
+  },
+  "independent_review": {
+    "status": "passed_with_scope",
+    "reviewer": "adversarial manual proof review",
+    "checks": [
+      "Cut balance was derived from the bijective destination map rather than assumed from path symmetry.",
+      "The workload decomposition distinguishes actual edge uses from unavoidable directional demand.",
+      "The star formula was checked by cycle-count changes under star transpositions and by a matching upper construction.",
+      "The finite star extension was not promoted to an arbitrary-tree approximation theorem.",
+      "The published subdivided-star stretch result was treated as a novelty boundary, not as supporting evidence for a new claim."
+    ],
+    "scope_limit": "The review validates the structural lemmas and the bounded star obstruction; it does not validate a general-tree scheduling theorem."
+  },
+  "claim_classification": {
+    "fully_proved": [
+      "C(e) is even and r(e)=C(e)/2 is exact directional demand",
+      "mandatory vertex load plus edge-use slack decomposition",
+      "fixed-center star OPT=m'+q formula"
+    ],
+    "independently_reproduced": [
+      "previous fixed-center cyclic star result remains unchanged and is recovered at q=1",
+      "all new arithmetic follows directly from the definitions and the star-transposition cycle count"
+    ],
+    "known_prior_art": [
+      "matching-round routing model",
+      "tree NP-hardness",
+      "Theta(h) maximum-distance stretch on subdivided stars",
+      "worst-case 3n/2+O(log n) tree routing bound"
+    ],
+    "plausible_but_unproved": [
+      "a constant-factor upper bound relative to LB_hub",
+      "a valid branch-flow dependency certificate for arbitrary trees",
+      "a token-preserving exchange-ordering lemma"
+    ],
+    "disproved": [
+      "LB_hub is exact on every tree",
+      "the star high-degree bottleneck is a new phenomenon"
+    ]
+  },
+  "literature_audit": [
+    {
+      "source": "Bansal, Gunluk, Shapley, Parallel Token Swapping for Qubit Routing, arXiv v2 2025",
+      "url": "https://arxiv.org/html/2411.18581v2",
+      "finding": "Theorem 5(c) gives Theta(h) stretch of d_max on subdivided stars, with a fixed-center star lower-bound instance; Theorem 3 gives a polynomial 4OPT+min{OPT,h}+1 bound on subdivided stars."
+    },
+    {
+      "source": "Aichholzer et al., Hardness of Token Swapping on Trees, ESA 2022",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2022.3",
+      "finding": "Defines parallel rounds as matching swaps and proves NP-hardness on trees, including subdivided stars."
+    },
+    {
+      "source": "Alon, Chung, Graham, Routing Permutations on Graphs via Matchings, 1994",
+      "url": "https://doi.org/10.1137/S0895480192236628",
+      "finding": "Provides the matching-routing model; its worst-case routing-number results do not imply an instance-sensitive LB_hub theorem."
+    },
+    {
+      "source": "Zhang, Optimal Bounds for Matching Routing on Trees, 1999",
+      "url": "https://doi.org/10.1137/S0895480197323159",
+      "finding": "Proves a worst-case 3n/2+O(log n) routing bound on trees, not a bound in terms of the instance-specific LB_hub."
+    }
+  ],
+  "next_falsifiable_action": "Define a branch-flow dependency certificate at one vertex and prove or refute its lower-bound validity on an overlapping-hub tree; then state the exact token-preserving exchange-ordering lemma required for any LB_hub-relative schedule.",
+  "observed_result_or_blocker": "Partial mathematical progress is verified, but the core arbitrary-tree constant-stretch objective is unresolved; strict proof-obligation validation therefore classifies this artifact as incomplete rather than scientifically completed.",
+  "execution": {
+    "mode": "mathematical_reasoning_and_primary_source_audit",
+    "experiment_executed": false,
+    "experiment_authorization_renewed": false,
+    "supervisor_started": false,
+    "paper3_changed": false,
+    "paper4_changed": false
+  }
+}

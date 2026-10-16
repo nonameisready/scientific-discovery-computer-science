@@ -146,3 +146,18 @@ budget renewal are authorized.
 ## 2026-10-16: Parallel token swapping on arbitrary trees
 
 The first queued conjecture was falsified analytically. A parameterized star family has (C_{\max}=2), (D=2), and exact parallel optimum (m+1), so (C+D+O(1)) is not a valid arbitrary-tree theorem. The corrected vertex-capacity LB is valid, and a fixed-hub return lemma adds (q+1) under explicit assumptions. No constant-factor approximation relative to either LB was established, and no unbounded separation was proved. This direction remains an open mathematical question with a sharper dependency-aware proof obligation, not a validated breakthrough.
+
+## 2026-10-16: `LB_hub` structural review
+
+The cut accounting is now exact: for every tree edge, permutation balance gives
+`C(e)=2r(e)`, where `r(e)` is the directional number of tokens that must cross
+the cut. For any concrete schedule, incident workload is exactly the mandatory
+load `sum r(e)` plus nonnegative edge-use slack; occupancy and restoration costs
+cannot be inferred from `r(e)` alone. A fixed-center star with `m'` moved leaves
+and `q` disjoint nontrivial leaf cycles has the exact value `OPT=m'+q`, while
+`LB_hub=m'+1`. Thus the fixed-hub term is not exact, but this family has ratio
+at most `3/2` and is not an unbounded counterexample. Bansal--Günlük--Shapley
+already identify the same fixed-center star as the `Theta(h)` stretch witness
+for the maximum-distance bound on subdivided stars, so no novelty is claimed for
+the high-degree bottleneck. The arbitrary-tree constant-stretch question remains
+unresolved; the next narrow obligation is a branch-flow dependency certificate.

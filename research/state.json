@@ -350,7 +350,7 @@
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-16T00:34:47Z",
+  "checkpoint_time": "2026-10-16T01:20:57Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -398,14 +398,15 @@
     "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
     "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
     "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"
+    "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
   ],
   "current_best_opportunities": [
     {
-      "id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
-      "next_task": null,
-      "reason": "The C+D schedule conjecture is refuted by an exact parameterized star family. The corrected vertex-capacity bound and fixed-hub return lemma are proved, but no constant-factor schedule relative to either bound is established.",
-      "status": "closed_after_conjecture_falsification_open_upper_bound"
+      "id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
+      "next_task": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
+      "reason": "The cut-demand parity and exact multi-cycle star formula are proved, but arbitrary-tree LB_hub stretch remains unresolved. The next task tests a branch-flow dependency certificate without experiments.",
+      "status": "queued_narrow_theory_obligation"
     },
     {
       "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
@@ -418,8 +419,12 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "theory-parallel-token-swapping-tree-approx-001",
+  "current_phase": "theory-parallel-token-swapping-lb-hub-structural-002",
   "current_research_round": 39,
+  "artifact_only_tasks": [
+    "HISTORICAL-OUTCOME-001",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
+  ],
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -498,18 +503,18 @@
       "worker_execution_scientific_success": false
     }
   ],
-  "last_activation_id": "2026-10-16T00:34:47Z-pid20241",
+  "last_activation_id": "2026-10-16T01:19:49Z-pid37424",
   "last_successful_commit": "67632d8",
   "latest_scientific_increment": {
-    "decision": "Refute the arbitrary-tree C+D schedule conjecture with an exact star family; prove the vertex-capacity lower bound and a fixed-hub return correction, while leaving the constant-factor upper-bound question open.",
-    "evidence_level": "tier_3_adversarial_mathematical_proof_obligation_audit",
+    "decision": "partial_structural_progress; central_LB_hub_stretch_conjecture_unresolved",
+    "evidence_level": "tier_3_partial_adversarial_mathematical_proof_audit_with_exact_cut_parity_and_star_cycle_formula",
     "kind": "independent_scientific_reconciliation",
-    "next_falsifiable_action": "Define a dependency-aware lower bound and prove a token-preserving exchange lemma, or produce a hand-checkable family separating the strengthened lower bound from OPT; no execution is authorized in this checkpoint.",
-    "scientific_success": true,
-    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"
+    "next_falsifiable_action": "Define a branch-flow dependency certificate at one vertex and prove or refute it on an overlapping-hub tree; do not execute experiments or renew budget.",
+    "scientific_success": false,
+    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "No further task is auto-admitted from this bounded cycle. Preserve the C+D refutation and require a separate authorization before any future mathematical/computational dependency study; no experiment or budget renewal is authorized.",
+  "next_action": "Execute THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003 as a bounded pure-theory proof audit; no experiments or budget renewal.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -519,10 +524,10 @@
     "max_track_worker_seconds": 7200,
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
-  "opportunity_ranking": [
-    {"task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001", "track": "theory", "score": 1.456, "scientific_completion": "proof_obligation_audit", "status": "scientifically_completed_open_upper_bound"}
+  "opportunity_ranking": [],
+  "pending_tasks": [
+    "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"
   ],
-  "pending_tasks": [],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
@@ -1357,6 +1362,46 @@
         "The example refutes the uniform-layer deletion as a drop-in source-proof step only; a different common representative-family argument may exist.",
         "No global joint-gammoid compression lower bound and no arbitrary-sparsifier lower bound was proved.",
         "Novelty is limited to a finite adversarial audit; no new theorem or improvement to the general bound is claimed."
+      ]
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_tree_approximation_result_20261016.json",
+      "evidence_level": "tier_3_adversarial_mathematical_proof_audit_with_exact_parameterized_counterexample",
+      "next_falsifiable_action": "Define a dependency-aware lower bound and prove a token-preserving exchange lemma, or construct a hand-checkable tree family separating that lower bound from OPT; do not execute without separate authorization.",
+      "observed_result_or_blocker": "Exact parameterized falsification of the C+D conjecture and proof of the corrected lower bounds; the upper-bound question remains open.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
+      "timestamp": "2026-10-16T01:19:49Z",
+      "uncertainty": [
+        "No constant-factor polynomial schedule relative to LB_0 or LB_hub was proved or refuted.",
+        "No unbounded separation between OPT and the strengthened lower bounds was established.",
+        "The literature audit supports a bounded source boundary, not a global absence or novelty theorem through all venues."
+      ]
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_lb_hub_structural_review_result_20261016.json",
+      "evidence_level": "tier_3_adversarial_mathematical_proof_audit_with_exact_star_extension",
+      "next_falsifiable_action": "Define a branch-flow dependency certificate at one vertex and prove or refute its lower-bound validity on an overlapping-hub tree; then state the exact token-preserving exchange-ordering lemma required for any LB_hub-relative schedule.",
+      "observed_result_or_blocker": "C(e) is always even; r(e)=C(e)/2 gives exact directional demand; actual vertex workload is mandatory load plus edge-use slack; fixed-center stars with q leaf cycles have OPT=m'+q and therefore disprove LB_hub exactness but not bounded stretch.",
+      "scientific_success": false,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "Partial structural lemmas are verified, but strict proof-obligation validation leaves the central arbitrary-tree upper-bound task incomplete.",
+        "scientific_success": false
+      },
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
+      "timestamp": "2026-10-16T01:20:57Z",
+      "uncertainty": [
+        "No universal constant-factor schedule relative to LB_hub was proved.",
+        "No unbounded separation from LB_hub was constructed.",
+        "The branch-flow generalization is an unproved next obligation, not a result."
       ]
     }
   ],

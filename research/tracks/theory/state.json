@@ -2,7 +2,7 @@
   "active_task_ids": [],
   "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-16T00:34:47Z",
+  "checkpoint_time": "2026-10-16T01:20:57Z",
   "completed_task_ids": [
     "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
     "THEORY-ZEROEXT-CACTUS-CYCLE-001",
@@ -11,11 +11,14 @@
     "THEORY-ZEROEXT-SERIES-PARALLEL-INTERFACE-003",
     "THEORY-ZEROEXT-SP-TERMINAL-COMPRESSION-004",
     "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"
+    "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
   ],
   "last_supervisor_status": "ACTIVE",
-  "pending_task_ids": [],
+  "pending_task_ids": [
+    "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"
+  ],
   "schema_version": 1,
-  "status": "IDLE",
+  "status": "READY",
   "track": "theory"
 }

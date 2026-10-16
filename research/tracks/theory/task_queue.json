@@ -614,6 +614,108 @@
       ],
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
       "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_lb_hub_structural_review_result_20261016.json",
+      "attempts": 1,
+      "cost_estimate": 0.35,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001"
+      ],
+      "execution_requirements": [
+        "non-experimental mathematical proof audit only",
+        "no computation, experiment, supervisor start, or budget renewal",
+        "preserve the parent star, LB_int, and fixed-hub results",
+        "preserve Paper 3 and Paper 4 without relabeling"
+      ],
+      "execution_validation": {
+        "raw_output_sha256": null,
+        "reason": "Completed directly as a bounded mathematical proof review.",
+        "scientific_success": false,
+        "status": "artifact_only_partial_proof",
+        "timestamp": "2026-10-16T01:19:26Z"
+      },
+      "expected_information_gain": 0.76,
+      "exposition_artifact": "reports/parallel_token_swapping_lb_hub_structural_review_20261016.md",
+      "failure_handling": "If the branch-flow extension is not valid, preserve the exact obstruction and do not infer a general-tree approximation result.",
+      "finished_at": "2026-10-16T01:19:26Z",
+      "independent_scientific_reconciliation": {
+        "artifact": "reports/parallel_token_swapping_lb_hub_structural_review_result_20261016.json",
+        "scientific_success": false,
+        "status": "artifact_only",
+        "timestamp": "2026-10-16T01:19:26Z",
+        "validation": {
+          "missing_or_failed": [],
+          "mode": "proof_obligation_audit",
+          "reason": "The partial structural lemmas are valid, but strict proof-obligation validation does not mark an unresolved central conjecture as scientific completion.",
+          "scientific_success": false
+        },
+        "worker_execution_scientific_success": null,
+        "worker_raw_output_sha256": null
+      },
+      "max_attempts": 1,
+      "objective": "Prove exact cut-demand parity and mandatory-versus-detour workload accounting, then adversarially assess whether LB_hub can have bounded stretch on arbitrary trees without promoting the known subdivided-star bottleneck to novelty.",
+      "priority": 86,
+      "research_key": "parallel_token_swapping_lb_hub_structural",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "artifact_only",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "partial proof progress is preserved, but the arbitrary-tree upper-bound gap is not closed",
+        "scientific_success": false
+      },
+      "status": "completed",
+      "success_criteria": [
+        "prove C(e) even and define exact directional demand r(e)",
+        "derive exact vertex workload decomposition into mandatory load and schedule slack",
+        "audit the fixed-center star against the primary subdivided-star stretch result",
+        "prove a nontrivial structural extension or record a precise obstruction",
+        "separate lower bounds, existential upper bounds, algorithms, and approximation claims",
+        "do not execute experiments or renew budget"
+      ],
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_branch_flow_dependency_pending.json",
+      "attempts": 0,
+      "cost_estimate": 0.4,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
+      ],
+      "execution_requirements": [
+        "pure mathematical reasoning and primary-source checking",
+        "no experiments, computation, supervisor start, or budget renewal",
+        "do not modify protected Supervisor state from a worker",
+        "preserve Paper 3, Paper 4, and all historical negative results"
+      ],
+      "expected_information_gain": 0.74,
+      "failure_handling": "If branch-flow cycle demand is not a valid lower bound, record a hand-checkable overlapping-hub obstruction and close the route rather than inventing a dependency certificate.",
+      "max_attempts": 1,
+      "objective": "Define a branch-flow dependency certificate at a vertex for arbitrary-tree token swapping and prove or refute its lower-bound validity on an overlapping-hub tree; state the exact token-preserving exchange-ordering lemma required for any LB_hub-relative schedule.",
+      "priority": 85,
+      "research_key": "parallel_token_swapping_branch_flow_dependency",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "pending",
+      "scientific_validation": {
+        "missing_or_failed": ["not_yet_executed"],
+        "mode": "proof_obligation_audit",
+        "reason": "Admitted as the next narrow theory obligation; no result is claimed.",
+        "scientific_success": false
+      },
+      "status": "pending",
+      "success_criteria": [
+        "define all branch-flow quantifiers and the candidate dependency certificate",
+        "prove the certificate is a lower bound or give an explicit valid counterexample",
+        "keep the result distinct from a general approximation theorem",
+        "state the token-preserving exchange-ordering proof obligation",
+        "do not execute experiments or renew any budget"
+      ],
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
+      "track": "theory"
     }
   ],
   "track": "theory"
