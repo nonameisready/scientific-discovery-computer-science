@@ -402,13 +402,14 @@
     "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
     "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
     "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004"
+    "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005"
   ],
   "current_best_opportunities": [
     {
       "id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
-      "reason": "A token-preserving 3m+1-round schedule is proved for a growing active double-star family, with OPT/LB_hub < 3/2; the next bounded proof obligation is whether mixed cycles admit a constant-factor schedule on arbitrary double-star permutations.",
-      "status": "pending_proof_only"
+      "reason": "All double-star permutations admit a token-preserving polynomial schedule with R<=2 LB_hub<=2 OPT. The theorem is restricted to double-stars; the three-hub extension remains an unproved proof boundary.",
+      "status": "completed_restricted_constructive_theorem"
     },
     {
       "id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
@@ -426,7 +427,7 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "theory-parallel-token-swapping-double-star-all-permutations-005",
+  "current_phase": "completed-theory-parallel-token-swapping-double-star-all-permutations-005",
   "current_research_round": 41,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
@@ -506,18 +507,18 @@
       "worker_execution_scientific_success": false
     }
   ],
-  "last_activation_id": "2026-10-16T01:37:01Z-manual-theory-checkpoint",
+  "last_activation_id": "2026-10-16T02:19:50Z-pid61130",
   "last_successful_commit": "961aee0",
   "latest_scientific_increment": {
-    "decision": "parameterized_active_double_star_exchange_schedule_proved",
-    "evidence_level": "tier_3_hand_verified_mathematical_schedule_and_exact_traffic_accounting",
+    "decision": "proved_constructive_two_approximation_for_all_permutations_on_double_stars",
+    "evidence_level": "tier_3_independently_reviewed_mathematical_proof",
     "kind": "bounded_theory_task_completion",
-    "next_falsifiable_action": "For arbitrary destination permutations on double-stars, prove a token-preserving polynomial schedule and an LB_hub-relative bound, or record the first exact mixed-cycle obstruction; proof-only, no experiment.",
+    "next_falsifiable_action": "A proof-only follow-up may test whether the side-correction invariant extends to a three-center path; overlapping cuts share a middle center and leave a residual backbone. No counterexample or arbitrary-tree theorem is claimed.",
     "scientific_success": true,
-    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004"
+    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Extend the verified paired-exchange schedule to arbitrary double-star permutations, focusing on mixed center/leaf and within-side cycles. The current result is family-specific; no experiment, budget renewal, Paper 3 edit, or arbitrary-tree approximation claim is authorized.",
+  "next_action": "No eligible admitted task remains; preserve the double-star theorem and wait for a separately justified proof task. Do not run experiments or renew budgets.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -529,13 +530,14 @@
   },
   "opportunity_ranking": [
     {
-      "rank": 1,
-      "id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
-      "status": "pending_proof_only",
-      "reason": "It is the smallest justified extension of the proved active two-hub family and directly tests token-preserving ordering under mixed cycles."
+      "scientific_completion": "proved_restricted_constructive_approximation",
+      "score": 95.2,
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+      "track": "theory",
+      "status": "completed; no successor admitted pending separate review"
     }
   ],
-  "pending_tasks": ["THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005"],
+  "pending_tasks": [],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
@@ -558,6 +560,26 @@
         "No universal constant-factor schedule relative to LB_hub was proved.",
         "No unbounded separation from LB_hub was constructed.",
         "The branch-flow generalization is an unproved next obligation, not a result."
+      ]
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_double_star_exchange_result_20261016.json",
+      "evidence_level": "tier_3_hand_verified_mathematical_schedule_and_exact_traffic_accounting",
+      "next_falsifiable_action": "For arbitrary destination permutations on double-stars, prove a token-preserving polynomial schedule and an LB_hub-relative bound, or record the first exact mixed-cycle obstruction; proof-only, no experiment.",
+      "observed_result_or_blocker": "For a double-star with m active leaves on each side, paired opposite-leaf swaps and a center swap have C(uv)=2m+2, r(uv)=m+1, D=3, W(u)=W(v)=2m+1, and LB_hub=2m+1. A token-checked 3m+1-round schedule proves OPT/LB_hub < 3/2 on this family.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "The declared family-specific exchange schedule is proved. No optimality or arbitrary-tree approximation theorem is claimed.",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004",
+      "timestamp": "2026-10-16T01:45:08Z",
+      "uncertainty": [
+        "The constructed schedule is not proved optimal for m>=2.",
+        "Arbitrary permutations on double-stars and the arbitrary-tree LB_hub approximation question remain unresolved.",
+        "The family-specific gadget is elementary; no publication-level novelty is claimed."
       ]
     },
     {
@@ -1450,6 +1472,26 @@
         "The constructed schedule is not proved optimal for m>=2.",
         "Arbitrary permutations on double-stars and the arbitrary-tree LB_hub approximation question remain unresolved.",
         "The family-specific gadget is elementary; no publication-level novelty is claimed."
+      ]
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_double_star_all_permutations_result_20261016.json",
+      "evidence_level": "tier_3_independently_reviewed_mathematical_proof",
+      "next_falsifiable_action": "Determine whether the side-correction invariant has a valid sequential form on a three-center path; identify overlapping-cut dependencies without claiming a counterexample or arbitrary-tree theorem.",
+      "observed_result_or_blocker": "Every double-star permutation admits a polynomial matching schedule with R<=2 LB_hub<=2 OPT. The proof splits at one central edge and then sorts two disjoint stars; the three-or-more-hub case lacks this one-cut decomposition.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "The complete quantified construction, cycle handling, matching legality, complexity and lower-bound comparison are proved in the linked exposition.",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+      "timestamp": "2026-10-16T02:27:15Z",
+      "uncertainty": [
+        "Publication-level novelty is not established by the bounded prior-art check.",
+        "No extension to three or more hubs or arbitrary trees is proved.",
+        "The factor 2 is not claimed optimal."
       ]
     }
   ],

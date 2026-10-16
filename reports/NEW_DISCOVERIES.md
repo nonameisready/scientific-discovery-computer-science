@@ -1,5 +1,17 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-16: constructive bound for arbitrary double-star permutations
+
+- **Newly proved here:** For any double-star and bijective destination permutation, a polynomial-time two-phase matching schedule has length at most `2 LB_hub`, hence at most `2 OPT`.
+- **Construction:** Repeatedly prepare each center with a token destined across the central edge, perform one central swap (which moves one token correctly in each direction), and finish by sorting the two resulting star permutations. Explicit cycle decompositions account for center-moving and center-fixed leaf-only cycles.
+- **Verified bound:** If `r` is the bidirectional central transfer count and `a,b` are initially incorrect leaf counts, then `R <= 2r+2 max(a,b) = 2 max(W(u),W(v)) <= 2 LB_hub`.
+- **Independent adversarial checks:** Correct leaves cannot be selected for preparation; a prepared leaf receives a non-outgoing token and is not reused. Preparation edges on opposite sides are disjoint, and the bridge swap is in a separate round. The two local star schedules use disjoint vertices.
+- **Scope and novelty:** This is a restricted constructive approximation theorem, not a theorem for arbitrary trees. The local star words are classical; Bansal–Günlük–Shapley treat one-junction subdivided stars (some degenerate double-stars overlap), while the located double-broom optimization is sequential. No firstness or publication-level novelty claim is made.
+- **Unresolved extension:** At three or more hubs, cut-correction operations overlap at middle hubs, and a residual backbone remains. This is an exact gap in the proof decomposition, not a counterexample to an extension.
+- **No experiments** were run; Paper 3/4, historical cohorts, and experiment budgets were untouched.
+
+Full proof and prior-art boundary: [mathematical note](parallel_token_swapping_double_star_all_permutations_20261016.md). Machine-readable validation: [structured result](parallel_token_swapping_double_star_all_permutations_result_20261016.json).
+
 ## 2026-10-16: active double-star exchange schedule
 
 - **Proved:** For a double-star with (m) active leaf-pairs and a center-token exchange, exact demands give (LB_{hub}=2m+1); a token-preserving sequence of matching rounds reaches the target in (3m+1) rounds, so (OPT/LB_{hub}<3/2) on this family.

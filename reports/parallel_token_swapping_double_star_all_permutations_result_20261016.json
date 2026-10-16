@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+  "parent_checkpoint": "854faa2",
+  "timestamp": "2026-10-16T03:00:00Z",
+  "scientific_status": "theorem_proved_restricted_class",
+  "proof_scope_not_closed": true,
+  "evidence_tier": "tier_3_independently_reviewed_mathematical_proof",
+  "sources_and_data": {
+    "data_used": "No experimental data. The result is a direct mathematical proof for finite double-star trees with a bijective token-to-destination map.",
+    "primary_sources": [
+      {
+        "citation": "Alon, Chung, Graham (1994), Routing Permutations on Graphs via Matchings",
+        "url": "https://doi.org/10.1137/S0895480192236628",
+        "relevance": "Matching-round routing model and worst-case routing-number context."
+      },
+      {
+        "citation": "Aichholzer et al. (ESA 2022), Hardness of Token Swapping on Trees",
+        "url": "https://arxiv.org/abs/2103.06707",
+        "relevance": "Parallel matching-swap model and tree hardness boundary."
+      },
+      {
+        "citation": "Bansal, Günlük, Shapley (2024 preprint), Parallel Token Swapping for Qubit Routing",
+        "url": "https://arxiv.org/abs/2411.18581",
+        "relevance": "Subdivided-star approximation; its class has one branch junction, unlike a two-center double-star."
+      },
+      {
+        "citation": "Sadanandan, Chitturi (2022), Optimal Algorithms for Sorting Permutations with Brooms",
+        "url": "https://doi.org/10.3390/a15070220",
+        "relevance": "Optimal sequential-swap algorithms on broom/double-broom trees; different objective from parallel rounds."
+      },
+      {
+        "citation": "Irving, Rattan (2009), Factorizations of permutations into star transpositions",
+        "url": "https://arxiv.org/abs/math/0610640",
+        "relevance": "Classical prior art for the star-transposition cycle words used locally."
+      }
+    ]
+  },
+  "method": "Partition the double-star at its unique central edge. Prepare each center to hold a token destined across that edge, swap the centers, and repeat until all tokens are on their target side. Then decompose each of the two residual star permutations into center-containing and leaf-only cycles and execute explicit star-transposition words. Left and right operations are synchronized only across disjoint vertex sets.",
+  "mathematical_claim": "For every finite double-star T with adjacent centers u,v, any leaf sets L,R, one distinct token at each vertex, and any bijection from tokens to destination vertices, the construction uses R <= 2r + 2 max(a,b) = 2 max(W(u),W(v)) <= 2 LB_hub(T,pi) <= 2 OPT(T,pi) matching rounds, where r is the number of A-to-B tokens for A=L∪{u}, B=R∪{v}; a,b are initially incorrect leaves; W(x)=sum_{e incident x} C(e)/2; and LB_hub=max(D,max_x W(x)). It is a constructive polynomial-time 2-approximation on double-stars only.",
+  "assumptions": [
+    "T is a finite tree with exactly two adjacent centers u,v and all other vertices are leaves adjacent to one center; either leaf set may be empty.",
+    "Each vertex contains exactly one distinct token and each token has exactly one destination, with the destination assignment a bijection on V(T).",
+    "A round consists of swaps on a matching of T edges; no vertex participates in two swaps in one round.",
+    "C(e) counts source-to-destination token paths using e; tree-cut balance makes C(e) even and r(e)=C(e)/2 integral.",
+    "LB_hub is the maximum of maximum token distance D and the mandatory incident-edge workload W(x)=sum_{e incident x} r(e)."
+  ],
+  "verified_steps": [
+    "Bijection gives equal directional transfer counts across the central cut; this common count is r.",
+    "Before each central swap, if a center lacks an outward token, a leaf in its side must hold one; the two possible preparation edges are disjoint.",
+    "Each central swap exchanges one outward token in each direction, decreasing both remaining counts by one.",
+    "No initially correct leaf is prepared; each prepared leaf receives a non-outgoing center token and cannot be used again. Thus post-phase-I incorrect leaf counts are at most a,b.",
+    "Center-containing star cycles are sorted with q swaps; leaf-only cycles of size q>=2 are sorted with q+1<=2q swaps while restoring the center token.",
+    "The two star vertex sets are disjoint; each side serializes its own center-incident swaps and the two sequences run in parallel.",
+    "The edge and hub loads yield W(u)=r+a and W(v)=r+b; adding the phase bounds gives R<=2 LB_hub.",
+    "Every round is a matching and all actual token identities are tracked; construction and output size are O(|V|)."
+  ],
+  "proof_status": {
+    "overall": "fully_proved_for_double_stars",
+    "phase_I_side_correction": "proved_by_induction_on_remaining_bidirectional_cut_demand",
+    "leaf_protection_and_error_monotonicity": "proved",
+    "phase_II_star_cycle_factorization": "proved_for_center_cycles_leaf_only_cycles_and_fixed_points",
+    "matching_legality": "proved",
+    "round_bound": "proved_R_le_2_LB_hub_le_2_OPT",
+    "polynomial_constructive_algorithm": "proved_O(n)_schedule_generation",
+    "arbitrary_tree_extension": "not_claimed_and_unresolved",
+    "novelty_priority": "unverified_not_claimed"
+  },
+  "gaps": [
+    "The proof uses the unique central edge to split the graph into two stars; at three or more hubs, overlapping cut-correction states leave a nontrivial backbone and no corresponding bound is proved.",
+    "The source audit is bounded and cannot establish global priority or absence of equivalent prior results.",
+    "No optimality result for the produced schedule is claimed."
+  ],
+  "counterexamples": [],
+  "independent_review": {
+    "status": "passed_adversarial_proof_review",
+    "review_checks": [
+      "center token can be either outward or locally destined",
+      "initially correct leaves and one-time leaf preparation",
+      "equal directional crossing counts and no stranded outgoing tokens",
+      "centers with leaf destinations and center-containing cycles",
+      "leaf-only cycles and restoration of the center token",
+      "disjoint preparation edges and separation of bridge rounds",
+      "synchronized left/right schedules and degenerate empty-leaf side"
+    ],
+    "method": "Independent token-state induction and separate cycle-by-cycle permutation check; no experiment or finite search was run."
+  },
+  "execution": {
+    "mode": "proof_only_and_primary_source_audit",
+    "experiment_executed": false,
+    "computation_executed": false,
+    "supervisor_started": false,
+    "experiment_authorization_renewed": false,
+    "paper3_changed": false,
+    "paper4_changed": false
+  },
+  "novelty_assessment": {
+    "classification": "valid_restricted_constructive_approximation_theorem",
+    "local_star_cycle_words": "standard_star_transposition_structure",
+    "closest_parallel_prior_art": "polynomial approximation for one-junction subdivided stars; genuine double-stars with both centers branching are outside that class, although degenerate double-stars may overlap",
+    "double_broom_prior_art": "optimal sequential swap objective, not parallel matching rounds",
+    "claim_of_firstness": false,
+    "publication_level_novelty": "not_established"
+  },
+  "next_falsifiable_action": "For three adjacent hubs with arbitrary pendant leaves and permutations, determine whether any sequential cut-correction normal form preserves the double-star phase invariant; exhibit the exact shared-center dependency if it fails. Proof-only; no experiment authorization is requested.",
+  "observed_result_or_blocker": "The proposed double-star construction is valid for all bijective destination permutations and gives a polynomial-time 2-approximation relative to LB_hub. Extension fails at the proof-decomposition level because a middle hub lies on two backbone cuts; this is an unresolved generalization issue, not a counterexample.",
+  "uncertainty": [
+    "Whether a stronger or simpler known double-star parallel theorem exists beyond the bounded primary-source audit.",
+    "Whether a comparable LB_hub-relative schedule can be proved for three or more hubs or arbitrary trees.",
+    "Whether the factor 2 is improvable on double-stars."
+  ],
+  "exposition_artifact": "reports/parallel_token_swapping_double_star_all_permutations_20261016.md"
+}

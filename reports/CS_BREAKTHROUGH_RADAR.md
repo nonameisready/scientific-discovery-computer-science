@@ -1,5 +1,9 @@
 # CS breakthrough radar
 
+## Arbitrary permutations on double-stars: bounded theorem (2026-10-16)
+
+A token-preserving two-stage algorithm proves `R <= 2 LB_hub <= 2 OPT` for every double-star instance, with a polynomial (linear-output) construction. The central-edge side-correction phase costs at most two rounds per paired transfer; the remaining two star permutations are sorted with explicit center-cycle and leaf-only cycle words, at most twice their incorrect-leaf counts. This is not an arbitrary-tree result. The proof's three-hub gap is overlapping cut states and a shared middle center, not an established lower-bound obstruction. Prior-art review distinguishes matching-round one-junction subdivided stars from sequential double-broom sorting; degenerate double-stars may overlap the former. Publication-level novelty remains unverified. No experiments or Paper 3/4 changes. See [proof](parallel_token_swapping_double_star_all_permutations_20261016.md) and [structured result](parallel_token_swapping_double_star_all_permutations_result_20261016.json).
+
 ## Parallel token swapping: parameterized active double-star schedule (2026-10-16)
 
 The four-vertex active-core limitation in the previous adjacent-hub example is corrected by a double-star family with (m) moving leaf-pairs and a moving center-token pair. Exact demands give (LB_{hub}=2m+1); a token-preserving construction reaches the target in (3m+1) matching rounds, hence a family-specific upper bound below (3/2) times (LB_{hub}). It is not proved optimal and does not extend to arbitrary permutations or arbitrary trees. The exchange gadget is elementary and is not ranked as a breakthrough. A single proof-only successor asks whether mixed cycles on arbitrary double-star permutations admit an (LB_{hub})-relative schedule. No experiment or Paper 3/4 change occurred. See [mathematical proof](parallel_token_swapping_double_star_exchange_20261016.md).
