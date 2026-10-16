@@ -318,11 +318,12 @@
   ],
   "artifact_only_tasks": [
     "HISTORICAL-OUTCOME-001",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002"
+    "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004"
   ],
   "blocked_tasks": [],
   "budget_consumption": {
-    "activations_started": 102,
+    "activations_started": 105,
     "completed_experiments": 9,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
@@ -350,8 +351,8 @@
     "worker_invocations_started": 25
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "campaign_status": "waiting_for_next_activation",
-  "checkpoint_time": "2026-10-16T01:45:08Z",
+  "campaign_status": "waiting_for_eligible_task",
+  "checkpoint_time": "2026-10-16T02:27:15Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -508,7 +509,7 @@
     }
   ],
   "last_activation_id": "2026-10-16T02:19:50Z-pid61130",
-  "last_successful_commit": "961aee0",
+  "last_successful_commit": "31c31b6",
   "latest_scientific_increment": {
     "decision": "proved_constructive_two_approximation_for_all_permutations_on_double_stars",
     "evidence_level": "tier_3_independently_reviewed_mathematical_proof",
