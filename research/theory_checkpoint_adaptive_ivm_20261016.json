@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "ADAPTIVE-IVM-PRIMARY-SOURCE-AUDIT-3.1-20261016",
+  "task_id": "ADAPTIVE-IVM-PRIMARY-SOURCE-AUDIT-3.1",
+  "date": "2026-10-16",
+  "status": "completed_bounded_no_go",
+  "scientific_decision": "NO-GO: the 2026 author paper already accounts for changing heavy/light membership and database-size thresholds by amortized rebalancing. A distinct online data-dependent epsilon policy was not shown to provide a useful migration-accounted improvement.",
+  "confirmed_increment": "Reconstructed Theorem 11 and the full major/minor rebalancing argument from arXiv:2605.08397v1; corrected the prior C5 premise that dynamic skew itself was untreated.",
+  "primary_source": {
+    "url": "https://arxiv.org/html/2605.08397",
+    "theorem": "Theorem 11",
+    "published_doi": "10.1145/3801905",
+    "author_full_text_read": true,
+    "publisher_version_delta_audited": false
+  },
+  "gate_results": {
+    "primary_reconstruction": "pass",
+    "uncovered_gap": "partial: online instance-sensitive epsilon selection is distinct, but no performance objective or theorem-level advantage established",
+    "novel_mechanism": "fail",
+    "exact_migration_invariant": "not_proved",
+    "migration_and_memory_cost_bound": "not_proved",
+    "candidate_admitted": false
+  },
+  "strongest_candidate_blocker": "Any policy must maintain exact Q(D_t) during threshold transition and charge rebuilding, delta dual-maintenance or log replay, peak old/new materialized state, and enumeration delay. No causal comparator, stream class, or strict gain over the query-optimal fixed-epsilon maintenance-width baseline was specified/proved.",
+  "naive_policy_falsifier": "Alternating states that trigger complete threshold rebuilds can incur preprocessing-scale O(N^(1+mw)) cost per switch; this refutes rebuild-on-every-switch only, not all possible migration schemes.",
+  "paper3_or_paper4_changed": false,
+  "experiment_run": false,
+  "benchmark_or_inference_run": false,
+  "successor_task_created": false,
+  "queue_or_supervisor_changed": false,
+  "historical_outcomes_rewritten": false,
+  "artifacts": [
+    "reports/ADAPTIVE_IVM_PRIMARY_SOURCE_AUDIT.md",
+    "reports/ADAPTIVE_IVM_PRIMARY_SOURCE_AUDIT.json",
+    "research/adaptive_ivm_ledger_20261016.json",
+    "research/cs_discovery_3_0_ledger_20261016.json",
+    "research/opportunity_registry.json",
+    "research/theory_checkpoint_adaptive_ivm_20261016.json"
+  ],
+  "validation": {
+    "research_check": "passed: ok=true, task_count=58, ledger_records=10, errors=[]",
+    "research_status": "passed read-only; existing tracks idle; lifetime experiment start cap exhausted",
+    "full_unit_tests": "passed: 69 tests; existing DP158 numerical RuntimeWarnings observed, no failures",
+    "json_parse_and_schema": "passed: parsed with Python json.tool and required-field assertions",
+    "git_diff_check": "passed",
+    "staged_diff_review": "pending"
+  }
+}

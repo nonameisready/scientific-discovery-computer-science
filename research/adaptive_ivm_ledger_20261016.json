@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "ledger_id": "ADAPTIVE-IVM-RESEARCH-LEDGER-20261016",
+  "append_only": true,
+  "task_id": "ADAPTIVE-IVM-PRIMARY-SOURCE-AUDIT-3.1",
+  "entries": [
+    {
+      "id": "IVM31-01",
+      "evidence_level": "primary_source_theorem_reconstruction",
+      "claim": "For every fixed join query Q, Theorem 11 gives O(N^(1+mw(Q))) preprocessing, O(N^mw(Q)) amortized single-tuple insert/delete update time including major and minor rebalancing, and O(1) output enumeration delay.",
+      "status": "source_verified_from_author_full_text",
+      "source": "https://arxiv.org/html/2605.08397",
+      "limitations": ["Query fixed; theorem's direct scope is join/full CQ.", "No separate peak-space theorem for all materialized state stated in Theorem 11.", "Published ACM text was not compared to arXiv version line-by-line."]
+    },
+    {
+      "id": "IVM31-02",
+      "evidence_level": "primary_source_rebalancing_reconstruction",
+      "claim": "The method already reacts to heavy/light membership changes with minor rebalancing and to database-size changes with major rebalancing; relaxed boundaries (approximately 1/2 and 3/2 M^epsilon) prevent one-update threshold oscillation, and both costs amortize into O(N^mw) per update.",
+      "status": "source_verified",
+      "source": "https://arxiv.org/html/2605.08397#S6",
+      "limitations": ["The exponent epsilon remains fixed after query-level maintenance-width optimization.", "This is not per-instance online epsilon selection."]
+    },
+    {
+      "id": "IVM31-03",
+      "evidence_level": "novelty_boundary",
+      "claim": "A data-dependent online epsilon policy is formally distinct from fixed query-optimal epsilon, but no precise causal benchmark, migration-correct algorithm, or improvement theorem was established in this cycle.",
+      "status": "not_admitted_no_go",
+      "sources": ["https://arxiv.org/html/2605.08397", "https://arxiv.org/abs/2004.03716", "https://doi.org/10.1007/s00778-023-00817-w", "https://doi.org/10.46298/lmcs-21(2:23)2025"],
+      "limitations": ["This is not a proof that all online adaptive IVM is solved.", "No algorithm-design task or successor is created."]
+    },
+    {
+      "id": "IVM31-04",
+      "evidence_level": "adversarial_mechanism_review",
+      "claim": "A rebuild-on-every-switch threshold portfolio can incur a rebuild-scale cost on every alternating regime; this rejects the naïve switch implementation only, not all incremental migration designs.",
+      "status": "conditional_cost_obstruction_not_general_lower_bound",
+      "sources": ["https://arxiv.org/html/2605.08397#ApxC"],
+      "limitations": ["No implementation or experiment was run.", "A more sophisticated exact migration may avoid full rebuild; its bound remains open."]
+    }
+  ],
+  "decision": "bounded_no_go_no_successor",
+  "integrity": {
+    "experiments_run": false,
+    "paper3_or_paper4_changed": false,
+    "supervisor_or_queue_changed": false
+  }
+}

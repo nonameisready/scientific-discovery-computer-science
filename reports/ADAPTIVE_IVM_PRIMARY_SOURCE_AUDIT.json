@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "task_id": "ADAPTIVE-IVM-PRIMARY-SOURCE-AUDIT-3.1",
+  "date": "2026-10-16",
+  "status": "completed_bounded_no_go",
+  "classification": "F_no_defensible_research_contribution",
+  "primary_source": {
+    "title": "Maintaining Queries under Updates Using Heavy-Light Partitioning of the Input Relations",
+    "authors": ["Mahmoud Abo-Khamis", "Eden Chmielewski", "Andrei Draghici", "Ahmet Kara", "Dan Olteanu"],
+    "arxiv_version": "2605.08397v1",
+    "arxiv_date": "2026-05-08",
+    "published_version": "Proceedings of the ACM on Management of Data, volume 4, issue 2, May 2026",
+    "doi": "10.1145/3801905",
+    "full_author_preprint_read": true,
+    "published_full_text_compared": false,
+    "identity_check": "Title/authors/venue verified against author arXiv full text and Oxford publication listing; ACM full-text endpoint unavailable in prior scan, but this cycle used the author full-text preprint. Publication-version delta remains unaudited."
+  },
+  "source_theorem": {
+    "theorem": "Theorem 11",
+    "query_scope": "Any fixed full conjunctive/join query in data complexity; free-variable CQ extension is described as a standard extension via free-connex hypertree decompositions, not the theorem's direct scope.",
+    "database_semantics": "Relations map tuples to integer multiplicities over the Z ring. Support determines presence for set operations; output enumeration lists distinct tuples with multiplicities. Self-join atoms are handled as separate relation copies.",
+    "updates": "Sequential single-tuple insertions and deletions, multiplicity changes +1/-1.",
+    "state": ["heavy/light value partitions per join variable", "relation fragments per degree configuration", "selected materialized view tree(s) for configurations", "materialized join/projection views"],
+    "threshold": "A query-level exponent epsilon in [0,1] is optimized once by minimizing maintenance width; the exponent stays fixed during the update sequence. The scale base M tracks database size.",
+    "heavy_light_membership": "Global degree across all atoms containing a join variable; source relaxes boundary to light degree <= about 3/2 M^epsilon and heavy degree > about 1/2 M^epsilon to avoid oscillation.",
+    "mechanism": "Delta-view trees, degree-configuration-dependent view selection, degree-constraint polymatroid/AGM LP bounds, maintenance-width optimization, minor and major rebalancing.",
+    "guarantee": {
+      "preprocessing_time": "O(N^(1+mw(Q)))",
+      "amortized_single_tuple_update_time": "O(N^mw(Q)), including minor/major rebalancing",
+      "enumeration_delay": "O(1) after each update",
+      "space_bound": "No separate asymptotic peak-space theorem for the entire materialized state is stated in Theorem 11; this audit makes no inferred portfolio-space claim."
+    },
+    "examples": [
+      {"query": "4-cycle", "maintenance_width": "2/3", "epsilon": "1/3"},
+      {"query": "Loomis-Whitney 4", "maintenance_width": "1/2", "epsilon": "1/2"}
+    ]
+  },
+  "rebalancing_audit": {
+    "minor_membership_changes_already_supported": true,
+    "minor_rebalancing_cost": "O(N^mw M^epsilon) per transition; Omega(M^epsilon) updates separate transitions, yielding amortized O(N^mw) per update.",
+    "major_size_threshold_changes_already_supported": true,
+    "major_rebalancing_cost": "Recompute partitions, fragments, and view trees when N leaves the M/4 <= N < M band; preprocessing-scale O(N^(1+mw)) work amortizes across Omega(N) updates to O(N^mw) per update.",
+    "epsilon_reselected_from_observed_distribution": false,
+    "view_tree_adaptivity_by_degree_configuration": true,
+    "interpretation": "The proposed broad dynamic-skew premise is already handled for membership/size drift. A narrower data-instance-dependent online epsilon policy is distinct but not shown to improve a defined guarantee."
+  },
+  "formal_candidate_problem": {
+    "input": "Fixed query Q, initial multiset database D0, sequential single-tuple +/-1 update stream u1..uT, with state Dt and exact result Q(Dt).",
+    "policy_information": "Online epsilon_t may use Q, current database statistics, and update history available before the decision; no future updates.",
+    "state": "Selected epsilon, current partitions/fragments/views, active query version, migration/replay state.",
+    "invariant": "At every committed update t, active materialized state enumerates exactly Q(Dt) with declared delay.",
+    "total_cost_components": ["delta maintenance", "degree classification and tuple movement", "rebuild/migration", "dual maintenance or log replay during migration", "peak memory including old/new states", "enumeration delay during cutover"],
+    "benchmarks": {
+      "fixed_initial_epsilon": "online baseline; paper minimizes worst-case query exponent over all degree configurations",
+      "fixed_epsilon_with_size_scaling": "already supported by M-based major rebalancing",
+      "online_dynamic_epsilon": "candidate policy, causal only",
+      "best_fixed_epsilon_hindsight": "offline comparator, not available to policy",
+      "offline_dynamic_epsilon_sequence": "stronger oracle requiring explicit switching costs"
+    }
+  },
+  "prior_art": [
+    {
+      "work": "Abo-Khamis et al., PODS 2026 / arXiv:2605.08397",
+      "source": "https://arxiv.org/abs/2605.08397",
+      "result": "Generic heavy-light IVM for fixed join queries with per-configuration view trees, fixed query-optimal epsilon, exact output, constant delay, and amortized rebalancing.",
+      "scope_boundary": "Does not state online per-instance epsilon_t optimization with a migration-cost competitive bound."
+    },
+    {
+      "work": "Kara et al., Maintaining Triangle Queries under Updates (IVM-epsilon), ICDT 2019/TODS 2020",
+      "source": "https://arxiv.org/abs/2004.03716",
+      "result": "Threshold trade-offs in update time, space and enumeration delay, heavy-light partitioning and amortized rebalancing for triangle query; 2026 paper explicitly adapts its rebalancing technique.",
+      "scope_boundary": "Query-specific; confirms thresholding and rebalancing are established mechanisms."
+    },
+    {
+      "work": "Kara et al., Conjunctive Queries with Free Access Patterns under Updates, LMCS 2025",
+      "source": "https://doi.org/10.46298/lmcs-21(2:23)2025",
+      "result": "Fully dynamic CQ evaluation with access patterns and update/delay trade-offs.",
+      "scope_boundary": "Broader dynamic degree/partition context; no per-instance adaptive epsilon theorem authenticated here."
+    },
+    {
+      "work": "Kara et al., F-IVM, VLDB Journal 2024",
+      "source": "https://doi.org/10.1007/s00778-023-00817-w",
+      "result": "Higher-order factorized view maintenance; materialization choices depend on static/updatable relations and update workload.",
+      "scope_boundary": "Update-workload-adaptive views are not the same as dynamic heavy-light exponent selection."
+    },
+    {
+      "work": "Liang, Elmore, and Krishnan, Opportunistic View Materialization with Deep Reinforcement Learning (DQM), 2019",
+      "source": "https://arxiv.org/abs/1903.01363",
+      "result": "Online RL creates/evicts opportunistic inner-join views under a storage cap using asynchronous paired counterfactual runtime experiments; tested across changing query patterns and skew in SparkSQL.",
+      "scope_boundary": "Prior art for dynamic view portfolio policies, but not exact tuple-level incremental maintenance: the paper recomputes affected views when base tables change. It reports experimental cumulative latency, not worst-case IVM update/delay guarantees."
+    },
+    {
+      "work": "DBToaster, Dynamic Yannakakis, Crown, DBSP",
+      "sources": ["https://doi.org/10.14778/2336664.2336670", "https://doi.org/10.1145/3035918.3064027", "https://doi.org/10.14778/3579075.3579080", "https://arxiv.org/abs/2203.16684"],
+      "result": "Delta and view-tree maintenance baselines for dynamic query execution.",
+      "scope_boundary": "Do not establish zero-cost threshold migration; included as relevant correctness/performance baselines."
+    },
+    {
+      "work": "Materialized view selection and maintenance / view adaptation",
+      "sources": ["https://doi.org/10.1145/233269.233361", "https://arxiv.org/abs/cs/0003006", "https://doi.org/10.1145/223784.223817"],
+      "result": "Prior view-selection and view-redefinition adaptation literature considers changing maintained view sets/workloads.",
+      "scope_boundary": "Different control variable and objective; cautions against treating migration or adaptive materialization as novel by itself."
+    }
+  ],
+  "adversarial_review": {
+    "naive_rebuild_on_switch": "For a policy alternating epsilon_A/epsilon_B states each one update, if each switch rebuilds affected views at preprocessing scale O(N^(1+mw)), transition cost can be Theta(T N^(1+mw)) versus fixed-threshold O(T N^mw) update maintenance while N remains in one band. This refutes that naïve implementation only, not all migration algorithms.",
+    "other_cases": ["membership oscillation", "sudden persistent skew then reversal", "single heavy key", "insert-delete reversals", "multiple relations", "database-size rebalancing", "large view changes", "dual-state peak space", "enumeration during migration"],
+    "naive_portfolio_problem": "Several complete threshold states multiply view memory and update work; no equal-space guarantee was proved.",
+    "no_universal_impossibility_claim": true
+  },
+  "gate_results": {
+    "gate1_primary_theorem_reconstructed": "pass",
+    "gate2_uncovered_limitation": "partial: instance-trajectory-dependent online epsilon selection is distinct, but no useful guarantee improvement established",
+    "gate3_novel_mechanism": "fail: portfolio, hysteresis, rebalancing, and migration are standard components; no new invariant/theorem",
+    "gate4_exact_state_invariant": "not_met_for_new_policy",
+    "gate5_migration_and_space_accounting": "fail",
+    "gate6_precise_falsifiable_improvement_target": "fail: causal comparator and stream class remain unspecified"
+  },
+  "scientific_result": {
+    "decision": "NO_GO",
+    "finding": "Changing heavy/light membership and database size are already covered by the 2026 algorithm's minor/major rebalancing. Choosing epsilon from observed distribution is not shown to be novel or beneficial relative to the query-level minimax maintenance-width threshold.",
+    "smallest_unresolved_question": "For a fixed query, can a causal epsilon_t policy lower total update-plus-transition work on a specified stream class versus the best fixed-epsilon scheme under equal peak space and exact constant-delay output?",
+    "new_algorithm_proved": false,
+    "new_theorem_proved": false,
+    "valid_falsification": "The naïve rebuild-on-every-switch portfolio implementation can lose Theta(N) versus fixed epsilon on an alternating stream, conditional on rebuild-scale transitions.",
+    "claim_scope": "This falsifies the naïve implementation, not all online adaptive IVM. It does not establish the broader problem is closed."
+  },
+  "future_evaluation": {
+    "authorized_or_run": false,
+    "condition_to_proceed": "First specify a migration-correct algorithm and theorem-level benefit over a causal/fixed threshold baseline.",
+    "metrics": ["update work and latency", "migration/rebuild work", "peak memory", "enumeration delay during cutover", "exactness against recomputation"],
+    "adversarial_streams": ["stationary skew", "threshold oscillation", "sudden shift", "shift reversal", "multi-relation skew"]
+  },
+  "integrity": {
+    "algorithm_design_artifact_created": false,
+    "experiment_or_benchmark_run": false,
+    "successor_task_created": false,
+    "paper3_or_paper4_changed": false,
+    "supervisor_or_queue_changed": false,
+    "historical_outcomes_rewritten": false
+  },
+  "validation": {
+    "research_check": "passed: ok=true, task_count=58, ledger_records=10, errors=[]",
+    "research_status": "passed read-only; existing tracks idle; lifetime experiment start cap exhausted",
+    "full_unit_tests": "passed: 69 tests; existing DP158 numerical RuntimeWarnings observed, no test failures",
+    "json_parse_and_schema": "passed: all new/updated JSON parsed; required report keys and status enums checked",
+    "git_diff_check": "passed",
+    "staged_diff_review": "pending"
+  }
+}

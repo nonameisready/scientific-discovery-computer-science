@@ -46,6 +46,13 @@
       "status": "bounded_no_go",
       "sources": [],
       "limitation": "This negative screening result does not imply that these areas lack open research problems."
+    },
+    {
+      "id": "CS31-01",
+      "claim": "The author full-text 2026 heavy-light IVM paper already amortizes heavy/light membership changes and database-size threshold rebalance; changing skew alone is not an uncovered gap.",
+      "status": "primary_source_reconstructed; adaptive_epsilon_gap_not_admitted",
+      "sources": ["https://arxiv.org/abs/2605.08397", "https://arxiv.org/html/2605.08397", "https://doi.org/10.1145/3801905"],
+      "limitation": "The fixed query-optimal epsilon is not reselected from observed instance distribution. A causal adaptive-epsilon policy with exact migration, equal-space constraints, a precise comparator, and a strict amortized benefit remains unproved and is not enqueued. The PODS publisher full text was not compared line-by-line with the author preprint."
     }
   ]
 }
