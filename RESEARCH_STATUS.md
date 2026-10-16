@@ -1,5 +1,11 @@
 # Research status
 
+## 2026-10-16: CS3 corridor-signature stress test — equivalent reformulation, no-go as an intermediate
+
+The proposed per-LCA-guard `O(r^3)` signature claim is equivalent up to constants to the full simple-treewidth-3 profile conjecture. In the source-standard construction, guards are bags/unions of bags in a width-3 decomposition of the measured graph `G` (obtainable by intersecting a host simple-3-tree decomposition with `V(G)`); each guard has at most eight actual `G` vertices. Thus each local signature is itself a truncated profile on at most eight landmarks. Conversely, the source LCA family has at most `4|A|` guards, and a valid guard's distances in `G` determine the truncated profile to `A`. The complete two-way proof is in [the stress-test report](reports/simple_treewidth3_CS3_stress_test_20261016.md).
+
+A four-vertex tree `ac,cx,cy` gives a standard LCA bag guard whose signatures distinguish `x,y`, while their profiles on `A={a,c}` agree; this confirms that local signatures can overcount the target profiles, but such overcount cannot make CS3 asymptotically stronger or weaker than the conjecture. The cited treewidth-3 `Ω(r^4)` lower construction is still ineligible: its `K3,3` minor prevents it from being planar/simple-tw3. No eligible asymptotic counterexample or proof was found. CS3 is closed as an independent intermediate direction; no successor was enqueued, no experiment ran, and Paper 3/4 were unchanged. The append-only task-specific [proof ledger](research/simple_treewidth3_CS3_proof_ledger_20261016.json) and [checkpoint](research/theory_checkpoint_simple_treewidth3_CS3_stress_test_20261016.json) preserve this decision without rewriting the prior checkpoint.
+
 ## 2026-10-16: simple-treewidth-3 profile complexity — bounded primary-source reconstruction
 
 The primary-source reconstruction confirms the explicit conjecture `pc_r(G,k)=O_t(r^t k)` for graphs of simple treewidth at most `t`; at `t=3` the target is `O(r^3 k)`. Beaudou et al.'s current text proves `O_t(r^(t+1)k)` for ordinary treewidth, while outerplanar graphs have `pc_r(G,A)<=1+(2r+2)^2|A|` by a circular BFS-layer monotonicity argument. The extra `r` in the general bound enters in the minor-free profile count for each constant-size LCA guard, not in the `O(k)` number of guards.

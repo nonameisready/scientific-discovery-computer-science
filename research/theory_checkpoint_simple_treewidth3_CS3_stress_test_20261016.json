@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "THEORY-SIMPLE-TREEWIDTH3-CS3-STRESS-TEST-002",
+  "date": "2026-10-16",
+  "status": "completed_bounded_theory_cycle_no_successor_admitted",
+  "task_id": "THEORY-SIMPLE-TREEWIDTH3-CS3-STRESS-TEST-002",
+  "scientific_decision": "CS3 is equivalent up to constants to the full simple-treewidth-3 profile conjecture; neither proved nor refuted.",
+  "confirmed_increment": "Proved both implications between the proposed O(r^3) LCA-guard signature bound and the O(r^3 k) simple-treewidth-3 profile conjecture. Gave a valid finite standard-guard example showing local signatures can overcount profiles to A.",
+  "open_obligation": "Prove O(r^3 k) for all partial simple 3-trees or give an eligible asymptotic counterexample; the generic CS3 reformulation does not reduce this obligation.",
+  "paper3_or_paper4_changed": false,
+  "experiment_run": false,
+  "next_task_created": false,
+  "historical_checkpoint_preserved": "research/theory_checkpoint_simple_treewidth3_20261016.json",
+  "artifacts": [
+    "reports/simple_treewidth3_CS3_stress_test_20261016.md",
+    "reports/simple_treewidth3_CS3_stress_test_result_20261016.json",
+    "research/simple_treewidth3_CS3_proof_ledger_20261016.json"
+  ],
+  "validation": {
+    "research_check": "passed before scoped edits; rerun after edits also passed",
+    "unit_tests": "passed: 69 tests",
+    "json_validation": "passed",
+    "diff_check": "passed"
+  }
+}

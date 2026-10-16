@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-SIMPLE-TREEWIDTH3-CS3-STRESS-TEST-002",
+  "date": "2026-10-16",
+  "status": "completed_bounded_theory_cycle_no_successor",
+  "decision": "NO_GO_CS3_is_equivalent_to_full_stw3_profile_conjecture",
+  "experiment_run": false,
+  "paper3_changed": false,
+  "paper4_changed": false,
+  "cs3": {
+    "statement": "For every simple 3-tree H, every subgraph G of H, every A subset V(G), every integer r>=1, each source-standard LCA guard S in a width-3 decomposition of G, and each assigned subset X_S of V(G), the number of truncated distance vectors (cap_r(d_G(x,s)))_{s in S} for x in X_S is at most C(r+2)^3 for one absolute C.",
+    "status": "equivalent_up_to_constants_to_main_conjecture",
+    "main_conjecture_to_cs3": "A CS3 vector is a profile on S, where |S|<=8. The conjectured bound gives at most 8*C3*r^3 non-all-infinity vectors plus at most one all-infinity vector.",
+    "cs3_to_main_conjecture": "The source LCA family has at most 4|A| guards of size at most 8. For a vertex assigned to a valid guard, the profile on A is determined by its G-distance vector to that guard. Summing gives O(r^3|A|).",
+    "proof_status": "fully_proved_equivalence",
+    "guard_scope_correction": "The primary-source LCA lemma builds bags from a tree decomposition of the measured graph G. For G subgraph H, intersecting H's bags with V(G) gives a valid width-3 decomposition; guards are actual vertices of G and distances are measured in G. The source itself does not assign unique X_S regions; any fixed valid-guard assignment suffices."
+  },
+  "claims": [
+    {
+      "claim": "A valid guard-distance signature determines the truncated landmark profile in the same graph.",
+      "classification": "fully_proved_elementary_implication"
+    },
+    {
+      "claim": "Vertices can have different signatures to a standard LCA guard and identical profiles to the original landmark set.",
+      "classification": "fully_proved_finite_example",
+      "example": "G is the tree with edges ac,cx,cy; A={a,c}; decomposition bags {c,y} root and {a,c,x} child; the latter is a source-standard guard. At r>=2, x,y have A-profile (2,1) but guard signatures (2,1,0) and (2,1,2). G is a subgraph of simple 3-tree K4."
+    },
+    {
+      "claim": "An Omega(r^4) guard-signature family can coexist with the main conjecture.",
+      "classification": "disproved",
+      "reason": "For S subset V(G), signatures are profiles on at most eight landmarks, so Omega(r^4) signatures would itself contradict the conjectured O(r^3 k) bound at k<=8."
+    },
+    {
+      "claim": "Joret-Rambaud's treewidth-3 lower construction is an eligible simple-treewidth-3 counterexample.",
+      "classification": "refuted_for_this_construction",
+      "reason": "The t=3 construction contains a K3,3 minor, whereas simple 3-trees and their subgraphs are planar."
+    },
+    {
+      "claim": "The main simple-treewidth-3 profile conjecture is true or false.",
+      "classification": "unresolved"
+    }
+  ],
+  "prior_art": {
+    "beaudou_et_al": "Explicitly conjecture O_t(r^t k) for simple treewidth at most t; prove O_t(r^(t+1)k) for treewidth t and provide at most 4|A| LCA guards of size at most 2(t+1).",
+    "joret_rambaud": "Give an Omega_t(r^(t+1)) treewidth-t lower construction for constant landmarks, an Omega(r^3) planar lower bound, and an O(r^4) planar upper bound.",
+    "novelty_verdict": "The equivalence and finite example are elementary scope clarification, not a publication-level structural result."
+  },
+  "proof_obligations": {
+    "proved": [
+      "Main conjecture implies CS3 uniformly for every guard and every assigned subset.",
+      "CS3 plus the source LCA guard family implies the main conjecture.",
+      "The four-vertex overcount example is a valid simple-treewidth-3 subgraph and uses a standard guard bag."
+    ],
+    "open": [
+      "Prove O(r^3 k) for all partial simple 3-trees, or find a valid asymptotic counterexample.",
+      "Find a corridor-specific counting principle genuinely weaker than arbitrary constant-size landmark profile complexity."
+    ],
+    "failed": [
+      "Treating CS3 as an independent easier intermediate lemma: it is equivalent to the full conjecture up to constants."
+    ]
+  },
+  "validation": {
+    "research_check": "passed before scoped edits: ok=true, task_count=58, ledger_records=10, errors=[]",
+    "unit_tests": "passed: 69 tests",
+    "json_validation": "passed: all three new JSON artifacts parse as UTF-8 JSON",
+    "git_diff_check": "passed"
+  },
+  "artifacts": [
+    "reports/simple_treewidth3_CS3_stress_test_20261016.md",
+    "reports/simple_treewidth3_CS3_stress_test_result_20261016.json",
+    "research/simple_treewidth3_CS3_proof_ledger_20261016.json",
+    "research/theory_checkpoint_simple_treewidth3_CS3_stress_test_20261016.json"
+  ],
+  "successor_task_created": false
+}
