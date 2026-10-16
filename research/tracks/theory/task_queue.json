@@ -682,15 +682,7 @@
     },
     {
       "artifact": "reports/parallel_token_swapping_branch_flow_dependency_result_20261016.json",
-      "exposition_artifact": "reports/parallel_token_swapping_branch_flow_dependency_20261016.md",
       "attempts": 1,
-      "execution_validation": {
-        "raw_output_sha256": null,
-        "reason": "Completed as a bounded main-agent mathematical proof audit with primary-source review; no worker or experiment was started.",
-        "scientific_success": true,
-        "status": "scientifically_completed",
-        "timestamp": "2026-10-16T01:37:01Z"
-      },
       "cost_estimate": 0.4,
       "counts_as_experiment": false,
       "dependencies": [
@@ -702,9 +694,17 @@
         "do not modify protected Supervisor state from a worker",
         "preserve Paper 3, Paper 4, and all historical negative results"
       ],
+      "execution_validation": {
+        "raw_output_sha256": null,
+        "reason": "Completed as a bounded main-agent mathematical proof audit with primary-source review; no worker or experiment was started.",
+        "scientific_success": true,
+        "status": "scientifically_completed",
+        "timestamp": "2026-10-16T01:37:01Z"
+      },
       "expected_information_gain": 0.74,
-      "finished_at": "2026-10-16T01:37:01Z",
+      "exposition_artifact": "reports/parallel_token_swapping_branch_flow_dependency_20261016.md",
       "failure_handling": "If branch-flow cycle demand is not a valid lower bound, record a hand-checkable overlapping-hub obstruction and close the route rather than inventing a dependency certificate.",
+      "finished_at": "2026-10-16T01:37:01Z",
       "max_attempts": 1,
       "objective": "Define a branch-flow dependency certificate at a vertex for arbitrary-tree token swapping and prove or refute its lower-bound validity on an overlapping-hub tree; state the exact token-preserving exchange-ordering lemma required for any LB_hub-relative schedule.",
       "priority": 85,
@@ -726,6 +726,83 @@
         "do not execute experiments or renew any budget"
       ],
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_double_star_exchange_result_20261016.json",
+      "attempts": 1,
+      "cost_estimate": 0.4,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"
+      ],
+      "execution_validation": {
+        "experiment_executed": false,
+        "reason": "A token-state induction proves the 3m+1-round matching schedule for every m; exact cut counts and scope limits are recorded.",
+        "scientific_success": true,
+        "status": "validated_manual_mathematical_proof",
+        "timestamp": "2026-10-16T01:45:08Z"
+      },
+      "expected_information_gain": 0.72,
+      "exposition_artifact": "reports/parallel_token_swapping_double_star_exchange_20261016.md",
+      "finished_at": "2026-10-16T01:45:08Z",
+      "max_attempts": 1,
+      "objective": "Replace inactive degree padding in H_h with a parameterized family of two active hubs and growing active leaf branches. Prove an explicit token-preserving exchange-ordering schedule or a schedule-independent unbounded lower bound relative to LB_hub.",
+      "priority": 85,
+      "research_key": "parallel_token_swapping_double_star_exchange",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "bounded_constructive_family_lemma_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "The declared family-specific exchange lemma is fully proved. No optimality, arbitrary-double-star, or arbitrary-tree theorem is claimed.",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "correct the active-core limitation of H_h",
+        "define a growing active two-hub family and calculate C, r, D, W, and LB_hub",
+        "prove every scheduled token identity and matching constraint",
+        "distinguish the family-specific upper schedule from optimality and general approximation claims",
+        "audit primary-source novelty boundaries without claiming a breakthrough",
+        "do not execute experiments or renew budgets"
+      ],
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004",
+      "track": "theory"
+    },
+    {
+      "admitted_reason": "The paired-exchange result is a verified active-flow schedule on a growing two-hub family but does not cover arbitrary permutations; this is the narrowest justified theorem-level extension.",
+      "artifact": "reports/parallel_token_swapping_double_star_all_permutations_result_20261016.json",
+      "attempts": 0,
+      "cost_estimate": 0.6,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004"
+      ],
+      "execution_requirements": [
+        "proof-only mathematical reasoning and primary-source audit",
+        "no computational experiment, supervisor start, Paper 3/4 edits, or experiment-budget renewal",
+        "preserve the d2a9829 branch-flow negative result and the completed paired-exchange lemma",
+        "distinguish an existential schedule, a constructive polynomial algorithm, and an approximation theorem"
+      ],
+      "expected_information_gain": 0.68,
+      "exposition_artifact": "reports/parallel_token_swapping_double_star_all_permutations_20261016.md",
+      "failure_handling": "If mixed-cycle interactions defeat the proposed normal form, record the smallest exact symbolic obstruction and down-rank the double-star direction; do not launch an experiment.",
+      "max_attempts": 1,
+      "objective": "For arbitrary destination permutations on double-stars, derive a token-preserving polynomial schedule and determine whether its length is bounded by a universal constant times LB_hub; handle mixed center/leaf cycles and within-side cycles explicitly.",
+      "priority": 84,
+      "research_key": "parallel_token_swapping_double_star_all_permutations",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "pending",
+      "status": "pending",
+      "success_criteria": [
+        "define arbitrary double-star permutations and LB_hub precisely",
+        "handle within-side leaf cycles, cross-side cycles, center destinations, and mixed cycles without collapsing branches into abstract tokens",
+        "prove token identities and matching validity for every generated round",
+        "give a polynomial construction with a proved bound, or identify a precise counterexample/proof obstruction",
+        "do not infer an arbitrary-tree theorem or claim novelty from a routine construction"
+      ],
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
       "track": "theory"
     }
   ],

@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004",
+  "parent_checkpoint": "d2a9829",
+  "timestamp": "2026-10-16T01:45:08Z",
+  "scientific_status": "bounded_constructive_family_lemma_completed",
+  "evidence_tier": "tier_3_hand_verified_mathematical_schedule_and_exact_traffic_accounting",
+  "execution": {
+    "mode": "direct_mathematical_proof_and_primary_source_boundary_audit",
+    "experiment_executed": false,
+    "computation_executed": false,
+    "experiment_authorization_renewed": false,
+    "supervisor_started": false,
+    "paper3_changed": false,
+    "paper4_changed": false
+  },
+  "model": {
+    "graph": "finite undirected tree",
+    "tokens": "one distinct token per vertex",
+    "target": "a bijection from initial token positions to destination vertices",
+    "parallel_round": "a matching of edges; every selected edge swaps its endpoint tokens"
+  },
+  "family": {
+    "name": "active_double_star_paired_exchange_with_center_swap",
+    "parameter": "integer m >= 1",
+    "vertices": ["u", "v", "x_1,...,x_m", "y_1,...,y_m"],
+    "edges": ["uv", "ux_i for i=1..m", "vy_i for i=1..m"],
+    "destination_permutation": ["x_i <-> y_i for all i", "u <-> v"],
+    "vertex_count": "2m+2",
+    "active_tokens": "all 2m+2 tokens",
+    "active_branches": "m pendant branches at each of two adjacent hubs"
+  },
+  "verified_values": {
+    "pendant_edges": {
+      "C": 2,
+      "r": 1,
+      "schedule_swaps_each": 2,
+      "slack_each": 1
+    },
+    "backbone_uv": {
+      "C": "2m+2",
+      "r": "m+1",
+      "schedule_swaps": "m+1",
+      "slack": 0
+    },
+    "D": 3,
+    "W_u": "2m+1",
+    "W_v": "2m+1",
+    "W_leaf": 1,
+    "fixed_hub_return_term_applies": false,
+    "LB_hub": "2m+1",
+    "constructed_schedule_rounds": "3m+1",
+    "proved_optimum_interval": "2m+1 <= OPT <= 3m+1",
+    "ratio_upper_bound": "OPT/LB_hub <= (3m+1)/(2m+1) < 3/2"
+  },
+  "schedule": {
+    "for_each_i_in_order": [
+      "round 1 of block i: matching {ux_i, vy_i}",
+      "round 2 of block i: matching {uv}",
+      "round 3 of block i: matching {ux_i, vy_i}"
+    ],
+    "after_all_blocks": "one final round with matching {uv}",
+    "block_state_invariant": [
+      "before: (x_i,u,v,y_i)=(X_i,U,V,Y_i)",
+      "after first outer matching: (U,X_i,Y_i,V)",
+      "after bridge swap: (U,Y_i,X_i,V)",
+      "after second outer matching: (Y_i,U,V,X_i)"
+    ],
+    "matching_validity": "outer edges in each outer round are vertex-disjoint; bridge rounds are single-edge matchings and are not simultaneous with incident edges",
+    "construction_complexity": "O(m) time and O(m) emitted rounds"
+  },
+  "claims": {
+    "fully_proved": [
+      "All edge demands, D, W and LB_hub values stated in the report",
+      "The explicit schedule preserves token identities and reaches the target",
+      "The schedule has 3m+1 valid matching rounds",
+      "OPT/LB_hub is at most (3m+1)/(2m+1), strictly below 3/2"
+    ],
+    "finite_or_family_specific_only": [
+      "The schedule theorem applies only to paired opposite-leaf transpositions plus the center transposition on this double-star family"
+    ],
+    "known_prior_art_or_non_novelty_boundary": [
+      "Parallel token swapping is NP-hard on trees (Aichholzer et al., ESA 2022)",
+      "Constant-factor results exist for selected topologies, including subdivided stars and grids (Bansal-Gunluk-Shapley)"
+    ],
+    "plausible_but_unproved": [
+      "A polynomial-time constant-factor schedule relative to LB_hub for arbitrary permutations on double-stars",
+      "A polynomial-time constant-factor schedule relative to LB_hub on arbitrary trees"
+    ],
+    "not_established": [
+      "The constructed schedule is optimal for m >= 2",
+      "Every schedule has the same block order or incurs m rounds of synchronization overhead",
+      "An unbounded OPT/LB_hub family",
+      "A constant-factor approximation algorithm for arbitrary trees",
+      "Publication-level novelty"
+    ]
+  },
+  "adversarial_review": {
+    "status": "passed_with_scope",
+    "checks": [
+      "The central cut includes both center tokens, giving C(uv)=2m+2 and r(uv)=m+1",
+      "All vertices and tokens are active; no inert leaves inflate the parameter",
+      "The fixed-hub return lemma does not apply because center tokens are exchanged",
+      "Each swap's endpoint token identities are verified by an explicit block-state invariant",
+      "Every simultaneous round is a matching",
+      "The objective lower bound is not confused with proof of schedule optimality"
+    ],
+    "scope_limit": "No lower bound beyond LB_hub and no general-tree exchange-ordering theorem is proved."
+  },
+  "novelty_assessment": {
+    "verdict": "no_breakthrough_claim",
+    "reason": "The parameterized schedule is explicit and independently checked, but its paired-swap gadget is elementary. Prior sources establish related tree hardness and special-topology approximation results; this family-specific construction is recorded as a useful proof lemma, not a publication-level novelty claim.",
+    "primary_sources": [
+      {
+        "citation": "Aichholzer et al., Hardness of Token Swapping on Trees, ESA 2022",
+        "url": "https://doi.org/10.4230/LIPIcs.ESA.2022.3",
+        "relevance": "Parallel tree-token-swapping hardness and model boundary"
+      },
+      {
+        "citation": "Bansal, Gunluk, Shapley, Parallel Token Swapping for Qubit Routing",
+        "url": "https://arxiv.org/abs/2411.18581",
+        "relevance": "Approximation results for selected graph topologies"
+      },
+      {
+        "citation": "Alon, Chung, Graham, Routing Permutations on Graphs via Matchings, 1994",
+        "url": "https://doi.org/10.1137/S0895480192236628",
+        "relevance": "Classical matching-routing framework; no claim of instance-specific LB_hub approximation follows"
+      }
+    ]
+  },
+  "next_task": {
+    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+    "objective": "For arbitrary destination permutations on double-stars, derive a token-preserving polynomial schedule and determine whether its length is bounded by a universal constant times LB_hub; handle mixed center/leaf cycles and within-side cycles explicitly.",
+    "reason": "The completed lemma covers only paired opposite-side leaf exchanges plus a center swap; the broader double-star class is the smallest justified extension that tests whether the scheduling invariant survives mixed token cycles.",
+    "mode": "proof-only; no computation or experiment authorization",
+    "status": "proposed_pending"
+  }
+}

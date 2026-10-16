@@ -1,5 +1,9 @@
 # CS breakthrough radar
 
+## Parallel token swapping: parameterized active double-star schedule (2026-10-16)
+
+The four-vertex active-core limitation in the previous adjacent-hub example is corrected by a double-star family with (m) moving leaf-pairs and a moving center-token pair. Exact demands give (LB_{hub}=2m+1); a token-preserving construction reaches the target in (3m+1) matching rounds, hence a family-specific upper bound below (3/2) times (LB_{hub}). It is not proved optimal and does not extend to arbitrary permutations or arbitrary trees. The exchange gadget is elementary and is not ranked as a breakthrough. A single proof-only successor asks whether mixed cycles on arbitrary double-star permutations admit an (LB_{hub})-relative schedule. No experiment or Paper 3/4 change occurred. See [mathematical proof](parallel_token_swapping_double_star_exchange_20261016.md).
+
 ## Zero Extension feasibility-gate update (2026-10-15)
 
 The O7 feasibility characterization is now independently reconciled: the exact (k)-bounded objective is finite exactly when terminal Multiway Cut size is at most (k). This removes infeasible pure-quotient pathologies from feasible lower-bound arguments. The attempted feasible superlinear contraction-only route did not produce a joint-contraction hitting-set theorem, so O7 is down-ranked rather than declared impossible. The next bounded proof obligation is a two-terminal series-parallel cost/crossing interface beyond cactus. This remains contraction-only and does not imply a lower bound for arbitrary terminal-preserving sparsifiers. See [structured result](zero_extension_feasible_contraction_lower_bound_result_20261015.json) and [proof note](zero_extension_feasible_contraction_lower_bound_proof_20261015.md).

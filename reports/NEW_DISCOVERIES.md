@@ -1,5 +1,12 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-16: active double-star exchange schedule
+
+- **Proved:** For a double-star with (m) active leaf-pairs and a center-token exchange, exact demands give (LB_{hub}=2m+1); a token-preserving sequence of matching rounds reaches the target in (3m+1) rounds, so (OPT/LB_{hub}<3/2) on this family.
+- **Scope:** This is not an optimality proof, a bound for arbitrary double-star permutations, or an arbitrary-tree approximation theorem. The schedule gadget is elementary, so no publication-level novelty is claimed.
+- **Next proof obligation:** Extend or refute the exchange ordering for arbitrary permutations on double-stars, especially mixed center/leaf and within-side cycles. No experiment, budget renewal, or Paper 3/4 change occurred.
+- **Artifacts:** [mathematical note](parallel_token_swapping_double_star_exchange_20261016.md), [structured result](parallel_token_swapping_double_star_exchange_result_20261016.json).
+
 ## 2026-10-15: joint certificate route closed and one theory successor admitted
 
 - **Correction:** The O13 all-terminal K3 was invalid because every edge is in `E_S`. The corrected raw witness is the two-terminal 3-2-3 parallel bundle with two essential middle edges; Corollary 4.2 absorbs that raw corridor into the terminal boundary, so the report now distinguishes raw certificate eligibility from post-preprocessing eligibility.

@@ -350,8 +350,8 @@
     "worker_invocations_started": 25
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-16T01:37:01Z",
+  "campaign_status": "waiting_for_next_activation",
+  "checkpoint_time": "2026-10-16T01:45:08Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -401,9 +401,15 @@
     "THEORY-ZEROEXT-CERTIFICATE-BOUNDARY-005",
     "THEORY-PARALLEL-TOKEN-SWAPPING-TREE-APPROX-001",
     "THEORY-PARALLEL-TOKEN-SWAPPING-LB-HUB-STRUCTURAL-002",
-    "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"
+    "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
+    "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004"
   ],
   "current_best_opportunities": [
+    {
+      "id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+      "reason": "A token-preserving 3m+1-round schedule is proved for a growing active double-star family, with OPT/LB_hub < 3/2; the next bounded proof obligation is whether mixed cycles admit a constant-factor schedule on arbitrary double-star permutations.",
+      "status": "pending_proof_only"
+    },
     {
       "id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
       "reason": "The naive flow-cycle lower bound is disproved by an exact adjacent-hub family. The general LB_hub stretch question remains unresolved; any continuation must use schedule-independent precedence chains rather than cycle counts.",
@@ -420,8 +426,8 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "theory-parallel-token-swapping-branch-flow-dependency-003",
-  "current_research_round": 40,
+  "current_phase": "theory-parallel-token-swapping-double-star-all-permutations-005",
+  "current_research_round": 41,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -476,7 +482,7 @@
     "old_future_primary_fulltexts_checked": 4
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
-  "idle_reason": null,
+  "idle_reason": "The bounded paired-exchange proof is complete; the next theory task is queued for a future activation. No worker or supervisor was started in this checkpoint.",
   "independent_scientific_reconciliations": [
     {
       "event_history_rewritten": false,
@@ -503,15 +509,15 @@
   "last_activation_id": "2026-10-16T01:37:01Z-manual-theory-checkpoint",
   "last_successful_commit": "a5b82bf",
   "latest_scientific_increment": {
-    "decision": "naive_branch_flow_cycle_lower_bound_disproved",
-    "evidence_level": "tier_3_adversarial_mathematical_proof_with_exact_overlapping_hub_counterexample",
+    "decision": "parameterized_active_double_star_exchange_schedule_proved",
+    "evidence_level": "tier_3_hand_verified_mathematical_schedule_and_exact_traffic_accounting",
     "kind": "bounded_theory_task_completion",
-    "next_falsifiable_action": "Prove or refute a schedule-independent precedence-chain certificate that strictly refines LB_hub on overlapping active hubs; do not execute an experiment.",
+    "next_falsifiable_action": "For arbitrary destination permutations on double-stars, prove a token-preserving polynomial schedule and an LB_hub-relative bound, or record the first exact mixed-cycle obstruction; proof-only, no experiment.",
     "scientific_success": true,
-    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"
+    "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Do not count branch-flow cycles as a lower bound. The next mathematical gate is a schedule-independent precedence-chain certificate; no experiment is authorized.",
+  "next_action": "Extend the verified paired-exchange schedule to arbitrary double-star permutations, focusing on mixed center/leaf and within-side cycles. The current result is family-specific; no experiment, budget renewal, Paper 3 edit, or arbitrary-tree approximation claim is authorized.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -521,8 +527,15 @@
     "max_track_worker_seconds": 7200,
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
-  "opportunity_ranking": [],
-  "pending_tasks": [],
+  "opportunity_ranking": [
+    {
+      "rank": 1,
+      "id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+      "status": "pending_proof_only",
+      "reason": "It is the smallest justified extension of the proved active two-hub family and directly tests token-preserving ordering under mixed cycles."
+    }
+  ],
+  "pending_tasks": ["THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005"],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
@@ -1417,6 +1430,26 @@
         "No refined schedule-independent dependency certificate was proved.",
         "No constant-factor LB_hub schedule or unbounded separation was established.",
         "The active obstruction is constant-size; high degree is carried by fixed inert leaves."
+      ]
+    },
+    {
+      "artifact": "reports/parallel_token_swapping_double_star_exchange_result_20261016.json",
+      "evidence_level": "tier_3_hand_verified_mathematical_schedule_and_exact_traffic_accounting",
+      "next_falsifiable_action": "For arbitrary destination permutations on double-stars, prove a token-preserving polynomial schedule and an LB_hub-relative bound, or record the first exact mixed-cycle obstruction; proof-only, no experiment.",
+      "observed_result_or_blocker": "For a double-star with m active leaves on each side, paired opposite-leaf swaps and a center swap have C(uv)=2m+2, r(uv)=m+1, D=3, W(u)=W(v)=2m+1, and LB_hub=2m+1. A token-checked 3m+1-round schedule proves OPT/LB_hub < 3/2 on this family.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "proof_obligation_audit",
+        "reason": "The declared family-specific exchange schedule is proved. No optimality or arbitrary-tree approximation theorem is claimed.",
+        "scientific_success": true
+      },
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004",
+      "timestamp": "2026-10-16T01:45:08Z",
+      "uncertainty": [
+        "The constructed schedule is not proved optimal for m>=2.",
+        "Arbitrary permutations on double-stars and the arbitrary-tree LB_hub approximation question remain unresolved.",
+        "The family-specific gadget is elementary; no publication-level novelty is claimed."
       ]
     }
   ],

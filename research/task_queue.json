@@ -2680,6 +2680,79 @@
       ],
       "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003",
       "track": "theory"
+    },
+    {
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004",
+      "research_key": "parallel_token_swapping_double_star_exchange",
+      "track": "theory",
+      "status": "completed",
+      "priority": 85,
+      "attempts": 1,
+      "max_attempts": 1,
+      "cost_estimate": 0.4,
+      "expected_information_gain": 0.72,
+      "counts_as_experiment": false,
+      "dependencies": ["THEORY-PARALLEL-TOKEN-SWAPPING-BRANCH-FLOW-DEPENDENCY-003"],
+      "objective": "Replace inactive degree padding in H_h with a parameterized family of two active hubs and growing active leaf branches. Prove an explicit token-preserving exchange-ordering schedule or a schedule-independent unbounded lower bound relative to LB_hub.",
+      "exposition_artifact": "reports/parallel_token_swapping_double_star_exchange_20261016.md",
+      "artifact": "reports/parallel_token_swapping_double_star_exchange_result_20261016.json",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "bounded_constructive_family_lemma_completed",
+      "execution_validation": {
+        "status": "validated_manual_mathematical_proof",
+        "scientific_success": true,
+        "reason": "A token-state induction proves the 3m+1-round matching schedule for every m; exact cut counts and scope limits are recorded.",
+        "experiment_executed": false,
+        "timestamp": "2026-10-16T01:45:08Z"
+      },
+      "scientific_validation": {
+        "mode": "proof_obligation_audit",
+        "scientific_success": true,
+        "missing_or_failed": [],
+        "reason": "The declared family-specific exchange lemma is fully proved. No optimality, arbitrary-double-star, or arbitrary-tree theorem is claimed."
+      },
+      "success_criteria": [
+        "correct the active-core limitation of H_h",
+        "define a growing active two-hub family and calculate C, r, D, W, and LB_hub",
+        "prove every scheduled token identity and matching constraint",
+        "distinguish the family-specific upper schedule from optimality and general approximation claims",
+        "audit primary-source novelty boundaries without claiming a breakthrough",
+        "do not execute experiments or renew budgets"
+      ],
+      "finished_at": "2026-10-16T01:45:08Z"
+    },
+    {
+      "task_id": "THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-ALL-PERMUTATIONS-005",
+      "research_key": "parallel_token_swapping_double_star_all_permutations",
+      "track": "theory",
+      "status": "pending",
+      "priority": 84,
+      "attempts": 0,
+      "max_attempts": 1,
+      "cost_estimate": 0.6,
+      "expected_information_gain": 0.68,
+      "counts_as_experiment": false,
+      "dependencies": ["THEORY-PARALLEL-TOKEN-SWAPPING-DOUBLE-STAR-EXCHANGE-004"],
+      "objective": "For arbitrary destination permutations on double-stars, derive a token-preserving polynomial schedule and determine whether its length is bounded by a universal constant times LB_hub; handle mixed center/leaf cycles and within-side cycles explicitly.",
+      "exposition_artifact": "reports/parallel_token_swapping_double_star_all_permutations_20261016.md",
+      "artifact": "reports/parallel_token_swapping_double_star_all_permutations_result_20261016.json",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "pending",
+      "execution_requirements": [
+        "proof-only mathematical reasoning and primary-source audit",
+        "no computational experiment, supervisor start, Paper 3/4 edits, or experiment-budget renewal",
+        "preserve the d2a9829 branch-flow negative result and the completed paired-exchange lemma",
+        "distinguish an existential schedule, a constructive polynomial algorithm, and an approximation theorem"
+      ],
+      "success_criteria": [
+        "define arbitrary double-star permutations and LB_hub precisely",
+        "handle within-side leaf cycles, cross-side cycles, center destinations, and mixed cycles without collapsing branches into abstract tokens",
+        "prove token identities and matching validity for every generated round",
+        "give a polynomial construction with a proved bound, or identify a precise counterexample/proof obstruction",
+        "do not infer an arbitrary-tree theorem or claim novelty from a routine construction"
+      ],
+      "failure_handling": "If mixed-cycle interactions defeat the proposed normal form, record the smallest exact symbolic obstruction and down-rank the double-star direction; do not launch an experiment.",
+      "admitted_reason": "The paired-exchange result is a verified active-flow schedule on a growing two-hub family but does not cover arbitrary permutations; this is the narrowest justified theorem-level extension."
     }
   ]
 }
