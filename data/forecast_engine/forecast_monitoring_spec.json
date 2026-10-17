@@ -1,0 +1,794 @@
+{
+  "active_forecast_event_ids": [],
+  "active_monitor_count": 0,
+  "created_at": "2026-10-17T01:00:50Z",
+  "execution_status": "NOT_STARTED_BY_DESIGN",
+  "monitoring_specs": [
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Public versioned implementation and workload trace",
+        "Matched GPU-memory and arrival conditions",
+        "Predeclared quality and SLO noninferiority margins",
+        "Independent reproduction with raw per-workload measurements"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2502.07115",
+        "https://arxiv.org/abs/2605.08151",
+        "https://arxiv.org/abs/2605.09649",
+        "https://arxiv.org/abs/2605.07234"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "Matched evaluation shows no qualifying gain",
+        "Gain disappears under held-out load or equal-memory accounting",
+        "Quality or tail-SLO constraint is violated",
+        "Independent reproduction fails"
+      ],
+      "evidence_types_that_matter": [
+        "Public versioned implementation and workload trace",
+        "Matched GPU-memory and arrival conditions",
+        "Predeclared quality and SLO noninferiority margins",
+        "Independent reproduction with raw per-workload measurements"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Joint KV-cache scheduling and speculative decoding under heterogeneous, changing load",
+        "Under fixed accelerator-memory, output-quality, and tail-latency constraints, can a joint cache-retention/placement and speculative-execution policy improve end-to-end goodput over separately tuned policies for held-out changing request workloads?",
+        "Jointly account for cache residency, acceptance rate, accelerator contention, preemption, workload shift, and p95/p99 SLOs while holding output quality fixed."
+      ],
+      "exact_search_terms": [
+        "JOINT_KV_SPECULATIVE_SERVING",
+        "Joint",
+        "KV-cache",
+        "scheduling",
+        "and",
+        "speculative",
+        "decoding",
+        "under",
+        "heterogeneous",
+        "changing",
+        "load",
+        "AI systems, scheduling, computer architecture"
+      ],
+      "monitor_id": "MON-JOINT_KV_SPECULATIVE_SERVING",
+      "operationalization_gaps": [
+        "Exact model/hardware and workload population",
+        "Primary metric and numerical noninferiority/superiority margins",
+        "Holdout split and unit of analysis",
+        "Baseline implementations and tuning budget",
+        "Treatment of failures and repeated runs"
+      ],
+      "parent_candidate_id": "JOINT_KV_SPECULATIVE_SERVING",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Are component baselines comparably tuned?",
+        "Does the held-out trace represent the claimed load regime?",
+        "Do quality and memory constraints match?",
+        "Is reproduction independent?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Frozen repository/task set and versioned patches",
+        "Independent issue-to-spec correspondence audit",
+        "Hidden test results and proof-checker outputs where applicable",
+        "Matched baseline, budget, and repository-level uncertainty"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2602.18307",
+        "https://arxiv.org/abs/2509.22908",
+        "https://arxiv.org/abs/2509.16941"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "No improvement on held-out repositories",
+        "Formal proof passes but intended behavior or hidden tests fail",
+        "Gain vanishes under equal budget",
+        "Specification audit finds material omissions"
+      ],
+      "evidence_types_that_matter": [
+        "Frozen repository/task set and versioned patches",
+        "Independent issue-to-spec correspondence audit",
+        "Hidden test results and proof-checker outputs where applicable",
+        "Matched baseline, budget, and repository-level uncertainty"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Repository-scale verified code generation and repair",
+        "Can agents create patches satisfying explicit formal specifications and repository tests across unseen multi-file projects, with independent assurance that the specification matches intended behavior?",
+        "Transitive repository context, proof/spec completeness, issue-to-spec correspondence, and hidden regression detection."
+      ],
+      "exact_search_terms": [
+        "REPOSITORY_SCALE_VERIFIED_CODE",
+        "Repository-scale",
+        "verified",
+        "code",
+        "generation",
+        "and",
+        "repair",
+        "Programming languages, software engineering, formal methods"
+      ],
+      "monitor_id": "MON-REPOSITORY_SCALE_VERIFIED_CODE",
+      "operationalization_gaps": [
+        "Task inclusion and repository holdout rules",
+        "Acceptance/correctness endpoint and minimum effect",
+        "How proof-bearing and test-only tasks are stratified",
+        "Compute/token budget",
+        "Independent unit and reviewer protocol"
+      ],
+      "parent_candidate_id": "REPOSITORY_SCALE_VERIFIED_CODE",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Does the specification capture issue intent?",
+        "Are tasks/repositories truly held out?",
+        "Are proof and test outcomes comparable?",
+        "Are patches independently judged without model self-evaluation?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Frozen task-family holdout",
+        "Independent artifact oracle",
+        "Predeclared costs and error rates",
+        "Replicated comparison against both baselines"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2602.03053"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "No improvement after cost matching",
+        "Verifier accepts invalid artifacts above the prespecified bound",
+        "Benefit is confined to seen task families",
+        "Independent adjudicators disagree beyond the frozen tolerance"
+      ],
+      "evidence_types_that_matter": [
+        "Frozen task-family holdout",
+        "Independent artifact oracle",
+        "Predeclared costs and error rates",
+        "Replicated comparison against both baselines"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Artifact-level process verification for multi-agent execution",
+        "Which intermediate verifier signals improve the probability of an independently validated correct final artifact over no verifier and simple deterministic checks, after accounting for verifier cost and false positives?",
+        "Reliable labels for trajectory correctness and prospective linkage from verifier decisions to independently checked final outcomes."
+      ],
+      "exact_search_terms": [
+        "MULTIAGENT_PROCESS_VERIFICATION",
+        "Artifact-level",
+        "process",
+        "verification",
+        "for",
+        "multi-agent",
+        "execution",
+        "Multi-agent systems, evaluation, AI reliability"
+      ],
+      "monitor_id": "MON-MULTIAGENT_PROCESS_VERIFICATION",
+      "operationalization_gaps": [
+        "Verifier class/intervention",
+        "Task population and sample unit",
+        "Correctness threshold and practical margin",
+        "Error-cost weighting",
+        "Run-level clustering and compute cap"
+      ],
+      "parent_candidate_id": "MULTIAGENT_PROCESS_VERIFICATION",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Is artifact correctness externally checkable?",
+        "Were verifier signals frozen before outcome review?",
+        "Are evaluator and system independent?",
+        "Are false-positive costs included?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Peer-checkable theorem with complete assumptions",
+        "Explicit covered and excluded parameter ranges",
+        "Matched certified baseline",
+        "Independent proof and interval/error-bound audit"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2602.06756",
+        "https://arxiv.org/abs/2203.05481"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "Counterexample violates soundness",
+        "No strict improvement over the matched baseline",
+        "Certificate is invalid or omits numerical error",
+        "Claim relies on adaptivity outside the theorem assumptions"
+      ],
+      "evidence_types_that_matter": [
+        "Peer-checkable theorem with complete assumptions",
+        "Explicit covered and excluded parameter ranges",
+        "Matched certified baseline",
+        "Independent proof and interval/error-bound audit"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Tight, certified filters for fully adaptive differential privacy",
+        "Can valid, tight, numerically certified filters be constructed for fully adaptive composition beyond currently covered sampling regimes, with explicit assumptions and runtime/error guarantees?",
+        "Intermediate sampling rates and implementation-grade certified error bounds for a narrowly specified mechanism family."
+      ],
+      "exact_search_terms": [
+        "ADAPTIVE_DP_FILTERS",
+        "Tight",
+        "certified",
+        "filters",
+        "for",
+        "fully",
+        "adaptive",
+        "differential",
+        "privacy",
+        "Differential privacy, theoretical computer science"
+      ],
+      "monitor_id": "MON-ADAPTIVE_DP_FILTERS",
+      "operationalization_gaps": [
+        "Exact mechanism family and parameter region",
+        "Definition of tightness/utility and strict margin",
+        "Baseline version and assumptions",
+        "Certificate checker and precision/error policy",
+        "Proof-review independence"
+      ],
+      "parent_candidate_id": "ADAPTIVE_DP_FILTERS",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Do all adaptive choices satisfy the theorem hypotheses?",
+        "Is comparison against the strongest applicable bound?",
+        "Is numerical soundness independently certified?",
+        "Does theorem scope match the claimed deployment?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Frozen question, hypotheses, action, and stopping rule",
+        "Raw data/code/configuration and provenance",
+        "Independent reproduction or proof check",
+        "Blinded decision rubric and recorded action cost"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2605.04922",
+        "https://arxiv.org/abs/2608.16795",
+        "https://arxiv.org/abs/2602.03053"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "Only question/proposal ratings improve",
+        "Action is not executable or does not discriminate hypotheses",
+        "Independent reproduction fails",
+        "Evidence does not alter the prespecified uncertainty or decision criterion"
+      ],
+      "evidence_types_that_matter": [
+        "Frozen question, hypotheses, action, and stopping rule",
+        "Raw data/code/configuration and provenance",
+        "Independent reproduction or proof check",
+        "Blinded decision rubric and recorded action cost"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Scientific agents that move from ideas to independently verified evidence",
+        "Can an agent system generate a frozen falsifiable question and execute a discriminating study whose provenance, raw evidence, and conclusion survive independent adjudication?",
+        "Outcome taxonomy reliability, prior-art checking, execution provenance, and the transition from proposal scores to actual independently reproducible results."
+      ],
+      "exact_search_terms": [
+        "SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+        "Scientific",
+        "agents",
+        "that",
+        "move",
+        "from",
+        "ideas",
+        "independently",
+        "verified",
+        "evidence",
+        "AI for science, multi-agent systems, metascience"
+      ],
+      "monitor_id": "MON-SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+      "operationalization_gaps": [
+        "Question population and novelty adjudication",
+        "Independent unit",
+        "Meaningful uncertainty reduction",
+        "Resource normalization",
+        "Human/agent division of labor"
+      ],
+      "parent_candidate_id": "SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Is the question genuinely frozen before outcomes?",
+        "Is the action discriminating?",
+        "Is evidence independent of the agent's own claims?",
+        "Is novelty reviewed against prior art?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Frozen evidence-update tasks with ground-truth conflict relations",
+        "Fixed storage/context budget",
+        "Provenance retention audit",
+        "Independent task scoring and held-out replication"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2608.08236"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "No downstream gain at equal memory budget",
+        "System hides or merges material contradictions",
+        "Provenance or update order changes the answer incorrectly",
+        "Gain fails on held-out evidence sequences"
+      ],
+      "evidence_types_that_matter": [
+        "Frozen evidence-update tasks with ground-truth conflict relations",
+        "Fixed storage/context budget",
+        "Provenance retention audit",
+        "Independent task scoring and held-out replication"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Conflict-aware persistent memory for multi-agent systems",
+        "Does explicit claim-status and contradiction handling improve downstream correctness and update behavior over ordinary retrieval, merge, debate, or judge baselines on long-lived tasks?",
+        "External replication, scale and domain transfer, temporal updates, and correctness under evidence that later reverses earlier claims."
+      ],
+      "exact_search_terms": [
+        "CONFLICT_AWARE_AGENT_MEMORY",
+        "Conflict-aware",
+        "persistent",
+        "memory",
+        "for",
+        "multi-agent",
+        "systems",
+        "Agent systems, knowledge representation, AI reliability"
+      ],
+      "monitor_id": "MON-CONFLICT_AWARE_AGENT_MEMORY",
+      "operationalization_gaps": [
+        "Conflict taxonomy",
+        "Task/sequence sampling frame",
+        "Primary correctness and omission metrics",
+        "Memory budget and update cost",
+        "Error severity weighting"
+      ],
+      "parent_candidate_id": "CONFLICT_AWARE_AGENT_MEMORY",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Are contradictions labeled independently?",
+        "Are all baselines under equal context limits?",
+        "Does the test distinguish recall from correctness?",
+        "Are order effects controlled?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Pinned model and evaluation version",
+        "Fixed workload and memory accounting",
+        "Predeclared quality margin",
+        "Independent task-level replication and resource measurements"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2605.09649",
+        "https://arxiv.org/abs/2605.07234",
+        "https://arxiv.org/abs/2503.08879"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "Quality falls beyond the margin",
+        "Memory savings disappear after metadata/recompute costs",
+        "Results fail on held-out tasks or model families",
+        "Baseline was not comparably tuned"
+      ],
+      "evidence_types_that_matter": [
+        "Pinned model and evaluation version",
+        "Fixed workload and memory accounting",
+        "Predeclared quality margin",
+        "Independent task-level replication and resource measurements"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "KV-cache eviction and retention with explicit quality guarantees",
+        "For pinned model/workload families, how much KV memory can be removed while maintaining a prespecified quality and tail-latency envelope, including long-context and distribution-shift conditions?",
+        "Quality tail-risk under long-context, model changes and workload shift; cache savings must be measured end-to-end rather than token retention alone."
+      ],
+      "exact_search_terms": [
+        "KV_CACHE_QUALITY_BUDGET",
+        "KV-cache",
+        "eviction",
+        "and",
+        "retention",
+        "with",
+        "explicit",
+        "quality",
+        "guarantees",
+        "LLM inference, memory systems"
+      ],
+      "monitor_id": "MON-KV_CACHE_QUALITY_BUDGET",
+      "operationalization_gaps": [
+        "Model/task population",
+        "Quality metric and margin",
+        "Memory accounting boundary",
+        "Workload split and independent unit",
+        "Latency/recompute constraints"
+      ],
+      "parent_candidate_id": "KV_CACHE_QUALITY_BUDGET",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Is quality metric task-valid?",
+        "Is memory measured end-to-end?",
+        "Are eviction baselines current and matched?",
+        "Are samples independent at the task/model level?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Runnable versioned system",
+        "Pinned hardware/topology and transfer accounting",
+        "Held-out arrivals and model workloads",
+        "Independent reproduction with SLO and quality reports"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2508.13231",
+        "https://arxiv.org/abs/2502.07115"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "Transfer or contention eliminates gains",
+        "Tail SLO or output quality degrades beyond margin",
+        "Improvement requires extra memory/capacity",
+        "Independent deployment replay fails"
+      ],
+      "evidence_types_that_matter": [
+        "Runnable versioned system",
+        "Pinned hardware/topology and transfer accounting",
+        "Held-out arrivals and model workloads",
+        "Independent reproduction with SLO and quality reports"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Runtime KV placement across heterogeneous memory tiers",
+        "Can an online placement policy exploit HBM plus off-package/host memory bandwidth to increase inference goodput under capacity, transfer, and tail-latency constraints?",
+        "Real transfer contention, page movement, prompt-specific access frequency, and interaction with compute scheduling."
+      ],
+      "exact_search_terms": [
+        "HETEROGENEOUS_KV_MEMORY_PLACEMENT",
+        "Runtime",
+        "placement",
+        "across",
+        "heterogeneous",
+        "memory",
+        "tiers",
+        "Computer architecture, systems, LLM inference"
+      ],
+      "monitor_id": "MON-HETEROGENEOUS_KV_MEMORY_PLACEMENT",
+      "operationalization_gaps": [
+        "Hardware tiers and capacities",
+        "Objective and thresholds",
+        "Workload and arrival split",
+        "Transfer/preemption accounting",
+        "Baseline policy and tuning allowance"
+      ],
+      "parent_candidate_id": "HETEROGENEOUS_KV_MEMORY_PLACEMENT",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Are all tier capacities held fixed?",
+        "Are migration/transfer costs included?",
+        "Does the replay include contention?",
+        "Is the held-out workload independent?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Pinned project revisions and dependency closures",
+        "Independent specification-coverage audit",
+        "Machine-checked proof artifacts",
+        "Held-out project replication and cost record"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2602.18307",
+        "https://arxiv.org/abs/2509.22908"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "Proofs fail when dependencies are restored",
+        "Specification omits changed behavior",
+        "No gain over matched baseline",
+        "Coverage gain relies on exclusions or manual proof repair"
+      ],
+      "evidence_types_that_matter": [
+        "Pinned project revisions and dependency closures",
+        "Independent specification-coverage audit",
+        "Machine-checked proof artifacts",
+        "Held-out project replication and cost record"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Formal verification across realistic repository dependency closures",
+        "Can proof automation scale across multi-file, definition-rich repositories while maintaining soundness and reducing the human time needed to discharge real software obligations?",
+        "Large dependency closures, context selection, proof maintenance under code changes, and adequacy of formal specifications."
+      ],
+      "exact_search_terms": [
+        "REPOSITORY_FORMAL_VERIFICATION",
+        "Formal",
+        "verification",
+        "across",
+        "realistic",
+        "repository",
+        "dependency",
+        "closures",
+        "Programming languages, formal methods"
+      ],
+      "monitor_id": "MON-REPOSITORY_FORMAL_VERIFICATION",
+      "operationalization_gaps": [
+        "Project/task frame",
+        "Definition of complete dependency closure",
+        "Proof coverage denominator",
+        "Semantic/spec audit rubric",
+        "Cost and baseline versions"
+      ],
+      "parent_candidate_id": "REPOSITORY_FORMAL_VERIFICATION",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Does proof entail the intended behavior?",
+        "Is dependency closure complete?",
+        "Are unprovable/omitted tasks counted?",
+        "Is project-level holdout valid?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Versioned issues and repositories",
+        "Hidden regression suite and human acceptance criteria",
+        "Matched budget and agent/tool versions",
+        "Independent task-level validation"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2509.16941"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "Success is limited to benchmark-visible tests",
+        "Regression or issue-intent mismatch offsets gains",
+        "No gain at equal budget",
+        "Results fail on held-out repositories"
+      ],
+      "evidence_types_that_matter": [
+        "Versioned issues and repositories",
+        "Hidden regression suite and human acceptance criteria",
+        "Matched budget and agent/tool versions",
+        "Independent task-level validation"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Long-horizon software engineering agents on held-out repositories",
+        "Do agents resolve multi-hour or multi-day maintenance issues on unseen repositories with correct patches, low regression rates, and independent human acceptance?",
+        "Long dependency chains, changing state, test coverage, tool reliability, and evaluation cost/acceptance criteria."
+      ],
+      "exact_search_terms": [
+        "LONG_HORIZON_REPOSITORY_AGENTS",
+        "Long-horizon",
+        "software",
+        "engineering",
+        "agents",
+        "held-out",
+        "repositories",
+        "Software engineering, agent systems"
+      ],
+      "monitor_id": "MON-LONG_HORIZON_REPOSITORY_AGENTS",
+      "operationalization_gaps": [
+        "Issue sampling/holdout protocol",
+        "Acceptance oracle and meaningful margin",
+        "Budget boundary",
+        "Human review and task clustering",
+        "Handling of partial patches and regressions"
+      ],
+      "parent_candidate_id": "LONG_HORIZON_REPOSITORY_AGENTS",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Does patch satisfy issue intent?",
+        "Are hidden tests protected?",
+        "Is tool access equal?",
+        "Are long tasks and repeated issue families clustered?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Public incident criteria and independent confirmation records",
+        "Exposure denominator and observation window",
+        "Predeclared control/comparator and confounder strategy",
+        "Independent incident coding and sensitivity analysis"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2512.23385"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "No association under the prespecified design",
+        "Effect disappears under ascertainment sensitivity",
+        "Incidents cannot be attributed to the control",
+        "Only threat taxonomies or discussion volume are available"
+      ],
+      "evidence_types_that_matter": [
+        "Public incident criteria and independent confirmation records",
+        "Exposure denominator and observation window",
+        "Predeclared control/comparator and confounder strategy",
+        "Independent incident coding and sensitivity analysis"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "AI/software supply-chain risk measured against confirmed incidents",
+        "Do concrete provenance and policy controls reduce independently confirmed compromise or vulnerability introduction in AI-enabled software supply chains without unacceptable false blocks?",
+        "Linking artifacts and policy decisions to confirmed security outcomes with attribution, exposure denominators, and false-positive costs."
+      ],
+      "exact_search_terms": [
+        "AI_SOFTWARE_SUPPLY_CHAIN_OUTCOMES",
+        "AI/software",
+        "supply-chain",
+        "risk",
+        "measured",
+        "against",
+        "confirmed",
+        "incidents",
+        "Cybersecurity, software supply chain"
+      ],
+      "monitor_id": "MON-AI_SOFTWARE_SUPPLY_CHAIN_OUTCOMES",
+      "operationalization_gaps": [
+        "Incident ontology and attribution threshold",
+        "Population/exposure unit",
+        "Comparator and causal identification strategy",
+        "Data source and reporting-bias model",
+        "Practical effect margin"
+      ],
+      "parent_candidate_id": "AI_SOFTWARE_SUPPLY_CHAIN_OUTCOMES",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Is incident confirmation independent?",
+        "Is attribution defensible?",
+        "Are denominators complete?",
+        "Could reporting or adoption selection explain the effect?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    },
+    {
+      "active_forecast_event_id": null,
+      "advancement_triggers": [
+        "Explicit query/data/update model and workload regime",
+        "Comparison to the source's rebalancing guarantees",
+        "Migration/rebuild costs included",
+        "Proof or matched reproducible results"
+      ],
+      "attention_vs_outcome_rule": "New papers, citations, topical mentions, and benchmarks alone are attention only; count progress/resolution only if the future frozen endpoint is met and independently adjudicated.",
+      "canonical_source_identifiers": [
+        "https://arxiv.org/abs/2605.08397"
+      ],
+      "downgrade_or_counterevidence_triggers": [
+        "Existing theorem already implies the claimed benefit",
+        "Any gain disappears after rebuild/migration costs",
+        "No strict objective improvement over fixed-query baseline",
+        "Claim depends only on skew adaptation already handled by prior work"
+      ],
+      "evidence_types_that_matter": [
+        "Explicit query/data/update model and workload regime",
+        "Comparison to the source's rebalancing guarantees",
+        "Migration/rebuild costs included",
+        "Proof or matched reproducible results"
+      ],
+      "exact_search_phrases_from_frozen_radar": [
+        "Instance-adaptive incremental view maintenance beyond fixed query-optimal thresholds",
+        "Can a workload-sensitive choice among valid incremental-view-maintenance configurations lower actual end-to-end cost under changing distributions after including exactness, migration, memory, and delay?",
+        "No proven online selection rule has demonstrated net benefit over the fixed minimax baseline once migration and memory costs are included."
+      ],
+      "exact_search_terms": [
+        "ADAPTIVE_IVM_WORKLOAD_SHIFT",
+        "Instance-adaptive",
+        "incremental",
+        "view",
+        "maintenance",
+        "beyond",
+        "fixed",
+        "query-optimal",
+        "thresholds",
+        "Database theory and systems"
+      ],
+      "monitor_id": "MON-ADAPTIVE_IVM_WORKLOAD_SHIFT",
+      "operationalization_gaps": [
+        "Narrowed objective beyond dynamic skew",
+        "Formal workload-shift model",
+        "Cost/memory objective and comparator",
+        "Proof target or independent unit",
+        "Scope of authenticated prior-art boundary"
+      ],
+      "parent_candidate_id": "ADAPTIVE_IVM_WORKLOAD_SHIFT",
+      "recommended_manual_cadence": "Quarterly review, only after endpoint design is completed; no scheduled job, crawl, or worker is activated.",
+      "reviewer_escalation_triggers": [
+        "Is the contribution outside Abo-Khamis et al.'s amortized rebalancing?",
+        "Are all reconfiguration costs charged?",
+        "Is claimed objective asymptotically or practically stronger?",
+        "Does the evidence avoid hindsight selection?"
+      ],
+      "source_availability_checks": [
+        "authenticate version and first public date",
+        "preserve full-text locator and source hash scope",
+        "quarantine post-horizon records from in-window outcome adjudication"
+      ],
+      "status": "PREPARATORY_NOT_ACTIVE_FORECAST",
+      "venue_monitoring": "No event-specific venues were frozen in the source audit; use primary-source indexes and verify venue/version dates rather than treating this list as exhaustive."
+    }
+  ],
+  "policy": "Specifications are preparatory only. No background process, scheduled task, crawler, model, or worker was started.",
+  "record_id": "CS-FORECAST-MONITORING-PREPARATION-20261017-v1",
+  "schema_version": "1.0"
+}

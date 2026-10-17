@@ -1,0 +1,274 @@
+{
+  "activation_result": {
+    "candidate_endpoints_assessed": 12,
+    "forecast_issue_timestamps": [],
+    "human_outcomes_created": 0,
+    "no_forecast_reason": "Every candidate retains at least one critical endpoint-design gap in the frozen operationalization artifact; one broad adaptive-IVM formulation also requires reframing due to the recorded prior-art boundary. The activation gate disallows invented thresholds and incomplete comparator/workload definitions.",
+    "numeric_forecasts_created": 0,
+    "prospective_forecasts_frozen": 0,
+    "radar_directions_reviewed": 12
+  },
+  "baseline_date": "2026-10-16",
+  "baseline_id": "FUTURE-CS-BREAKTHROUGH-RADAR-20261016",
+  "baseline_sha256": "184eb27b5dcb7cd367ed1b54ebd5847a3d52dc6fa902aa0c58bdf2fb8fb0afbd",
+  "candidate_assessments": [
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "A versioned joint cache/scheduling/speculation policy is independently reproduced on a held-out, time-varying workload and improves a preselected end-to-end goodput or tail-latency endpoint over separately tuned component policies while meeting the same memory and output-quality constraints.",
+      "independent_review_questions": [
+        "Are component baselines comparably tuned?",
+        "Does the held-out trace represent the claimed load regime?",
+        "Do quality and memory constraints match?",
+        "Is reproduction independent?"
+      ],
+      "missing_definition_fields": [
+        "Exact model/hardware and workload population",
+        "Primary metric and numerical noninferiority/superiority margins",
+        "Holdout split and unit of analysis",
+        "Baseline implementations and tuning budget",
+        "Treatment of failures and repeated runs"
+      ],
+      "parent_candidate_id": "JOINT_KV_SPECULATIVE_SERVING",
+      "rank_in_original_radar": 1,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_ENDPOINT_DESIGN"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "On a preregistered set of held-out repositories, an approach produces more independently accepted issue-resolving patches that satisfy hidden regressions and an audited formal specification than a matched baseline, without increasing correctness-critical failures under a fixed compute budget.",
+      "independent_review_questions": [
+        "Does the specification capture issue intent?",
+        "Are tasks/repositories truly held out?",
+        "Are proof and test outcomes comparable?",
+        "Are patches independently judged without model self-evaluation?"
+      ],
+      "missing_definition_fields": [
+        "Task inclusion and repository holdout rules",
+        "Acceptance/correctness endpoint and minimum effect",
+        "How proof-bearing and test-only tasks are stratified",
+        "Compute/token budget",
+        "Independent unit and reviewer protocol"
+      ],
+      "parent_candidate_id": "REPOSITORY_SCALE_VERIFIED_CODE",
+      "rank_in_original_radar": 2,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_ENDPOINT_DESIGN"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "A prespecified process-verification signal or intervention improves independently adjudicated artifact correctness over no-verifier and deterministic-check baselines on held-out task families at matched runtime/context cost, with false-accept and false-reject rates reported.",
+      "independent_review_questions": [
+        "Is artifact correctness externally checkable?",
+        "Were verifier signals frozen before outcome review?",
+        "Are evaluator and system independent?",
+        "Are false-positive costs included?"
+      ],
+      "missing_definition_fields": [
+        "Verifier class/intervention",
+        "Task population and sample unit",
+        "Correctness threshold and practical margin",
+        "Error-cost weighting",
+        "Run-level clustering and compute cap"
+      ],
+      "parent_candidate_id": "MULTIAGENT_PROCESS_VERIFICATION",
+      "rank_in_original_radar": 3,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_ENDPOINT_DESIGN"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "A new filter is proved sound for an explicitly enumerated adaptive mechanism family and parameter regime, strictly improves a frozen privacy-utility or bound-tightness criterion over the strongest applicable certified baseline, and has an independently checked numerical implementation certificate.",
+      "independent_review_questions": [
+        "Do all adaptive choices satisfy the theorem hypotheses?",
+        "Is comparison against the strongest applicable bound?",
+        "Is numerical soundness independently certified?",
+        "Does theorem scope match the claimed deployment?"
+      ],
+      "missing_definition_fields": [
+        "Exact mechanism family and parameter region",
+        "Definition of tightness/utility and strict margin",
+        "Baseline version and assumptions",
+        "Certificate checker and precision/error policy",
+        "Proof-review independence"
+      ],
+      "parent_candidate_id": "ADAPTIVE_DP_FILTERS",
+      "rank_in_original_radar": 4,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_PARAMETER_REGIME_AND_CERTIFICATE_SPECIFICATION"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "On a prospectively frozen set of research questions, an agent completes a falsifiable action whose raw artifact is independently reproduced and whose result changes a preregistered scientific decision, at a declared resource cost; proposal quality alone does not count.",
+      "independent_review_questions": [
+        "Is the question genuinely frozen before outcomes?",
+        "Is the action discriminating?",
+        "Is evidence independent of the agent's own claims?",
+        "Is novelty reviewed against prior art?"
+      ],
+      "missing_definition_fields": [
+        "Question population and novelty adjudication",
+        "Independent unit",
+        "Meaningful uncertainty reduction",
+        "Resource normalization",
+        "Human/agent division of labor"
+      ],
+      "parent_candidate_id": "SCIENTIFIC_AGENTS_EXECUTED_EVIDENCE",
+      "rank_in_original_radar": 5,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_GROUND_TRUTH_AND_UNIT_DESIGN"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "Under a fixed memory/context budget and versioned stream of contradictory evidence, a conflict-aware memory system improves downstream factual or task correctness over non-conflict-aware memory baselines on held-out tasks while reducing neither important contradiction visibility nor provenance fidelity.",
+      "independent_review_questions": [
+        "Are contradictions labeled independently?",
+        "Are all baselines under equal context limits?",
+        "Does the test distinguish recall from correctness?",
+        "Are order effects controlled?"
+      ],
+      "missing_definition_fields": [
+        "Conflict taxonomy",
+        "Task/sequence sampling frame",
+        "Primary correctness and omission metrics",
+        "Memory budget and update cost",
+        "Error severity weighting"
+      ],
+      "parent_candidate_id": "CONFLICT_AWARE_AGENT_MEMORY",
+      "rank_in_original_radar": 6,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_BENCHMARK_AND_FAILURE_COST_DESIGN"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "A retention/eviction method uses less KV memory than a frozen baseline while satisfying a prespecified output-quality noninferiority margin across held-out model/task/workload strata, with tail latency and recomputation cost reported.",
+      "independent_review_questions": [
+        "Is quality metric task-valid?",
+        "Is memory measured end-to-end?",
+        "Are eviction baselines current and matched?",
+        "Are samples independent at the task/model level?"
+      ],
+      "missing_definition_fields": [
+        "Model/task population",
+        "Quality metric and margin",
+        "Memory accounting boundary",
+        "Workload split and independent unit",
+        "Latency/recompute constraints"
+      ],
+      "parent_candidate_id": "KV_CACHE_QUALITY_BUDGET",
+      "rank_in_original_radar": 7,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_QUALITY_MARGIN_AND_WORKLOAD_FREEZE"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "A runtime placement policy improves a predeclared throughput or tail-latency objective over a fixed-tier policy under equal capacity and workload while including transfer, contention, preemption, and quality costs.",
+      "independent_review_questions": [
+        "Are all tier capacities held fixed?",
+        "Are migration/transfer costs included?",
+        "Does the replay include contention?",
+        "Is the held-out workload independent?"
+      ],
+      "missing_definition_fields": [
+        "Hardware tiers and capacities",
+        "Objective and thresholds",
+        "Workload and arrival split",
+        "Transfer/preemption accounting",
+        "Baseline policy and tuning allowance"
+      ],
+      "parent_candidate_id": "HETEROGENEOUS_KV_MEMORY_PLACEMENT",
+      "rank_in_original_radar": 8,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_SYSTEM_BOUNDARY_AND_SLO_DESIGN"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "A verification method increases independently audited, semantically valid proof coverage for changes whose full repository dependency closure is included, without relying on incomplete specifications, on held-out projects against a matched verifier baseline.",
+      "independent_review_questions": [
+        "Does proof entail the intended behavior?",
+        "Is dependency closure complete?",
+        "Are unprovable/omitted tasks counted?",
+        "Is project-level holdout valid?"
+      ],
+      "missing_definition_fields": [
+        "Project/task frame",
+        "Definition of complete dependency closure",
+        "Proof coverage denominator",
+        "Semantic/spec audit rubric",
+        "Cost and baseline versions"
+      ],
+      "parent_candidate_id": "REPOSITORY_FORMAL_VERIFICATION",
+      "rank_in_original_radar": 9,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_DEPENDENCY_CLOSURE_AND_SPEC_COVERAGE_METRICS"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "On a frozen held-out repository task set, an agent completes more independently accepted, regression-safe issue resolutions than a matched baseline under fixed wall-clock/compute limits, with task duration and failure severity reported.",
+      "independent_review_questions": [
+        "Does patch satisfy issue intent?",
+        "Are hidden tests protected?",
+        "Is tool access equal?",
+        "Are long tasks and repeated issue families clustered?"
+      ],
+      "missing_definition_fields": [
+        "Issue sampling/holdout protocol",
+        "Acceptance oracle and meaningful margin",
+        "Budget boundary",
+        "Human review and task clustering",
+        "Handling of partial patches and regressions"
+      ],
+      "parent_candidate_id": "LONG_HORIZON_REPOSITORY_AGENTS",
+      "rank_in_original_radar": 10,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_TASK_FRAME_AND_ACCEPTANCE_ORACLE"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "An independently audited study links a prespecified AI/software supply-chain control to a lower rate of externally confirmed, scope-matched compromise incidents than a defined comparator, with exposure denominators, ascertainment, and confounding handled explicitly.",
+      "independent_review_questions": [
+        "Is incident confirmation independent?",
+        "Is attribution defensible?",
+        "Are denominators complete?",
+        "Could reporting or adoption selection explain the effect?"
+      ],
+      "missing_definition_fields": [
+        "Incident ontology and attribution threshold",
+        "Population/exposure unit",
+        "Comparator and causal identification strategy",
+        "Data source and reporting-bias model",
+        "Practical effect margin"
+      ],
+      "parent_candidate_id": "AI_SOFTWARE_SUPPLY_CHAIN_OUTCOMES",
+      "rank_in_original_radar": 11,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "NEEDS_INCIDENT_ATTRIBUTION_STANDARD"
+    },
+    {
+      "activation_decision": "NOT_FROZEN",
+      "candidate_event": "Only a new theorem or independently reproducible implementation showing a strict, amortized objective improvement over the published heavy/light rebalancing and major-rebalance baseline in a precisely stated workload regime would count as progress; changing skew alone does not qualify.",
+      "independent_review_questions": [
+        "Is the contribution outside Abo-Khamis et al.'s amortized rebalancing?",
+        "Are all reconfiguration costs charged?",
+        "Is claimed objective asymptotically or practically stronger?",
+        "Does the evidence avoid hindsight selection?"
+      ],
+      "missing_definition_fields": [
+        "Narrowed objective beyond dynamic skew",
+        "Formal workload-shift model",
+        "Cost/memory objective and comparator",
+        "Proof target or independent unit",
+        "Scope of authenticated prior-art boundary"
+      ],
+      "parent_candidate_id": "ADAPTIVE_IVM_WORKLOAD_SHIFT",
+      "rank_in_original_radar": 12,
+      "reason": "The previously recorded endpoint audit has unresolved operational fields; no acceptance threshold or comparator is supplied by inference in this activation cycle.",
+      "status": "REFRAME_REQUIRED_PRIOR_ART_CLOSED_BROAD_FORMULATION"
+    }
+  ],
+  "created_at": "2026-10-17T01:00:50Z",
+  "events": [],
+  "immutability": "This activation record is append-only. It does not modify the 2026-10-16 editorial radar or baseline snapshot.",
+  "purpose": "Append-only prospective forecast event registry; this activation audit freezes no events because none passed endpoint review.",
+  "record_id": "CS-PROSPECTIVE-FORECAST-EVENTS-ACTIVATION-20261017-v1",
+  "schema_version": "1.0"
+}

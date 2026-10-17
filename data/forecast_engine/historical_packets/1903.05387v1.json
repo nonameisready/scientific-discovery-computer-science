@@ -1,0 +1,87 @@
+{
+  "candidate_outcome_categories": [
+    "CANDIDATE_PARTIAL_PROGRESS"
+  ],
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "conflicting_or_excluded_evidence": [],
+  "documented_later_evidence": [
+    {
+      "citation_record_sha256": "7cab68b3862a903ca33ca3d134d7fa198b8c609832db35853e49467320d8c13e",
+      "content_hash_scope": "URL_OR_IDENTIFIER_ONLY; source bytes were not rehashed in this activation task",
+      "date": "2020-02-02",
+      "date_precision": "exact_day",
+      "date_scope": "as recorded in the frozen trajectory audit",
+      "evidence_status": "CANDIDATE_OUTCOME_EVIDENCE",
+      "independence_concern": "Same project lineage and overlapping authors; not an independent outcome unit.",
+      "locator": "Abstract and implementation/evaluation sections; solver-backed constrained CIT and industrial application",
+      "match_or_mismatch": "partial_progress_on_planned_constraint_handling",
+      "primary_fulltext_url": "https://arxiv.org/pdf/2002.00390",
+      "reported_claim": "The follow-up describes constraint-solver support, constrained suite generation, execution and an industrial application, but does not authenticate the source question's matched comparison as a direct result.",
+      "reported_relation": "partial_progress_on_planned_constraint_handling",
+      "result_identifiers": [],
+      "title_or_record": "Avocado: Open-Source Flexible Constrained Interaction Testing for Practical Application",
+      "url": "https://arxiv.org/abs/2002.00390"
+    }
+  ],
+  "historical_window": {
+    "cutoff": "2019-12-31T23:59:59Z",
+    "followup_end": "2024-12-31T23:59:59Z"
+  },
+  "human_review": {
+    "reviewer_decisions_required": [
+      "Does the cited primary result address the exact frozen question and its assumptions?",
+      "Does it meet a Paper 3 Target B progress category without substituting publication/citation counts?",
+      "Is the evidence date within the frozen window and independently verifiable?",
+      "Is the relation direct, partial, scope-narrowing, or merely adjacent?"
+    ],
+    "status": "PENDING_TWO_INDEPENDENT_HUMAN_REVIEWERS",
+    "target_a_label": null,
+    "target_b_label": null,
+    "trajectory_label": null
+  },
+  "matching_analysis": {
+    "decision_from_frozen_audit": "Count partial progress only. The planned solver capability became an implemented framework feature, but implementation and a case study are not evidence that it reduces invalid executions at matched detection recall and cost.",
+    "dimension_record": {
+      "continued_explicit_uncertainty": "not_observed_after_bounded_search",
+      "contradictory_evidence": "not_observed_after_bounded_search",
+      "direct_scientific_resolution": "not_observed_after_bounded_search",
+      "independent_evidence_strengthening": "not_observed_after_bounded_search",
+      "partial_progress": "supported",
+      "premise_refutation_or_revision": "not_observed_after_bounded_search",
+      "scope_narrowing_or_reformulation": "not_observed_after_bounded_search"
+    },
+    "direct_outcome": "UNADJUDICATED",
+    "non_detection_is_not_negative": true
+  },
+  "model_and_assumptions": {
+    "frozen_comparison": "solver-backed constrained CIT versus the source's unconstrained t-way generation on the same configuration model; invalid-configuration detection recall, executed-test count, invalid-test rate and wall-clock cost",
+    "frozen_falsification_gate": "No reduction in invalid/redundant executions at non-inferior detection recall, or a benefit that disappears on held-out configuration models, falsifies the claimed practical value. A framework implementation without a matched comparison is partial progress only.",
+    "topic": "software_testing"
+  },
+  "original_source": {
+    "citation_url": "https://arxiv.org/abs/1903.05387",
+    "fulltext_url": "https://arxiv.org/pdf/1903.05387v1",
+    "hash_scope": "URL string only; no claim about full source bytes",
+    "source_as_of": "2019-12-31T23:59:59Z",
+    "source_url_sha256": "d90c92b9ceae99d3e711e1cd8828e22cc44f36636142b49b2ef77d7368208dbf",
+    "title": "Towards an Automated Unified Framework to Run Applications for Combinatorial Interaction Testing",
+    "versioned_id": "1903.05387v1"
+  },
+  "original_source_question": {
+    "assumptions_and_comparator": "solver-backed constrained CIT versus the source's unconstrained t-way generation on the same configuration model; invalid-configuration detection recall, executed-test count, invalid-test rate and wall-clock cost",
+    "original_falsification_or_match_rule": "No reduction in invalid/redundant executions at non-inferior detection recall, or a benefit that disappears on held-out configuration models, falsifies the claimed practical value. A framework implementation without a matched comparison is partial progress only.",
+    "question_statement": "On constrained virtual-machine configuration spaces, does adding solver-backed constraint handling to Avocado reduce invalid or redundant test executions while preserving or improving detection of invalid configurations relative to unconstrained t-way generation?",
+    "source_locator": "PDF pp. 1-3 contribution/evaluation; p. 10 conclusion and explicit plan to add constraint handling through a solver",
+    "source_question_status": "FROZEN_IN_HISTORICAL_EVIDENCE_TRAJECTORY_ROUND2"
+  },
+  "packet_id": "P3-B-1903.05387v1-ACTIVATION-01",
+  "provenance": {
+    "future_information_used_for_question_selection": false,
+    "preparation_source": "reports/historical_evidence_trajectory_round2.json"
+  },
+  "source_question_id": "1903.05387v1",
+  "track": "PAPER3_TARGET_B_SUBSTANTIVE_EVIDENCE_GROWTH",
+  "unresolved_facts": [
+    "The source and follow-up are closely related, so this is not independent strengthening. Exact configuration models and matched baseline denominators require source-code audit."
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "candidate_outcome_categories": [],
+  "cohort_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+  "conflicting_or_excluded_evidence": [],
+  "documented_later_evidence": [
+    {
+      "citation_record_sha256": "415aec6fa52e1e763435559c7e06a58dd7a684811e7b3d3e865fae46f76edaaa",
+      "claim_summary": "No stronger claim is inferred here; see the cited primary record and the frozen match audit.",
+      "content_hash_scope": "URL_OR_IDENTIFIER_ONLY; source bytes were not rehashed in this activation task",
+      "date": "2019",
+      "date_precision": "year_only",
+      "date_scope": "date precision is limited to what the frozen round-6 record states",
+      "evidence_status": "CANDIDATE_OUTCOME_EVIDENCE",
+      "match_or_mismatch": "same-line record, not a new endpoint-matched follow-up; no independent exact comparison found",
+      "reported_relation": "same-line record, not a new endpoint-matched follow-up; no independent exact comparison found",
+      "result_identifiers": [],
+      "title_or_record": "TInA ASE 2019 artifact/publication record and later primary presentation record",
+      "url": "https://binsec.github.io/publications"
+    }
+  ],
+  "historical_window": {
+    "cutoff": "2019-12-31T23:59:59Z",
+    "followup_end": "2024-12-31T23:59:59Z"
+  },
+  "human_review": {
+    "reviewer_decisions_required": [
+      "Does the later record match the full frozen object/comparator/endpoint/falsification tuple?",
+      "Are source version, date, and in-window availability authenticated?",
+      "Does the result directly resolve/refute the tuple, or only show adjacent progress?",
+      "Are the source authors independent from the later evidence authors?"
+    ],
+    "status": "PENDING_TWO_INDEPENDENT_HUMAN_REVIEWERS",
+    "target_a_label": null,
+    "target_b_label": null,
+    "trajectory_label": null
+  },
+  "matching_analysis": {
+    "direct_resolution": "NOT_ESTABLISHED",
+    "reason": "same-line record, not a new endpoint-matched follow-up; no independent exact comparison found",
+    "search_absence_is_not_negative": true
+  },
+  "model_and_assumptions": {
+    "additional_assumptions": "No assumptions have been added; the endpoint tuple is copied from the frozen round-6 audit.",
+    "source_scope": "exactly the source-screen object and comparator above",
+    "topic": "program_repair_verification"
+  },
+  "original_source": {
+    "citation_url": "https://arxiv.org/abs/1903.06407v2",
+    "fulltext_url": "https://arxiv.org/pdf/1903.06407v2.pdf",
+    "hash_scope": "exact source PDF bytes retrieved for round-6 audit",
+    "source_as_of": "2019-12-31T23:59:59Z",
+    "source_pdf_sha256": "decf9fad65dcfaa6b9c749488825902212ed59212bc78f5f3d7cda3edf43c266",
+    "title": "Get rid of inline assembly through verification-oriented lifting",
+    "versioned_id": "1903.06407v2"
+  },
+  "original_source_question": {
+    "artifact_or_benchmark": "Public TInA artifact record and named real-world GMP and ffmpeg inline-assembly objects.",
+    "comparator": "TInA lifted C representation versus manual/equivalent handling and direct analysis of the original assembly where available",
+    "endpoint": "semantic equivalence and downstream verification success on each inline-assembly unit",
+    "falsification_condition": "TInA fails if semantic equivalence or verification success is not preserved on the fixed GMP/ffmpeg units, or if gains require an unreported manual correction.",
+    "object": "C programs containing inline assembly",
+    "question_statement": null,
+    "representation_note": "Round 6 froze this source question as an object/comparator/endpoint/falsification tuple rather than a single quoted sentence; no new prose question is substituted."
+  },
+  "packet_id": "P3-A-1903.06407v2-ACTIVATION-01",
+  "provenance": {
+    "future_information_used_for_question_selection": false,
+    "preparation_source": "reports/paper3_direct_endpoint_cohort_round6.json"
+  },
+  "source_question_id": "1903.06407v2",
+  "track": "PAPER3_TARGET_A_DIRECT_RESOLUTION",
+  "unresolved_facts": [
+    "No exact direct outcome is established by the recorded follow-up classification."
+  ]
+}

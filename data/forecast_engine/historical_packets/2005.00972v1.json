@@ -1,0 +1,114 @@
+{
+  "candidate_outcome_categories": [
+    "CANDIDATE_PARTIAL_PROGRESS",
+    "CANDIDATE_SCOPE_NARROWING"
+  ],
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "conflicting_or_excluded_evidence": [
+    {
+      "reason": "Java vulnerability repair study, not DNN application/framework repair; its low repair rates are a different object and cannot directly resolve the frozen DNN question.",
+      "url": "https://www.cs.purdue.edu/homes/lintan/publications/vulfix-issta23.pdf"
+    },
+    {
+      "reason": "A later DNN repair method/benchmark outside the fixed 2020-2025 window end as authenticated here; not counted without a verified in-window first-public date in this audit.",
+      "url": "https://doi.org/10.1145/3715716"
+    }
+  ],
+  "documented_later_evidence": [
+    {
+      "citation_record_sha256": "e0e85d3762c01352e9673c74c8552bac17181cf4700e6bc5f2889ee82dafbd31",
+      "content_hash_scope": "URL_OR_IDENTIFIER_ONLY; source bytes were not rehashed in this activation task",
+      "date": "2021-12-07",
+      "date_precision": "exact_day",
+      "date_scope": "as recorded in the frozen trajectory audit",
+      "evidence_status": "CANDIDATE_OUTCOME_EVIDENCE",
+      "independence_concern": "Different author group and tool; evaluates 53 real-world plus 391 curated models.",
+      "locator": "PDF p. 1 abstract; pp. 9-10 related work/conclusion",
+      "match_or_mismatch": "partial_progress_and_scope_narrowing_to_diagnosis",
+      "primary_fulltext_url": "https://wardat.github.io/files/DeepDiagnosis.pdf",
+      "reported_claim": "DeepDiagnosis outperforms listed fault-localization baselines and supplies actionable recommendations, but explicitly does not perform automated fixes; its future work includes automatic repair and additional bug types.",
+      "reported_relation": "partial_progress_and_scope_narrowing_to_diagnosis",
+      "result_identifiers": [],
+      "title_or_record": "DeepDiagnosis: Automatically Diagnosing Faults and Recommending Actionable Fixes in Deep Learning Programs",
+      "url": "https://arxiv.org/abs/2112.04036"
+    },
+    {
+      "citation_record_sha256": "a377551906a72637b1a12ddfb162fcfab65e34fe05241c62df37c104aafb1ccd",
+      "content_hash_scope": "URL_OR_IDENTIFIER_ONLY; source bytes were not rehashed in this activation task",
+      "date": "2023-01-27",
+      "date_precision": "exact_day",
+      "date_scope": "as recorded in the frozen trajectory audit",
+      "evidence_status": "CANDIDATE_OUTCOME_EVIDENCE",
+      "independence_concern": "Different author group and benchmark; real and mutation-generated faulty DNN models.",
+      "locator": "PDF pp. 3-5 benchmark construction; conclusion/abstract; RQs in section 4",
+      "match_or_mismatch": "partial_progress_on_performance_repair_not_security_regression",
+      "primary_fulltext_url": "https://jinhan.me/assets/files/papers/Kim2022ak.pdf",
+      "reported_claim": "Random search is comparable to or outperforms existing repair methods in some cases, and all tested techniques fail on larger and more complicated models. The endpoint is model-performance repair, not introduced-bug/security regression under the frozen comparison.",
+      "reported_relation": "partial_progress_on_performance_repair_not_security_regression",
+      "result_identifiers": [],
+      "title_or_record": "Repairing DNN Architecture: Are We There Yet?",
+      "url": "https://arxiv.org/abs/2301.11568"
+    }
+  ],
+  "historical_window": {
+    "cutoff": "2020-12-31T23:59:59Z",
+    "followup_end": "2025-12-31T23:59:59Z"
+  },
+  "human_review": {
+    "reviewer_decisions_required": [
+      "Does the cited primary result address the exact frozen question and its assumptions?",
+      "Does it meet a Paper 3 Target B progress category without substituting publication/citation counts?",
+      "Is the evidence date within the frozen window and independently verifiable?",
+      "Is the relation direct, partial, scope-narrowing, or merely adjacent?"
+    ],
+    "status": "PENDING_TWO_INDEPENDENT_HUMAN_REVIEWERS",
+    "target_a_label": null,
+    "target_b_label": null,
+    "trajectory_label": null
+  },
+  "matching_analysis": {
+    "decision_from_frozen_audit": "Retain as partial progress plus scope narrowing, not a direct resolution or contradiction. A decisive test needs project-disjoint DNN repair units, a code-only baseline, verified fix success, regression/security checks and independent seeds/models.",
+    "dimension_record": {
+      "continued_explicit_uncertainty": "not_observed_after_bounded_search",
+      "contradictory_evidence": "not_observed_after_bounded_search",
+      "direct_scientific_resolution": "not_observed_after_bounded_search",
+      "independent_evidence_strengthening": "not_observed_after_bounded_search",
+      "partial_progress": "supported",
+      "premise_refutation_or_revision": "not_observed_after_bounded_search",
+      "scope_narrowing_or_reformulation": "supported"
+    },
+    "direct_outcome": "UNADJUDICATED",
+    "non_detection_is_not_negative": true
+  },
+  "model_and_assumptions": {
+    "frozen_comparison": "DNN-aware versus code-only repair/localization on project-disjoint held-out bug/repair units; verified fix rate, regression rate and security-relevant regression rate",
+    "frozen_falsification_gate": "No reduction in independently verified regressions at non-inferior fix success, or a reduction that disappears under project-disjoint evaluation, fails the proposed DNN-aware value claim. Dataset frequency alone is not an outcome.",
+    "topic": "program_repair_verification"
+  },
+  "original_source": {
+    "citation_url": "https://arxiv.org/abs/2005.00972",
+    "fulltext_url": "https://arxiv.org/pdf/2005.00972v1",
+    "hash_scope": "URL string only; no claim about full source bytes",
+    "source_as_of": "2020-12-31T23:59:59Z",
+    "source_url_sha256": "13469049ee66ae1dc04f2cea4d097feabd6bfeac7ade54045fc3e0689c2354fe",
+    "title": "Repairing Deep Neural Networks: Fix Patterns and Challenges",
+    "versioned_id": "2005.00972v1"
+  },
+  "original_source_question": {
+    "assumptions_and_comparator": "DNN-aware versus code-only repair/localization on project-disjoint held-out bug/repair units; verified fix rate, regression rate and security-relevant regression rate",
+    "original_falsification_or_match_rule": "No reduction in independently verified regressions at non-inferior fix success, or a reduction that disappears under project-disjoint evaluation, fails the proposed DNN-aware value claim. Dataset frequency alone is not an outcome.",
+    "question_statement": "On held-out DNN bug-fix instances, does a DNN-aware repair/localization intervention reduce incorrect or vulnerability-introducing patches relative to a code-only repair baseline while preserving verified bug-fix success?",
+    "source_locator": "PDF p. 1 abstract; pp. 10-11 section 11 Conclusion and Future Work",
+    "source_question_status": "FROZEN_IN_HISTORICAL_EVIDENCE_TRAJECTORY_ROUND2"
+  },
+  "packet_id": "P3-B-2005.00972v1-ACTIVATION-01",
+  "provenance": {
+    "future_information_used_for_question_selection": false,
+    "preparation_source": "reports/historical_evidence_trajectory_round2.json"
+  },
+  "source_question_id": "2005.00972v1",
+  "track": "PAPER3_TARGET_B_SUBSTANTIVE_EVIDENCE_GROWTH",
+  "unresolved_facts": [
+    "The two follow-ups use different endpoints and intervention boundaries. Their positive/negative method comparisons are not causal evidence for avoiding vulnerability-introducing fixes."
+  ]
+}

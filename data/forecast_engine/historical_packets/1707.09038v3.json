@@ -1,0 +1,75 @@
+{
+  "candidate_outcome_categories": [],
+  "cohort_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+  "conflicting_or_excluded_evidence": [],
+  "documented_later_evidence": [
+    {
+      "citation_record_sha256": "95ab2402c2e5a78555813f56763d21c970acd589afa84680fa1d7e6144d3bb3a",
+      "claim_summary": "No stronger claim is inferred here; see the cited primary record and the frozen match audit.",
+      "content_hash_scope": "URL_OR_IDENTIFIER_ONLY; source bytes were not rehashed in this activation task",
+      "date": "2018-02-13",
+      "date_precision": "exact_day",
+      "date_scope": "date precision is limited to what the frozen round-6 record states",
+      "evidence_status": "CANDIDATE_OUTCOME_EVIDENCE",
+      "match_or_mismatch": "adjacent/continuation; not exact because app set, operator set, and frozen endpoint tuple differ",
+      "reported_relation": "adjacent/continuation; not exact because app set, operator set, and frozen endpoint tuple differ",
+      "result_identifiers": [],
+      "title_or_record": "MDroid+: A Mutation Testing Framework for Android (arXiv:1802.04749, 2018-02-13)",
+      "url": "https://arxiv.org/abs/1802.04749"
+    }
+  ],
+  "historical_window": {
+    "cutoff": "2017-12-31T23:59:59Z",
+    "followup_end": "2022-12-31T23:59:59Z"
+  },
+  "human_review": {
+    "reviewer_decisions_required": [
+      "Does the later record match the full frozen object/comparator/endpoint/falsification tuple?",
+      "Are source version, date, and in-window availability authenticated?",
+      "Does the result directly resolve/refute the tuple, or only show adjacent progress?",
+      "Are the source authors independent from the later evidence authors?"
+    ],
+    "status": "PENDING_TWO_INDEPENDENT_HUMAN_REVIEWERS",
+    "target_a_label": null,
+    "target_b_label": null,
+    "trajectory_label": null
+  },
+  "matching_analysis": {
+    "direct_resolution": "NOT_ESTABLISHED",
+    "reason": "adjacent/continuation; not exact because app set, operator set, and frozen endpoint tuple differ",
+    "search_absence_is_not_negative": true
+  },
+  "model_and_assumptions": {
+    "additional_assumptions": "No assumptions have been added; the endpoint tuple is copied from the frozen round-6 audit.",
+    "source_scope": "exactly the source-screen object and comparator above",
+    "topic": "software_testing"
+  },
+  "original_source": {
+    "citation_url": "https://arxiv.org/abs/1707.09038v3",
+    "fulltext_url": "https://arxiv.org/pdf/1707.09038v3.pdf",
+    "hash_scope": "exact source PDF bytes retrieved for round-6 audit",
+    "source_as_of": "2017-12-31T23:59:59Z",
+    "source_pdf_sha256": "47c8ffe6a7802f5787b19239b252976af5d0a8e797d262ad45737085a70439e4",
+    "title": "Enabling Mutation Testing for Android Apps",
+    "versioned_id": "1707.09038v3"
+  },
+  "original_source_question": {
+    "artifact_or_benchmark": "MDroid+ implementation and the source's Android-app/fault-artifact corpus; original source reports 38 implemented operators and comparison with existing mutation tools.",
+    "comparator": "traditional mutation tools/operators and the source's named alternative tools",
+    "endpoint": "stillborn/trivial mutant rates and representation of real Android faults, with mutants as the independent unit",
+    "falsification_condition": "The Android-specific operators fail if they do not improve the prespecified fault-representation/stillborn-trivial endpoint over the source-pinned alternatives on the held-out app/fault set.",
+    "object": "Android application test suites and seeded Android faults",
+    "question_statement": null,
+    "representation_note": "Round 6 froze this source question as an object/comparator/endpoint/falsification tuple rather than a single quoted sentence; no new prose question is substituted."
+  },
+  "packet_id": "P3-A-1707.09038v3-ACTIVATION-01",
+  "provenance": {
+    "future_information_used_for_question_selection": false,
+    "preparation_source": "reports/paper3_direct_endpoint_cohort_round6.json"
+  },
+  "source_question_id": "1707.09038v3",
+  "track": "PAPER3_TARGET_A_DIRECT_RESOLUTION",
+  "unresolved_facts": [
+    "No exact direct outcome is established by the recorded follow-up classification."
+  ]
+}

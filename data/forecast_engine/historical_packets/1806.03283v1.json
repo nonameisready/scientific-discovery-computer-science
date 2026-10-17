@@ -1,0 +1,75 @@
+{
+  "candidate_outcome_categories": [],
+  "cohort_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+  "conflicting_or_excluded_evidence": [],
+  "documented_later_evidence": [
+    {
+      "citation_record_sha256": "04d3a8f210c05aadad6fa3e76f0a07e20d4c13488ad6d4caee8b23794ad1301f",
+      "claim_summary": "No stronger claim is inferred here; see the cited primary record and the frozen match audit.",
+      "content_hash_scope": "URL_OR_IDENTIFIER_ONLY; source bytes were not rehashed in this activation task",
+      "date": "2021",
+      "date_precision": "year_only",
+      "date_scope": "date precision is limited to what the frozen round-6 record states",
+      "evidence_status": "CANDIDATE_OUTCOME_EVIDENCE",
+      "match_or_mismatch": "adjacent; differential-testing object and endpoint differ from the frozen worst-case-complexity comparator",
+      "reported_relation": "adjacent; differential-testing object and endpoint differ from the frozen worst-case-complexity comparator",
+      "result_identifiers": [],
+      "title_or_record": "Hybrid Differential Software Testing (2021), which cites and extends the Badger line",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-030-83128-8_9"
+    }
+  ],
+  "historical_window": {
+    "cutoff": "2018-12-31T23:59:59Z",
+    "followup_end": "2023-12-31T23:59:59Z"
+  },
+  "human_review": {
+    "reviewer_decisions_required": [
+      "Does the later record match the full frozen object/comparator/endpoint/falsification tuple?",
+      "Are source version, date, and in-window availability authenticated?",
+      "Does the result directly resolve/refute the tuple, or only show adjacent progress?",
+      "Are the source authors independent from the later evidence authors?"
+    ],
+    "status": "PENDING_TWO_INDEPENDENT_HUMAN_REVIEWERS",
+    "target_a_label": null,
+    "target_b_label": null,
+    "trajectory_label": null
+  },
+  "matching_analysis": {
+    "direct_resolution": "NOT_ESTABLISHED",
+    "reason": "adjacent; differential-testing object and endpoint differ from the frozen worst-case-complexity comparator",
+    "search_absence_is_not_negative": true
+  },
+  "model_and_assumptions": {
+    "additional_assumptions": "No assumptions have been added; the endpoint tuple is copied from the frozen round-6 audit.",
+    "source_scope": "exactly the source-screen object and comparator above",
+    "topic": "software_testing"
+  },
+  "original_source": {
+    "citation_url": "https://arxiv.org/abs/1806.03283",
+    "fulltext_url": "https://arxiv.org/pdf/1806.03283v1",
+    "hash_scope": "exact source PDF bytes retrieved for round-6 audit",
+    "source_as_of": "2018-12-31T23:59:59Z",
+    "source_pdf_sha256": "d469609f7eb0daafdf9a6f1fc5211993664f3df9b4f43b0c3eab96e1c559763e",
+    "title": "Badger: Complexity Analysis with Fuzzing and Symbolic Execution",
+    "versioned_id": "1806.03283v1"
+  },
+  "original_source_question": {
+    "artifact_or_benchmark": "Public Badger repository (https://github.com/isstac/badger), Kelinci/Symbolic PathFinder artifacts, and named Java benchmark applications.",
+    "comparator": "hybrid Badger versus fuzzing-only KelinciWCA and symbolic-execution-only Symbolic PathFinder",
+    "endpoint": "time to generate worst-case executions and number of resource-cost-increasing executions, per benchmark program",
+    "falsification_condition": "Badger fails if it does not improve the source-pinned worst-case endpoint at matched program, budget, and cost accounting, or if the result is not reproducible on the named benchmarks.",
+    "object": "Java programs with worst-case resource-consuming paths",
+    "question_statement": null,
+    "representation_note": "Round 6 froze this source question as an object/comparator/endpoint/falsification tuple rather than a single quoted sentence; no new prose question is substituted."
+  },
+  "packet_id": "P3-A-1806.03283v1-ACTIVATION-01",
+  "provenance": {
+    "future_information_used_for_question_selection": false,
+    "preparation_source": "reports/paper3_direct_endpoint_cohort_round6.json"
+  },
+  "source_question_id": "1806.03283v1",
+  "track": "PAPER3_TARGET_A_DIRECT_RESOLUTION",
+  "unresolved_facts": [
+    "No exact direct outcome is established by the recorded follow-up classification."
+  ]
+}
