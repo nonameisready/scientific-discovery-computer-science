@@ -1,0 +1,5 @@
+{"request_id":"low-1","arrival_ms":0,"deadline_ms":12000,"prompt":"List three causes of memory pressure in an inference server.","max_tokens":32,"family":"low_pressure"}
+{"request_id":"low-2","arrival_ms":250,"deadline_ms":12000,"prompt":"Explain speculative decoding in four sentences.","max_tokens":32,"family":"low_pressure"}
+{"request_id":"burst-1","arrival_ms":1000,"deadline_ms":9000,"prompt":"Give a concise checklist for debugging KV cache allocation.","max_tokens":48,"family":"burst"}
+{"request_id":"burst-2","arrival_ms":1000,"deadline_ms":9000,"prompt":"Give a concise checklist for debugging scheduler latency.","max_tokens":48,"family":"burst"}
+{"request_id":"prefix-1","arrival_ms":2500,"deadline_ms":12000,"prompt":"Shared system context: You are an infrastructure researcher.\nQuestion: compare fixed and adaptive speculation.","max_tokens":48,"family":"prefix_reuse","prefix_id":"shared-system-v1"}

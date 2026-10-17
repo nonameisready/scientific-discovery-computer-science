@@ -1,0 +1,49 @@
+{
+  "protocol_version": "rasp-gpu-v1",
+  "evidence_label": "MEASURED_GPU",
+  "hardware": {
+    "gpu": "NVIDIA A100 80GB",
+    "count": 1,
+    "min_system_ram_gb": 32,
+    "min_disk_gb": 100
+  },
+  "software": {
+    "python": "3.10 or 3.11",
+    "vllm": "0.13.0",
+    "target_model": "Qwen/Qwen2.5-7B-Instruct",
+    "draft_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "dtype": "bfloat16",
+    "max_model_len": 4096,
+    "max_num_seqs": 8,
+    "enable_prefix_caching": true
+  },
+  "fixed_resources": {
+    "gpu_memory_utilization": 0.75,
+    "port": 8000,
+    "request_timeout_seconds": 180,
+    "warmup_requests": 3,
+    "measurement_repetitions": 3
+  },
+  "primary_metric": "slo_goodput",
+  "slo_definition": "request completion within the configured deadline from scheduled arrival",
+  "workload_families": [
+    "low_pressure",
+    "severe_pressure",
+    "burst",
+    "low_acceptance_proxy",
+    "prefix_reuse",
+    "strict_slo"
+  ],
+  "conditions": [
+    "vllm_default_no_speculation",
+    "vllm_fixed_speculation",
+    "vllm_acceptance_adaptive_if_supported",
+    "rasp_engine_adapter_pending"
+  ],
+  "hard_stop_conditions": [
+    "any correctness mismatch",
+    "OOM or allocator corruption",
+    "unbounded request timeout",
+    "GPU cost exceeds the approved rental window"
+  ]
+}
