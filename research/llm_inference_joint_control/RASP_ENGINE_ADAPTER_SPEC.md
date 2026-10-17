@@ -35,3 +35,12 @@ production patch: the missing per-request acceptance, SLO, and telemetry fields
 are read from optional `rasp_*` attributes and default conservatively. A real
 vLLM fork must populate those attributes and apply the returned decisions before
 `KVCacheManager.allocate_slots()`.
+
+The pinned vLLM checkout now has the minimal scheduler fork in
+`vllm/v1/core/sched/scheduler.py`: it reads
+`request.rasp_speculative_tokens` at both allocation sites, clamps the value to
+the configured speculative-token limit, and preserves stock behavior when the
+attribute is absent. `VllmRaspBridge.apply_decisions()` writes that attribute
+and explicitly sets zero for requests not admitted by RASP. This is a CPU
+smoke-tested integration seam, not a claim that the untouched upstream wheel
+contains the fork.

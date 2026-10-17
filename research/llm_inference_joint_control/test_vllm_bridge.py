@@ -48,6 +48,23 @@ class VllmBridgeTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             bridge.decide([])
 
+    def test_apply_decisions_writes_per_request_budget(self):
+        scheduler = SimpleNamespace(
+            kv_cache_manager=FakeKVManager(),
+            kv_cache_config=SimpleNamespace(kv_cache_groups=(SimpleNamespace(
+                kv_cache_spec=SimpleNamespace(page_size_bytes=10)),)),
+            cache_config=SimpleNamespace(num_gpu_blocks=100),
+            max_num_scheduled_tokens=8, num_spec_tokens=4)
+        bridge = VllmRaspBridge(scheduler, ControllerConfig(
+            block_bytes=10, capacity_bytes=1000, reserve_bytes=10, max_batch_tokens=8))
+        request = SimpleNamespace(
+            request_id='r1', num_tokens_with_spec=4,
+            num_output_placeholders=0, num_computed_tokens=0)
+        decisions = bridge.apply_decisions([request])
+        self.assertEqual(len(decisions), 1)
+        self.assertEqual(request.rasp_speculative_tokens,
+                         decisions[0].speculative_tokens)
+
 
 if __name__ == '__main__':
     unittest.main()

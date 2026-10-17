@@ -57,3 +57,20 @@ class VllmRaspBridge:
 
     def decide(self, requests: Iterable[Any]) -> list[Decision]:
         return self.adapter.decide(self.observe(requests))
+
+    def apply_decisions(self, requests: Iterable[Any]) -> list[Decision]:
+        """Attach the per-request budget consumed by the vLLM fork.
+
+        The scheduler fork reads ``request.rasp_speculative_tokens`` immediately
+        before allocating KV slots. Requests omitted by the controller are
+        explicitly assigned zero rather than inheriting a stale budget.
+        """
+        request_list = list(requests)
+        decisions = self.decide(request_list)
+        by_id = {decision.request_id: decision for decision in decisions}
+        for request in request_list:
+            decision = by_id.get(request.request_id)
+            request.rasp_speculative_tokens = (
+                decision.speculative_tokens if decision is not None else 0
+            )
+        return decisions
