@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "CS-FORECASTING-10-0-AUDIT-20261017",
+  "audit_date": "2026-10-17",
+  "cohort_id": "CS-PROSPECTIVE-COHORT-V2-20261017",
+  "integrity": {
+    "frozen_cohort_sha256": "4ebe6a6e94a2aa1cde24280395bef18732ffe6ba7771f3d3710f2b49f51c1ea9",
+    "original_activation_sha256": "9d545d952e922ab162355574010eec125aafbfa335202885ab9260d10309727e",
+    "manifest_sha256": "1acfc9f0a27a7bdba3a9679affe9f496df059c82690c6164975fed7e3990fe4e",
+    "followup_snapshots_sha256": "4d1201680663b91e27518154db2e29de512f040078ecb9e386baf4430f4e7b60",
+    "mutated_frozen_records": false,
+    "source_paper_content_hashes_complete": false,
+    "hash_scope_warning": "CITATION_METADATA_RECORD_ONLY hashes are metadata hashes, not full-text source-paper checksums."
+  },
+  "cohort_state": {
+    "forecast_records": 10,
+    "new_records": 7,
+    "declared_research_families": 9,
+    "human_event_reviews_completed": 0,
+    "matured_outcome_labels": 0,
+    "predictive_metrics": 0,
+    "active_monitors": 0,
+    "selection_frame_reconstructable": false,
+    "selection_flow_note": "Prior reports state 14 additional leads, 7 included, 7 excluded, but a complete candidate-level inclusion/exclusion and query log is absent. Counts from earlier stages may overlap and must not be summed as unique candidates."
+  },
+  "novelty": {
+    "broad_scientific_forecasting_benchmark_firstness": "CONTRADICTED_BY_PRIOR_ART",
+    "question_level_exact_cs_resolution_endpoint": "DISTINCT_BUT_NOT_YET_VALIDATED",
+    "closest_prior_art": [
+      "PreScience: A Dataset and Benchmark for Scientific Forecasting, arXiv:2602.20459",
+      "Historical Backtesting for Scientific Question Discovery: A Protocol and Astronomy Pilot, arXiv:2608.16795 (same project/author)",
+      "Evidence-Based Scientific Question Discovery: A Framework with Historical Backtesting, arXiv:2608.09968 (same project/author)",
+      "ResearchBench, Findings ACL 2026",
+      "PaperBench, arXiv:2504.01848"
+    ],
+    "paper4_planner_novelty": "NOT_AUDITABLE_AS_A_PAPER_CLAIM: local methods record describes standard expected-information-gain/cost planning, but exact Paper 4 paper URL/version is not pinned; no planner outcome comparison is present.",
+    "active_learning_prior": "Bayesian experimental design and expected information gain are established; Chaloner and Verdinelli, Statistical Science 1995, DOI 10.1214/ss/1177009939.",
+    "verdict": "NOVELTY_NOT_ESTABLISHED",
+    "publication_readiness": "NOT_SUBMISSION_READY"
+  },
+  "event_audits": [
+    {
+      "event_id": "PLANAR-THREE-SETS-CUT-UNCUT-112",
+      "issue_time_and_cutoff": "2026-10-17T02:47:37Z",
+      "deadline": "2030-12-31",
+      "frozen_target_summary": "Exact polynomial-time algorithm for unweighted planar Three-Sets Cut-Uncut with terminal cardinalities (1,1,2), preserving the pair's connectivity; randomized success at least 2/3 if randomized; output optimum/cut or infeasibility.",
+      "primary_source_scope": "Bentert et al. ICALP 2024 / arXiv:2305.01314; source states planar Two-Sets result and poses (1,1,2) Three-Sets case as open.",
+      "technical_status": "BASELINE_SUPPORTED_REVIEW_PENDING",
+      "adjudication_risks": ["Check exact infeasibility/output requirement against the paper's formal problem definition."],
+      "future_outcome_status": "NOT_YET_DUE"
+    },
+    {
+      "event_id": "DISCRETE-FRECHET-TRANSLATION-PLANAR-N4",
+      "issue_time_and_cutoff": "2026-10-17T02:47:37Z",
+      "deadline": "2031-10-16",
+      "frozen_target_summary": "Exact unrestricted planar discrete Frechet under translation in O(n^4 log^C n) time, with comparable computation model and exact-value semantics.",
+      "primary_source_scope": "Bringmann, Künnemann, Nusser, arXiv:1810.10982; exact discrete planar translation, ~O(n^(14/3)) upper bound and conditional n^(4-o(1)) lower bound.",
+      "technical_status": "BASELINE_SUPPORTED_REVIEW_PENDING",
+      "adjudication_risks": ["Computation/arithmetic model comparability", "Decision-to-exact-value conversion", "Input bit/real model"],
+      "future_outcome_status": "NOT_YET_DUE"
+    },
+    {
+      "event_id": "K-HOP-DOMINATION-LOW-EXPANSION-NO-GIRTH",
+      "issue_time_and_cutoff": "2026-10-17T02:47:37Z",
+      "deadline": "2031-10-16",
+      "frozen_target_summary": "Deterministic at most 3k+O(1)-round small-message local k-hop domination algorithm on bounded k-hop expansion with no girth restriction and O(k+f(k)^(k/(k+1))) factor.",
+      "primary_source_scope": "Lenzen and Wenning, arXiv:2408.12998 / SSS 2024; high-girth upper bound and explicit extension question.",
+      "technical_status": "BASELINE_SUPPORTED_REVIEW_PENDING",
+      "adjudication_risks": ["Deterministic algorithm claim must be checked against full theorem", "Port/message model", "Constants and exact O(k+f(k)^(k/(k+1))) scope"],
+      "future_outcome_status": "NOT_YET_DUE"
+    },
+    {
+      "event_id": "MAXBISECTION-GW-APPROX-001",
+      "issue_time_and_cutoff": "2026-10-17T03:15:09Z",
+      "deadline": "2031-12-31",
+      "frozen_target_summary": "Polynomial-time general unweighted MAX BISECTION with expected ratio at least alpha_GW.",
+      "primary_source_scope": "Brakensiek et al., SODA 2026 / arXiv:2512.04951; epsilon-uncorrelated Basic-SDP paradigm obstruction below alpha_GW, not a general impossibility result.",
+      "technical_status": "BASELINE_SUPPORTED_REVIEW_PENDING",
+      "adjudication_risks": ["Odd-n bisection cardinality", "Expected-value convention", "Unweighted graph model"],
+      "future_outcome_status": "NOT_YET_DUE"
+    },
+    {
+      "event_id": "DYNAMIC-MATCHING-POLY-EXPONENT-001",
+      "issue_time_and_cutoff": "2026-10-17T03:15:09Z",
+      "deadline": "2031-12-31",
+      "frozen_target_summary": "Explicit (1-epsilon) maximum matching maintained under fully dynamic general graph updates with O(n^(1-delta)) amortized update time for fixed epsilon,delta>0 and stated adversary/high-probability guarantee.",
+      "primary_source_scope": "Behnezhad-Ghafari FOCS 2024 / arXiv:2404.06069 and Assadi-Khanna-Kiss SODA 2025 / arXiv:2406.13573; runtime depends on ORS density; fixed-exponent target remains open in these sources.",
+      "technical_status": "BASELINE_SUPPORTED_REVIEW_PENDING",
+      "adjudication_risks": ["Adversary and high-probability quantifiers", "Amortized runtime", "Explicit matching output", "Family dependence with ORS event"],
+      "research_family_id": "DYNAMIC-MATCHING-AND-ORS-EXTREMAL-STRUCTURE",
+      "future_outcome_status": "NOT_YET_DUE"
+    },
+    {
+      "event_id": "ORS-POLYNOMIAL-GROWTH-001",
+      "issue_time_and_cutoff": "2026-10-17T03:15:09Z",
+      "deadline": "2030-12-31 (structured field); 2031-12-31 (exact-event text)",
+      "frozen_target_summary": "For infinitely many n, ORS(n,delta n)>=n^epsilon for fixed positive delta,epsilon under ordered suffix-induced matching convention.",
+      "primary_source_scope": "Assadi-Khanna-Kiss SODA 2025 / arXiv:2406.13573; ordered linear-size matchings, subpolynomial lower/near-linear upper gap.",
+      "technical_status": "FROZEN_ENDPOINT_AMBIGUOUS",
+      "defect_id": "AUDIT-ORS-DEADLINE-MISMATCH-20261017",
+      "defect": {
+        "structured_deadline": "2030-12-31",
+        "exact_event_deadline_text": "2031-12-31",
+        "resolution": "Do not infer. Preserve both frozen values. Original preregistration provenance must determine controlling field before adjudication."
+      },
+      "adjudication_risks": ["Resolve deadline from original preregistration provenance", "Verify prefix/suffix order equivalence by reversing sequence", "Check exact infinitely-many-n and fixed-density/exponent quantifiers"],
+      "research_family_id": "DYNAMIC-MATCHING-AND-ORS-EXTREMAL-STRUCTURE",
+      "future_outcome_status": "NOT_YET_DUE_BUT_NOT_ADJUDICABLE_AS_FROZEN"
+    },
+    {
+      "event_id": "SUBSET-SUM-EXPONENT-IMPROVEMENT-001",
+      "issue_time_and_cutoff": "2026-10-17T03:15:09Z",
+      "deadline": "2031-12-31",
+      "frozen_target_summary": "Exact worst-case positive-integer binary Subset Sum in O(2^((1/2-epsilon)n) poly(n,L)) for fixed epsilon>0; randomized worst-case error at most 1/3.",
+      "primary_source_scope": "Chen et al. arXiv:2301.07134 and ESA 2025 DOI 10.4230/LIPIcs.ESA.2025.86; polynomial-factor worst-case improvement distinguished from fixed exponent improvement.",
+      "technical_status": "BASELINE_SUPPORTED_REVIEW_PENDING",
+      "adjudication_risks": ["Input bit-length/model", "Randomized worst-case error", "Positive-integer exact problem variant"],
+      "future_outcome_status": "NOT_YET_DUE"
+    },
+    {
+      "event_id": "TWO-STAGE-IP-OPT-UNBOUNDED-GLOBAL-COEFF-001",
+      "issue_time_and_cutoff": "2026-10-17T03:15:09Z",
+      "deadline": "2030-12-31",
+      "frozen_target_summary": "Exact FPT linear optimization of specified two-stage IPs parameterized by (k,Delta_D), with unbounded global A_i outside the parameter and correct optimum/infeasible/unbounded output.",
+      "primary_source_scope": "Cslovjecsek et al. SODA 2024 / TheoretiCS 2025 / arXiv:2311.01890; two-stage feasibility permits unbounded global blocks, while optimization result concerns uniform n-fold programs.",
+      "technical_status": "BASELINE_SUPPORTED_REVIEW_PENDING",
+      "adjudication_risks": ["Variable domains and matrix dimensions", "Objective encoding", "Infeasibility/unboundedness", "Weakly-polynomial input-bit model", "Exact optimization open-question scope"],
+      "future_outcome_status": "NOT_YET_DUE"
+    },
+    {
+      "event_id": "SHALLOW-QC-IDENTITY-PTAS-001",
+      "issue_time_and_cutoff": "2026-10-17T03:15:09Z",
+      "deadline": "2031-12-31",
+      "frozen_target_summary": "For fixed epsilon and constant-depth 1D local circuits, multiplicative (1+epsilon) approximation to channel diamond distance from identity in polynomial time, with zero-distance semantics.",
+      "primary_source_scope": "Bravyi-Parham-Tran, arXiv:2401.16525; constant-factor results and PTAS open question; additive inverse-polynomial hardness does not directly rule out fixed-epsilon multiplicative approximation.",
+      "technical_status": "SOURCE_MOTIVATION_SUPPORTED_ENDPOINT_REVIEW_PENDING",
+      "adjudication_risks": ["Gate-description encoding and precision", "Fixed-depth parameter semantics", "Channel versus unitary representation", "Multiplicative guarantee forces exact zero output at zero distance"],
+      "future_outcome_status": "NOT_YET_DUE"
+    },
+    {
+      "event_id": "ADAPTIVE-FDP-GDP-FILTER-MID-Q-001",
+      "issue_time_and_cutoff": "2026-10-17T03:15:09Z",
+      "deadline": "2030-12-31",
+      "frozen_target_summary": "Fully adaptive valid approximate GDP filter for Poisson-subsampled Gaussian mechanisms across q in closed [0.2,0.8], with finite error bound and strict improvement over the frozen RDP baseline on an open parameter region.",
+      "primary_source_scope": "Tran et al., arXiv:2602.06756 v2 (2026-05-12); invalidity of naive natural filter, validity characterization, approximate GDP construction in asymptotic small/large-q regimes.",
+      "technical_status": "BASELINE_SUPPORTED_ENDPOINT_REVIEW_PENDING",
+      "adjudication_risks": ["Full adaptive mechanism assumptions", "Finite approximation/error criterion", "RDP comparator and utility metric insufficiently pinned", "Parameter domain for strict improvement"],
+      "future_outcome_status": "NOT_YET_DUE"
+    }
+  ],
+  "cross_cutting_findings": [
+    "Original three records have issue/evidence cutoff 2026-10-17 but nominal snapshot observation start 2027-01-01; preserve both and report the early interval separately.",
+    "Citation metadata hashes are not source-paper content hashes.",
+    "No outcome search or adjudication was conducted in this audit; no new labels were created.",
+    "Paper 3 frozen cohorts and source taxonomy remain unchanged; the CS Target B rubric is a separate proposed extension.",
+    "Paper 4 ranking and action utility are not evaluated by the ten-event forecast registry."
+  ],
+  "venue_assessment": {
+    "QSS": "Potential future scope fit if a novel science-studies/method contribution and persistent open data release are established; not ready now.",
+    "Research_Evaluation": "Potential future fit if direct research-evaluation theory/practice contribution is substantive; not ready now.",
+    "NeurIPS_2026_Evaluations_Datasets": "Potentially relevant track type but May 4/6 2026 submission deadlines have passed; no submission made."
+  },
+  "final_decision": "NO_SUBMISSION_NO_FORECAST_SCORE_NOVELTY_UNESTABLISHED",
+  "no_successor_task_created": true
+}
