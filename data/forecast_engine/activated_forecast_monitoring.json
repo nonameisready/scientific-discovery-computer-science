@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-10-17T02:47:37Z",
+  "correction_notice": "Pre-commit audit correction to this inactive, non-forecast artifact: the generator placeholder 'row deadline' was replaced by each corresponding frozen forecast deadline, and event-specific technical checkpoints plus the full adjudication status vocabulary were added. Forecast records and the append-only forecast snapshot were not changed.",
+  "active_monitoring_count": 0,
+  "scheduled_jobs": [],
+  "workers_started": false,
+  "specifications": [
+    {
+      "event_id": "PLANAR-THREE-SETS-CUT-UNCUT-112",
+      "active": false,
+      "primary_sources": [
+        "ICALP/LIPIcs proceedings",
+        "arXiv primary preprints",
+        "SODA/ESA/ICALP/STACS proceedings",
+        "journal versions indexed by DOI"
+      ],
+      "search_strategy": "Search exact strings for Three-Sets Cut-Uncut, planar cut-uncut with terminal cardinalities (1,1,2), and equivalent formulations preserving one pair's connectivity; inspect theorem statements and proof sections, then trace citations from the 2024 ICALP paper.",
+      "milestones": [
+        "2027-01-01",
+        "2028-12-31",
+        "2030-12-31"
+      ],
+      "technical_milestones": [
+        "Check whether a theorem handles unweighted planar (1,1,2) Three-Sets Cut-Uncut exactly, including the preserved pair connectivity and infeasibility."
+      ],
+      "adjudication": {
+        "reviewers_required": 2,
+        "llm_counts_as_reviewer": false,
+        "partial_progress_is_not_success": true,
+        "no_search_hit_means_negative": false,
+        "outcome_categories": [
+          "EVIDENCE_FOUND_UNADJUDICATED",
+          "EVENT_ACHIEVED",
+          "PARTIAL_PROGRESS_NOT_SUCCESS",
+          "PREMISE_REVISION_NOT_SUCCESS",
+          "EVENT_CONTRADICTED",
+          "INSUFFICIENT_EVIDENCE",
+          "NOT_YET_DUE"
+        ],
+        "not_yet_due_state": "NOT_YET_DUE",
+        "insufficient_coverage_state": "INSUFFICIENT_EVIDENCE"
+      },
+      "status": "PREPARED_INACTIVE"
+    },
+    {
+      "event_id": "DISCRETE-FRECHET-TRANSLATION-PLANAR-N4",
+      "active": false,
+      "primary_sources": [
+        "SoCG proceedings",
+        "SODA proceedings",
+        "ESA/ICALP proceedings",
+        "ACM Transactions on Algorithms",
+        "arXiv primary preprints"
+      ],
+      "search_strategy": "Search the exact problem name and equivalent geometric-alignment formulations; trace citations from the 2019 SODA/TALG paper and 2025 SoCG/ICALP papers; inspect whether algorithms preserve exact discrete 2D translation semantics and derive the O(n^4 polylog n) bound.",
+      "milestones": [
+        "2027-01-01",
+        "2028-12-31",
+        "2031-10-16"
+      ],
+      "technical_milestones": [
+        "Check for exact 2D discrete unrestricted-translation value computation at O(n^4 polylog n), and audit the stated computational model."
+      ],
+      "adjudication": {
+        "reviewers_required": 2,
+        "llm_counts_as_reviewer": false,
+        "partial_progress_is_not_success": true,
+        "no_search_hit_means_negative": false,
+        "outcome_categories": [
+          "EVIDENCE_FOUND_UNADJUDICATED",
+          "EVENT_ACHIEVED",
+          "PARTIAL_PROGRESS_NOT_SUCCESS",
+          "PREMISE_REVISION_NOT_SUCCESS",
+          "EVENT_CONTRADICTED",
+          "INSUFFICIENT_EVIDENCE",
+          "NOT_YET_DUE"
+        ],
+        "not_yet_due_state": "NOT_YET_DUE",
+        "insufficient_coverage_state": "INSUFFICIENT_EVIDENCE"
+      },
+      "status": "PREPARED_INACTIVE"
+    },
+    {
+      "event_id": "K-HOP-DOMINATION-LOW-EXPANSION-NO-GIRTH",
+      "active": false,
+      "primary_sources": [
+        "SSS proceedings",
+        "DISC proceedings",
+        "PODC proceedings",
+        "arXiv primary preprints",
+        "ACM/Elsevier theory journals"
+      ],
+      "search_strategy": "Track exact phrases for k-hop domination, k-hop expansion, and constant-round LOCAL approximation; follow citations from the 2024 SSS paper and check theorem hypotheses for girth, message size, identifiers, round complexity, and the exact O(k+f(k)^(k/(k+1))) ratio.",
+      "milestones": [
+        "2027-01-01",
+        "2028-12-31",
+        "2031-10-16"
+      ],
+      "technical_milestones": [
+        "Check whether a theorem removes the girth restriction while preserving the port-numbering model, 3k+O(1) rounds, and the frozen approximation order."
+      ],
+      "adjudication": {
+        "reviewers_required": 2,
+        "llm_counts_as_reviewer": false,
+        "partial_progress_is_not_success": true,
+        "no_search_hit_means_negative": false,
+        "outcome_categories": [
+          "EVIDENCE_FOUND_UNADJUDICATED",
+          "EVENT_ACHIEVED",
+          "PARTIAL_PROGRESS_NOT_SUCCESS",
+          "PREMISE_REVISION_NOT_SUCCESS",
+          "EVENT_CONTRADICTED",
+          "INSUFFICIENT_EVIDENCE",
+          "NOT_YET_DUE"
+        ],
+        "not_yet_due_state": "NOT_YET_DUE",
+        "insufficient_coverage_state": "INSUFFICIENT_EVIDENCE"
+      },
+      "status": "PREPARED_INACTIVE"
+    }
+  ],
+  "activation_requires_separate_authorization": true
+}

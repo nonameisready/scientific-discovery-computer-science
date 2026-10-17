@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/activated-cs-forecasts-v1.json",
+  "title": "Immutable prospective qualitative CS forecast activation",
+  "type": "object",
+  "required": ["schema_version", "activation_id", "created_at", "evidence_cutoff", "baseline", "forecast_count", "forecasts", "immutable", "activation_sha256"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "activation_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "evidence_cutoff": {"type": "string", "format": "date-time"},
+    "baseline": {"type": "object", "required": ["snapshot_id", "sha256", "scope"]},
+    "forecast_count": {"type": "integer", "minimum": 1},
+    "forecasts": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["event_id", "scientific_question", "event_type", "source_baseline", "exact_event", "frozen_assumptions", "improvement_criterion", "deadline", "resolution_policy", "evidence_standard", "ambiguity_policy", "sources", "forecast_statement", "expectation", "directional_lean", "issued_at", "issue_date", "evidence_cutoff", "qualitative_only", "review_status", "reviewer_ids", "outcome_status", "snapshot_id", "content_sha256", "snapshot_sha256"]}},
+    "immutable": {"const": true},
+    "activation_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

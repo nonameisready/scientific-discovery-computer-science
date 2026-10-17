@@ -17,6 +17,11 @@ MODES = {
     "PAPER3_TRANSFER",
     "CALIBRATED_BREAKTHROUGH_FORECAST",
 }
+FORECAST_EXPECTATIONS = {
+    "EXPECTED_BEFORE_DEADLINE",
+    "UNLIKELY_BEFORE_DEADLINE",
+    "HIGHLY_UNCERTAIN_WITH_DIRECTIONAL_LEAN",
+}
 OPERATIONAL_OUTCOMES = {
     "AUTHENTICATED_RESOLUTION",
     "AUTHENTICATED_REFUTATION_OR_PREMISE_REVISION",
@@ -57,6 +62,179 @@ def parse_date(value: str | None, field: str) -> date:
         return parsed
     except (TypeError, ValueError) as exc:
         raise ForecastEngineError(f"{field} must be an ISO date") from exc
+
+
+def parse_timestamp(value: str | None, field: str) -> datetime:
+    if not value:
+        raise ForecastEngineError(f"{field} is required")
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except (TypeError, ValueError) as exc:
+        raise ForecastEngineError(f"{field} must be an ISO timestamp") from exc
+    if parsed.tzinfo is None:
+        raise ForecastEngineError(f"{field} must include a timezone")
+    return parsed.astimezone(timezone.utc)
+
+
+def freeze_prospective_forecast(draft: dict[str, Any], issued_at: str) -> dict[str, Any]:
+    """Freeze one directional, qualitative future event with content-addressed provenance."""
+    issued = parse_timestamp(issued_at, "issued_at")
+    required = (
+        "event_id", "scientific_question", "event_type", "source_baseline", "exact_event",
+        "frozen_assumptions", "improvement_criterion", "deadline", "resolution_policy",
+        "evidence_standard", "ambiguity_policy", "sources", "forecast_statement",
+        "expectation", "directional_lean", "supporting_evidence", "counterevidence",
+        "uncertainty", "primary_future_sources", "search_strategy",
+    )
+    missing = [key for key in required if key not in draft]
+    if missing:
+        raise ForecastEngineError(f"prospective forecast missing fields: {', '.join(missing)}")
+    for key in required:
+        if key not in {"frozen_assumptions", "sources", "primary_future_sources"} and not draft[key]:
+            raise ForecastEngineError(f"prospective forecast field {key} must be non-empty")
+    if draft["expectation"] not in FORECAST_EXPECTATIONS:
+        raise ForecastEngineError("forecast must use a supported directional qualitative expectation")
+    if draft["expectation"] == "HIGHLY_UNCERTAIN_WITH_DIRECTIONAL_LEAN" and not draft["directional_lean"].strip():
+        raise ForecastEngineError("highly uncertain forecasts must state a directional lean")
+    if not isinstance(draft["frozen_assumptions"], list) or not draft["frozen_assumptions"]:
+        raise ForecastEngineError("frozen assumptions must be a non-empty list")
+    if not isinstance(draft["sources"], list) or not draft["sources"]:
+        raise ForecastEngineError("at least one primary source is required")
+    if not isinstance(draft["primary_future_sources"], list) or not draft["primary_future_sources"]:
+        raise ForecastEngineError("future monitoring must name primary sources")
+    deadline = parse_date(draft["deadline"], "deadline")
+    issue_day = issued.date()
+    if deadline <= issue_day or not (date(2027, 1, 1) <= deadline <= date(2031, 12, 31)):
+        raise ForecastEngineError("deadline must be future-dated within 2027–2031")
+    cutoff = parse_timestamp(draft.get("evidence_cutoff", issued_at), "evidence_cutoff")
+    if cutoff > issued:
+        raise ForecastEngineError("evidence cutoff cannot be later than actual issue timestamp")
+    if cutoff.date() != issue_day:
+        raise ForecastEngineError("this activation freezes the evidence cutoff on the actual issue date")
+    source_ids = []
+    for source in draft["sources"]:
+        if not isinstance(source, dict) or not all(source.get(k) for k in ("title", "url", "source_date", "role")):
+            raise ForecastEngineError("each source needs title, URL, source date, and evidentiary role")
+        source_date = parse_date(source["source_date"], "source_date")
+        if source_date > cutoff.date():
+            raise ForecastEngineError("source postdates the frozen evidence cutoff")
+        if not source["url"].startswith(("https://arxiv.org/", "https://drops.dagstuhl.de/", "https://doi.org/")):
+            raise ForecastEngineError("source must be a stable primary-source URL")
+        source_ids.append(source["url"])
+    if len(source_ids) != len(set(source_ids)):
+        raise ForecastEngineError("duplicate source URLs must be consolidated")
+    # Numeric model outputs are deliberately forbidden; numeric theorem bounds inside
+    # the exact event itself remain valid scientific criteria.
+    forbidden = {"probability", "probability_estimate", "confidence_interval", "calibrated_score"}
+    if forbidden.intersection(draft):
+        raise ForecastEngineError("qualitative forecast records cannot contain numeric prediction fields")
+    record = dict(draft)
+    record["issued_at"] = issued.isoformat(timespec="seconds").replace("+00:00", "Z")
+    record["issue_date"] = issue_day.isoformat()
+    record["evidence_cutoff"] = cutoff.isoformat(timespec="seconds").replace("+00:00", "Z")
+    record["qualitative_only"] = True
+    record["review_status"] = "PENDING_TWO_INDEPENDENT_HUMAN_REVIEWERS"
+    record["reviewer_ids"] = []
+    record["outcome_status"] = "NOT_YET_DUE"
+    record["outcome_evidence_ids"] = []
+    record["parent_radar_id"] = draft.get("parent_radar_id")
+    material = dict(record)
+    content_hash = sha256_bytes(canonical_json(material))
+    record["content_sha256"] = content_hash
+    record["snapshot_id"] = f"SNAP-PROSP-{record['event_id']}-{content_hash[:12]}"
+    record["snapshot_sha256"] = sha256_bytes(canonical_json(record))
+    validate_prospective_forecast(record)
+    return record
+
+
+def validate_prospective_forecast(record: dict[str, Any]) -> None:
+    required = ("event_id", "issued_at", "issue_date", "evidence_cutoff", "deadline", "expectation",
+                "directional_lean", "exact_event", "source_baseline", "resolution_policy", "sources",
+                "review_status", "reviewer_ids", "outcome_status", "snapshot_id", "content_sha256",
+                "snapshot_sha256", "qualitative_only")
+    missing = [key for key in required if key not in record]
+    if missing:
+        raise ForecastEngineError(f"frozen forecast missing fields: {', '.join(missing)}")
+    issued = parse_timestamp(record["issued_at"], "issued_at")
+    cutoff = parse_timestamp(record["evidence_cutoff"], "evidence_cutoff")
+    if cutoff > issued or record["issue_date"] != issued.date().isoformat():
+        raise ForecastEngineError("forecast issue date/cutoff is inconsistent or backdated")
+    deadline = parse_date(record["deadline"], "deadline")
+    if not (date(2027, 1, 1) <= deadline <= date(2031, 12, 31) and deadline > issued.date()):
+        raise ForecastEngineError("forecast deadline is outside the required future window")
+    if record["expectation"] not in FORECAST_EXPECTATIONS or record["qualitative_only"] is not True:
+        raise ForecastEngineError("frozen forecast must be qualitative and directional")
+    if record["review_status"] != "PENDING_TWO_INDEPENDENT_HUMAN_REVIEWERS" or record["reviewer_ids"]:
+        raise ForecastEngineError("forecast outcomes cannot be pre-reviewed or receive fabricated reviewer labels")
+    if record["outcome_status"] != "NOT_YET_DUE" or record.get("outcome_evidence_ids"):
+        raise ForecastEngineError("future outcomes/evidence cannot be prefilled")
+    if any(key in record for key in ("probability", "probability_estimate", "confidence_interval", "calibrated_score")):
+        raise ForecastEngineError("qualitative forecasts cannot contain numeric prediction scores")
+    material = {key: value for key, value in record.items() if key not in {"content_sha256", "snapshot_id", "snapshot_sha256"}}
+    expected_content = sha256_bytes(canonical_json(material))
+    if record["content_sha256"] != expected_content:
+        raise ForecastEngineError("forecast content hash mismatch")
+    if record["snapshot_id"] != f"SNAP-PROSP-{record['event_id']}-{expected_content[:12]}":
+        raise ForecastEngineError("forecast snapshot ID mismatch")
+    snapshot_material = {key: value for key, value in record.items() if key != "snapshot_sha256"}
+    if record["snapshot_sha256"] != sha256_bytes(canonical_json(snapshot_material)):
+        raise ForecastEngineError("forecast snapshot hash mismatch")
+
+
+def build_prospective_snapshot(forecasts: list[dict[str, Any]], as_of: str,
+                               baseline_id: str, baseline_sha256: str,
+                               source_hashes: list[dict[str, str]]) -> dict[str, Any]:
+    if not forecasts:
+        raise ForecastEngineError("cannot create an empty prospective snapshot")
+    for row in forecasts:
+        validate_prospective_forecast(row)
+    issued = parse_timestamp(as_of, "as_of")
+    if any(parse_timestamp(row["issued_at"], "issued_at") != issued for row in forecasts):
+        raise ForecastEngineError("all forecasts in a batch must share the actual issue timestamp")
+    base = {
+        "schema_version": "1.1",
+        "snapshot_id": "SNAP-PROSPECTIVE-CS-" + sha256_bytes(canonical_json([r["snapshot_id"] for r in forecasts]))[:16],
+        "previous_snapshot_id": baseline_id,
+        "as_of": issued.isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "evidence_cutoff": issued.date().isoformat(),
+        "method_version": "forecast-engine-0.2.0",
+        "candidate_set_version": "CS-PROSPECTIVE-QUALITATIVE-20261017-v1",
+        "source_hashes": source_hashes,
+        "forecast_type": "QUALITATIVE_PROSPECTIVE",
+        "numerical_predictions_allowed": False,
+        "paper3_probabilities": None,
+        "missingness_status": "NO_OUTCOME_LABELS; FUTURE_EVENTS_NOT_YET_DUE",
+        "calibration_status": "NOT_CALIBRATED; EDITORIAL_QUALITATIVE_EXPECTATIONS_ONLY",
+        "questions": [
+            {
+                "question_id": row["event_id"], "subfield": row["event_type"],
+                "problem_statement": row["scientific_question"],
+                "operational_assumptions": {"status": "FROZEN", "items": row["frozen_assumptions"]},
+                "existing_strongest_baseline": row["source_baseline"],
+                "desired_improvement": row["improvement_criterion"],
+                "evidence_cutoff": issued.date().isoformat(),
+                "forecast_horizon": {"start": "2027-01-01", "due_date": row["deadline"], "radar_label": "PROSPECTIVE_2027_2031"},
+                "outcome_endpoints": {name: {"status": "NOT_TARGETED" if name != "resolution" else "FROZEN"}
+                                      for name in ("attention", "resolution", "premise_revision", "evidence_growth", "impact")},
+                "resolution_criteria": {"status": "FROZEN", "candidate_criterion": row["exact_event"], "missing": []},
+                "required_evidence_standard": row["evidence_standard"],
+                "outcome_adjudication_policy": row["resolution_policy"],
+                "source_provenance": [{"url": source["url"],
+                    "citation_record_sha256": sha256_bytes(canonical_json(source)),
+                    "hash_scope": "CITATION_METADATA_RECORD_ONLY"} for source in row["sources"]],
+                "question_version": 1,
+                "forecast_statement": row["forecast_statement"],
+                "expectation": row["expectation"],
+                "snapshot_id": row["snapshot_id"],
+            } for row in forecasts
+        ],
+        "forecast_ids": [row["event_id"] for row in forecasts],
+        "forecast_snapshot_hashes": [row["snapshot_sha256"] for row in forecasts],
+        "parent_radar_baseline": {"snapshot_id": baseline_id, "sha256": baseline_sha256,
+                                  "scope": "FULL_RADAR_JSON_BYTES; UNMODIFIED"},
+    }
+    base["snapshot_sha256"] = sha256_bytes(canonical_json(base))
+    return base
 
 
 def canonical_question(candidate: dict[str, Any], cutoff: str = "2026-10-16") -> dict[str, Any]:

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nonameisready.github.io/schemas/activated-cs-forecast-monitoring-v1.json",
+  "title": "Inactive prospective CS forecast monitoring specifications",
+  "type": "object",
+  "required": ["schema_version", "created_at", "active_monitoring_count", "scheduled_jobs", "specifications"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "active_monitoring_count": {"const": 0},
+    "scheduled_jobs": {"type": "array", "maxItems": 0},
+    "specifications": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["event_id", "active", "primary_sources", "search_strategy", "milestones", "technical_milestones", "adjudication", "status"], "properties": {"event_id": {"type": "string"}, "active": {"const": false}, "primary_sources": {"type": "array", "minItems": 1}, "search_strategy": {"type": "string"}, "milestones": {"type": "array"}, "technical_milestones": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "adjudication": {"type": "object", "required": ["reviewers_required", "llm_counts_as_reviewer", "partial_progress_is_not_success", "no_search_hit_means_negative", "outcome_categories"]}, "status": {"const": "PREPARED_INACTIVE"}}}}
+  }
+}

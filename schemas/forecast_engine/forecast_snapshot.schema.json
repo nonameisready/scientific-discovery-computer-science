@@ -13,7 +13,7 @@
     "method_version": {"type": "string"},
     "candidate_set_version": {"type": "string"},
     "source_hashes": {"type": "array", "items": {"type": "object", "required": ["path", "sha256", "scope"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "scope": {"type": "string"}}}},
-    "forecast_type": {"enum": ["QUALITATIVE_EDITORIAL_BASELINE", "QUALITATIVE_EDITORIAL", "BASELINE_STATISTICAL", "PAPER3_TRANSFER", "CALIBRATED_BREAKTHROUGH_FORECAST"]},
+    "forecast_type": {"enum": ["QUALITATIVE_EDITORIAL_BASELINE", "QUALITATIVE_EDITORIAL", "QUALITATIVE_PROSPECTIVE", "BASELINE_STATISTICAL", "PAPER3_TRANSFER", "CALIBRATED_BREAKTHROUGH_FORECAST"]},
     "numerical_predictions_allowed": {"type": "boolean"},
     "paper3_probabilities": {"type": ["object", "null"]},
     "missingness_status": {"type": "string"},
