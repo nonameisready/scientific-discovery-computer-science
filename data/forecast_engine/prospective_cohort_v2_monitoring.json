@@ -1,0 +1,365 @@
+{
+  "schema_version": "2.0",
+  "created_at": "2026-10-17T03:15:09Z",
+  "active_monitoring_count": 0,
+  "scheduled_jobs": [],
+  "workers_started": false,
+  "activation_requires_separate_authorization": true,
+  "original_specifications_copied_unchanged": [
+    {
+      "event_id": "PLANAR-THREE-SETS-CUT-UNCUT-112",
+      "active": false,
+      "primary_sources": [
+        "ICALP/LIPIcs proceedings",
+        "arXiv primary preprints",
+        "SODA/ESA/ICALP/STACS proceedings",
+        "journal versions indexed by DOI"
+      ],
+      "search_strategy": "Search exact strings for Three-Sets Cut-Uncut, planar cut-uncut with terminal cardinalities (1,1,2), and equivalent formulations preserving one pair's connectivity; inspect theorem statements and proof sections, then trace citations from the 2024 ICALP paper.",
+      "milestones": [
+        "2027-01-01",
+        "2028-12-31",
+        "2030-12-31"
+      ],
+      "technical_milestones": [
+        "Check whether a theorem handles unweighted planar (1,1,2) Three-Sets Cut-Uncut exactly, including the preserved pair connectivity and infeasibility."
+      ],
+      "adjudication": {
+        "reviewers_required": 2,
+        "llm_counts_as_reviewer": false,
+        "partial_progress_is_not_success": true,
+        "no_search_hit_means_negative": false,
+        "outcome_categories": [
+          "EVIDENCE_FOUND_UNADJUDICATED",
+          "EVENT_ACHIEVED",
+          "PARTIAL_PROGRESS_NOT_SUCCESS",
+          "PREMISE_REVISION_NOT_SUCCESS",
+          "EVENT_CONTRADICTED",
+          "INSUFFICIENT_EVIDENCE",
+          "NOT_YET_DUE"
+        ],
+        "not_yet_due_state": "NOT_YET_DUE",
+        "insufficient_coverage_state": "INSUFFICIENT_EVIDENCE"
+      },
+      "status": "PREPARED_INACTIVE"
+    },
+    {
+      "event_id": "DISCRETE-FRECHET-TRANSLATION-PLANAR-N4",
+      "active": false,
+      "primary_sources": [
+        "SoCG proceedings",
+        "SODA proceedings",
+        "ESA/ICALP proceedings",
+        "ACM Transactions on Algorithms",
+        "arXiv primary preprints"
+      ],
+      "search_strategy": "Search the exact problem name and equivalent geometric-alignment formulations; trace citations from the 2019 SODA/TALG paper and 2025 SoCG/ICALP papers; inspect whether algorithms preserve exact discrete 2D translation semantics and derive the O(n^4 polylog n) bound.",
+      "milestones": [
+        "2027-01-01",
+        "2028-12-31",
+        "2031-10-16"
+      ],
+      "technical_milestones": [
+        "Check for exact 2D discrete unrestricted-translation value computation at O(n^4 polylog n), and audit the stated computational model."
+      ],
+      "adjudication": {
+        "reviewers_required": 2,
+        "llm_counts_as_reviewer": false,
+        "partial_progress_is_not_success": true,
+        "no_search_hit_means_negative": false,
+        "outcome_categories": [
+          "EVIDENCE_FOUND_UNADJUDICATED",
+          "EVENT_ACHIEVED",
+          "PARTIAL_PROGRESS_NOT_SUCCESS",
+          "PREMISE_REVISION_NOT_SUCCESS",
+          "EVENT_CONTRADICTED",
+          "INSUFFICIENT_EVIDENCE",
+          "NOT_YET_DUE"
+        ],
+        "not_yet_due_state": "NOT_YET_DUE",
+        "insufficient_coverage_state": "INSUFFICIENT_EVIDENCE"
+      },
+      "status": "PREPARED_INACTIVE"
+    },
+    {
+      "event_id": "K-HOP-DOMINATION-LOW-EXPANSION-NO-GIRTH",
+      "active": false,
+      "primary_sources": [
+        "SSS proceedings",
+        "DISC proceedings",
+        "PODC proceedings",
+        "arXiv primary preprints",
+        "ACM/Elsevier theory journals"
+      ],
+      "search_strategy": "Track exact phrases for k-hop domination, k-hop expansion, and constant-round LOCAL approximation; follow citations from the 2024 SSS paper and check theorem hypotheses for girth, message size, identifiers, round complexity, and the exact O(k+f(k)^(k/(k+1))) ratio.",
+      "milestones": [
+        "2027-01-01",
+        "2028-12-31",
+        "2031-10-16"
+      ],
+      "technical_milestones": [
+        "Check whether a theorem removes the girth restriction while preserving the port-numbering model, 3k+O(1) rounds, and the frozen approximation order."
+      ],
+      "adjudication": {
+        "reviewers_required": 2,
+        "llm_counts_as_reviewer": false,
+        "partial_progress_is_not_success": true,
+        "no_search_hit_means_negative": false,
+        "outcome_categories": [
+          "EVIDENCE_FOUND_UNADJUDICATED",
+          "EVENT_ACHIEVED",
+          "PARTIAL_PROGRESS_NOT_SUCCESS",
+          "PREMISE_REVISION_NOT_SUCCESS",
+          "EVENT_CONTRADICTED",
+          "INSUFFICIENT_EVIDENCE",
+          "NOT_YET_DUE"
+        ],
+        "not_yet_due_state": "NOT_YET_DUE",
+        "insufficient_coverage_state": "INSUFFICIENT_EVIDENCE"
+      },
+      "status": "PREPARED_INACTIVE"
+    }
+  ],
+  "new_specifications": [
+    {
+      "event_id": "MAXBISECTION-GW-APPROX-001",
+      "active": false,
+      "status": "PREPARED_INACTIVE",
+      "issue_timestamp": "2026-10-17T03:15:09Z",
+      "observation_start": "2026-10-17T03:15:09Z",
+      "deadline": "2031-12-31",
+      "primary_sources": [
+        "SODA/FOCS/ICALP proceedings",
+        "arXiv primary versions",
+        "journal versions"
+      ],
+      "search_strategy": "Search MAX BISECTION with α_GW and 0.878567, inspect theorem assumptions and approximation conventions, then trace citations and follow-up work from the frozen SODA 2026 paper. Search non-SDP as well as SDP approaches.",
+      "milestones": [
+        "2027-12-31",
+        "2028-12-31",
+        "2031-12-31"
+      ],
+      "partial_progress_is_not_success": true,
+      "search_miss_is_not_negative": true,
+      "outcome_categories": [
+        "EVIDENCE_FOUND_UNADJUDICATED",
+        "EVENT_ACHIEVED",
+        "PARTIAL_PROGRESS_NOT_SUCCESS",
+        "PREMISE_REVISION_NOT_SUCCESS",
+        "EVENT_CONTRADICTED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_YET_DUE"
+      ],
+      "adjudicators_required": 2,
+      "llm_counts_as_independent_reviewer": false,
+      "escalate_if_assumptions_or_model_ambiguous": true,
+      "status_only": "NO_CRAWLER_NO_SCHEDULE_NO_WORKER"
+    },
+    {
+      "event_id": "DYNAMIC-MATCHING-POLY-EXPONENT-001",
+      "active": false,
+      "status": "PREPARED_INACTIVE",
+      "issue_timestamp": "2026-10-17T03:15:09Z",
+      "observation_start": "2026-10-17T03:15:09Z",
+      "deadline": "2031-12-31",
+      "primary_sources": [
+        "FOCS/SODA/STOC proceedings",
+        "arXiv primary versions",
+        "journal versions"
+      ],
+      "search_strategy": "Track explicit output-matching results and check graph class, update type, adversary, probability, amortized versus worst-case complexity, and whether constants yield a fixed power saving.",
+      "milestones": [
+        "2027-12-31",
+        "2028-12-31",
+        "2031-12-31"
+      ],
+      "partial_progress_is_not_success": true,
+      "search_miss_is_not_negative": true,
+      "outcome_categories": [
+        "EVIDENCE_FOUND_UNADJUDICATED",
+        "EVENT_ACHIEVED",
+        "PARTIAL_PROGRESS_NOT_SUCCESS",
+        "PREMISE_REVISION_NOT_SUCCESS",
+        "EVENT_CONTRADICTED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_YET_DUE"
+      ],
+      "adjudicators_required": 2,
+      "llm_counts_as_independent_reviewer": false,
+      "escalate_if_assumptions_or_model_ambiguous": true,
+      "status_only": "NO_CRAWLER_NO_SCHEDULE_NO_WORKER"
+    },
+    {
+      "event_id": "ORS-POLYNOMIAL-GROWTH-001",
+      "active": false,
+      "status": "PREPARED_INACTIVE",
+      "issue_timestamp": "2026-10-17T03:15:09Z",
+      "observation_start": "2026-10-17T03:15:09Z",
+      "deadline": "2030-12-31",
+      "primary_sources": [
+        "STOC/SODA/FOCS proceedings",
+        "arXiv primary versions",
+        "combinatorics journals"
+      ],
+      "search_strategy": "Search ORS(n,δn), ordered induced matchings, suffix-induced matchings, and exact construction bounds; validate every claimed family against the SODA 2025 definition.",
+      "milestones": [
+        "2027-12-31",
+        "2028-12-31",
+        "2030-12-31"
+      ],
+      "partial_progress_is_not_success": true,
+      "search_miss_is_not_negative": true,
+      "outcome_categories": [
+        "EVIDENCE_FOUND_UNADJUDICATED",
+        "EVENT_ACHIEVED",
+        "PARTIAL_PROGRESS_NOT_SUCCESS",
+        "PREMISE_REVISION_NOT_SUCCESS",
+        "EVENT_CONTRADICTED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_YET_DUE"
+      ],
+      "adjudicators_required": 2,
+      "llm_counts_as_independent_reviewer": false,
+      "escalate_if_assumptions_or_model_ambiguous": true,
+      "status_only": "NO_CRAWLER_NO_SCHEDULE_NO_WORKER"
+    },
+    {
+      "event_id": "SUBSET-SUM-EXPONENT-IMPROVEMENT-001",
+      "active": false,
+      "status": "PREPARED_INACTIVE",
+      "issue_timestamp": "2026-10-17T03:15:09Z",
+      "observation_start": "2026-10-17T03:15:09Z",
+      "deadline": "2031-12-31",
+      "primary_sources": [
+        "STOC/FOCS/SODA/ESA proceedings",
+        "arXiv primary versions",
+        "journal versions"
+      ],
+      "search_strategy": "Track exact worst-case Subset Sum theorem statements; separate positive weights, signed variants, equal-subset-sum, average-case, promise, quantum, and Merlin–Arthur results.",
+      "milestones": [
+        "2027-12-31",
+        "2028-12-31",
+        "2031-12-31"
+      ],
+      "partial_progress_is_not_success": true,
+      "search_miss_is_not_negative": true,
+      "outcome_categories": [
+        "EVIDENCE_FOUND_UNADJUDICATED",
+        "EVENT_ACHIEVED",
+        "PARTIAL_PROGRESS_NOT_SUCCESS",
+        "PREMISE_REVISION_NOT_SUCCESS",
+        "EVENT_CONTRADICTED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_YET_DUE"
+      ],
+      "adjudicators_required": 2,
+      "llm_counts_as_independent_reviewer": false,
+      "escalate_if_assumptions_or_model_ambiguous": true,
+      "status_only": "NO_CRAWLER_NO_SCHEDULE_NO_WORKER"
+    },
+    {
+      "event_id": "TWO-STAGE-IP-OPT-UNBOUNDED-GLOBAL-COEFF-001",
+      "active": false,
+      "status": "PREPARED_INACTIVE",
+      "issue_timestamp": "2026-10-17T03:15:09Z",
+      "observation_start": "2026-10-17T03:15:09Z",
+      "deadline": "2030-12-31",
+      "primary_sources": [
+        "SODA/ESA/ICALP proceedings",
+        "arXiv primary versions",
+        "integer-programming journals"
+      ],
+      "search_strategy": "Search the exact source phrase, two-stage stochastic integer programming optimization, large global A_i, and k/Δ_D parameterization; audit 4-block and treedepth results for coefficient assumptions.",
+      "milestones": [
+        "2027-12-31",
+        "2028-12-31",
+        "2030-12-31"
+      ],
+      "partial_progress_is_not_success": true,
+      "search_miss_is_not_negative": true,
+      "outcome_categories": [
+        "EVIDENCE_FOUND_UNADJUDICATED",
+        "EVENT_ACHIEVED",
+        "PARTIAL_PROGRESS_NOT_SUCCESS",
+        "PREMISE_REVISION_NOT_SUCCESS",
+        "EVENT_CONTRADICTED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_YET_DUE"
+      ],
+      "adjudicators_required": 2,
+      "llm_counts_as_independent_reviewer": false,
+      "escalate_if_assumptions_or_model_ambiguous": true,
+      "status_only": "NO_CRAWLER_NO_SCHEDULE_NO_WORKER"
+    },
+    {
+      "event_id": "SHALLOW-QC-IDENTITY-PTAS-001",
+      "active": false,
+      "status": "PREPARED_INACTIVE",
+      "issue_timestamp": "2026-10-17T03:15:09Z",
+      "observation_start": "2026-10-17T03:15:09Z",
+      "deadline": "2031-12-31",
+      "primary_sources": [
+        "FOCS/STOC/SODA/QIP proceedings",
+        "arXiv primary versions",
+        "quantum information journals"
+      ],
+      "search_strategy": "Search identity check, diamond norm, channel distance, shallow geometrically local circuits, and PTAS; check whether statements concern operator norm or diamond norm and whether the circuit depth is fixed.",
+      "milestones": [
+        "2027-12-31",
+        "2028-12-31",
+        "2031-12-31"
+      ],
+      "partial_progress_is_not_success": true,
+      "search_miss_is_not_negative": true,
+      "outcome_categories": [
+        "EVIDENCE_FOUND_UNADJUDICATED",
+        "EVENT_ACHIEVED",
+        "PARTIAL_PROGRESS_NOT_SUCCESS",
+        "PREMISE_REVISION_NOT_SUCCESS",
+        "EVENT_CONTRADICTED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_YET_DUE"
+      ],
+      "adjudicators_required": 2,
+      "llm_counts_as_independent_reviewer": false,
+      "escalate_if_assumptions_or_model_ambiguous": true,
+      "status_only": "NO_CRAWLER_NO_SCHEDULE_NO_WORKER"
+    },
+    {
+      "event_id": "ADAPTIVE-FDP-GDP-FILTER-MID-Q-001",
+      "active": false,
+      "status": "PREPARED_INACTIVE",
+      "issue_timestamp": "2026-10-17T03:15:09Z",
+      "observation_start": "2026-10-17T03:15:09Z",
+      "deadline": "2030-12-31",
+      "primary_sources": [
+        "AISTATS/NeurIPS/ICML/ITC/FOCS proceedings",
+        "arXiv primary versions",
+        "privacy journals"
+      ],
+      "search_strategy": "Search f-DP filters, privacy filters, approximate GDP, Poisson subsampling and adaptive composition. Verify exact q intervals, composition model, proof-level validity, and numerical-versus-analytic comparisons.",
+      "milestones": [
+        "2027-12-31",
+        "2028-12-31",
+        "2030-12-31"
+      ],
+      "partial_progress_is_not_success": true,
+      "search_miss_is_not_negative": true,
+      "outcome_categories": [
+        "EVIDENCE_FOUND_UNADJUDICATED",
+        "EVENT_ACHIEVED",
+        "PARTIAL_PROGRESS_NOT_SUCCESS",
+        "PREMISE_REVISION_NOT_SUCCESS",
+        "EVENT_CONTRADICTED",
+        "INSUFFICIENT_EVIDENCE",
+        "NOT_YET_DUE"
+      ],
+      "adjudicators_required": 2,
+      "llm_counts_as_independent_reviewer": false,
+      "escalate_if_assumptions_or_model_ambiguous": true,
+      "status_only": "NO_CRAWLER_NO_SCHEDULE_NO_WORKER"
+    }
+  ],
+  "specification_count_total": 10,
+  "status": "PREPARED_INACTIVE"
+}

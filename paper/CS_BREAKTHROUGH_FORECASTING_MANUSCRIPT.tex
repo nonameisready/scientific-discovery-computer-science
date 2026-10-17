@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{natbib}
+\title{Prospective Forecasting of Computer Science Research Breakthroughs: An Evidence-Grounded Benchmark and Evaluation Framework}
+\author{Open research draft}
+\date{October 17, 2026 --- version 0.1; not submission-ready}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Claims that artificial intelligence can predict scientific breakthroughs are difficult to test: ``breakthrough'' is often retrospective and underspecified, source information may leak across time, related questions are treated as independent, and absence of a discovered paper is mislabeled as failure. We present an evidence-grounded protocol for prospective evaluation of computer-science research forecasts. The protocol freezes a research question, point-in-time source baseline, exact event and deadline, admissible evidence, exclusions, censoring policy, research-family dependence, and independent-review requirements before the outcome window. It separates two targets: (A) direct resolution or refutation of a frozen question, and (B) substantial independently verifiable scientific progress that need not resolve it. We report an initial manually screened cohort of ten qualitative prospective questions: three previously frozen records preserved unchanged and seven newly operationalized questions across seven subfields. The cohort includes explicit exclusions for candidate problems already resolved before issuance and groups dynamic matching with its ordered Ruzsa--Szemer\'edi parameter as one dependent family. All records remain unscored, outcomes are not yet due, and monitoring is inactive. The contribution is therefore a benchmark design and pilot registry---not evidence that AI predicts breakthroughs. We specify a second-stage temporal evaluation that will compare models with simple baselines only after sufficient independently adjudicated outcomes mature.
+\end{abstract}
+
+\noindent\textbf{Keywords:} scientific forecasting; computer science; benchmark design; temporal validation; evidence adjudication; censoring.
+
+\section{Introduction}
+Research forecasting is vulnerable to hindsight. A topic can appear prescient because its endpoint is redefined after publication; publication volume can be mistaken for scientific progress; and failure to retrieve a result can be confused with evidence that no result exists. Predictive models face the additional risk that post-forecast features encode outcomes.
+
+We propose a prospective benchmark protocol for computer-science research questions. Each ``breakthrough'' is operationalized as a mathematical or empirical event with fixed scope, assumptions, comparison, deadline, and evidence standard. Forecasts are frozen with their source cutoff and content hash; evidence is subsequently collected and adjudicated. This paper does not assume that AI has predictive skill. It separates Stage 1, construction of the registry and evaluation protocol, from Stage 2, testing predictive validity after outcomes mature. The title intentionally avoids claiming a demonstrated AI capability.
+
+\section{Two outcome targets}
+For each unit $q_i$, let $t_i$ be its issue time, $d_i$ its deadline, $E_i(t_i)$ its point-in-time evidence, and $g_i$ its research-family identifier.
+
+\paragraph{Target A: direct resolution or refutation.} By $d_i$, a primary-source result must prove the frozen target, give a qualifying counterexample/refutation, or revise a premise in a way that settles the stated question. The theorem must match the frozen graph class, assumptions, model, approximation ratio, parameter regime, and quantifiers. Nearby results are partial progress.
+
+\paragraph{Target B: substantial evidence growth.} Substantial independently verifiable progress may occur without settling the original question. Candidate categories include a verified theorem or bound, matched-baseline algorithmic improvement, replicated empirical improvement, independent counterexample, premise revision, or substantive narrowing. These dimensions are not collapsed into Target A. Publication counts, citation counts, and topical similarity are not progress labels. Target B needs its own frozen rubric and adjudication pilot.
+
+Both targets distinguish \texttt{NOT\_YET\_DUE}, evidence awaiting review, qualifying event, partial progress, insufficient evidence, and verified unresolved-at-horizon. Missing evidence is not a negative label.
+
+\section{Prospective protocol}
+Before issuance, each record freezes (i) the question and source cutoff; (ii) strongest audited baseline and primary citations; (iii) exact event, deadline, assumptions, and improvement threshold; (iv) exclusions and ambiguity rules; (v) provenance, source-coverage and censoring policies, and two-reviewer requirements; (vi) family/dependence metadata; and (vii) a qualitative judgment in this pilot. Numeric probabilities are not recorded without a validated forecasting procedure.
+
+Records are content-addressed. Evidence is appended, not used to rewrite the forecast. A source search is a discovery mechanism, not an outcome label. At the deadline, source coverage and independent adjudication distinguish unresolved-at-horizon from insufficient evidence.
+
+\section{Initial cohort}
+The version-2 registry contains ten questions: three earlier records copied unchanged and seven newly frozen at 2026-10-17 03:15:09 UTC. New topics are unrestricted MAX BISECTION at the Goemans--Williamson ratio; explicit fully dynamic near-maximum matching with a fixed polynomial update-time saving; polynomial growth of a linear-density ordered Ruzsa--Szemer\'edi parameter; a fixed exponential-base improvement for worst-case exact Subset Sum; optimization for two-stage block-structured integer programs with unbounded global coefficients; a multiplicative PTAS for diamond-norm identity checking of constant-depth one-dimensional circuits; and valid approximate-GDP filters for an intermediate subsampling-rate interval. The baselines are primary works on MAX BISECTION \citep{brakensiek2026maxbisection}, dynamic matching and ORS \citep{behnezhad2024dynamic,assadi2025ors}, exact Subset Sum \citep{chen2023subsetsum,chen2025subsetsum}, block-structured integer programming \citep{cslovjecsek2024blockip}, shallow quantum identity checking \citep{bravyi2024identity}, and adaptive privacy filters \citep{tran2026fdp}.
+
+The dynamic-matching and ORS questions share a research-family identifier and are not independent forecast examples. Fourteen additional literature leads were screened; seven were operationalized and seven excluded because a related endpoint had already been resolved or semantics were too unstable. Among the excluded leads were 4-block integer programming FPT and a linear-sample QMC result, both resolved by primary work before issue. The exclusions reduce obvious hindsight contamination but do not remove selection bias.
+
+All seven new forecasts are qualitative, pending two human reviewers, and marked not yet due. No outcomes, scores, or Paper 3 labels were added. Monitoring is prepared but inactive; no crawler, worker, or scheduled job runs.
+
+\section{Stage 2: temporal evaluation}
+After enough events mature, evaluate A and B separately. Predefine chronological train/validation/test periods, group related questions by family, and compute features only from sources available at $t_i$. Preserve an untouched final period. Comparators should include publication-volume, historical field-momentum, and source-only text baselines. Any trained model must use only past labels.
+
+Report event/family counts; positive, negative, and censored counts; adjudication procedures; calibration and proper scoring only for probability forecasts; ranking metrics where appropriate; family-aware uncertainty; and power limitations. Do not report AUROC or probabilities when label quantity or class structure cannot support them. A search miss is never a failure label. Paper 3's direct-resolution Target A and evidence-growth Target B remain separate; transfer from another scientific corpus is not presumed valid.
+
+\section{Research planning is a separate claim}
+Paper 4 structures competing hypotheses, evidence graphs, missing evidence, candidate actions, costs, feasibility, and assumed information gain. This registry does not validate its action ranking or demonstrate planner superiority. Planning utility requires separate prospective action records and measured evidence changes; it is not a forecasting score.
+
+\section{Limitations and governance}
+The pilot has ten selected questions, no mature outcomes, qualitative editorial judgments, uneven subfield coverage, and dependent events. The family map is coarse. The three original records were issued at 2026-10-17 02:47:37 UTC, while their snapshot metadata gives a nominal horizon start of 2027-01-01 and their event wording says ``by deadline.'' We preserve both; post-issue evidence before 2027-01-01 must be reported separately as an early-resolution interval, not silently used to rewrite a frozen date.
+
+This is a pilot registry, not a validated public benchmark or evidence of AI skill. Submission should wait for systematic prior-art review, domain-expert event review, a formal Target B rubric, blinded adjudication pilot, transparent inclusion flow, provenance/license audit, and a larger cohort. No external submission, OpenFindings publication, or outcome crawler is authorized by this manuscript.
+
+\section{Conclusion}
+Prospective scientific-forecast evaluation requires a frozen future event, information boundary, dependency structure, and evidence rules. We provide a small auditable cohort and a protocol that keeps direct resolution, broader progress, forecasting, and research planning separate. Current evidence supports a benchmark/methodology program, not a claim that AI predicts computer-science breakthroughs. Whether models outperform simple baselines remains a future empirical question.
+
+\section*{Data and reproducibility}
+The repository contains the cohort, inactive monitoring specification, manifest, append-only snapshot, screening report, and regression test. The manifest records content hashes; original records remain unchanged. No licensed full-text corpus is included. Validation: \texttt{python3 -m unittest tests.test\_prospective\_cohort\_v2}.
+
+\begin{thebibliography}{99}
+\bibitem[Bentert et~al.(2024)]{bentert2024twosets} M. Bentert et al. ``Two-Sets Cut-Uncut on Planar Graphs.'' ICALP 2024. DOI: \href{https://doi.org/10.4230/LIPIcs.ICALP.2024.22}{10.4230/LIPIcs.ICALP.2024.22}.
+\bibitem[Bringmann et~al.(2019)]{bringmann2019frechet} K. Bringmann, M. K\"unnemann, and A. Nusser. ``Frechet Distance Under Translation: Conditional Hardness and an Algorithm via Offline Dynamic Grid Reachability.'' SODA 2019; arXiv:1810.10982.
+\bibitem[Brakensiek et~al.(2026)]{brakensiek2026maxbisection} J. Brakensiek, M. Huang, A. Potechin, and U. Zwick. ``MAX BISECTION Might Be Harder to Approximate than MAX CUT.'' SODA 2026. DOI: \href{https://doi.org/10.1137/1.9781611978971.197}{10.1137/1.9781611978971.197}.
+\bibitem[Behnezhad and Ghafari(2024)]{behnezhad2024dynamic} S. Behnezhad and M. Ghafari. ``Fully Dynamic Matching and Ordered Ruzsa--Szemer\'edi Graphs.'' FOCS 2024. DOI: \href{https://doi.org/10.1109/FOCS61266.2024.00027}{10.1109/FOCS61266.2024.00027}.
+\bibitem[Assadi et~al.(2025)]{assadi2025ors} S. Assadi, S. Khanna, and P. Kiss. ``Improved Bounds for Fully Dynamic Matching via Ordered Ruzsa--Szemer\'edi Graphs.'' SODA 2025. DOI: \href{https://doi.org/10.1137/1.9781611978322.96}{10.1137/1.9781611978322.96}.
+\bibitem[Chen et~al.(2025)]{chen2025subsetsum} L. Chen, C. Jin, W. Randolph, and R. Servedio. ``New Algorithms for Pigeonhole Equal Subset Sum.'' ESA 2025. DOI: \href{https://doi.org/10.4230/LIPIcs.ESA.2025.86}{10.4230/LIPIcs.ESA.2025.86}.
+\bibitem[Chen et~al.(2023)]{chen2023subsetsum} L. Chen, C. Jin, W. Randolph, and R. Servedio. ``Subset Sum in Time $2^{n/2}/\mathrm{poly}(n)$.'' arXiv:2301.07134, 2023.
+\bibitem[Cslovjecsek et~al.(2024)]{cslovjecsek2024blockip} J. Cslovjecsek et al. ``Parameterized Algorithms for Block-Structured Integer Programs with Large Entries.'' SODA 2024. DOI: \href{https://doi.org/10.1137/1.9781611977912.29}{10.1137/1.9781611977912.29}.
+\bibitem[Bravyi et~al.(2024)]{bravyi2024identity} S. Bravyi, T. Parham, and M. C. Tran. ``Identity Check Problem for Shallow Quantum Circuits.'' arXiv:2401.16525, 2024.
+\bibitem[Tran et~al.(2026)]{tran2026fdp} H. Tran et al. ``$f$-Differential Privacy Filters: Validity and Approximate Solutions.'' arXiv:2602.06756, 2026.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "ledger_type": "APPEND_ONLY_TASK_CYCLE_SUMMARIES",
+  "records": [
+    {
+      "record_id": "CS-FORECAST-COHORT-V2-20261017-001",
+      "timestamp": "2026-10-17T03:15:09Z",
+      "task": "Scientific Discovery 9.0: expand prospective CS forecasting cohort and prepare benchmark/methodology manuscript",
+      "artifact_manifest": "data/forecast_engine/prospective_cohort_v2_manifest.json",
+      "cohort_id": "CS-PROSPECTIVE-COHORT-V2-20261017",
+      "result": "7 new qualitative records frozen; 3 original records preserved; no outcomes, probabilities, predictive scores, or active monitoring",
+      "classification": "PROSPECTIVE_BENCHMARK_PILOT_ONLY",
+      "paper_title": "Prospective Forecasting of Computer Science Research Breakthroughs: An Evidence-Grounded Benchmark and Evaluation Framework",
+      "paper_stage": "STAGE_1_BENCHMARK_METHODS",
+      "stage_2_gate": "Wait for sufficient matured independent labels; evaluate Target A and Target B separately with temporal/family-aware splits.",
+      "paper3_target_a_changed": false,
+      "paper3_target_b_changed": false,
+      "paper4_utility_validated": false,
+      "monitoring_active": false,
+      "scientific_success": false,
+      "limits": [
+        "Ten selected questions are not a representative benchmark.",
+        "Forecasts are qualitative and pending human review.",
+        "No mature outcomes exist; model performance is not evaluable.",
+        "Dynamic-matching and ORS questions are dependent and share one family."
+      ]
+    }
+  ]
+}

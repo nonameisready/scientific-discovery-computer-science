@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-10-17T03:15:09Z",
+  "decision": "PROSPECTIVE_COHORT_EXPANDED_QUALITATIVELY; NO_FORECAST_ACCURACY_CLAIM",
+  "original_forecast_count": 3,
+  "new_forecast_count": 7,
+  "total_forecast_count": 10,
+  "new_research_families": [
+    "BLOCK-STRUCTURED-INTEGER-PROGRAMMING-LARGE-GLOBAL-COEFFICIENTS",
+    "DYNAMIC-MATCHING-AND-ORS-EXTREMAL-STRUCTURE",
+    "FULLY-ADAPTIVE-PRIVACY-FILTERS-SUBSAMPLED-GAUSSIAN",
+    "MAX-BISECTION-APPROXIMATION-THRESHOLD",
+    "SHALLOW-QUANTUM-CIRCUIT-IDENTITY-CHECK",
+    "WORST-CASE-EXACT-SUBSET-SUM-RUNTIME"
+  ],
+  "subfield_counts_total": {
+    "planar_graph_algorithms": 1,
+    "computational_geometry": 1,
+    "DISTRIBUTED_ALGORITHM_THEOREM": 1,
+    "approximation_algorithms": 1,
+    "dynamic_graph_algorithms": 1,
+    "extremal_combinatorics": 1,
+    "exact_exponential_algorithms": 1,
+    "parameterized_complexity_integer_programming": 1,
+    "quantum_algorithms_and_complexity": 1,
+    "differential_privacy_and_theory": 1
+  },
+  "directions": {
+    "HIGHLY_UNCERTAIN_WITH_DIRECTIONAL_LEAN": 3,
+    "UNLIKELY_BEFORE_DEADLINE": 4
+  },
+  "deadlines": {
+    "MAXBISECTION-GW-APPROX-001": "2031-12-31",
+    "DYNAMIC-MATCHING-POLY-EXPONENT-001": "2031-12-31",
+    "ORS-POLYNOMIAL-GROWTH-001": "2030-12-31",
+    "SUBSET-SUM-EXPONENT-IMPROVEMENT-001": "2031-12-31",
+    "TWO-STAGE-IP-OPT-UNBOUNDED-GLOBAL-COEFF-001": "2030-12-31",
+    "SHALLOW-QC-IDENTITY-PTAS-001": "2031-12-31",
+    "ADAPTIVE-FDP-GDP-FILTER-MID-Q-001": "2030-12-31"
+  },
+  "new_snapshot_id": "SNAP-PROSPECTIVE-CS-f929c4419e1804f1",
+  "new_snapshot_sha256": "f1b81ae45eb85f446e1d1e7791b7d4a12a34574c1225ca759b1fa61dd4b9df48",
+  "original_forecasts_byte_preserved": true,
+  "paper3_target_a": "SEPARATE; no direct outcome labels or scores added.",
+  "paper3_target_b": "SEPARATE; no evidence-growth outcome labels or scores added.",
+  "paper4": "Action recommendations remain unvalidated; no planner utility result is claimed.",
+  "monitoring": "PREPARED_INACTIVE; no jobs, workers, or crawlers started.",
+  "candidate_discovery": {
+    "new_candidate_questions_screened": 14,
+    "fully_operationalized": 7,
+    "frozen": 7,
+    "subfields_in_depth": 7,
+    "rejected_or_excluded": [
+      {
+        "candidate": "4-block IP FPT parameterized by block dimension and maximum coefficient",
+        "reason": "Resolved by two 2026 primary preprints before this issue; not prospectively forecastable.",
+        "sources": ["https://arxiv.org/abs/2609.23711", "https://arxiv.org/abs/2609.26746"]
+      },
+      {
+        "candidate": "QMC beyond-Hardy–Krause with O(n) samples",
+        "reason": "Resolved in the 2026 primary follow-up before issue; not forecastable.",
+        "sources": ["https://arxiv.org/abs/2609.10921"]
+      },
+      {
+        "candidate": "Minimum dilation tree sublinear approximation",
+        "reason": "A September 2026 primary preprint already gives a sublinear approximation; broad target was already achieved.",
+        "sources": ["https://arxiv.org/abs/2609.08990"]
+      },
+      {
+        "candidate": "Unit-disk graph diameter truly subquadratic algorithm",
+        "reason": "A 2025 primary theorem already resolves this open question.",
+        "sources": ["https://arxiv.org/abs/2510.16346"]
+      },
+      {
+        "candidate": "Minimum cover of orthogonal polygons with squares in polynomial time",
+        "reason": "The cited 2024 primary paper already gives an O(n^10) exact algorithm.",
+        "sources": ["https://arxiv.org/abs/2407.02658"]
+      },
+      {
+        "candidate": "MinCSP point-algebra parameterized classification",
+        "reason": "The 2023 primary paper reports a complete classification; no fresh unresolved child endpoint was identified.",
+        "sources": ["https://arxiv.org/abs/2310.05839"]
+      },
+      {
+        "candidate": "Stateless asynchronous amnesiac flooding",
+        "reason": "The source question lacks a sufficiently stable frozen scheduler/fairness/termination model for an honest prospective endpoint in this cycle."
+      }
+    ]
+  }
+}

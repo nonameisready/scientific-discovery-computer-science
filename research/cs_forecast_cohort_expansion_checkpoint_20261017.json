@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "checkpoint_id": "CS-PROSPECTIVE-COHORT-V2-20261017",
+  "created_at": "2026-10-17T03:18:52Z",
+  "status": "PILOT_COHORT_FROZEN_NO_PREDICTIVE_EVALUATION",
+  "cohort_path": "data/forecast_engine/prospective_cohort_v2.json",
+  "monitoring_path": "data/forecast_engine/prospective_cohort_v2_monitoring.json",
+  "manifest_path": "data/forecast_engine/prospective_cohort_v2_manifest.json",
+  "report_path": "reports/CS_PROSPECTIVE_COHORT_EXPANSION.md",
+  "manuscript_path": "paper/CS_BREAKTHROUGH_FORECASTING_MANUSCRIPT.md",
+  "research_question": "Can prospective CS research forecasts be made independently adjudicable and evaluated without hindsight leakage, proxy labels, or treating dependent questions as independent?",
+  "hypothesis": "A frozen event registry with exact scope, source cutoffs, censoring, family dependencies, and independent review can provide a valid substrate for later forecasting evaluation; this cycle does not test forecast skill.",
+  "observed_result": {
+    "original_records_preserved": 3,
+    "new_records_frozen": 7,
+    "total_records": 10,
+    "additional_candidates_screened": 14,
+    "operationalized": 7,
+    "excluded_or_rejected": 7,
+    "new_subfields": 7,
+    "mature_outcomes": 0,
+    "forecast_accuracy_metrics": 0,
+    "human_adjudications": 0,
+    "active_monitors": 0
+  },
+  "scientific_interpretation": [
+    "The cohort is a small, selected pilot registry, not a representative or validated benchmark.",
+    "The dynamic-matching and ORS questions share one research family and cannot be counted as independent samples.",
+    "Paper 3 Target A direct resolution/refutation and Target B evidence growth remain separate; no labels or scores were added.",
+    "Paper 4 action-planning utility remains unvalidated.",
+    "The proper current paper claim is benchmark/methodology design; predictive validity is a separate future paper after outcomes mature."
+  ],
+  "historical_boundary": {
+    "original_issue_timestamp": "2026-10-17T02:47:37Z",
+    "original_snapshot_nominal_observation_start": "2027-01-01",
+    "original_exact_event_wording": "by deadline",
+    "handling": "Preserve original rows. If qualifying evidence appears from original issue through 2026-12-31, report this as a separate early-resolution interval; do not rewrite frozen issue or horizon fields."
+  },
+  "monitoring": "PREPARED_INACTIVE; no crawler, scheduled job, worker, or service started.",
+  "validation": {
+    "focused_tests": "passed; 5 tests",
+    "full_tests": "passed; 104 tests under PYTHONPATH=src /opt/homebrew/bin/python3.12",
+    "research_check": "passed; task_count=58, ledger_records=10",
+    "latex_compile": "passed with built-in standalone compiler",
+    "snapshot_and_cohort_hashes": "passed focused test; original forecast rows and source-file hashes match"
+  },
+  "open_requirements_before_submission": [
+    "Independent domain-expert review of event definitions and source cutoffs.",
+    "Systematic prior-art review of prospective scientific forecasting benchmarks.",
+    "Formal Target B rubric and blinded evidence-adjudication pilot.",
+    "Transparent inclusion flow, data dictionary, license/provenance audit, and larger cohort.",
+    "Do not claim predictive skill until independent outcome labels and valid temporal holdout exist."
+  ],
+  "success_claim": false,
+  "predictive_skill_claim": false,
+  "monitoring_activated": false
+}
