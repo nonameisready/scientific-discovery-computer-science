@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "manifest_id": "MANIFEST-FINAL-CS-PORTFOLIO-2027-2031-20261017",
+  "created_at": "2026-10-17T03:50:01Z",
+  "hash_algorithm": "SHA-256",
+  "hash_scope": "Exact repository file bytes. These hashes protect local artifacts; they are not hashes of cited source papers.",
+  "artifacts": [
+    {
+      "path": "data/forecast_engine/final_breakthrough_portfolio.json",
+      "sha256": "0d91c2a0a342dc4e2e1b1ce9640eec3bc0535592133d0f77d1027d50ff66de6c",
+      "role": "portfolio index with two horizon rankings"
+    },
+    {
+      "path": "reports/FINAL_CS_BREAKTHROUGH_FORECAST_2027_2031.json",
+      "sha256": "1950341a3ea1d2ffb4eb759c4faf4c3efff0ca16f71e294b80d99c6edbe4e08a",
+      "role": "canonical detailed candidate evidence, uncertainty and verification records"
+    }
+  ],
+  "frozen_inputs_verified_unchanged": [
+    {
+      "path": "data/forecast_engine/prospective_cohort_v2.json",
+      "sha256": "4ebe6a6e94a2aa1cde24280395bef18732ffe6ba7771f3d3710f2b49f51c1ea9"
+    },
+    {
+      "path": "data/forecast_engine/activated_forecasts.json",
+      "sha256": "9d545d952e922ab162355574010eec125aafbfa335202885ab9260d10309727e"
+    },
+    {
+      "path": "data/forecast_engine/followup_snapshots.jsonl",
+      "sha256": "4d1201680663b91e27518154db2e29de512f040078ecb9e386baf4430f4e7b60"
+    },
+    {
+      "path": "data/forecast_engine/prospective_cohort_v2_manifest.json",
+      "sha256": "1acfc9f0a27a7bdba3a9679affe9f496df059c82690c6164975fed7e3990fe4e"
+    }
+  ],
+  "source_paper_hashes": "NOT_PROVIDED; citations are not full-text content hashes",
+  "new_forecast_events": 0,
+  "new_outcome_labels": 0,
+  "model_scores": 0
+}

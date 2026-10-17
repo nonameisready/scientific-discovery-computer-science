@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "portfolio_id": "FINAL-CS-BREAKTHROUGH-PORTFOLIO-2027-2031-20261017",
+  "as_of": "2026-10-17T03:50:01Z",
+  "forecast_type": "QUALITATIVE_UNCALIBRATED_FORECAST",
+  "canonical_detail_file": "reports/FINAL_CS_BREAKTHROUGH_FORECAST_2027_2031.json",
+  "canonical_detail_semantics": "All question statements, evidence, counterevidence, uncertainty, verification procedures and forecast caveats are defined in the canonical detail file. This index contains no probabilities.",
+  "horizon_rankings": {
+    "2027-2028": [
+      {"rank": 1, "opportunity_id": "REPOSITORY_CODE_AND_PROOF_SYNTHESIS", "frozen_event_id": null},
+      {"rank": 2, "opportunity_id": "JOINT_LLM_INFERENCE_SCHEDULING_KV_SPECULATION", "frozen_event_id": null},
+      {"rank": 3, "opportunity_id": "ADAPTIVE_FDP_FILTER_INTERMEDIATE_REGIME", "frozen_event_id": "ADAPTIVE-FDP-GDP-FILTER-MID-Q-001"},
+      {"rank": 4, "opportunity_id": "DYNAMIC_APPROXIMATE_MAXIMUM_MATCHING_FIXED_EXPONENT", "frozen_event_id": "DYNAMIC-MATCHING-POLY-EXPONENT-001"},
+      {"rank": 5, "opportunity_id": "ARTIFACT_LEVEL_MULTIAGENT_PROCESS_VERIFICATION", "frozen_event_id": null}
+    ],
+    "2029-2031": [
+      {"rank": 1, "opportunity_id": "DYNAMIC_MATCHING_ORS_EXTREMAL_CHAIN", "frozen_event_id": "DYNAMIC-MATCHING-POLY-EXPONENT-001", "related_frozen_event_id": "ORS-POLYNOMIAL-GROWTH-001"},
+      {"rank": 2, "opportunity_id": "PLANAR_THREE_SETS_CUT_UNCUT_112", "frozen_event_id": "PLANAR-THREE-SETS-CUT-UNCUT-112"},
+      {"rank": 3, "opportunity_id": "PLANAR_TRANSLATION_DISCRETE_FRECHET_N4", "frozen_event_id": "DISCRETE-FRECHET-TRANSLATION-PLANAR-N4"},
+      {"rank": 4, "opportunity_id": "TWO_STAGE_IP_UNBOUNDED_GLOBAL_COEFFICIENTS", "frozen_event_id": "TWO-STAGE-IP-OPT-UNBOUNDED-GLOBAL-COEFF-001"},
+      {"rank": 5, "opportunity_id": "AUTONOMOUS_RESEARCH_AGENT_REPRODUCIBLE_EVIDENCE", "frozen_event_id": null}
+    ]
+  },
+  "linked_frozen_registry": {
+    "path": "data/forecast_engine/prospective_cohort_v2.json",
+    "cohort_id": "CS-PROSPECTIVE-COHORT-V2-20261017",
+    "expected_file_sha256": "4ebe6a6e94a2aa1cde24280395bef18732ffe6ba7771f3d3710f2b49f51c1ea9",
+    "immutability_note": "Original 10 event records are not copied or edited by this index. The ORS deadline conflict remains in the source record and the linked audit."
+  },
+  "new_prospective_events_frozen": 0,
+  "not_frozen_reason": "No newly found lead had a non-arbitrary cross-source threshold and stable event definition that passed the event-freeze gate; do not invent thresholds or backdate a forecast."
+}
