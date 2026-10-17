@@ -30,6 +30,8 @@ class ControllerConfig:
     slo_weight: float = 1.0
     acceptance_floor: float = 0.05
     hysteresis: float = 0.0
+    age_weight: float = 0.1
+    utilization_weight: float = 1.0
 
 
 @dataclass(frozen=True)
@@ -70,10 +72,13 @@ class ShadowPriceController:
         persistent = accepted * c.block_bytes
         transient = k * c.block_bytes
         peak = used + transient + persistent
-        pressure_term = (peak - (c.capacity_bytes - c.reserve_bytes)) / max(1, c.block_bytes)
-        pressure_term = max(0.0, pressure_term)
+        safe_capacity = max(1, c.capacity_bytes - c.reserve_bytes)
+        utilization = peak / safe_capacity
+        # Hard feasibility is checked separately.  This soft term makes the
+        # policy react before the allocator reaches the hard cap.
+        pressure_term = max(0.0, utilization - 0.5) * transient / max(1, c.block_bytes)
         eviction_term = max(0.0, persistent - r.prefix_reuse_value)
-        useful = accepted + 0.25 * r.prefix_reuse_value + 0.5 * r.slo_debt
+        useful = accepted + 0.25 * r.prefix_reuse_value + 0.5 * r.slo_debt + c.age_weight * r.age
         score = useful - c.pressure_weight * (pressure_term + self.pressure_shadow * transient)
         score -= c.eviction_weight * (eviction_term + self.eviction_shadow * persistent)
         score -= c.slo_weight * max(0.0, -r.slo_debt)

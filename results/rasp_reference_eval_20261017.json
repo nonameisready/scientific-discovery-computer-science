@@ -1,0 +1,22 @@
+{
+  "evidence_level": "TRACE_SIMULATED",
+  "seed": 20261017,
+  "capacity": 24,
+  "batch": 8,
+  "command": "python3 -m research.llm_inference_joint_control.run_reference_evaluation",
+  "selected_results": [
+    {"scenario": "severe_pressure", "policy": "rasp", "goodput": 3, "p95_latency": 9.0, "deadline_misses": 0, "starvation_events": 0, "peak_bytes": 20, "speculative_tokens": 8},
+    {"scenario": "severe_pressure", "policy": "accept-adaptive-4-0.5", "goodput": 3, "p95_latency": 4.0, "deadline_misses": 0, "starvation_events": 0, "peak_bytes": 20, "speculative_tokens": 20},
+    {"scenario": "low_acceptance", "policy": "rasp", "goodput": 0, "p95_latency": "inf", "deadline_misses": 0, "starvation_events": 1161, "peak_bytes": 22, "speculative_tokens": 8},
+    {"scenario": "low_acceptance", "policy": "fixed-4", "goodput": 4, "p95_latency": 23.0, "deadline_misses": 2, "starvation_events": 35, "peak_bytes": 19, "speculative_tokens": 192},
+    {"scenario": "burst", "policy": "rasp", "goodput": 1, "p95_latency": 3.0, "deadline_misses": 0, "starvation_events": 1357, "peak_bytes": 22, "speculative_tokens": 7},
+    {"scenario": "burst", "policy": "fixed-4", "goodput": 6, "p95_latency": 19.0, "deadline_misses": 2, "starvation_events": 32, "peak_bytes": 22, "speculative_tokens": 160},
+    {"scenario": "starvation", "policy": "rasp", "goodput": 9, "p95_latency": 2.0, "deadline_misses": 0, "starvation_events": 6, "peak_bytes": 18, "speculative_tokens": 8},
+    {"scenario": "starvation", "policy": "accept-adaptive-4-0.5", "goodput": 9, "p95_latency": 1.0, "deadline_misses": 0, "starvation_events": 0, "peak_bytes": 18, "speculative_tokens": 32}
+  ],
+  "limitations": [
+    "Reference trace only; no GPU measurements.",
+    "The bounded harness has no engine-level preemption/offload implementation; eviction and recomputation counters remained zero in this matrix.",
+    "Selected rows summarize the full deterministic command output; they are not a statistical estimate."
+  ]
+}
