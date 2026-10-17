@@ -28,3 +28,10 @@ python3 -m unittest -v \
 ```
 
 Then use a pinned engine checkout to implement and test the actual mapping. The current adapter is a contract plus fake-engine test, not a production vLLM patch.
+
+`vllm_bridge.py` now implements the object-shape mapping for the pinned V1
+surface and is tested with fake scheduler/KV objects. It is still not a
+production patch: the missing per-request acceptance, SLO, and telemetry fields
+are read from optional `rasp_*` attributes and default conservatively. A real
+vLLM fork must populate those attributes and apply the returned decisions before
+`KVCacheManager.allocate_slots()`.
