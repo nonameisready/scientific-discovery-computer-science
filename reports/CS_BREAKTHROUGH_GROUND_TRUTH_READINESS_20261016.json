@@ -1,0 +1,116 @@
+{
+  "report_id": "CS-BREAKTHROUGH-GROUND-TRUTH-READINESS-20261016",
+  "audit_created_at": "2026-10-17T00:02:01Z",
+  "baseline_cutoff": "2026-10-16",
+  "scope": "Bounded read-only audit of current frozen cohorts, source screens, trajectory artifacts, endpoint readiness, and Paper 4 action records. No cohort rows, labels, model scores, or experiments were created.",
+  "evidence_level_vocabulary": [
+    "VERIFIED_SOURCE_FACT",
+    "PROPOSED_ENDPOINT",
+    "CANDIDATE_OUTCOME_EVIDENCE",
+    "INDEPENDENTLY_ADJUDICATED_OUTCOME",
+    "UNRESOLVED",
+    "MISSING_EVIDENCE",
+    "NOT_YET_DUE"
+  ],
+  "source_native_paper3_taxonomy_recovery": {
+    "status": "MISSING_EVIDENCE",
+    "repository": "https://github.com/nonameisready/scientific-question-outcome-prediction-indicators",
+    "pinned_commit_from_local_provenance": "9b842fb0105c58819c4a5e6401ce984bd5b28b90",
+    "expected_files": ["paper/paper3.md", "pipeline/models.py", "docs/design_mapping.md", "results/baselines.json"],
+    "provenance_record": "docs/paper3_paper4_source_audit.md",
+    "locally_verified_high_level_targets": ["future attention", "scientific resolution", "premise revision"],
+    "locally_reported_classifier_shape": "five-way outcome classifier; exact source-native class strings, class definitions, and annotation rules are not present in the local audit artifact",
+    "retrieval_attempts": [
+      {"method": "pinned raw GitHub file URLs through web retrieval", "result": "fetch failed (cache miss)", "files": ["paper/paper3.md", "pipeline/models.py", "docs/design_mapping.md"]},
+      {"method": "pinned GitHub blob URLs through web retrieval", "result": "fetch failed (cache miss)", "files": ["paper/paper3.md", "pipeline/models.py", "docs/design_mapping.md"]},
+      {"method": "local source checkout search", "result": "no checkout found under inspected user tree"}
+    ],
+    "policy": "Do not guess the five classes, reconstruct them from reported counts, or map the project's separate CS dimensions into source-native labels. Recover exact strings and line-level rules only from the pinned source contents.",
+    "taxonomy_mapping": null
+  },
+  "paper4_source_provenance": {
+    "repository": "https://github.com/nonameisready/scientific-evidence-planner",
+    "pinned_commit_from_local_provenance": "d3b61480a390a224bff9d688322f26270734c0a4",
+    "provenance_record": "docs/paper3_paper4_source_audit.md",
+    "status": "VERIFIED_SOURCE_FACT_FROM_LOCAL_PINNED_SOURCE_AUDIT",
+    "boundary": "The audit describes an offline action-ranking planner; it does not execute research actions. The exact publication URL remains unresolved in the local audit."
+  },
+  "historical_cohort_readiness": {
+    "paper3_target_a": {
+      "frozen_protocol": "research/historical_outcome_label_protocol_v1.json",
+      "cohorts": [
+        {"cohort_id": "HCS-BLIND-20-2026-10-14", "selected_source_papers": 20, "source_eligible_questions": 13, "source_ineligible_or_unavailable": 7, "cutoff_years": [2018, 2019, 2020, 2021], "followup_years_matured_as_of_2026_10_17": true, "direct_positive": 0, "direct_refutation_or_revision": 0, "explicit_verified_unresolved": 0, "unadjudicated_eligible": 13, "candidate_near_matches_not_labels": 0},
+        {"cohort_id": "PAPER3-DIRECT-ENDPOINT-ROUND6-2026-10-15", "selected_source_papers": 16, "source_eligible_questions": 6, "source_ineligible_or_unavailable": 10, "cutoff_years": [2017, 2018, 2019, 2020], "followup_years_matured_as_of_2026_10_17": true, "authenticated_primary_followup_coverage": "5/6", "direct_positive": 0, "direct_negative": 0, "unadjudicated_eligible": 6, "near_matches_excluded": 5}
+      ],
+      "independent_question_units_across_these_two_cohorts": 19,
+      "family_clusters_verified": null,
+      "distinct_cutoff_blocks": [2017, 2018, 2019, 2020, 2021],
+      "temporal_holdout_available": false,
+      "class_imbalance": "No labeled positive or negative classes; 19 eligible units are unadjudicated, not negative.",
+      "source_independence": "Five bounded primary follow-up records in Round 6 are near/adjacent/same-line and excluded from direct labels; no independently adjudicated direct outcome exists.",
+      "leakage_risks": ["Do not use post-cutoff follow-up records as predictors", "Do not expose future evidence while reconstructing historical question/features", "Do not split repeated or related research families across train/test"],
+      "frozen_gate": "At least 20 labeled questions, at least 5 positive and 5 negative, at least 3 question-family groups in every chronological evaluation split, plus independent adjudication.",
+      "readiness": "NOT_EVALUABLE",
+      "gate_failures": ["19 eligible source questions across these two audited cohorts, versus at least 20 required; more importantly, 0 positives and 0 negatives", "No verified unresolved labels", "Family clustering not completed", "No valid temporal contrast or untouched labeled test period"]
+    },
+    "paper3_target_b": {
+      "frozen_protocol": "research/paper3_target_b_protocol_v1.json",
+      "cohort": {"cohort_id": "HCS-OBSERVABLE-16-2026-10-14", "selected_source_papers": 16, "source_screened": 16, "eligible_questions": 12, "ineligible": 4, "cutoff_years": [2017, 2018, 2019, 2020], "followup_years_matured_as_of_2026_10_17": true},
+      "candidate_evidence_dimensions": {"partial_progress_rows": 5, "independent_evidence_strengthening_rows": 1, "scope_narrowing_or_reformulation_rows": 3, "direct_resolution_rows": 0, "premise_refutation_or_revision_rows": 0, "contradictory_evidence_rows": 0, "continued_explicit_uncertainty_rows": 0},
+      "independently_adjudicated_substantive_progress": 0,
+      "independently_verified_no_progress": 0,
+      "unadjudicated_or_missing": 12,
+      "family_clusters_verified": null,
+      "distinct_cutoff_blocks": [2017, 2018, 2019, 2020],
+      "temporal_holdout_available": false,
+      "frozen_gate": "At least 30 questions, at least 10 independently adjudicated positives and 10 verified no-progress/negative outcomes, at least 3 grouped chronological holdout blocks, and a frozen feature table.",
+      "readiness": "NOT_EVALUABLE",
+      "gate_failures": ["12 eligible questions versus at least 30 required", "0 independently adjudicated positives and 0 verified no-progress outcomes", "The 5+1+3 trajectory observations are candidate evidence records, not final human labels", "No grouped temporal holdout with valid labels"]
+    },
+    "combined_accounting_note": "The original 20-paper blind cohort, separate 16-paper trajectory cohort, and Round 6 cohort were selected under different frozen protocols. Their eligible source-paper rows total 31 (13+12+6) and span five cutoff years, with no known selected-ID overlap by protocol. This sum is a bookkeeping total, not a single exchangeable benchmark; research-family deduplication and common outcome adjudication remain absent. Target A's relevant established cohort count is 19 (13+6), not the 31-row union.",
+    "not_yet_due_cases": 0,
+    "radar_proposed_endpoints_without_active_horizon": 12,
+    "global_decision": "NOT_EVALUABLE",
+    "metrics_not_computed": ["AUROC", "AUPRC", "F1", "Brier score", "calibration", "ranking performance", "forecast probabilities"]
+  },
+  "radar_endpoint_readiness": {
+    "baseline": "2026-10-16 editorial snapshot; endpoint definitions were not frozen in that snapshot",
+    "records": "data/forecast_engine/radar_endpoint_operationalization_20261016.json",
+    "candidate_count": 12,
+    "freeze_ready_count": 0,
+    "needs_endpoint_design_count": 11,
+    "requires_reframing_due_to_prior_art_count": 1,
+    "prospective_forecasts_created": 0,
+    "outcomes_created": 0,
+    "reason": "Each item still lacks at least one essential unit, threshold, comparator, source/version, or independent oracle. Proposals postdate the radar and are not retrospective predictions."
+  },
+  "paper4_action_validation_readiness": {
+    "existing_audit": "reports/paper4_action_outcome_audit.json",
+    "prospective_plan_schema": "schemas/forecast_engine/paper4_action_plan.schema.json",
+    "action_outcome_schema": "schemas/forecast_engine/paper4_action_outcome.schema.json",
+    "audited_non_qaoa_feasibility_actions": 5,
+    "matched_pre_action_plan_outcome_cases": 1,
+    "independently_verified_efficacy_outcomes": 0,
+    "rank_agreement_or_calibration": null,
+    "readiness": "NOT_EVALUABLE",
+    "future_protocol": "docs/CS_BREAKTHROUGH_OUTCOME_ADJUDICATION_PROTOCOL.md#paper-4-prospective-action-validation",
+    "current_assignment_actions_executed": 0
+  },
+  "independent_adjudication": {
+    "protocol": "docs/CS_BREAKTHROUGH_OUTCOME_ADJUDICATION_PROTOCOL.md",
+    "worksheet_schema": "schemas/forecast_engine/adjudication_worksheet.schema.json",
+    "worksheet_template": "data/forecast_engine/adjudication_worksheet_template.json",
+    "agreement_claimed": false,
+    "historical_cases_re_adjudicated_in_this_cycle": 0
+  },
+  "integrity": {
+    "frozen_cohorts_modified": false,
+    "historical_labels_modified": false,
+    "paper3_or_paper4_method_code_modified": false,
+    "model_fit_or_inference": false,
+    "experiment_or_simulation": false,
+    "worker_or_service_started": false,
+    "new_cohort_or_successor_task_created": false,
+    "restricted_source_files_committed": false
+  }
+}

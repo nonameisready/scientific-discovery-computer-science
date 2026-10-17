@@ -1,0 +1,54 @@
+{
+  "worksheet_id": "",
+  "question_id": "",
+  "question_version": "",
+  "endpoint": "resolution",
+  "reviewer_id": "",
+  "review_started_at": null,
+  "independence_declaration": {
+    "authorship_or_collaboration": null,
+    "prior_involvement": null,
+    "conflicts": null,
+    "independent_of_other_reviewer": null
+  },
+  "frozen_endpoint": {
+    "source_question": null,
+    "source_version": null,
+    "cutoff": null,
+    "observation_end": null,
+    "object": null,
+    "assumptions": null,
+    "computational_model": null,
+    "baseline": null,
+    "metric_denominator": null,
+    "threshold": null,
+    "falsification_condition": null,
+    "criterion_version": null
+  },
+  "candidate_evidence": [],
+  "match_checks": {
+    "question_object": "PENDING",
+    "assumptions": "PENDING",
+    "computational_model": "PENDING",
+    "baseline": "PENDING",
+    "metric_denominator": "PENDING",
+    "threshold_falsifier": "PENDING",
+    "date_version": "PENDING",
+    "independence": "PENDING",
+    "evidence_completeness": "PENDING"
+  },
+  "dimension_decisions": {
+    "attention": "PENDING",
+    "direct_resolution": "PENDING",
+    "premise_refutation_or_revision": "PENDING",
+    "substantive_evidence_progress": "PENDING",
+    "contradiction": "PENDING",
+    "computational_impact": "PENDING"
+  },
+  "decision": "PENDING",
+  "rationale": null,
+  "limitations": [],
+  "second_review_required": true,
+  "review_status": "NOT_STARTED",
+  "instructions": "A blank or pending field is not a negative outcome. This template records a candidate review only; it is not a label until two independent reviewers complete it under the frozen endpoint protocol."
+}
