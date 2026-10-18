@@ -1,8 +1,8 @@
 # Tail-latency decomposition result
 
-The capacity-pressure sweep now records short/urgent requests separately from
-long requests. A short request is defined by the frozen simulator rule
-`duration <= 8`; this is a workload label, not a post-hoc outcome label. The
+The capacity-pressure sweep now records explicit `priority="urgent"` requests
+separately from normal requests. Priority is part of the request trace known
+at admission; it is not inferred from realized duration or outcome. The
 purpose is to avoid hiding urgent-request behavior inside one aggregate P95.
 
 The strongest corrected cells were:

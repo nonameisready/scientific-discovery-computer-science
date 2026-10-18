@@ -37,6 +37,7 @@ def make_trace(seed: int) -> tuple[list[StressSession], dict[int, int]]:
         worker=0,
         forecast_return_ticks=rng.choice((8, 12, 16)),
         prefix_survival_probability=rng.choice((0.65, 0.75, 0.85, 0.95)),
+        priority="normal",
     )]
     for i in range(rng.randint(3, 8)):
         start = rng.randint(2, HORIZON - 8)
@@ -54,6 +55,7 @@ def make_trace(seed: int) -> tuple[list[StressSession], dict[int, int]]:
             branch=int(rng.random() < 0.2),
             forecast_return_ticks=rng.choice((4, 6, 8)),
             prefix_survival_probability=rng.choice((0.55, 0.75, 0.95)),
+            priority="urgent",
         ))
     return sessions, schedule
 

@@ -19,6 +19,7 @@ class StressSession:
     revisions: Tuple[Tuple[int, int], ...] = ()  # (time after start, new forecast)
     forecast_return_ticks: int = 8
     prefix_survival_probability: float = 0.75
+    priority: str = "normal"
 
 
 @dataclass
@@ -316,13 +317,13 @@ class StressEngine:
                     if e and e.tier == "gpu" and e.tokens == s.exact_tokens and e.ready <= now:
                         value = 1 if e.worker == s.worker else 3
                         self.metrics.ttft.append(value)
-                        (self.metrics.urgent_ttft if s.duration <= 8 else self.metrics.long_ttft).append(value)
+                        (self.metrics.urgent_ttft if s.priority == "urgent" else self.metrics.long_ttft).append(value)
                         self.metrics.shared_hits += int(s.branch > 0)
                         e.last = now
                     elif e and e.tier == "cpu" and e.tokens == s.exact_tokens:
                         value = self.cpu_fetch_cost if e.worker == s.worker else self.cpu_fetch_cost + 2
                         self.metrics.ttft.append(value)
-                        (self.metrics.urgent_ttft if s.duration <= 8 else self.metrics.long_ttft).append(value)
+                        (self.metrics.urgent_ttft if s.priority == "urgent" else self.metrics.long_ttft).append(value)
                         self.metrics.cpu_hits += 1
                         self.metrics.transfer_tokens += s.exact_tokens
                         self.metrics.on_demand_transfer_tokens += s.exact_tokens
@@ -331,7 +332,7 @@ class StressEngine:
                     elif e and e.tier == "remote" and e.tokens == s.exact_tokens:
                         value = self.remote_fetch_cost if e.worker == s.worker else self.remote_fetch_cost + 2
                         self.metrics.ttft.append(value)
-                        (self.metrics.urgent_ttft if s.duration <= 8 else self.metrics.long_ttft).append(value)
+                        (self.metrics.urgent_ttft if s.priority == "urgent" else self.metrics.long_ttft).append(value)
                         self.metrics.remote_hits += 1
                         self.metrics.transfer_tokens += s.exact_tokens
                         self.metrics.on_demand_transfer_tokens += s.exact_tokens
@@ -339,7 +340,7 @@ class StressEngine:
                         e.last = now
                     else:
                         self.metrics.ttft.append(self.recompute_cost)
-                        (self.metrics.urgent_ttft if s.duration <= 8 else self.metrics.long_ttft).append(self.recompute_cost)
+                        (self.metrics.urgent_ttft if s.priority == "urgent" else self.metrics.long_ttft).append(self.recompute_cost)
                         self.metrics.recompute_misses += 1
                         if s.prefix_group in self.cache:
                             self.metrics.wasted_transfers += 1

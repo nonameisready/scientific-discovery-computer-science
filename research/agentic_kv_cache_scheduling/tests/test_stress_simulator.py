@@ -33,8 +33,8 @@ class StressTests(unittest.TestCase):
         self.assertEqual(m["shared_hits"], 0)
 
     def test_tail_metrics_split_short_and_long_requests(self):
-        xs = [StressSession(1, 0, 3, "short", 400, 400, 0),
-              StressSession(2, 0, 20, "long", 400, 400, 0)]
+        xs = [StressSession(1, 0, 20, "short", 400, 400, 0, priority="urgent"),
+              StressSession(2, 0, 3, "long", 400, 400, 0, priority="normal")]
         m = StressEngine("ttl", gpu_tokens=800).run(xs)
         self.assertEqual(m["urgent_n"], 1)
         self.assertEqual(m["long_n"], 1)
