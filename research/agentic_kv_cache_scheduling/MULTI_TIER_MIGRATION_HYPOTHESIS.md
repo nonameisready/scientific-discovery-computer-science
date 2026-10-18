@@ -38,3 +38,13 @@ mechanism and retain the result as a negative finding.
   interference ticks.
 - Exclusions: no GPU throughput, no real network measurements, no semantic
   prefix matching, and no claim of universal dominance.
+
+## Boundary follow-up
+
+The follow-up varies GPU capacity in `{800, 1600, 3200}` tokens, bandwidth in
+`{50, 200, 800}` tokens/tick, and the observable return window in `{2, 8, 16}`
+ticks over three independent seeds. Transfer accounting separates completed
+prefetch tokens, canceled-transfer remainder, on-demand lower-tier transfer
+tokens, stale-cache misses, and recomputation misses. The boundary result is
+interpreted descriptively; it is not pooled as a statistical estimate of a
+production workload.

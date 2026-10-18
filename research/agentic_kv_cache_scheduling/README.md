@@ -26,3 +26,5 @@ The follow-up research question is frozen in
 `MULTI_TIER_MIGRATION_HYPOTHESIS.md`. The new `tier_aware` policy explicitly
 chooses GPU prefetch, CPU/remote retention, or later recomputation. This is a
 CPU reference experiment; it is not a production network or GPU result.
+The capacity/bandwidth/return-window boundary result is summarized in
+`MIGRATION_BOUNDARY_RESULTS.md`.

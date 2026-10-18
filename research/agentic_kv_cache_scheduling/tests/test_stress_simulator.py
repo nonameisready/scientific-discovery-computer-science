@@ -35,6 +35,15 @@ class StressTests(unittest.TestCase):
         self.assertEqual(m["recompute_misses"], 0)
         self.assertEqual(m["completed_transfers"], 0)
 
+    def test_transfer_accounting_separates_cancellation_and_on_demand(self):
+        s = StressSession(1, 0, 20, "accounting", 800, 800, 0,
+                          forecast_return_ticks=8)
+        m = StressEngine("tier_aware", gpu_tokens=1600, cpu_tokens=1000,
+                         remote_tokens=2000, bandwidth=100).run([s])
+        self.assertGreaterEqual(m["on_demand_transfer_tokens"], 0)
+        self.assertGreaterEqual(m["completed_transfer_tokens"], 0)
+        self.assertGreaterEqual(m["cancelled_transfer_tokens"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

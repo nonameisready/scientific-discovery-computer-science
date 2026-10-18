@@ -37,6 +37,7 @@ class Transfer:
     target: str
     worker: int
     cancelled: bool = False
+    total_tokens: int = 0
 
 
 @dataclass
@@ -53,6 +54,11 @@ class StressMetrics:
     cpu_hits: int = 0
     remote_hits: int = 0
     recompute_misses: int = 0
+    gpu_prefetch_tokens: int = 0
+    completed_transfer_tokens: int = 0
+    cancelled_transfer_tokens: int = 0
+    on_demand_transfer_tokens: int = 0
+    stale_cache_misses: int = 0
 
     def summary(self):
         xs = sorted(self.ttft)
@@ -70,6 +76,11 @@ class StressMetrics:
             "cpu_hits": self.cpu_hits,
             "remote_hits": self.remote_hits,
             "recompute_misses": self.recompute_misses,
+            "gpu_prefetch_tokens": self.gpu_prefetch_tokens,
+            "completed_transfer_tokens": self.completed_transfer_tokens,
+            "cancelled_transfer_tokens": self.cancelled_transfer_tokens,
+            "on_demand_transfer_tokens": self.on_demand_transfer_tokens,
+            "stale_cache_misses": self.stale_cache_misses,
         }
 
 
@@ -124,7 +135,8 @@ class StressEngine:
             score = robust * completion_prob * (estimate / 50) - transfer_ticks
             if (gpu_room and completion_prob >= .60 and
                     score > .05 * (1 - robust) * (estimate / 50) and active < 3):
-                self.transfers.append(Transfer(s.prefix_group, estimate, "gpu", s.worker))
+                self.transfers.append(Transfer(s.prefix_group, estimate, "gpu", s.worker,
+                                               total_tokens=estimate))
             else:
                 lower_tier = "cpu" if self.used["cpu"] + estimate <= self.cap["cpu"] else "remote"
                 self._place(s.prefix_group, estimate, lower_tier, s.worker, now)
@@ -144,7 +156,15 @@ class StressEngine:
             action = (score > .05 * (1 - robust) * (estimate / 50)
                       and completion_prob >= .60 and active < 3)
         if action:
-            self.transfers.append(Transfer(s.prefix_group, estimate, "gpu", s.worker))
+            self.transfers.append(Transfer(s.prefix_group, estimate, "gpu", s.worker,
+                                           total_tokens=estimate))
+
+    def _cancel_group_transfers(self, group: str) -> None:
+        for transfer in self.transfers:
+            if transfer.group == group and not transfer.cancelled:
+                transfer.cancelled = True
+                self.metrics.cancelled_transfers += 1
+                self.metrics.cancelled_transfer_tokens += transfer.tokens_left
 
     def run(self, sessions: List[StressSession]):
         events: Dict[int, List[Tuple[str, StressSession]]] = {}
@@ -168,6 +188,7 @@ class StressEngine:
                 if x.tokens_left == 0:
                     self._place(x.group, self._tokens_for(x.group, sessions), x.target, x.worker, now)
                     self.metrics.completed_transfers += 1
+                    self.metrics.completed_transfer_tokens += x.total_tokens or x.tokens_left
                     self.transfers.remove(x)
             for kind, s in events.get(now, []):
                 if kind == "start":
@@ -175,15 +196,9 @@ class StressEngine:
                 elif kind == "revision":
                     self.metrics.revisions += 1
                     if s.cancelled or s.forecast_tokens != self.forecasts.get(s.sid):
-                        for x in self.transfers:
-                            if x.group == s.prefix_group:
-                                x.cancelled = True
-                                self.metrics.cancelled_transfers += 1
+                        self._cancel_group_transfers(s.prefix_group)
                 elif kind == "return":
-                    for x in self.transfers:
-                        if x.group == s.prefix_group:
-                            x.cancelled = True
-                            self.metrics.cancelled_transfers += 1
+                    self._cancel_group_transfers(s.prefix_group)
                     if s.cancelled:
                         self.metrics.wasted_transfers += 1
                         continue
@@ -196,12 +211,14 @@ class StressEngine:
                         self.metrics.ttft.append(4 if e.worker == s.worker else 6)
                         self.metrics.cpu_hits += 1
                         self.metrics.transfer_tokens += s.exact_tokens
+                        self.metrics.on_demand_transfer_tokens += s.exact_tokens
                         self.metrics.shared_hits += int(s.branch > 0)
                         e.last = now
                     elif e and e.tier == "remote" and e.tokens == s.exact_tokens:
                         self.metrics.ttft.append(7 if e.worker == s.worker else 9)
                         self.metrics.remote_hits += 1
                         self.metrics.transfer_tokens += s.exact_tokens
+                        self.metrics.on_demand_transfer_tokens += s.exact_tokens
                         self.metrics.shared_hits += int(s.branch > 0)
                         e.last = now
                     else:
@@ -209,6 +226,7 @@ class StressEngine:
                         self.metrics.recompute_misses += 1
                         if s.prefix_group in self.cache:
                             self.metrics.wasted_transfers += 1
+                            self.metrics.stale_cache_misses += 1
         self.metrics.wasted_transfers += sum(1 for x in self.transfers if x.cancelled)
         return self.metrics.summary()
 
