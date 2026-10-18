@@ -45,3 +45,10 @@ The next safe implementation is therefore a source-local, opt-in logger with
 no policy changes and a synthetic callback test. A GPU run is still gated on
 showing a complete event lifecycle for one real load-back and one real
 prefetch.
+
+The draft probe is stored at
+`patches/sglang_event_logging_v1.patch`. It is deliberately marked as a draft:
+the load-back start and completion hooks do not yet share a stable transfer id,
+so the draft must not be applied for scientific measurement. The missing id
+must be threaded through the engine's operation/ack bookkeeping first; until
+then, any complete/cancel accounting would be unsafe.

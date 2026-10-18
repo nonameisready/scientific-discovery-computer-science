@@ -1,0 +1,112 @@
+diff --git a/python/sglang/srt/mem_cache/kv_event_sink.py b/python/sglang/srt/mem_cache/kv_event_sink.py
+new file mode 100644
+--- /dev/null
++++ b/python/sglang/srt/mem_cache/kv_event_sink.py
+@@
++"""Opt-in, best-effort KV event sink for experiments."""
++from __future__ import annotations
++import json
++import os
++import threading
++import time
++_LOCK = threading.Lock()
++
++def emit(event: dict) -> None:
++    path = os.environ.get("SGLANG_KV_EVENT_SINK")
++    if not path:
++        return
++    payload = dict(event)
++    payload.setdefault("schema", "agentic-kv/events/v1")
++    payload.setdefault("timestamp_ms", time.time_ns() // 1_000_000)
++    payload.setdefault("field_gap", [])
++    try:
++        with _LOCK, open(path, "a", encoding="utf-8") as handle:
++            handle.write(json.dumps(payload, sort_keys=True) + "\n")
++    except OSError:
++        return
+
+diff --git a/python/sglang/srt/managers/cache_controller.py b/python/sglang/srt/managers/cache_controller.py
+--- a/python/sglang/srt/managers/cache_controller.py
++++ b/python/sglang/srt/managers/cache_controller.py
+@@
++from sglang.srt.mem_cache.kv_event_sink import emit as emit_kv_event
+@@
+     def start_loading(self) -> int:
+@@
+         self.ack_load_queue.append(
+@@
+             )
+         )
++        emit_kv_event({
++            "event": "transfer_start",
++            "session_id": "unknown",
++            "generation": 0,
++            "transfer_id": f"load-{producer_id}",
++            "source": "host_or_storage",
++            "destination": "gpu",
++            "bytes": int(self._transfer_num_bytes(op)),
++            "tokens": int(len(op.device_indices)),
++            "field_gap": ["session_id", "generation", "prefix_hash"],
++        })
+         return producer_id
+
+diff --git a/python/sglang/srt/mem_cache/buffer_mode/pipeline.py b/python/sglang/srt/mem_cache/buffer_mode/pipeline.py
+--- a/python/sglang/srt/mem_cache/buffer_mode/pipeline.py
++++ b/python/sglang/srt/mem_cache/buffer_mode/pipeline.py
+@@
++from sglang.srt.mem_cache.kv_event_sink import emit as emit_kv_event
+@@
+     def _queue_prefetch(
+@@
+         cc.prefetch_tokens_occupied += operation.buffer_host_occupied_units
+         cc.prefetch_buffer.put(operation)
++        emit_kv_event({
++            "event": "transfer_enqueue",
++            "session_id": str(request.rid),
++            "generation": 0,
++            "transfer_id": f"prefetch-{operation.id}",
++            "source": "storage",
++            "destination": "host_staging",
++            "bytes": int(operation.buffer_host_occupied_units),
++            "tokens": int(span_tokens),
++            "field_gap": ["generation", "prefix_hash", "model_revision"],
++        })
+@@
+     def stage_completed_prefetch(
+@@
+         cache.prefetch_loaded_storage_start_by_reqid[request] = operation.storage_start
++        emit_kv_event({
++            "event": "transfer_complete",
++            "session_id": str(request.rid),
++            "generation": 0,
++            "transfer_id": f"prefetch-{operation.id}",
++            "source": "storage",
++            "destination": "host_staging",
++            "bytes": int(occupied_tokens),
++            "tokens": int(num_tokens),
++            "field_gap": ["generation", "prefix_hash", "device_commit_time"],
++        })
+         return True
+
+diff --git a/python/sglang/srt/mem_cache/unified_radix_cache.py b/python/sglang/srt/mem_cache/unified_radix_cache.py
+--- a/python/sglang/srt/mem_cache/unified_radix_cache.py
++++ b/python/sglang/srt/mem_cache/unified_radix_cache.py
+@@
++from sglang.srt.mem_cache.kv_event_sink import emit as emit_kv_event
+@@
+     def loading_check(self, finish_count: Optional[int] = None) -> None:
+@@
+             ack = cc.ack_load_queue.pop(0)
+             ack.finish_event.synchronize()
++            emit_kv_event({
++                "event": "transfer_complete",
++                "session_id": "unknown",
++                "generation": 0,
++                "transfer_id": f"load-ack-{id(ack)}",
++                "source": "host_or_storage",
++                "destination": "gpu",
++                "bytes": int(ack.num_bytes),
++                "tokens_by_pool": ack.num_tokens_by_pool or {},
++                "field_gap": ["session_id", "generation", "prefix_hash", "stable_transfer_id"],
++            })
+             for ack_id in ack.node_ids:

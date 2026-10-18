@@ -65,3 +65,6 @@ The pinned SGLang AST surface audit is in
 `scripts/audit_sglang_event_surface.py`.
 The runtime hook locations and remaining blockers are in
 `RUNTIME_HOOK_PLAN.md` and `results/runtime_hook_plan.json`.
+The opt-in source probe is preserved as a draft only in
+`patches/sglang_event_logging_v1.patch`; it is not applied to the pinned
+checkout and is not a production integration.
