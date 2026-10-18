@@ -1,0 +1,30 @@
+{
+  "protocol": "SGLANG-RUNTIME-HOOK-PLAN-v1",
+  "source_commit": "3b34d9f8b6edc23216f29c1edf02d1ff0306f9de",
+  "source_modified": false,
+  "cuda_started": false,
+  "candidate_hooks": {
+    "prefetch_enqueue": "python/sglang/srt/mem_cache/buffer_mode/pipeline.py:_queue_prefetch:1300",
+    "prefetch_complete": "python/sglang/srt/mem_cache/buffer_mode/pipeline.py:stage_completed_prefetch:1581",
+    "load_back_enqueue": "python/sglang/srt/mem_cache/buffer_mode/pipeline.py:_allocate_and_queue_load_back:1883",
+    "load_back_start": "python/sglang/srt/managers/cache_controller.py:start_loading:975",
+    "load_back_complete": "python/sglang/srt/mem_cache/unified_radix_cache.py:loading_check:3467",
+    "pending_prefetch_cancel": "python/sglang/srt/mem_cache/unified_radix_cache.py:revoke_pending_prefetch:2934"
+  },
+  "verified_fields": [
+    "request handle/id",
+    "operation id",
+    "pool transfer objects",
+    "token counts",
+    "ack bytes and per-pool token counts",
+    "CUDA start/finish events"
+  ],
+  "missing_or_unverified": [
+    "stable cross-layer transfer id",
+    "model revision/cache layout/prefix hash at every hook",
+    "external generation mapping",
+    "arbitrary in-flight cancellation",
+    "host timestamps for enqueue and request return"
+  ],
+  "gpu_gate": "complete one real prefetch and one real load-back event lifecycle before policy comparison"
+}

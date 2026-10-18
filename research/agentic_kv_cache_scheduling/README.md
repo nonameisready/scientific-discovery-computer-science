@@ -63,3 +63,5 @@ can be regenerated with `scripts/run_event_log_smoke.py`.
 The pinned SGLang AST surface audit is in
 `results/sglang_event_surface_audit.json` and can be regenerated with
 `scripts/audit_sglang_event_surface.py`.
+The runtime hook locations and remaining blockers are in
+`RUNTIME_HOOK_PLAN.md` and `results/runtime_hook_plan.json`.
