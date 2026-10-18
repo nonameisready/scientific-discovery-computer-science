@@ -28,3 +28,5 @@ chooses GPU prefetch, CPU/remote retention, or later recomputation. This is a
 CPU reference experiment; it is not a production network or GPU result.
 The capacity/bandwidth/return-window boundary result is summarized in
 `MIGRATION_BOUNDARY_RESULTS.md`.
+The transfer-ordering follow-up is summarized in
+`QUEUE_SCHEDULING_RESULTS.md`.

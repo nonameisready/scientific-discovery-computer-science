@@ -63,6 +63,15 @@ class StressTests(unittest.TestCase):
         self.assertEqual(m["remote_hits"], 0)
         self.assertEqual(m["recompute_misses"], 1)
 
+    def test_queue_aware_policy_completes_a_selected_transfer(self):
+        xs = [StressSession(1, 0, 20, "short", 200, 200, 0,
+                            forecast_return_ticks=8),
+              StressSession(2, 0, 20, "long", 800, 800, 0,
+                            forecast_return_ticks=8)]
+        m = StressEngine("queue_aware", gpu_tokens=1600, cpu_tokens=3200,
+                         remote_tokens=6400, bandwidth=200).run(xs)
+        self.assertGreaterEqual(m["completed_transfers"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

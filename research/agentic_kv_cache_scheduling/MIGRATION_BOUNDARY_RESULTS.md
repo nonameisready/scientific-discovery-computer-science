@@ -16,6 +16,7 @@ Across all units:
 | GPU-only proposed | 9.709 | 14.48 | 0 |
 | tier-aware | 8.726 | 11.30 | 2,281.48 |
 | cost-aware | 8.807 | 11.41 | 2,281.48 |
+| queue-aware | 8.681 | 11.22 | 2,281.48 |
 
 The new policy is directionally better than GPU-only proposed: it reduces
 recomputation and mean TTFT. But it does not beat TTL, and its improvement is
@@ -30,3 +31,6 @@ adding prediction features until the objective and transfer scheduling model
 are improved. The next experiment should compare migration against
 recomputation with an explicit transfer-time budget and report useful transfer
 tokens separately from movement overhead.
+
+The queue follow-up gives a small additional improvement, but does not change
+that decision; see `QUEUE_SCHEDULING_RESULTS.md`.

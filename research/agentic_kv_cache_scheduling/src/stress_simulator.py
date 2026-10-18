@@ -39,6 +39,7 @@ class Transfer:
     worker: int
     cancelled: bool = False
     total_tokens: int = 0
+    deadline: int = 0
 
 
 @dataclass
@@ -60,6 +61,7 @@ class StressMetrics:
     cancelled_transfer_tokens: int = 0
     on_demand_transfer_tokens: int = 0
     stale_cache_misses: int = 0
+    deadline_misses: int = 0
 
     def summary(self):
         xs = sorted(self.ttft)
@@ -82,6 +84,7 @@ class StressMetrics:
             "cancelled_transfer_tokens": self.cancelled_transfer_tokens,
             "on_demand_transfer_tokens": self.on_demand_transfer_tokens,
             "stale_cache_misses": self.stale_cache_misses,
+            "deadline_misses": self.deadline_misses,
         }
 
 
@@ -128,7 +131,7 @@ class StressEngine:
         if self.policy == "ttl":
             self._place(s.prefix_group, s.exact_tokens, "gpu", s.worker, now)
             return
-        if self.policy == "tier_aware":
+        if self.policy in {"tier_aware", "queue_aware"}:
             # The forecast is the only length available at admission. If a
             # GPU prefetch cannot finish in the forecast return window, retain
             # the predicted prefix in the cheapest available lower tier.
@@ -140,8 +143,11 @@ class StressEngine:
             score = robust * completion_prob * (estimate / 50) - transfer_ticks
             if (gpu_room and completion_prob >= .60 and
                     score > .05 * (1 - robust) * (estimate / 50) and active < 3):
-                self.transfers.append(Transfer(s.prefix_group, estimate, "gpu", s.worker,
-                                               total_tokens=estimate))
+                self.transfers.append(Transfer(
+                    s.prefix_group, estimate, "gpu", s.worker,
+                    total_tokens=estimate,
+                    deadline=now + s.forecast_return_ticks,
+                ))
             else:
                 lower_tier = "cpu" if self.used["cpu"] + estimate <= self.cap["cpu"] else "remote"
                 self._place(s.prefix_group, estimate, lower_tier, s.worker, now)
@@ -195,6 +201,14 @@ class StressEngine:
                 self.metrics.cancelled_transfers += 1
                 self.metrics.cancelled_transfer_tokens += transfer.tokens_left
 
+    def _active_transfers(self) -> List[Transfer]:
+        active = [x for x in self.transfers if not x.cancelled]
+        if self.policy != "queue_aware" or len(active) <= 1:
+            return active
+        # Finish the most urgent small transfer first. This is intentionally a
+        # simple, auditable queue policy rather than an optimal scheduler.
+        return [min(active, key=lambda x: (x.deadline, x.tokens_left, x.group))]
+
     def run(self, sessions: List[StressSession]):
         events: Dict[int, List[Tuple[str, StressSession]]] = {}
         for s in sessions:
@@ -205,11 +219,12 @@ class StressEngine:
         end = max(events) if events else 0
         for now in range(end + 1):
             # Transfer bandwidth is shared by all in-flight transfers.
-            active_transfers = [x for x in self.transfers if not x.cancelled]
+            active_transfers = self._active_transfers()
             active_requests = sum(1 for s in sessions if s.start <= now < s.start + 2)
             if active_transfers and active_requests:
                 self.metrics.interference_ticks += 1
-            share = max(1, self.bandwidth // max(1, len(active_transfers)))
+            share = (self.bandwidth if self.policy == "queue_aware"
+                     else max(1, self.bandwidth // max(1, len(active_transfers))))
             for x in list(active_transfers):
                 moved = min(share, x.tokens_left)
                 x.tokens_left -= moved
@@ -218,6 +233,7 @@ class StressEngine:
                     self._place(x.group, self._tokens_for(x.group, sessions), x.target, x.worker, now)
                     self.metrics.completed_transfers += 1
                     self.metrics.completed_transfer_tokens += x.total_tokens or x.tokens_left
+                    self.metrics.deadline_misses += int(x.deadline and now > x.deadline)
                     self.transfers.remove(x)
             for kind, s in events.get(now, []):
                 if kind == "start":
