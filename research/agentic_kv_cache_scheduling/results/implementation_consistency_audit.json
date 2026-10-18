@@ -1,0 +1,33 @@
+{
+  "protocol": "IMPLEMENTATION-CONSISTENCY-AUDIT-v1",
+  "date": "2026-10-17",
+  "evidence_level": "source_and_documentation_audit; no_gpu_execution",
+  "supported": [
+    "hierarchical GPU/host/storage cache paths exist in the inspected SGLang source",
+    "host load-back and asynchronous transfer completion are real mechanisms",
+    "a sidecar event envelope is feasible without mutating engine ownership"
+  ],
+  "unverified_or_proxy": [
+    "single global token-per-tick bandwidth",
+    "arbitrary cancellation of in-flight cache transfers",
+    "stable public PREFETCH/DEMOTE/PIN API",
+    "stable public TTL residency control",
+    "priority-aware migration ordering",
+    "fixed tier constants as TTFT",
+    "immediate full-prefix CPU/remote fallback"
+  ],
+  "gpu_gate": {
+    "required_events": [
+      "request/session priority and lifecycle timestamps",
+      "prefix identity, model/layout/component and exact matched tokens",
+      "residency and bytes by tier",
+      "transfer source/destination and enqueue/start/complete/cancel timestamps",
+      "generation and failure reason",
+      "TTFT decomposition",
+      "GPU peak memory and interference"
+    ],
+    "correctness": "cached and no-cache replay outputs must match; stale/canceled transfers cannot count as hits",
+    "target_regime": "simulator GPU 1000-2400 token-equivalents and bandwidth 200-400 regime",
+    "stop_condition": "if required events cannot be collected, report feasibility only and do not rent multi-hour GPU time"
+  }
+}
