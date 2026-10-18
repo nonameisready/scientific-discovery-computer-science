@@ -58,6 +58,11 @@ tokens in at least two low-bandwidth configurations.
 with a lower-tier demotion, so any TTFT benefit must be weighed against the
 extra on-demand transfer tokens and lower-tier capacity consumed.
 
+`unified_aware` is the current candidate: at an overdue point it compares
+remaining-transfer, fallback, and recomputation costs using only current
+observations. It is rejected if it fails to match or improve both mean TTFT
+and transfer traffic in the dynamic-shock configurations.
+
 ## Boundary follow-up
 
 The follow-up varies GPU capacity in `{800, 1600, 3200}` tokens, bandwidth in

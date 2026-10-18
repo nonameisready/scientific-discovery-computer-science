@@ -102,6 +102,18 @@ class StressTests(unittest.TestCase):
         self.assertEqual(m["cpu_hits"], 1)
         self.assertEqual(m["recompute_misses"], 0)
 
+    def test_unified_aware_uses_current_costs(self):
+        s = StressSession(1, 0, 30, "unified", 3200, 3200, 0,
+                          forecast_return_ticks=16)
+        m = StressEngine(
+            "unified_aware", gpu_tokens=4000, cpu_tokens=4000,
+            remote_tokens=8000, bandwidth=800,
+            bandwidth_schedule={2: 50},
+        ).run([s])
+        self.assertEqual(m["fallback_demotions"], 1)
+        self.assertEqual(m["unified_continuations"], 0)
+        self.assertEqual(m["cpu_hits"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

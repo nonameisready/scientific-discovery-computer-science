@@ -64,6 +64,7 @@ class StressMetrics:
     deadline_misses: int = 0
     budget_cancellations: int = 0
     fallback_demotions: int = 0
+    unified_continuations: int = 0
 
     def summary(self):
         xs = sorted(self.ttft)
@@ -89,6 +90,7 @@ class StressMetrics:
             "deadline_misses": self.deadline_misses,
             "budget_cancellations": self.budget_cancellations,
             "fallback_demotions": self.fallback_demotions,
+            "unified_continuations": self.unified_continuations,
         }
 
 
@@ -143,7 +145,7 @@ class StressEngine:
         if self.policy == "ttl":
             self._place(s.prefix_group, s.exact_tokens, "gpu", s.worker, now)
             return
-        if self.policy in {"tier_aware", "queue_aware", "budget_aware", "fallback_aware"}:
+        if self.policy in {"tier_aware", "queue_aware", "budget_aware", "fallback_aware", "unified_aware"}:
             # The forecast is the only length available at admission. If a
             # GPU prefetch cannot finish in the forecast return window, retain
             # the predicted prefix in the cheapest available lower tier.
@@ -216,27 +218,41 @@ class StressEngine:
 
     def _active_transfers(self) -> List[Transfer]:
         active = [x for x in self.transfers if not x.cancelled]
-        if self.policy not in {"queue_aware", "budget_aware", "fallback_aware"} or len(active) <= 1:
+        if self.policy not in {"queue_aware", "budget_aware", "fallback_aware", "unified_aware"} or len(active) <= 1:
             return active
         # Finish the most urgent small transfer first. This is intentionally a
         # simple, auditable queue policy rather than an optimal scheduler.
         return [min(active, key=lambda x: (x.deadline, x.tokens_left, x.group))]
 
     def _cancel_overdue_transfers(self, now: int) -> None:
-        if self.policy not in {"budget_aware", "fallback_aware"}:
+        if self.policy not in {"budget_aware", "fallback_aware", "unified_aware"}:
             return
         for transfer in self.transfers:
             if (not transfer.cancelled and transfer.tokens_left > 0
                     and transfer.deadline and now > transfer.deadline):
+                fallback_tier = (
+                    "cpu" if self.used["cpu"] + transfer.total_tokens <= self.cap["cpu"]
+                    else "remote"
+                )
+                if self.policy == "unified_aware":
+                    current_bandwidth = self._bandwidth_at(now)
+                    continue_cost = math.ceil(transfer.tokens_left / current_bandwidth) + 1
+                    fallback_cost = (
+                        self.cpu_fetch_cost if fallback_tier == "cpu"
+                        else self.remote_fetch_cost
+                    )
+                    options = [(self.recompute_cost, "recompute"),
+                               (fallback_cost, fallback_tier),
+                               (continue_cost, "continue")]
+                    best_cost, best_action = min(options, key=lambda x: (x[0], x[1]))
+                    if best_action == "continue":
+                        self.metrics.unified_continuations += 1
+                        continue
                 transfer.cancelled = True
                 self.metrics.cancelled_transfers += 1
                 self.metrics.cancelled_transfer_tokens += transfer.tokens_left
                 self.metrics.budget_cancellations += 1
-                if self.policy == "fallback_aware":
-                    fallback_tier = (
-                        "cpu" if self.used["cpu"] + transfer.total_tokens <= self.cap["cpu"]
-                        else "remote"
-                    )
+                if self.policy in {"fallback_aware", "unified_aware"}:
                     if self._place(
                         transfer.group, transfer.total_tokens, fallback_tier,
                         transfer.worker, now
@@ -259,7 +275,7 @@ class StressEngine:
             if active_transfers and active_requests:
                 self.metrics.interference_ticks += 1
             bandwidth = self._bandwidth_at(now)
-            share = (bandwidth if self.policy in {"queue_aware", "budget_aware", "fallback_aware"}
+            share = (bandwidth if self.policy in {"queue_aware", "budget_aware", "fallback_aware", "unified_aware"}
                      else max(1, bandwidth // max(1, len(active_transfers))))
             for x in list(active_transfers):
                 moved = min(share, x.tokens_left)

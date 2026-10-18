@@ -39,3 +39,5 @@ Repeated-shock and urgent-arrival trade-offs are recorded in
 `BANDWIDTH_FLUCTUATION_RESULTS.md`.
 The fallback-aware cancellation comparison is recorded in
 `FALLBACK_AWARE_RESULTS.md`.
+The unified current-cost decision is recorded in
+`UNIFIED_POLICY_RESULTS.md`.

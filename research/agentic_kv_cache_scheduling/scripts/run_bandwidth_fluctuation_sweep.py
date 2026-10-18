@@ -37,7 +37,7 @@ def main() -> None:
     for seed in SEEDS:
         for urgent_count in URGENT_COUNTS:
             for schedule_name, schedule in SCHEDULES.items():
-                for policy in ("queue_aware", "budget_aware", "fallback_aware"):
+                for policy in ("queue_aware", "budget_aware", "fallback_aware", "unified_aware"):
                     metrics = StressEngine(
                         policy,
                         gpu_tokens=4000,
