@@ -62,6 +62,7 @@ class StressMetrics:
     on_demand_transfer_tokens: int = 0
     stale_cache_misses: int = 0
     deadline_misses: int = 0
+    budget_cancellations: int = 0
 
     def summary(self):
         xs = sorted(self.ttft)
@@ -85,6 +86,7 @@ class StressMetrics:
             "on_demand_transfer_tokens": self.on_demand_transfer_tokens,
             "stale_cache_misses": self.stale_cache_misses,
             "deadline_misses": self.deadline_misses,
+            "budget_cancellations": self.budget_cancellations,
         }
 
 
@@ -131,7 +133,7 @@ class StressEngine:
         if self.policy == "ttl":
             self._place(s.prefix_group, s.exact_tokens, "gpu", s.worker, now)
             return
-        if self.policy in {"tier_aware", "queue_aware"}:
+        if self.policy in {"tier_aware", "queue_aware", "budget_aware"}:
             # The forecast is the only length available at admission. If a
             # GPU prefetch cannot finish in the forecast return window, retain
             # the predicted prefix in the cheapest available lower tier.
@@ -140,8 +142,9 @@ class StressEngine:
             gpu_room = self.used["gpu"] + estimate <= self.cap["gpu"]
             completion_prob = 0.85 if transfer_ticks <= s.forecast_return_ticks else 0.15
             robust = max(0, min(.99, s.prefix_survival_probability) - .2)
-            score = robust * completion_prob * (estimate / 50) - transfer_ticks
-            if (gpu_room and completion_prob >= .60 and
+            value_completion = 1.0 if self.policy == "budget_aware" else completion_prob
+            score = robust * value_completion * (estimate / 50) - transfer_ticks
+            if (gpu_room and (completion_prob >= .60 or self.policy == "budget_aware") and
                     score > .05 * (1 - robust) * (estimate / 50) and active < 3):
                 self.transfers.append(Transfer(
                     s.prefix_group, estimate, "gpu", s.worker,
@@ -203,11 +206,22 @@ class StressEngine:
 
     def _active_transfers(self) -> List[Transfer]:
         active = [x for x in self.transfers if not x.cancelled]
-        if self.policy != "queue_aware" or len(active) <= 1:
+        if self.policy not in {"queue_aware", "budget_aware"} or len(active) <= 1:
             return active
         # Finish the most urgent small transfer first. This is intentionally a
         # simple, auditable queue policy rather than an optimal scheduler.
         return [min(active, key=lambda x: (x.deadline, x.tokens_left, x.group))]
+
+    def _cancel_overdue_transfers(self, now: int) -> None:
+        if self.policy != "budget_aware":
+            return
+        for transfer in self.transfers:
+            if (not transfer.cancelled and transfer.tokens_left > 0
+                    and transfer.deadline and now > transfer.deadline):
+                transfer.cancelled = True
+                self.metrics.cancelled_transfers += 1
+                self.metrics.cancelled_transfer_tokens += transfer.tokens_left
+                self.metrics.budget_cancellations += 1
 
     def run(self, sessions: List[StressSession]):
         events: Dict[int, List[Tuple[str, StressSession]]] = {}
@@ -218,12 +232,13 @@ class StressEngine:
                 events.setdefault(s.start + dt, []).append(("revision", s))
         end = max(events) if events else 0
         for now in range(end + 1):
+            self._cancel_overdue_transfers(now)
             # Transfer bandwidth is shared by all in-flight transfers.
             active_transfers = self._active_transfers()
             active_requests = sum(1 for s in sessions if s.start <= now < s.start + 2)
             if active_transfers and active_requests:
                 self.metrics.interference_ticks += 1
-            share = (self.bandwidth if self.policy == "queue_aware"
+            share = (self.bandwidth if self.policy in {"queue_aware", "budget_aware"}
                      else max(1, self.bandwidth // max(1, len(active_transfers))))
             for x in list(active_transfers):
                 moved = min(share, x.tokens_left)

@@ -72,6 +72,14 @@ class StressTests(unittest.TestCase):
                          remote_tokens=6400, bandwidth=200).run(xs)
         self.assertGreaterEqual(m["completed_transfers"], 1)
 
+    def test_budget_aware_cancels_transfer_after_deadline(self):
+        s = StressSession(1, 0, 20, "budget", 1200, 1200, 0,
+                          forecast_return_ticks=2)
+        m = StressEngine("budget_aware", gpu_tokens=1600, cpu_tokens=3200,
+                         remote_tokens=6400, bandwidth=200).run([s])
+        self.assertGreaterEqual(m["budget_cancellations"], 1)
+        self.assertGreaterEqual(m["cancelled_transfer_tokens"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

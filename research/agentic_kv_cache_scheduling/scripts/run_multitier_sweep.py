@@ -13,7 +13,7 @@ from stress_simulator import StressEngine, StressSession
 
 SEEDS = (20261017, 20261018, 20261019)
 BANDWIDTHS = (50, 100, 200, 400, 800)
-POLICIES = ("lru", "ttl", "proposed", "tier_aware", "cost_aware", "queue_aware")
+POLICIES = ("lru", "ttl", "proposed", "tier_aware", "cost_aware", "queue_aware", "budget_aware")
 
 
 def sessions(seed: int) -> list[StressSession]:

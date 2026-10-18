@@ -49,6 +49,11 @@ is better than splitting bandwidth equally across all in-flight transfers. Its
 falsification gate is no reduction in deadline misses or completed useful
 transfers in at least two low-bandwidth configurations.
 
+`budget_aware` adds an explicit gate: a transfer that passes its forecast
+deadline while still incomplete is canceled and cannot consume later bandwidth.
+The gate is rejected if it does not reduce deadline misses or wasted transfer
+tokens in at least two low-bandwidth configurations.
+
 ## Boundary follow-up
 
 The follow-up varies GPU capacity in `{800, 1600, 3200}` tokens, bandwidth in

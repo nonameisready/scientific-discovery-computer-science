@@ -30,3 +30,6 @@ The capacity/bandwidth/return-window boundary result is summarized in
 `MIGRATION_BOUNDARY_RESULTS.md`.
 The transfer-ordering follow-up is summarized in
 `QUEUE_SCHEDULING_RESULTS.md`.
+The deadline-budget follow-up is evaluated by the same reproducible sweep.
+Its result and current no-effect boundary are recorded in
+`ADMISSION_BUDGET_RESULTS.md`.

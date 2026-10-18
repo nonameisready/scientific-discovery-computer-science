@@ -17,6 +17,7 @@ Across all units:
 | tier-aware | 8.726 | 11.30 | 2,281.48 |
 | cost-aware | 8.807 | 11.41 | 2,281.48 |
 | queue-aware | 8.681 | 11.22 | 2,281.48 |
+| budget-aware | 8.741 | 11.33 | 2,281.48 |
 
 The new policy is directionally better than GPU-only proposed: it reduces
 recomputation and mean TTFT. But it does not beat TTL, and its improvement is

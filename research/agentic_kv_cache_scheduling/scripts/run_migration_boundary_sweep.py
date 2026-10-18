@@ -15,7 +15,7 @@ SEEDS = (20261017, 20261018, 20261019)
 BANDWIDTHS = (50, 200, 800)
 GPU_CAPACITIES = (800, 1600, 3200)
 RETURN_WINDOWS = (2, 8, 16)
-POLICIES = ("lru", "ttl", "proposed", "tier_aware", "cost_aware", "queue_aware")
+POLICIES = ("lru", "ttl", "proposed", "tier_aware", "cost_aware", "queue_aware", "budget_aware")
 
 
 def sessions(seed: int, return_window: int) -> list[StressSession]:
