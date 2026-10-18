@@ -50,3 +50,5 @@ result are recorded in `STOCHASTIC_BANDWIDTH_RESULTS.md` and
 
 The follow-up capacity-pressure sweep is recorded in
 `CAPACITY_PRESSURE_RESULTS.md` and `results/capacity_pressure_sweep.json`.
+Its urgent-request tail decomposition is recorded in
+`TAIL_LATENCY_RESULTS.md`.

@@ -55,6 +55,9 @@ def main() -> None:
                     "mean_p95_ttft": statistics.mean(r["p95_ttft"] for r in group),
                     "mean_transfer_tokens": statistics.mean(r["transfer_tokens"] for r in group),
                     "mean_recompute_misses": statistics.mean(r["recompute_misses"] for r in group),
+                    "urgent_mean_ttft": statistics.mean(r["urgent_mean_ttft"] for r in group),
+                    "urgent_p95_ttft": statistics.mean(r["urgent_p95_ttft"] for r in group),
+                    "long_mean_ttft": statistics.mean(r["long_mean_ttft"] for r in group),
                 }
             ttl = cell["ttl"]
             unified = cell["unified_aware"]

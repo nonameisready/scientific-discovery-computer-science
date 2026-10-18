@@ -65,9 +65,13 @@ class StressMetrics:
     budget_cancellations: int = 0
     fallback_demotions: int = 0
     unified_continuations: int = 0
+    urgent_ttft: List[int] = field(default_factory=list)
+    long_ttft: List[int] = field(default_factory=list)
 
     def summary(self):
         xs = sorted(self.ttft)
+        urgent = sorted(self.urgent_ttft)
+        long = sorted(self.long_ttft)
         return {
             "n": len(xs), "mean_ttft": sum(xs) / len(xs) if xs else 0.0,
             "p95_ttft": xs[max(0, math.ceil(.95 * len(xs)) - 1)] if xs else 0,
@@ -91,6 +95,11 @@ class StressMetrics:
             "budget_cancellations": self.budget_cancellations,
             "fallback_demotions": self.fallback_demotions,
             "unified_continuations": self.unified_continuations,
+            "urgent_n": len(urgent),
+            "urgent_mean_ttft": sum(urgent) / len(urgent) if urgent else 0.0,
+            "urgent_p95_ttft": urgent[max(0, math.ceil(.95 * len(urgent)) - 1)] if urgent else 0,
+            "long_n": len(long),
+            "long_mean_ttft": sum(long) / len(long) if long else 0.0,
         }
 
 
@@ -305,18 +314,24 @@ class StressEngine:
                         continue
                     e = self.cache.get(s.prefix_group)
                     if e and e.tier == "gpu" and e.tokens == s.exact_tokens and e.ready <= now:
-                        self.metrics.ttft.append(1 if e.worker == s.worker else 3)
+                        value = 1 if e.worker == s.worker else 3
+                        self.metrics.ttft.append(value)
+                        (self.metrics.urgent_ttft if s.duration <= 8 else self.metrics.long_ttft).append(value)
                         self.metrics.shared_hits += int(s.branch > 0)
                         e.last = now
                     elif e and e.tier == "cpu" and e.tokens == s.exact_tokens:
-                        self.metrics.ttft.append(self.cpu_fetch_cost if e.worker == s.worker else self.cpu_fetch_cost + 2)
+                        value = self.cpu_fetch_cost if e.worker == s.worker else self.cpu_fetch_cost + 2
+                        self.metrics.ttft.append(value)
+                        (self.metrics.urgent_ttft if s.duration <= 8 else self.metrics.long_ttft).append(value)
                         self.metrics.cpu_hits += 1
                         self.metrics.transfer_tokens += s.exact_tokens
                         self.metrics.on_demand_transfer_tokens += s.exact_tokens
                         self.metrics.shared_hits += int(s.branch > 0)
                         e.last = now
                     elif e and e.tier == "remote" and e.tokens == s.exact_tokens:
-                        self.metrics.ttft.append(self.remote_fetch_cost if e.worker == s.worker else self.remote_fetch_cost + 2)
+                        value = self.remote_fetch_cost if e.worker == s.worker else self.remote_fetch_cost + 2
+                        self.metrics.ttft.append(value)
+                        (self.metrics.urgent_ttft if s.duration <= 8 else self.metrics.long_ttft).append(value)
                         self.metrics.remote_hits += 1
                         self.metrics.transfer_tokens += s.exact_tokens
                         self.metrics.on_demand_transfer_tokens += s.exact_tokens
@@ -324,6 +339,7 @@ class StressEngine:
                         e.last = now
                     else:
                         self.metrics.ttft.append(self.recompute_cost)
+                        (self.metrics.urgent_ttft if s.duration <= 8 else self.metrics.long_ttft).append(self.recompute_cost)
                         self.metrics.recompute_misses += 1
                         if s.prefix_group in self.cache:
                             self.metrics.wasted_transfers += 1
