@@ -37,7 +37,10 @@ experiment concern until the event-only path is validated.
 3. `ack.num_bytes` and `ack.num_tokens_by_pool` are available at completion;
    bytes at enqueue must be computed from the transfer objects without forcing
    synchronization.
-4. Pending prefetch revocation is observable; arbitrary cancellation after a
+4. `CacheOperation.id` is already monotonic in the pinned source, but it must
+   be threaded through `HiCacheAck.operation_id` to correlate load-back start
+   and completion safely.
+5. Pending prefetch revocation is observable; arbitrary cancellation after a
    backend transfer has started is not established and must be recorded as
    `cancel_unverified`, not assumed.
 
@@ -48,7 +51,6 @@ prefetch.
 
 The draft probe is stored at
 `patches/sglang_event_logging_v1.patch`. It is deliberately marked as a draft:
-the load-back start and completion hooks do not yet share a stable transfer id,
-so the draft must not be applied for scientific measurement. The missing id
-must be threaded through the engine's operation/ack bookkeeping first; until
-then, any complete/cancel accounting would be unsafe.
+the source patch must first add `operation_id` to `HiCacheAck` and pass
+`CacheOperation.id` through the ack bookkeeping. Once that small change is
+validated, the start/complete correlation no longer depends on object identity.

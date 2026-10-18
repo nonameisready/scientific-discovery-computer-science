@@ -68,3 +68,5 @@ The runtime hook locations and remaining blockers are in
 The opt-in source probe is preserved as a draft only in
 `patches/sglang_event_logging_v1.patch`; it is not applied to the pinned
 checkout and is not a production integration.
+The stable operation-to-ack correlation rule is implemented and tested in
+`src/transfer_correlation.py`.
