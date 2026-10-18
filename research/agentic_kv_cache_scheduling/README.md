@@ -41,3 +41,5 @@ The fallback-aware cancellation comparison is recorded in
 `FALLBACK_AWARE_RESULTS.md`.
 The unified current-cost decision is recorded in
 `UNIFIED_POLICY_RESULTS.md`.
+The fair three-metric Pareto comparison is recorded in
+`PARETO_FRONTIER_RESULTS.md`.

@@ -1,0 +1,1007 @@
+{
+  "frontier_counts": {
+    "budget_aware": 36,
+    "fallback_aware": 30,
+    "queue_aware": 24,
+    "unified_aware": 33
+  },
+  "frontiers": [
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 7.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 3350
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261017,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.25,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 5.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4750
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261017,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 8150
+        },
+        {
+          "mean_ttft": 4.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 8150
+        },
+        {
+          "mean_ttft": 4.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4950
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261017,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261017,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.25,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261017,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.0,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261017,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261017,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261017,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "queue_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "unified_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261017,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5150
+        },
+        {
+          "mean_ttft": 4.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5150
+        },
+        {
+          "mean_ttft": 7.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 1950
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261017,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.75,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6550
+        },
+        {
+          "mean_ttft": 4.75,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6550
+        },
+        {
+          "mean_ttft": 5.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 3350
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261017,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 7550
+        },
+        {
+          "mean_ttft": 4.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 7550
+        },
+        {
+          "mean_ttft": 5.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4350
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261017,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 7.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 3350
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261018,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.25,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 5.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4750
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261018,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 8150
+        },
+        {
+          "mean_ttft": 4.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 8150
+        },
+        {
+          "mean_ttft": 4.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4950
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261018,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261018,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.25,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261018,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.0,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261018,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261018,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261018,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "queue_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "unified_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261018,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5150
+        },
+        {
+          "mean_ttft": 4.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5150
+        },
+        {
+          "mean_ttft": 7.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 1950
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261018,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.75,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6550
+        },
+        {
+          "mean_ttft": 4.75,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6550
+        },
+        {
+          "mean_ttft": 5.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 3350
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261018,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 7550
+        },
+        {
+          "mean_ttft": 4.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 7550
+        },
+        {
+          "mean_ttft": 5.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4350
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261018,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 7.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 3350
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261019,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.25,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 5.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4750
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261019,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 8150
+        },
+        {
+          "mean_ttft": 4.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 8150
+        },
+        {
+          "mean_ttft": 4.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4950
+        }
+      ],
+      "schedule": "double_drop",
+      "seed": 20261019,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261019,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.25,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 3.25,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261019,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.0,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        },
+        {
+          "mean_ttft": 3.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6000
+        }
+      ],
+      "schedule": "drop_recover",
+      "seed": 20261019,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 3600
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261019,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 2.5,
+          "policy": "budget_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "queue_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        },
+        {
+          "mean_ttft": 2.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5000
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261019,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 3.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "queue_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        },
+        {
+          "mean_ttft": 3.5,
+          "policy": "unified_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 5500
+        }
+      ],
+      "schedule": "oscillating",
+      "seed": 20261019,
+      "urgent_count": 5
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.0,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5150
+        },
+        {
+          "mean_ttft": 4.0,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 5150
+        },
+        {
+          "mean_ttft": 7.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 1950
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261019,
+      "urgent_count": 1
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.75,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6550
+        },
+        {
+          "mean_ttft": 4.75,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 6550
+        },
+        {
+          "mean_ttft": 5.5,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 3350
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261019,
+      "urgent_count": 3
+    },
+    {
+      "policies": [
+        {
+          "mean_ttft": 4.5,
+          "policy": "fallback_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 7550
+        },
+        {
+          "mean_ttft": 4.5,
+          "policy": "unified_aware",
+          "recompute_misses": 0,
+          "transfer_tokens": 7550
+        },
+        {
+          "mean_ttft": 5.0,
+          "policy": "budget_aware",
+          "recompute_misses": 1,
+          "transfer_tokens": 4350
+        }
+      ],
+      "schedule": "single_drop",
+      "seed": 20261019,
+      "urgent_count": 5
+    }
+  ],
+  "metrics_minimized": [
+    "mean_ttft",
+    "transfer_tokens",
+    "recompute_misses"
+  ],
+  "protocol": "MULTI-TIER-PARETO-FRONTIER-v1",
+  "unit": "one fixed seed x bandwidth schedule x urgent-arrival count"
+}
