@@ -66,3 +66,8 @@ Primary source anchors: [SGLang UnifiedRadixCache source](https://github.com/sgl
 [SGLang HiCache load-back race](https://github.com/sgl-project/sglang/pull/31427),
 [SGLang load-back transfer threading issue](https://github.com/sgl-project/sglang/issues/38470),
 and [SGLang L3 stub/load-back issue](https://github.com/sgl-project/sglang/issues/38452).
+
+The repository now includes `src/event_logger.py`, an engine-neutral validator
+for this minimum event stream. It does not claim to collect events from
+SGLang/vLLM; it makes the acceptance checks executable once an engine adapter
+exists.

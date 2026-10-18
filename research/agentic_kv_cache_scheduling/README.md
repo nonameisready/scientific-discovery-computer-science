@@ -56,3 +56,5 @@ Its urgent-request tail decomposition is recorded in
 The implementation-consistency audit and GPU instrumentation gate are recorded
 in `IMPLEMENTATION_CONSISTENCY_AUDIT.md` and
 `results/implementation_consistency_audit.json`.
+The executable event-stream validator is in `src/event_logger.py` with tests in
+`tests/test_event_logger.py`.
