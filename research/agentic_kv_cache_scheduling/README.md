@@ -35,3 +35,5 @@ Its result and current no-effect boundary are recorded in
 `ADMISSION_BUDGET_RESULTS.md`.
 The dynamic bandwidth-shock validation is recorded in
 `BANDWIDTH_SHOCK_RESULTS.md`.
+Repeated-shock and urgent-arrival trade-offs are recorded in
+`BANDWIDTH_FLUCTUATION_RESULTS.md`.
