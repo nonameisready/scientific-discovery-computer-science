@@ -63,7 +63,7 @@ def main() -> None:
             cells.append(cell)
 
     result = {
-        "protocol": "MULTI-TIER-CAPACITY-PRESSURE-v1",
+        "protocol": "MULTI-TIER-CAPACITY-PRESSURE-v2-no-leakage-ttl",
         "question": "Does migration beat TTL when GPU retention capacity is deliberately insufficient?",
         "falsification_gate": "A promising regime must improve both mean and mean-P95 TTFT against TTL on the same paired traces; isolated traffic savings are not sufficient.",
         "gpu_capacities": list(GPU_CAPACITIES),

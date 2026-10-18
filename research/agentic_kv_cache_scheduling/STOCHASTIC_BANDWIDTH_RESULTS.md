@@ -24,21 +24,23 @@ The raw paired rows and aggregate values are in
 the Pareto result: a policy can be useful without dominating every metric, but
 that is a trade-off result, not evidence of universal superiority.
 
-## Observed result
+## Corrected observed result
 
-The 20 paired traces did not pass the stability gate. The aggregate mean TTFT
-was 1.92 for `ttl`, compared with 4.25 for `queue_aware`, 4.47 for
-`budget_aware`, and 4.36 for both `fallback_aware` and `unified_aware`.
-`ttl` used zero migration-transfer tokens in this model and had 0.70 mean
-recompute misses; the other policies used roughly 4,260--4,305 transfer
-tokens and had 1.95--2.10 mean recompute misses. Mean P95 TTFT was 6.4 for
-`ttl` and 10.0 for every other policy.
+The first version of this experiment used `exact_tokens` for TTL admission.
+That was a future-information leak: exact reusable length is only available at
+return time. The simulator and the baseline test were corrected so TTL now
+uses `forecast_tokens`, like every other policy, and the experiment was rerun
+under protocol `MULTI-TIER-STOCHASTIC-BANDWIDTH-v2-no-leakage-ttl`.
 
-This is a negative result for the present controller, not a claim that TTL is
-better in real serving systems. The result is conditional on this simulator's
-cost model: fixed GPU retention is cheap, while transfer traffic and lower-tier
-fetches are charged explicitly. It does mean that another hand-tuned policy or
-a GPU run is not justified yet. The next useful work is to audit this model
-against an actual cache implementation and identify the workload condition
-under which retention capacity is insufficient; only then can GPU validation
-test a live, falsifiable claim.
+After correction, TTL's mean TTFT was 6.67, while `queue_aware` was 4.25 and
+`unified_aware` was 4.36. TTL had 4.05 mean recompute misses, compared with
+1.95 for `queue_aware` and 2.00 for `unified_aware`. Mean P95 TTFT was still
+10.0 for all policies, so the corrected result supports a mean-latency benefit
+but not a tail-latency benefit.
+
+This correction invalidates the earlier TTL-dominance interpretation. It does
+not prove production benefit: the experiment remains a synthetic simulator
+study, and migration traffic is still materially higher for the adaptive
+policies. The next gate is to test whether the mean-latency advantage survives
+an implementation-faithful cache model and whether tail latency can be reduced
+without simply spending more transfer bandwidth.

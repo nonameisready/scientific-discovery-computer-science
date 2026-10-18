@@ -96,7 +96,7 @@ def main() -> None:
         }
 
     result = {
-        "protocol": "MULTI-TIER-STOCHASTIC-BANDWIDTH-v1",
+        "protocol": "MULTI-TIER-STOCHASTIC-BANDWIDTH-v2-no-leakage-ttl",
         "hypothesis": "unified_aware is a stable compromise under paired random bandwidth and arrival traces",
         "falsification_gate": "Reject stability if unified_aware is not within 10% of the best policy on both mean TTFT and P95 TTFT, or if it is not within 10% of the lowest transfer traffic.",
         "policies": list(POLICIES),

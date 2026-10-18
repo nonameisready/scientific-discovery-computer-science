@@ -18,19 +18,18 @@ The raw paired rows and 16 cell summaries are in
 traffic but increases latency is not counted as an algorithmic win. This is a
 simulator result; it does not establish a production or GPU result.
 
-## Observed result
+## Corrected observed result
 
-No cell passed the predeclared two-metric gate. There were, however, two
-boundary cells where `unified_aware` improved mean TTFT over TTL: at 600 GPU
-tokens with bandwidth 200, mean TTFT was 6.54 versus 7.17; at bandwidth 400,
-it was also 6.54 versus 7.17. The mean-P95 metric did not improve in either
-cell (both remained 10), so these are partial signals, not wins.
+The first run inherited the TTL future-information leak from the simulator.
+After correcting TTL admission to use forecast tokens only, three cells passed
+the two-metric gate for `unified_aware`: `(GPU=1000, bandwidth=200)`,
+`(1000, 400)`, and `(2400, 400)`. For example, at `(1000, 400)`, unified
+mean TTFT was 5.46 versus TTL's 7.96, and unified mean-P95 TTFT was 9.7
+versus TTL's 10.0.
 
-At higher GPU capacities, TTL remained better on mean TTFT. The migration
-controller also paid substantial transfer traffic in every cell while TTL's
-measured migration traffic was zero. The current evidence therefore narrows
-the viable claim: migration may help average latency when GPU retention is
-severely undersized and bandwidth is moderate-to-high, but the present policy
-does not control tail latency. A real GPU test should only target this narrow
-boundary if cache-capacity and tail-latency instrumentation can be frozen in
-advance.
+The effect is not universal. At low bandwidth, unified can be worse than TTL;
+at `(600, 200)` and `(600, 400)` it improves mean TTFT but not mean-P95 TTFT.
+The corrected evidence therefore supports a conditional claim: migration can
+help when forecasts are usable and bandwidth is sufficient, but the current
+controller still has a tail-latency limitation. These are simulator results,
+not production or GPU evidence.

@@ -143,7 +143,11 @@ class StressEngine:
             return
         estimate = self.forecasts[s.sid]
         if self.policy == "ttl":
-            self._place(s.prefix_group, s.exact_tokens, "gpu", s.worker, now)
+            # TTL is a baseline, but it must obey the same information
+            # boundary as every other policy: exact_tokens is only known at
+            # return time. Using it here would leak the future reusable
+            # prefix length and give TTL an unfair advantage.
+            self._place(s.prefix_group, estimate, "gpu", s.worker, now)
             return
         if self.policy in {"tier_aware", "queue_aware", "budget_aware", "fallback_aware", "unified_aware"}:
             # The forecast is the only length available at admission. If a

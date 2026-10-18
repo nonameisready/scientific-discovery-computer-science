@@ -26,6 +26,12 @@ class StressTests(unittest.TestCase):
         m = StressEngine("ttl", gpu_tokens=800).run(xs)
         self.assertGreaterEqual(m["shared_hits"], 1)
 
+    def test_ttl_admission_does_not_leak_exact_prefix_length(self):
+        s = StressSession(1, 0, 4, "no-leak", 400, 800, 0)
+        m = StressEngine("ttl", gpu_tokens=400).run([s])
+        self.assertEqual(m["recompute_misses"], 1)
+        self.assertEqual(m["shared_hits"], 0)
+
     def test_tier_aware_policy_can_use_cpu_fallback(self):
         s = StressSession(1, 0, 10, "cpu", 800, 800, 0,
                           forecast_return_ticks=1)
