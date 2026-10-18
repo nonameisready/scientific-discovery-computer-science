@@ -71,3 +71,8 @@ The repository now includes `src/event_logger.py`, an engine-neutral validator
 for this minimum event stream. It does not claim to collect events from
 SGLang/vLLM; it makes the acceptance checks executable once an engine adapter
 exists.
+
+The CPU-only smoke protocol is in
+`scripts/run_event_log_smoke.py`. It exercises valid completion/cancellation
+lifecycles and intentionally invalid stale-generation/unfinished-transfer
+cases; it is a logging check, not a serving benchmark.

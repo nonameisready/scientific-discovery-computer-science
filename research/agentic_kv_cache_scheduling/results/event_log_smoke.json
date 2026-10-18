@@ -1,0 +1,38 @@
+{
+  "all_expected": true,
+  "cases": {
+    "cancelled": {
+      "cancelled_transfers": 1,
+      "completed_transfers": 0,
+      "errors": [],
+      "ok": true,
+      "transfer_count": 1
+    },
+    "complete": {
+      "cancelled_transfers": 0,
+      "completed_transfers": 1,
+      "errors": [],
+      "ok": true,
+      "transfer_count": 1
+    },
+    "stale_generation": {
+      "cancelled_transfers": 1,
+      "completed_transfers": 0,
+      "errors": [
+        "stale transfer generation: t1"
+      ],
+      "ok": false,
+      "transfer_count": 1
+    },
+    "unfinished": {
+      "cancelled_transfers": 0,
+      "completed_transfers": 0,
+      "errors": [
+        "unfinished transfer: t1"
+      ],
+      "ok": false,
+      "transfer_count": 1
+    }
+  },
+  "protocol": "KV-EVENT-LOG-SMOKE-v1"
+}

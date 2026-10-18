@@ -58,3 +58,5 @@ in `IMPLEMENTATION_CONSISTENCY_AUDIT.md` and
 `results/implementation_consistency_audit.json`.
 The executable event-stream validator is in `src/event_logger.py` with tests in
 `tests/test_event_logger.py`.
+The CPU-only lifecycle smoke result is in `results/event_log_smoke.json` and
+can be regenerated with `scripts/run_event_log_smoke.py`.
