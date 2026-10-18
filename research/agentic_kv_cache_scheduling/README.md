@@ -47,3 +47,6 @@ The fair three-metric Pareto comparison is recorded in
 The paired 20-seed random bandwidth stress test and its negative stability
 result are recorded in `STOCHASTIC_BANDWIDTH_RESULTS.md` and
 `results/stochastic_bandwidth_sweep.json`.
+
+The follow-up capacity-pressure sweep is recorded in
+`CAPACITY_PRESSURE_RESULTS.md` and `results/capacity_pressure_sweep.json`.
