@@ -1,0 +1,243 @@
+{
+  "all_files_present": true,
+  "files": {
+    "schedule_policy": {
+      "exists": true,
+      "label": "schedule_policy",
+      "parse_error": null,
+      "path": "/private/tmp/sglang-audit.0LSjXl/python/sglang/srt/managers/schedule_policy.py",
+      "targets": {
+        "build_hicache_transfers": {
+          "lines": [
+            1434
+          ],
+          "present": true
+        },
+        "discard_storage_prefetch_accounting": {
+          "lines": [
+            923
+          ],
+          "present": true
+        },
+        "finish_storage_prefetch_admission": {
+          "lines": [
+            926,
+            952
+          ],
+          "present": true
+        },
+        "tree_cache": {
+          "lines": [
+            197,
+            198,
+            221,
+            225,
+            241,
+            287,
+            288,
+            298,
+            317,
+            328,
+            352,
+            496,
+            603,
+            616,
+            626,
+            657,
+            683,
+            923,
+            926,
+            952,
+            1182,
+            1187,
+            1191,
+            1194,
+            1347,
+            1348,
+            1356,
+            1376,
+            1377,
+            1379,
+            1418,
+            1424,
+            1425,
+            1427,
+            1428,
+            1434,
+            1459,
+            1508,
+            1610
+          ],
+          "present": true
+        }
+      }
+    },
+    "transfer_pipeline": {
+      "exists": true,
+      "label": "transfer_pipeline",
+      "parse_error": null,
+      "path": "/private/tmp/sglang-audit.0LSjXl/python/sglang/srt/mem_cache/buffer_mode/pipeline.py",
+      "targets": {
+        "PoolTransfer": {
+          "lines": [
+            125,
+            144,
+            162,
+            167,
+            377,
+            388,
+            396,
+            416,
+            480,
+            524,
+            549,
+            636,
+            641,
+            744,
+            978,
+            995,
+            1012,
+            1020,
+            1064,
+            1107,
+            1165,
+            1169,
+            1172,
+            1181,
+            1211,
+            1654,
+            1889
+          ],
+          "present": true
+        },
+        "_transfer_tokens": {
+          "lines": [
+            377,
+            413,
+            490
+          ],
+          "present": true
+        },
+        "allocate_and_queue_prefetch": {
+          "lines": [
+            1232
+          ],
+          "present": true
+        },
+        "init_load_back": {
+          "lines": [
+            1713
+          ],
+          "present": true
+        },
+        "prefetch_buffer": {
+          "lines": [
+            1327
+          ],
+          "present": true
+        },
+        "stage_completed_prefetch": {
+          "lines": [
+            1581
+          ],
+          "present": true
+        }
+      }
+    },
+    "unified_radix_cache": {
+      "exists": true,
+      "label": "unified_radix_cache",
+      "parse_error": null,
+      "path": "/private/tmp/sglang-audit.0LSjXl/python/sglang/srt/mem_cache/unified_radix_cache.py",
+      "targets": {
+        "UnifiedRadixCache": {
+          "lines": [
+            191
+          ],
+          "present": true
+        },
+        "init_load_back": {
+          "lines": [
+            3523,
+            3530
+          ],
+          "present": true
+        },
+        "load_back": {
+          "lines": [
+            1774,
+            3536,
+            3547
+          ],
+          "present": true
+        },
+        "load_back_threshold": {
+          "lines": [
+            565,
+            1833
+          ],
+          "present": true
+        },
+        "loading_check": {
+          "lines": [
+            3467,
+            3620
+          ],
+          "present": true
+        },
+        "ongoing_load_back": {
+          "lines": [
+            418,
+            1885,
+            3499,
+            3824,
+            3825,
+            3827
+          ],
+          "present": true
+        },
+        "ongoing_prefetch": {
+          "lines": [
+            422,
+            2060,
+            2191,
+            2270,
+            2300,
+            2336,
+            2339,
+            2378,
+            2452,
+            2680,
+            2726,
+            2729,
+            2753,
+            2928,
+            2936,
+            2985,
+            3086,
+            3102,
+            3150
+          ],
+          "present": true
+        },
+        "prefetch_threshold": {
+          "lines": [
+            307,
+            2016,
+            2104,
+            3050,
+            3115,
+            3127
+          ],
+          "present": true
+        }
+      }
+    }
+  },
+  "method": "Python AST only; no import, model load, CUDA or engine mutation",
+  "protocol": "SGLANG-EVENT-SURFACE-AUDIT-v1",
+  "source_commit": "3b34d9f8b6edc23216f29c1edf02d1ff0306f9de",
+  "source_root": "/private/tmp/sglang-audit.0LSjXl",
+  "target_count": 18,
+  "target_presence": 18
+}

@@ -60,3 +60,6 @@ The executable event-stream validator is in `src/event_logger.py` with tests in
 `tests/test_event_logger.py`.
 The CPU-only lifecycle smoke result is in `results/event_log_smoke.json` and
 can be regenerated with `scripts/run_event_log_smoke.py`.
+The pinned SGLang AST surface audit is in
+`results/sglang_event_surface_audit.json` and can be regenerated with
+`scripts/audit_sglang_event_surface.py`.

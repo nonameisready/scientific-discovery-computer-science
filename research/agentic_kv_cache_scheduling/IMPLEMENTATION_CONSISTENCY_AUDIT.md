@@ -76,3 +76,8 @@ The CPU-only smoke protocol is in
 `scripts/run_event_log_smoke.py`. It exercises valid completion/cancellation
 lifecycles and intentionally invalid stale-generation/unfinished-transfer
 cases; it is a logging check, not a serving benchmark.
+
+The fixed SGLang checkout is mapped without importing CUDA-dependent modules by
+`scripts/audit_sglang_event_surface.py`. Its output records the actual source
+line numbers for cache/load-back/transfer symbols in
+`results/sglang_event_surface_audit.json`.
