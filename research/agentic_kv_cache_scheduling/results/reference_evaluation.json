@@ -1,0 +1,33 @@
+{
+  "command": "generate_trace(20261017, 80, regime); run(policy, capacity=4)",
+  "units": "simulator time units and reference bytes; not milliseconds or GPU measurements",
+  "results": {
+    "mixed": {
+      "ttl_mean_continuation_ttft": 7.394736842105263,
+      "proposed_mean_continuation_ttft": 8.93421052631579,
+      "proposed_prefetches": 13,
+      "proposed_useful_prefetch_rate": 0.6923076923076923,
+      "proposed_wasted_prefetches": 4,
+      "proposed_evictions": 9,
+      "proposed_transfer_bytes": 9300
+    },
+    "early": {
+      "ttl_mean_continuation_ttft": 6.6103896103896105,
+      "proposed_mean_continuation_ttft": 8.12987012987013,
+      "proposed_prefetches": 17,
+      "proposed_useful_prefetch_rate": 0.9411764705882353,
+      "proposed_wasted_prefetches": 1,
+      "proposed_evictions": 12,
+      "proposed_transfer_bytes": 10640
+    },
+    "late": {
+      "ttl_mean_continuation_ttft": 9.532467532467532,
+      "proposed_mean_continuation_ttft": 9.415584415584416,
+      "proposed_prefetches": 8,
+      "proposed_useful_prefetch_rate": 0.625,
+      "proposed_wasted_prefetches": 3,
+      "proposed_evictions": 4,
+      "proposed_transfer_bytes": 5700
+    }
+  }
+}
