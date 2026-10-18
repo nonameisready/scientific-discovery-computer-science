@@ -33,3 +33,5 @@ The transfer-ordering follow-up is summarized in
 The deadline-budget follow-up is evaluated by the same reproducible sweep.
 Its result and current no-effect boundary are recorded in
 `ADMISSION_BUDGET_RESULTS.md`.
+The dynamic bandwidth-shock validation is recorded in
+`BANDWIDTH_SHOCK_RESULTS.md`.

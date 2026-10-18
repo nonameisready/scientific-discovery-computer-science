@@ -93,11 +93,13 @@ class StressMetrics:
 class StressEngine:
     def __init__(self, policy: str, gpu_tokens=2400, cpu_tokens=4800,
                  remote_tokens=9600, bandwidth=400, recompute_cost=10,
-                 cpu_fetch_cost=4, remote_fetch_cost=7):
+                 cpu_fetch_cost=4, remote_fetch_cost=7,
+                 bandwidth_schedule: Dict[int, int] | None = None):
         self.policy = policy
         self.cap = {"gpu": gpu_tokens, "cpu": cpu_tokens, "remote": remote_tokens}
         self.used = {k: 0 for k in self.cap}
         self.bandwidth = bandwidth
+        self.bandwidth_schedule = bandwidth_schedule or {}
         self.recompute_cost = recompute_cost
         self.cpu_fetch_cost = cpu_fetch_cost
         self.remote_fetch_cost = remote_fetch_cost
@@ -105,6 +107,12 @@ class StressEngine:
         self.transfers: List[Transfer] = []
         self.metrics = StressMetrics()
         self.forecasts: Dict[int, int] = {}
+
+    def _bandwidth_at(self, now: int) -> int:
+        applicable = [t for t in self.bandwidth_schedule if t <= now]
+        if not applicable:
+            return max(1, int(self.bandwidth))
+        return max(1, int(self.bandwidth_schedule[max(applicable)]))
 
     def _place(self, group, tokens, tier, worker, now):
         old = self.cache.get(group)
@@ -138,7 +146,7 @@ class StressEngine:
             # GPU prefetch cannot finish in the forecast return window, retain
             # the predicted prefix in the cheapest available lower tier.
             estimate = max(0, min(estimate, s.forecast_tokens))
-            transfer_ticks = max(1, math.ceil(estimate / self.bandwidth))
+            transfer_ticks = max(1, math.ceil(estimate / self._bandwidth_at(now)))
             gpu_room = self.used["gpu"] + estimate <= self.cap["gpu"]
             completion_prob = 0.85 if transfer_ticks <= s.forecast_return_ticks else 0.15
             robust = max(0, min(.99, s.prefix_survival_probability) - .2)
@@ -160,7 +168,7 @@ class StressEngine:
             # realized exact length remains outcome-only and is never read for
             # admission scoring.
             robust = max(0, min(.99, s.prefix_survival_probability) - .2)
-            transfer_ticks = max(1, math.ceil(estimate / self.bandwidth))
+            transfer_ticks = max(1, math.ceil(estimate / self._bandwidth_at(now)))
             candidates = [(self.recompute_cost, "recompute")]
             if (self.used["gpu"] + estimate <= self.cap["gpu"] and
                     transfer_ticks <= s.forecast_return_ticks and active < 3):
@@ -185,7 +193,7 @@ class StressEngine:
             q = min(.99, s.prefix_survival_probability)
             p = .5 if not self.cache else .65
             robust = max(0, p * q - .2)
-            transfer_ticks = max(1, math.ceil(estimate / self.bandwidth))
+            transfer_ticks = max(1, math.ceil(estimate / self._bandwidth_at(now)))
             # Revision 2: price whether the transfer can finish before the
             # forecast return window. This is an observable forecast, not the
             # realized duration. It directly targets the bandwidth failure.
@@ -238,8 +246,9 @@ class StressEngine:
             active_requests = sum(1 for s in sessions if s.start <= now < s.start + 2)
             if active_transfers and active_requests:
                 self.metrics.interference_ticks += 1
-            share = (self.bandwidth if self.policy in {"queue_aware", "budget_aware"}
-                     else max(1, self.bandwidth // max(1, len(active_transfers))))
+            bandwidth = self._bandwidth_at(now)
+            share = (bandwidth if self.policy in {"queue_aware", "budget_aware"}
+                     else max(1, bandwidth // max(1, len(active_transfers))))
             for x in list(active_transfers):
                 moved = min(share, x.tokens_left)
                 x.tokens_left -= moved
