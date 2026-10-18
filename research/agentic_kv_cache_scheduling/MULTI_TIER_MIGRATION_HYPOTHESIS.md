@@ -54,6 +54,10 @@ deadline while still incomplete is canceled and cannot consume later bandwidth.
 The gate is rejected if it does not reduce deadline misses or wasted transfer
 tokens in at least two low-bandwidth configurations.
 
+`fallback_aware` is the competing explanation: cancellation is allowed only
+with a lower-tier demotion, so any TTFT benefit must be weighed against the
+extra on-demand transfer tokens and lower-tier capacity consumed.
+
 ## Boundary follow-up
 
 The follow-up varies GPU capacity in `{800, 1600, 3200}` tokens, bandwidth in

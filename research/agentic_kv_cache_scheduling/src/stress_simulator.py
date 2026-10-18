@@ -63,6 +63,7 @@ class StressMetrics:
     stale_cache_misses: int = 0
     deadline_misses: int = 0
     budget_cancellations: int = 0
+    fallback_demotions: int = 0
 
     def summary(self):
         xs = sorted(self.ttft)
@@ -87,6 +88,7 @@ class StressMetrics:
             "stale_cache_misses": self.stale_cache_misses,
             "deadline_misses": self.deadline_misses,
             "budget_cancellations": self.budget_cancellations,
+            "fallback_demotions": self.fallback_demotions,
         }
 
 
@@ -141,7 +143,7 @@ class StressEngine:
         if self.policy == "ttl":
             self._place(s.prefix_group, s.exact_tokens, "gpu", s.worker, now)
             return
-        if self.policy in {"tier_aware", "queue_aware", "budget_aware"}:
+        if self.policy in {"tier_aware", "queue_aware", "budget_aware", "fallback_aware"}:
             # The forecast is the only length available at admission. If a
             # GPU prefetch cannot finish in the forecast return window, retain
             # the predicted prefix in the cheapest available lower tier.
@@ -214,14 +216,14 @@ class StressEngine:
 
     def _active_transfers(self) -> List[Transfer]:
         active = [x for x in self.transfers if not x.cancelled]
-        if self.policy not in {"queue_aware", "budget_aware"} or len(active) <= 1:
+        if self.policy not in {"queue_aware", "budget_aware", "fallback_aware"} or len(active) <= 1:
             return active
         # Finish the most urgent small transfer first. This is intentionally a
         # simple, auditable queue policy rather than an optimal scheduler.
         return [min(active, key=lambda x: (x.deadline, x.tokens_left, x.group))]
 
     def _cancel_overdue_transfers(self, now: int) -> None:
-        if self.policy != "budget_aware":
+        if self.policy not in {"budget_aware", "fallback_aware"}:
             return
         for transfer in self.transfers:
             if (not transfer.cancelled and transfer.tokens_left > 0
@@ -230,6 +232,16 @@ class StressEngine:
                 self.metrics.cancelled_transfers += 1
                 self.metrics.cancelled_transfer_tokens += transfer.tokens_left
                 self.metrics.budget_cancellations += 1
+                if self.policy == "fallback_aware":
+                    fallback_tier = (
+                        "cpu" if self.used["cpu"] + transfer.total_tokens <= self.cap["cpu"]
+                        else "remote"
+                    )
+                    if self._place(
+                        transfer.group, transfer.total_tokens, fallback_tier,
+                        transfer.worker, now
+                    ):
+                        self.metrics.fallback_demotions += 1
 
     def run(self, sessions: List[StressSession]):
         events: Dict[int, List[Tuple[str, StressSession]]] = {}
@@ -247,7 +259,7 @@ class StressEngine:
             if active_transfers and active_requests:
                 self.metrics.interference_ticks += 1
             bandwidth = self._bandwidth_at(now)
-            share = (bandwidth if self.policy in {"queue_aware", "budget_aware"}
+            share = (bandwidth if self.policy in {"queue_aware", "budget_aware", "fallback_aware"}
                      else max(1, bandwidth // max(1, len(active_transfers))))
             for x in list(active_transfers):
                 moved = min(share, x.tokens_left)

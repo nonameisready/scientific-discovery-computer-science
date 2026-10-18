@@ -90,6 +90,18 @@ class StressTests(unittest.TestCase):
         ).run([s])
         self.assertGreaterEqual(m["budget_cancellations"], 1)
 
+    def test_fallback_aware_demotes_overdue_transfer(self):
+        s = StressSession(1, 0, 30, "fallback", 3200, 3200, 0,
+                          forecast_return_ticks=16)
+        m = StressEngine(
+            "fallback_aware", gpu_tokens=4000, cpu_tokens=4000,
+            remote_tokens=8000, bandwidth=800,
+            bandwidth_schedule={2: 50},
+        ).run([s])
+        self.assertEqual(m["fallback_demotions"], 1)
+        self.assertEqual(m["cpu_hits"], 1)
+        self.assertEqual(m["recompute_misses"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

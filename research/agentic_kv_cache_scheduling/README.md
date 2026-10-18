@@ -37,3 +37,5 @@ The dynamic bandwidth-shock validation is recorded in
 `BANDWIDTH_SHOCK_RESULTS.md`.
 Repeated-shock and urgent-arrival trade-offs are recorded in
 `BANDWIDTH_FLUCTUATION_RESULTS.md`.
+The fallback-aware cancellation comparison is recorded in
+`FALLBACK_AWARE_RESULTS.md`.
