@@ -18,6 +18,7 @@ class StressSession:
     cancelled: bool = False
     revisions: Tuple[Tuple[int, int], ...] = ()  # (time after start, new forecast)
     forecast_return_ticks: int = 8
+    prefix_survival_probability: float = 0.75
 
 
 @dataclass
@@ -86,11 +87,15 @@ class StressMetrics:
 
 class StressEngine:
     def __init__(self, policy: str, gpu_tokens=2400, cpu_tokens=4800,
-                 remote_tokens=9600, bandwidth=400):
+                 remote_tokens=9600, bandwidth=400, recompute_cost=10,
+                 cpu_fetch_cost=4, remote_fetch_cost=7):
         self.policy = policy
         self.cap = {"gpu": gpu_tokens, "cpu": cpu_tokens, "remote": remote_tokens}
         self.used = {k: 0 for k in self.cap}
         self.bandwidth = bandwidth
+        self.recompute_cost = recompute_cost
+        self.cpu_fetch_cost = cpu_fetch_cost
+        self.remote_fetch_cost = remote_fetch_cost
         self.cache: Dict[str, StressEntry] = {}
         self.transfers: List[Transfer] = []
         self.metrics = StressMetrics()
@@ -131,7 +136,7 @@ class StressEngine:
             transfer_ticks = max(1, math.ceil(estimate / self.bandwidth))
             gpu_room = self.used["gpu"] + estimate <= self.cap["gpu"]
             completion_prob = 0.85 if transfer_ticks <= s.forecast_return_ticks else 0.15
-            robust = max(0, .65 * min(.99, estimate / max(1, s.exact_tokens)) - .2)
+            robust = max(0, min(.99, s.prefix_survival_probability) - .2)
             score = robust * completion_prob * (estimate / 50) - transfer_ticks
             if (gpu_room and completion_prob >= .60 and
                     score > .05 * (1 - robust) * (estimate / 50) and active < 3):
@@ -141,10 +146,34 @@ class StressEngine:
                 lower_tier = "cpu" if self.used["cpu"] + estimate <= self.cap["cpu"] else "remote"
                 self._place(s.prefix_group, estimate, lower_tier, s.worker, now)
             return
+        if self.policy == "cost_aware":
+            # Only the explicit prefix-survival forecast is used here. The
+            # realized exact length remains outcome-only and is never read for
+            # admission scoring.
+            robust = max(0, min(.99, s.prefix_survival_probability) - .2)
+            transfer_ticks = max(1, math.ceil(estimate / self.bandwidth))
+            candidates = [(self.recompute_cost, "recompute")]
+            if (self.used["gpu"] + estimate <= self.cap["gpu"] and
+                    transfer_ticks <= s.forecast_return_ticks and active < 3):
+                gpu_cost = robust * (1 + transfer_ticks) + (1 - robust) * self.recompute_cost
+                candidates.append((gpu_cost, "gpu"))
+            if self.used["cpu"] + estimate <= self.cap["cpu"]:
+                cpu_cost = robust * self.cpu_fetch_cost + (1 - robust) * self.recompute_cost
+                candidates.append((cpu_cost, "cpu"))
+            if self.used["remote"] + estimate <= self.cap["remote"]:
+                remote_cost = robust * self.remote_fetch_cost + (1 - robust) * self.recompute_cost
+                candidates.append((remote_cost, "remote"))
+            best_cost, best_tier = min(candidates, key=lambda x: (x[0], x[1]))
+            if best_tier == "gpu" and best_cost < self.recompute_cost:
+                self.transfers.append(Transfer(s.prefix_group, estimate, "gpu", s.worker,
+                                               total_tokens=estimate))
+            elif best_tier in {"cpu", "remote"} and best_cost < self.recompute_cost:
+                self._place(s.prefix_group, estimate, best_tier, s.worker, now)
+            return
         if self.policy == "static":
             action = True
         else:
-            q = min(.99, estimate / max(1, s.exact_tokens))
+            q = min(.99, s.prefix_survival_probability)
             p = .5 if not self.cache else .65
             robust = max(0, p * q - .2)
             transfer_ticks = max(1, math.ceil(estimate / self.bandwidth))
@@ -208,21 +237,21 @@ class StressEngine:
                         self.metrics.shared_hits += int(s.branch > 0)
                         e.last = now
                     elif e and e.tier == "cpu" and e.tokens == s.exact_tokens:
-                        self.metrics.ttft.append(4 if e.worker == s.worker else 6)
+                        self.metrics.ttft.append(self.cpu_fetch_cost if e.worker == s.worker else self.cpu_fetch_cost + 2)
                         self.metrics.cpu_hits += 1
                         self.metrics.transfer_tokens += s.exact_tokens
                         self.metrics.on_demand_transfer_tokens += s.exact_tokens
                         self.metrics.shared_hits += int(s.branch > 0)
                         e.last = now
                     elif e and e.tier == "remote" and e.tokens == s.exact_tokens:
-                        self.metrics.ttft.append(7 if e.worker == s.worker else 9)
+                        self.metrics.ttft.append(self.remote_fetch_cost if e.worker == s.worker else self.remote_fetch_cost + 2)
                         self.metrics.remote_hits += 1
                         self.metrics.transfer_tokens += s.exact_tokens
                         self.metrics.on_demand_transfer_tokens += s.exact_tokens
                         self.metrics.shared_hits += int(s.branch > 0)
                         e.last = now
                     else:
-                        self.metrics.ttft.append(10)
+                        self.metrics.ttft.append(self.recompute_cost)
                         self.metrics.recompute_misses += 1
                         if s.prefix_group in self.cache:
                             self.metrics.wasted_transfers += 1

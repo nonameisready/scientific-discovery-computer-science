@@ -15,7 +15,7 @@ SEEDS = (20261017, 20261018, 20261019)
 BANDWIDTHS = (50, 200, 800)
 GPU_CAPACITIES = (800, 1600, 3200)
 RETURN_WINDOWS = (2, 8, 16)
-POLICIES = ("lru", "ttl", "proposed", "tier_aware")
+POLICIES = ("lru", "ttl", "proposed", "tier_aware", "cost_aware")
 
 
 def sessions(seed: int, return_window: int) -> list[StressSession]:
@@ -35,6 +35,7 @@ def sessions(seed: int, return_window: int) -> list[StressSession]:
             cancelled=(i == 7),
             revisions=((2, 100),) if i == 5 else (),
             forecast_return_ticks=return_window,
+            prefix_survival_probability=.75,
         ))
     return output
 

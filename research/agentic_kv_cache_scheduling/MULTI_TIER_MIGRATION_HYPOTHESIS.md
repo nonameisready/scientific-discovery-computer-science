@@ -30,7 +30,7 @@ mechanism and retain the result as a negative finding.
 
 - Data: deterministic synthetic `StressSession` traces only; actual return
   duration and exact reusable length are hidden from admission decisions.
-- Policies: `lru`, `ttl`, `static`, `proposed`, and `tier_aware`.
+- Policies: `lru`, `ttl`, `static`, `proposed`, `tier_aware`, and `cost_aware`.
 - Independent units: trace seed and bandwidth regime; no pooled per-request
   confidence claim.
 - Metrics: mean/p95 continuation TTFT, wasted/cancelled/completed transfers,
@@ -38,6 +38,10 @@ mechanism and retain the result as a negative finding.
   interference ticks.
 - Exclusions: no GPU throughput, no real network measurements, no semantic
   prefix matching, and no claim of universal dominance.
+
+The admission path uses only the explicit `prefix_survival_probability` and
+return-window forecast. Realized `exact_tokens` is used only when scoring the
+return outcome, not when choosing a placement.
 
 ## Boundary follow-up
 

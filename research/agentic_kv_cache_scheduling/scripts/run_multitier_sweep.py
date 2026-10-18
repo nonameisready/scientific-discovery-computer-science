@@ -13,7 +13,7 @@ from stress_simulator import StressEngine, StressSession
 
 SEEDS = (20261017, 20261018, 20261019)
 BANDWIDTHS = (50, 100, 200, 400, 800)
-POLICIES = ("lru", "ttl", "proposed", "tier_aware")
+POLICIES = ("lru", "ttl", "proposed", "tier_aware", "cost_aware")
 
 
 def sessions(seed: int) -> list[StressSession]:
@@ -35,6 +35,7 @@ def sessions(seed: int) -> list[StressSession]:
             cancelled=(i == 7),
             revisions=((2, 100),) if i == 5 else (),
             forecast_return_ticks=8,
+            prefix_survival_probability=.75,
         ))
     return output
 

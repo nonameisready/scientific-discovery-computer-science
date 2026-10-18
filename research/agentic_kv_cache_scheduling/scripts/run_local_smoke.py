@@ -20,7 +20,7 @@ def main():
                               forecast_return_ticks=8) for i in range(16)]
     result = {p: StressEngine(p, gpu_tokens=1600, cpu_tokens=3200,
                                bandwidth=200).run(sessions)
-              for p in ["lru", "ttl", "static", "proposed", "tier_aware"]}
+              for p in ["lru", "ttl", "static", "proposed", "tier_aware", "cost_aware"]}
     print(json.dumps(result, indent=2, sort_keys=True))
 
 

@@ -44,6 +44,25 @@ class StressTests(unittest.TestCase):
         self.assertGreaterEqual(m["completed_transfer_tokens"], 0)
         self.assertGreaterEqual(m["cancelled_transfer_tokens"], 0)
 
+    def test_cost_aware_policy_uses_cpu_when_expected_cheaper(self):
+        s = StressSession(1, 0, 10, "cost", 800, 800, 0,
+                          forecast_return_ticks=1,
+                          prefix_survival_probability=.95)
+        m = StressEngine("cost_aware", gpu_tokens=400, cpu_tokens=1000,
+                         remote_tokens=2000, bandwidth=100).run([s])
+        self.assertEqual(m["cpu_hits"], 1)
+        self.assertEqual(m["recompute_misses"], 0)
+
+    def test_cost_aware_policy_does_not_retain_low_probability_prefix(self):
+        s = StressSession(1, 0, 10, "cost", 800, 800, 0,
+                          forecast_return_ticks=1,
+                          prefix_survival_probability=.10)
+        m = StressEngine("cost_aware", gpu_tokens=400, cpu_tokens=1000,
+                         remote_tokens=2000, bandwidth=100).run([s])
+        self.assertEqual(m["cpu_hits"], 0)
+        self.assertEqual(m["remote_hits"], 0)
+        self.assertEqual(m["recompute_misses"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()
